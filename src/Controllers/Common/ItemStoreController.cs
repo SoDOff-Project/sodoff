@@ -47,6 +47,13 @@ public class ItemStoreController : Controller {
     }
 
     [HttpPost]
+    [Produces("application/xml")]
+    [Route("ItemStoreWebService.asmx/GetItemsInStore")] // used by World Of Jumpstart
+    public IActionResult GetItemsInStore([FromForm] int storeId) {
+        return Ok(storeService.GetStore(storeId));
+    }
+
+    [HttpPost]
     //[Produces("application/xml")]
     [Route("ItemStoreWebService.asmx/GetRankAttributeData")]
     public IActionResult GetRankAttributeData() {

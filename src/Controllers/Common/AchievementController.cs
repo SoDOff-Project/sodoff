@@ -92,6 +92,20 @@ public class AchievementController : Controller {
 
     [HttpPost]
     [Produces("application/xml")]
+    [Route("AchievementWebService.asmx/GetUserAchievementInfo")]
+    public IActionResult GetUserAchievementInfo([FromForm] string apiToken) {
+        Viking? viking = ctx.Sessions.FirstOrDefault(x => x.ApiToken == apiToken).Viking;
+        
+        if (viking != null) {
+            return Ok(
+                    achievementService.CreateUserAchievementInfo(viking, AchievementPointTypes.PlayerXP)
+            );
+        }
+        return null;
+    }
+    
+    [HttpPost]
+    [Produces("application/xml")]
     [Route("AchievementWebService.asmx/GetAchievementsByUserID")]
     public IActionResult GetAchievementsByUserID([FromForm] string userId) {
         // NOTE: this is public info (for mmo) - no session check

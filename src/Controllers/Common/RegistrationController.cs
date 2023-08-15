@@ -63,6 +63,12 @@ public class RegistrationController : Controller {
         };
 
         // Check if user exists
+        uint gameVersion = ClientVersion.GetVersion(apiKey);
+        if (gameVersion == ClientVersion.WoJS || gameVersion == ClientVersion.MB) {
+            if (ctx.Users.Count(e => e.Email == u.Email) > 0) {
+                return Ok(new RegistrationResult { Status = MembershipUserStatus.DuplicateEmail });
+            }
+        }
         if (ctx.Users.Count(e => e.Username== u.Username) > 0) {
             return Ok(new RegistrationResult { Status = MembershipUserStatus.DuplicateUserName });
         }  
