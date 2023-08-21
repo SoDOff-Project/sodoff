@@ -93,7 +93,7 @@ public class AchievementController : Controller {
     [HttpPost]
     [Produces("application/xml")]
     [Route("AchievementWebService.asmx/GetUserAchievementInfo")]
-    public IActionResult GetUserAchievementInfo([FromForm] string apiToken) {
+    public IActionResult GetUserAchievementInfo([FromForm] string apiToken) { // used by World Of Jumpstart
         Viking? viking = ctx.Sessions.FirstOrDefault(x => x.ApiToken == apiToken).Viking;
         
         if (viking != null) {
