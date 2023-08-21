@@ -36,6 +36,32 @@ public class ContentController : Controller {
     }
 
     [HttpPost]
+    //[Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetProduct")] // used by World Of Jumpstart
+    public string? GetProduct([FromForm] string apiToken)
+    {
+        Viking? user = ctx.Sessions.FirstOrDefault(x => x.ApiToken == apiToken)?.Viking;
+        if (user is null)
+            return string.Empty;
+
+        return user.ProductData;
+    }
+
+    [HttpPost]
+    //[Produces("application/xml")]
+    [Route("ContentWebService.asmx/SetProduct")] // used by World Of Jumpstart
+    public string? SetProduct([FromForm] string apiToken, [FromForm] string contentXml)
+    {
+        Viking? child = ctx.Sessions.FirstOrDefault(x => x.ApiToken == apiToken)?.Viking;
+        if (child is null)
+            return string.Empty;
+
+        child.ProductData = contentXml;
+        ctx.SaveChanges();
+        return child.ProductData;
+    }
+
+    [HttpPost]
     [Produces("application/xml")]
     [Route("ContentWebService.asmx/GetDefaultNameSuggestion")]
     [VikingSession(Mode=VikingSession.Modes.VIKING_OR_USER, UseLock=false)]

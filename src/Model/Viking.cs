@@ -33,4 +33,6 @@ public class Viking {
     public virtual ICollection<GameData> GameData { get; set; } = null!;
     public virtual ICollection<ProfileAnswer> ProfileAnswers { get; set; } = null!;
     public virtual Dragon? SelectedDragon { get; set; }
+
+    public string? ProductData { get; set; }
 }
