@@ -1284,6 +1284,7 @@ public class ContentController : Controller {
     [HttpPost]
     //[Produces("application/xml")]
     [Route("ContentWebService.asmx/GetDisplayNames")] // used by World Of Jumpstart
+    [Route("ContentWebService.asmx/GetDisplayNamesByCategoryID")] // used by Math Blaster
     public IActionResult GetDisplayNames() {
         // TODO: This is a placeholder
         return Ok("<?xml version=\"1.0\" encoding=\"utf-8\"?> <DisplayNames xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"> <DisplayName> <ID>1</ID> <Name>Aaliyah</Name> <Ordinal>1</Ordinal> </DisplayName> <DisplayName> <ID>2</ID> <Name>Abby</Name> <Ordinal>2</Ordinal> </DisplayName> <DisplayName> <ID>3</ID> <Name>Adrian</Name> <Ordinal>3</Ordinal> </DisplayName>        <DisplayName> <ID>11</ID> <Name>Karen</Name> <Ordinal>2</Ordinal> </DisplayName> <DisplayName> <ID>12</ID> <Name>Luna</Name> <Ordinal>2</Ordinal> </DisplayName> <DisplayName> <ID>13</ID> <Name>Tori</Name> <Ordinal>2</Ordinal> </DisplayName></DisplayNames>");
@@ -1709,6 +1710,30 @@ public class ContentController : Controller {
     public IActionResult GetGameDataByGameForDateRange(Viking viking, [FromForm] int gameId, bool isMultiplayer, int difficulty, int gameLevel, string key, int count, bool AscendingOrder, int score, string startDate, string endDate, bool buddyFilter) {
         CultureInfo usCulture = new CultureInfo("en-US", false);
         return Ok(gameDataService.GetGameData(viking, gameId, isMultiplayer, difficulty, gameLevel, key, count, AscendingOrder, buddyFilter, DateTime.Parse(startDate, usCulture), DateTime.Parse(endDate, usCulture)));
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetPeriodicGameDataByGame")] // used by Math Blaster
+    public IActionResult GetPeriodicGameDataByGame() {
+        // TODO: This is a placeholder
+        return Ok(new GameDataSummary());
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("MissionWebService.asmx/GetTreasureChest")] // used by Math Blaster
+    public IActionResult GetTreasureChest() {
+        // TODO: This is a placeholder
+        return Ok(new TreasureChestData());
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("MissionWebService.asmx/GetWorldId")] // used by Math Blaster
+    public IActionResult GetWorldId() {
+        // TODO: This is a placeholder
+        return Ok(0);
     }
 
     private static RaisedPetData GetRaisedPetDataFromDragon (Dragon dragon, int? selectedDragonId = null) {
