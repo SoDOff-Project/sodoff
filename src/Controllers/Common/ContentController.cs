@@ -573,6 +573,17 @@ public class ContentController : Controller {
 
     [HttpPost]
     [Produces("application/xml")]
+    [Route("ContentWebService.asmx/SetRaisedPetInactive")] // used by World Of Jumpstart
+    [VikingSession]
+    public IActionResult SetRaisedPetInactive(Viking viking, [FromForm] int raisedPetID) {
+        viking.SelectedDragonId = null;
+        ctx.SaveChanges();
+
+        return Ok(true);
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
     [Route("ContentWebService.asmx/SetSelectedPet")]
     [VikingSession]
     public IActionResult SetSelectedPet(Viking viking, [FromForm] int raisedPetID) {
@@ -665,6 +676,7 @@ public class ContentController : Controller {
             return new RaisedPetData[0];
         }
 
+        // NOTE: returned dragon PetTypeID should be equal value of pair 1967 → CurrentRaisedPetType
         return new RaisedPetData[] {GetRaisedPetDataFromDragon(dragon)};
     }
 
@@ -685,10 +697,15 @@ public class ContentController : Controller {
 
     [HttpPost]
     [Produces("application/xml")]
-    [Route("ContentWebService.asmx/GetInactiveRaisedPet")] // used by World Of Jumpstart
+    [Route("ContentWebService.asmx/GetInactiveRaisedPet")] // used by World Of Jumpstart 1.1
     [VikingSession(UseLock=false)]
     public RaisedPetData[] GetInactiveRaisedPet(Viking viking) {
-        return new RaisedPetData[0]; // FIXME should return real inactive pets list
+        RaisedPetData[] dragons = viking.Dragons
+            .Where(d => d.RaisedPetData is not null && d.Id != viking.SelectedDragonId)
+            .Select(d => GetRaisedPetDataFromDragon(d, viking.SelectedDragonId))
+            .ToArray();
+
+        return dragons;
     }
     
     [HttpPost]
