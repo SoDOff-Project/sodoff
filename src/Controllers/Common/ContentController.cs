@@ -20,10 +20,11 @@ public class ContentController : Controller {
     private AchievementService achievementService;
     private InventoryService inventoryService;
     private GameDataService gameDataService;
+    private DisplayNamesService displayNamesService;
     private Random random = new Random();
     private readonly IOptions<ApiServerConfig> config;
     
-    public ContentController(DBContext ctx, KeyValueService keyValueService, ItemService itemService, MissionService missionService, RoomService roomService, AchievementService achievementService, InventoryService inventoryService, GameDataService gameDataService, IOptions<ApiServerConfig> config) {
+    public ContentController(DBContext ctx, KeyValueService keyValueService, ItemService itemService, MissionService missionService, RoomService roomService, AchievementService achievementService, InventoryService inventoryService, GameDataService gameDataService, DisplayNamesService displayNamesService, IOptions<ApiServerConfig> config) {
         this.ctx = ctx;
         this.keyValueService = keyValueService;
         this.itemService = itemService;
@@ -32,6 +33,7 @@ public class ContentController : Controller {
         this.achievementService = achievementService;
         this.inventoryService = inventoryService;
         this.gameDataService = gameDataService;
+        this.displayNamesService = displayNamesService;
         this.config = config;
     }
 
@@ -352,11 +354,13 @@ public class ContentController : Controller {
     }
 
     [HttpPost]
-    //[Produces("application/xml")]
+    [Produces("application/xml")]
     [Route("ContentWebService.asmx/GetAvatar")] // used by World Of Jumpstart
     [VikingSession(UseLock=false)]
     public IActionResult GetAvatar(Viking viking) {
-        return Ok(viking.AvatarSerialized);
+        AvatarData avatarData = XmlUtil.DeserializeXml<AvatarData>(viking.AvatarSerialized);
+        avatarData.Id = viking.Id;
+        return Ok(avatarData);
     }
 
     [HttpPost]
@@ -1281,7 +1285,19 @@ public class ContentController : Controller {
     [Route("ContentWebService.asmx/GetDisplayNamesByCategoryID")] // used by Math Blaster
     public IActionResult GetDisplayNames() {
         // TODO: This is a placeholder
-        return Ok("<?xml version=\"1.0\" encoding=\"utf-8\"?> <DisplayNames xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"> <DisplayName> <ID>1</ID> <Name>Aaliyah</Name> <Ordinal>1</Ordinal> </DisplayName> <DisplayName> <ID>2</ID> <Name>Abby</Name> <Ordinal>2</Ordinal> </DisplayName> <DisplayName> <ID>3</ID> <Name>Adrian</Name> <Ordinal>3</Ordinal> </DisplayName>        <DisplayName> <ID>11</ID> <Name>Karen</Name> <Ordinal>2</Ordinal> </DisplayName> <DisplayName> <ID>12</ID> <Name>Luna</Name> <Ordinal>2</Ordinal> </DisplayName> <DisplayName> <ID>13</ID> <Name>Tori</Name> <Ordinal>2</Ordinal> </DisplayName></DisplayNames>");
+        return Ok(XmlUtil.ReadResourceXmlString("displaynames"));
+    }
+
+    [HttpPost]
+    //[Produces("application/xml")]
+    [Route("ContentWebService.asmx/SetDisplayName")] // used by World Of Jumpstart
+    [VikingSession]
+    public IActionResult SetProduct(Viking viking, [FromForm] int firstNameID, [FromForm] int secondNameID, [FromForm] int thirdNameID) {
+        AvatarData avatarData = XmlUtil.DeserializeXml<AvatarData>(viking.AvatarSerialized);
+        avatarData.DisplayName = displayNamesService.GetName(firstNameID, secondNameID, thirdNameID);
+        viking.AvatarSerialized = XmlUtil.SerializeXml(avatarData);
+        ctx.SaveChanges();
+        return Ok();
     }
 
     [HttpPost]

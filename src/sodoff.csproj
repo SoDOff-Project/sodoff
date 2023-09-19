@@ -41,6 +41,7 @@
     <None Remove="Resources\items.xml" />
     <None Remove="Resources\missions.xml" />
     <None Remove="Resources\mmo.xml" />
+    <None Remove="Resources\displaynames.xml" />
     <None Remove="Resources\rankattrib.xml" />
     <None Remove="Resources\rewardmultiplier.xml" />
     <None Remove="Resources\store.xml" />
@@ -78,6 +79,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\mmo.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\displaynames.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\rewardmultiplier.xml">
