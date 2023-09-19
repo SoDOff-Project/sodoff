@@ -50,6 +50,7 @@
     <None Remove="Resources\defaultmissionlist.xml" />
     <None Remove="Resources\defaultmissionlistv1.xml" />
     <None Remove="Resources\defaultmissionlistmam.xml" />
+    <None Remove="Resources\defaultmissionlist_wojs.xml" />
 	<None Remove="Resources\questiondata.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +110,9 @@
 	  <EmbeddedResource Include="Resources\missions.xml">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </EmbeddedResource>
+	  <EmbeddedResource Include="Resources\missions_wojs.xml">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </EmbeddedResource>
     <EmbeddedResource Include="Resources\defaultmissionlist.xml">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </EmbeddedResource>
@@ -116,6 +120,9 @@
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </EmbeddedResource>
     <EmbeddedResource Include="Resources\defaultmissionlistmam.xml">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </EmbeddedResource>
+    <EmbeddedResource Include="Resources\defaultmissionlist_wojs.xml">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </EmbeddedResource>
 	  <EmbeddedResource Include="Resources\questiondata.xml">

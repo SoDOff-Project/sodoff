@@ -1,0 +1,37 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<DefaultMissions>
+  <!-- list of default mission for World of Jump Start -->
+  <Active>
+    <id>1509</id>
+    <id>1511</id>
+    <id>1512</id>
+    <id>1513</id>
+    <id>1514</id>
+    <id>1743</id>
+    <id>2323</id>
+    <id>2374</id>
+    <id>2375</id>
+    <id>2376</id>
+    <id>2377</id>
+    <id>2378</id>
+    <id>2379</id>
+    <id>2380</id>
+    <id>2381</id>
+    <id>2382</id>
+    <id>2383</id>
+    <id>2384</id>
+    <id>2385</id>
+    <id>2386</id>
+    <id>2440</id>
+    <id>2441</id>
+    <id>2442</id>
+    <id>2446</id>
+    <id>2447</id>
+    <id>2448</id>
+    <id>2449</id>
+    <id>2451</id>
+    <id>2452</id>
+  </Active>
+  <Upcoming>
+  </Upcoming>
+</DefaultMissions>
