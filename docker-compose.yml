@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  sodoff:
+    build:
+      context: .
+      dockerfile: src/Dockerfile
+    # ports:
+    #   - 5000:5000
+    networks:
+      sodoff_network:
+        ipv4_address: 172.16.99.10
+
+networks:
+  sodoff_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: "172.16.99.0/24"
