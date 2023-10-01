@@ -623,9 +623,23 @@ public class ContentController : Controller {
     [Route("ContentWebService.asmx/SetRaisedPetInactive")] // used by World Of Jumpstart
     [VikingSession]
     public IActionResult SetRaisedPetInactive(Viking viking, [FromForm] int raisedPetID) {
-        viking.SelectedDragonId = null;
-        ctx.SaveChanges();
+        if (raisedPetID == viking.SelectedDragonId) {
+            viking.SelectedDragonId = null;
+        } else {
+            Dragon? dragon = viking.Dragons.FirstOrDefault(e => e.Id == raisedPetID);
+            if (dragon is null) {
+                return Ok(false);
+            }
 
+            // check if Minisaurs - we real delete only Minisaurs
+            RaisedPetData dragonData = XmlUtil.DeserializeXml<RaisedPetData>(dragon.RaisedPetData);
+            if (dragonData.PetTypeID != 2) {
+                return Ok(false);
+            }
+
+            viking.Dragons.Remove(dragon);
+        }
+        ctx.SaveChanges();
         return Ok(true);
     }
 
@@ -703,14 +717,23 @@ public class ContentController : Controller {
     [Produces("application/xml")]
     [Route("ContentWebService.asmx/GetActiveRaisedPet")] // used by World Of Jumpstart
     [VikingSession(UseLock=false)]
-    public RaisedPetData[] GetActiveRaisedPet(Viking viking, [FromForm] string userId, [FromForm] bool isActive) {
+    public RaisedPetData[] GetActiveRaisedPet(Viking viking, [FromForm] string userId, [FromForm] int petTypeID) {
+        if (petTypeID == 2) {
+            // player can have multiple Minisaurs at the same time ... Minisaurs should never have been selected also ... so use GetUnselectedPetByTypes in this case
+            return GetUnselectedPetByTypes(viking, "2", false);
+        }
+
         Dragon? dragon = viking.SelectedDragon;
         if (dragon is null) {
             return new RaisedPetData[0];
         }
 
+        RaisedPetData dragonData = GetRaisedPetDataFromDragon(dragon);
+        if (petTypeID != dragonData.PetTypeID)
+            return new RaisedPetData[0];
+
         // NOTE: returned dragon PetTypeID should be equal value of pair 1967 → CurrentRaisedPetType
-        return new RaisedPetData[] {GetRaisedPetDataFromDragon(dragon)};
+        return new RaisedPetData[] {dragonData};
     }
 
     [HttpPost]
@@ -732,13 +755,24 @@ public class ContentController : Controller {
     [Produces("application/xml")]
     [Route("ContentWebService.asmx/GetInactiveRaisedPet")] // used by World Of Jumpstart 1.1
     [VikingSession(UseLock=false)]
-    public RaisedPetData[] GetInactiveRaisedPet(Viking viking) {
+    public RaisedPetData[] GetInactiveRaisedPet(Viking viking, [FromForm] int petTypeID) {
         RaisedPetData[] dragons = viking.Dragons
             .Where(d => d.RaisedPetData is not null && d.Id != viking.SelectedDragonId)
             .Select(d => GetRaisedPetDataFromDragon(d, viking.SelectedDragonId))
             .ToArray();
 
-        return dragons;
+        List<RaisedPetData> filteredDragons = new List<RaisedPetData>();
+        foreach (RaisedPetData dragon in dragons) {
+            if (petTypeID == dragon.PetTypeID) {
+                filteredDragons.Add(dragon);
+            }
+        }
+
+        if (filteredDragons.Count == 0) {
+            return null;
+        }
+
+        return filteredDragons.ToArray();
     }
     
     [HttpPost]
