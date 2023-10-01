@@ -67,10 +67,53 @@ public class ContentController : Controller {
     //[Produces("application/xml")]
     [Route("ContentWebService.asmx/SetProduct")] // used by World Of Jumpstart
     [VikingSession]
-    public string? SetProduct(Viking viking, [FromForm] string contentXml) {
+    public bool SetProduct(Viking viking, [FromForm] string contentXml) {
         viking.ProductData = contentXml;
         ctx.SaveChanges();
-        return viking.ProductData;
+        return true;
+    }
+
+    // NOTE: "Pet" (Petz) system (GetCurrentPetByUserID, GetCurrentPet, SetCurrentPet, DelCurrentPet) is a totally different system than "RaisedPet" (Dragons)
+
+    [HttpPost]
+    //[Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetCurrentPetByUserID")] // used by World Of Jumpstart
+    public IActionResult GetCurrentPetByUserID([FromForm] Guid userId, [FromForm] bool isActive) {
+        string? petData = ctx.Vikings.FirstOrDefault(e => e.Uid == userId)?.PetSerialized;
+        if (petData is null)
+            return Ok(XmlUtil.SerializeXml<PetData>(null));
+
+        return Ok(petData);
+    }
+
+    [HttpPost]
+    //[Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetCurrentPet")] // used by World Of Jumpstart
+    public IActionResult GetCurrentPet(Viking viking, [FromForm] bool isActive) {
+        if (viking.PetSerialized is null)
+            return Ok(XmlUtil.SerializeXml<PetData>(null));
+
+        return Ok(viking.PetSerialized);
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/SetCurrentPet")] // used by World Of Jumpstart
+    [VikingSession]
+    public bool SetCurrentPet(Viking viking, [FromForm] string contentXml) {
+        viking.PetSerialized = contentXml;
+        ctx.SaveChanges();
+        return true;
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/DelCurrentPet")] // used by World Of Jumpstart
+    [VikingSession]
+    public bool DelCurrentPet(Viking viking, [FromForm] bool isActive) {
+        viking.PetSerialized = null;
+        ctx.SaveChanges();
+        return true;
     }
 
     [HttpPost]
@@ -654,20 +697,6 @@ public class ContentController : Controller {
         }
 
         return filteredDragons.ToArray();
-    }
-
-    [HttpPost]
-    [Produces("application/xml")]
-    [Route("ContentWebService.asmx/GetCurrentPetByUserID")] // used by World Of Jumpstart
-    [VikingSession(UseLock=false)]
-    public PetData? GetCurrentPetByUserID(Viking viking, [FromForm] string userId, [FromForm] bool isActive) {
-        Console.WriteLine(string.Format("\n{0}", Request.Path));
-        foreach (var x in Request.Form)
-            Console.WriteLine(string.Format("{0}", x));
-        
-        // TODO WoJS placeholder
-        
-        return null;
     }
 
     [HttpPost]

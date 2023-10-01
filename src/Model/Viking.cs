@@ -35,4 +35,5 @@ public class Viking {
     public virtual Dragon? SelectedDragon { get; set; }
 
     public string? ProductData { get; set; }
+    public string? PetSerialized { get; set; }
 }
