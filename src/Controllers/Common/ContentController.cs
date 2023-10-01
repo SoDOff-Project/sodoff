@@ -275,6 +275,15 @@ public class ContentController : Controller {
 
     [HttpPost]
     [Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetCommonInventoryByUserId")] // used by World Of Jumpstart (?)
+    public IActionResult GetCommonInventoryByUserId([FromForm] Guid userId, [FromForm] int ContainerId)
+    {
+        Viking? viking = ctx.Vikings.FirstOrDefault(e => e.Uid == userId);
+        return GetCommonInventory(null, viking);
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
     [Route("V2/ContentWebService.asmx/GetCommonInventory")]
     [VikingSession(UseLock=false)]
     public IActionResult GetCommonInventoryV2(Viking viking) {
@@ -1406,6 +1415,18 @@ public class ContentController : Controller {
     }
 
     [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetDisplayNameByUserId")] // used by World Of Jumpstart
+    public IActionResult GetDisplayNameByUserId([FromForm] Guid userId)
+    {
+        Viking? idViking = ctx.Vikings.FirstOrDefault(e => e.Uid == userId);
+        if (idViking is null) return Ok("???");
+
+        // return display name
+        return Ok(XmlUtil.DeserializeXml<AvatarData>(idViking.AvatarSerialized!).DisplayName);
+    }
+
+    [HttpPost]
     //[Produces("application/xml")]
     [Route("ContentWebService.asmx/SetDisplayName")] // used by World Of Jumpstart
     [VikingSession]
@@ -1441,6 +1462,18 @@ public class ContentController : Controller {
     public IActionResult GetUserGameCurrency(Viking viking) {
         // TODO: This is a placeholder
         return Ok(achievementService.GetUserCurrency(viking));
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/SetGameCurrency")] // used by World Of Jumpstart
+    [VikingSession]
+    public IActionResult SetUserGameCurrency(Viking viking, [FromForm] int amount)
+    {
+        achievementService.AddAchievementPoints(viking, AchievementPointTypes.GameCurrency, amount);
+
+        ctx.SaveChanges();
+        return Ok(achievementService.GetUserCurrency(viking).GameCurrency ?? 0);
     }
 
     [HttpPost]
@@ -1861,6 +1894,15 @@ public class ContentController : Controller {
     public IActionResult GetWorldId() {
         // TODO: This is a placeholder
         return Ok(0);
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetRevealIndex")] // used by World Of Jumpstart (Learning Games)
+    public IActionResult GetRevealIndex()
+    {
+        // TODO - figure out proper way of doing this, if any
+        return Ok(random.Next(1, 15));
     }
 
     private static RaisedPetData GetRaisedPetDataFromDragon (Dragon dragon, int? selectedDragonId = null) {

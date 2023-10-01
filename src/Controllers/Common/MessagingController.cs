@@ -27,4 +27,13 @@ public class MessagingController : Controller {
         // TODO: this is a placeholder
         return Ok(false);
     }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("MessageWebService.asmx/GetCombinedListMessage")]
+    public IActionResult GetCombinedListMessage()
+    {
+        // TODO - placeholder
+        return Ok(new ArrayOfMessageInfo());
+    }
 }
