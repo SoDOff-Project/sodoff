@@ -8,6 +8,7 @@ public class DisplayNamesService {
 
     public DisplayNamesService(ItemService itemService) {
         DisplayNameList displayNamesList = XmlUtil.DeserializeXml<DisplayNameList>(XmlUtil.ReadResourceXmlString("displaynames"));
+        displayNames.Add(0, "");
         foreach (var n in displayNamesList) {
             displayNames.Add(n.Id, n.Name);
         }
