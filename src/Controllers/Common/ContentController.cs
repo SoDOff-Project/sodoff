@@ -409,6 +409,29 @@ public class ContentController : Controller {
     [HttpPost]
     [Produces("application/xml")]
     [Route("ContentWebService.asmx/SetAvatar")] // used by World Of Jumpstart
+    [VikingSession]
+    public IActionResult SetAvatarV1(Viking viking, [FromForm] string contentXML) {
+        if (viking.AvatarSerialized != null) {
+            AvatarData dbAvatarData = XmlUtil.DeserializeXml<AvatarData>(viking.AvatarSerialized);
+            AvatarData reqAvatarData = XmlUtil.DeserializeXml<AvatarData>(contentXML);
+
+            int dbAvatarVersion = GetAvatarVersion(dbAvatarData);
+            int reqAvatarVersion = GetAvatarVersion(reqAvatarData);
+
+            if (dbAvatarVersion > reqAvatarVersion) {
+                // do not allow override newer version avatar data by older version
+                return Ok(false);
+            }
+        }
+
+        viking.AvatarSerialized = contentXML;
+        ctx.SaveChanges();
+
+        return Ok(true);
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
     [Route("V2/ContentWebService.asmx/SetAvatar")]
     [VikingSession]
     public IActionResult SetAvatar(Viking viking, [FromForm] string contentXML) {
