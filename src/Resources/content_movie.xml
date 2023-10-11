@@ -1,0 +1,42 @@
+﻿<ArrayOfContentInfoData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ContentInfoData>
+		<DisplayName>JumpStart Commercial - Dragons (2009)</DisplayName>
+		<LinkUrl>RS_DATA/Content/MovieTheaterContent/jscom01.ogg</LinkUrl>
+		<RolloverUrl/>
+		<CategoryUrl>RS_DATA/Content/MovieTheaterContent/Thumbnails/jsshield.jpg</CategoryUrl>
+		<ThumbnailUrl>RS_DATA/Content/MovieTheaterContent/Thumbnails/jsshield.jpg</ThumbnailUrl>
+		<ContentType>2</ContentType>
+		<MemberOnly>false</MemberOnly>
+		<LinkType>2</LinkType>
+	</ContentInfoData>
+	<ContentInfoData>
+		<DisplayName>JumpStart Commercial - Madagascar</DisplayName>
+		<LinkUrl>RS_DATA/Content/MovieTheaterContent/jscom02.ogg</LinkUrl>
+		<RolloverUrl/>
+		<CategoryUrl>RS_DATA/Content/MovieTheaterContent/Thumbnails/jsshield.jpg</CategoryUrl>
+		<ThumbnailUrl>RS_DATA/Content/MovieTheaterContent/Thumbnails/jsshield.jpg</ThumbnailUrl>
+		<ContentType>2</ContentType>
+		<MemberOnly>false</MemberOnly>
+		<LinkType>2</LinkType>
+	</ContentInfoData>
+	<ContentInfoData>
+		<DisplayName>JumpStart 2009 Intro</DisplayName>
+		<LinkUrl>RS_DATA/Content/MovieTheaterContent/jsintro.ogg</LinkUrl>
+		<RolloverUrl/>
+		<CategoryUrl>RS_DATA/Content/MovieTheaterContent/Thumbnails/jsshield.jpg</CategoryUrl>
+		<ThumbnailUrl>RS_DATA/Content/MovieTheaterContent/Thumbnails/jsshield.jpg</ThumbnailUrl>
+		<ContentType>2</ContentType>
+		<MemberOnly>false</MemberOnly>
+		<LinkType>2</LinkType>
+	</ContentInfoData>
+	<ContentInfoData>
+		<DisplayName>Big Cat</DisplayName>
+		<LinkUrl>RS_DATA/Content/MovieTheaterContent/bigcat.ogg</LinkUrl>
+		<RolloverUrl/>
+		<CategoryUrl>RS_DATA/Content/MovieTheaterContent/Thumbnails/jsrlogo.png</CategoryUrl>
+		<ThumbnailUrl>RS_DATA/Content/MovieTheaterContent/Thumbnails/jsrlogo.png</ThumbnailUrl>
+		<ContentType>2</ContentType>
+		<MemberOnly>false</MemberOnly>
+		<LinkType>2</LinkType>
+	</ContentInfoData>
+</ArrayOfContentInfoData>

@@ -1,0 +1,98 @@
+﻿<ArrayOfContentInfoData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ContentInfoData>
+		<DisplayName>Punk Punk Drop</DisplayName>
+		<Description>Punk Punk Drop</Description>
+		<ThumbnailUrl>RS_DATA/Content/MSArcade/Arcade_PunkPunkDrop_screen_01.png</ThumbnailUrl>
+		<LinkUrl>Bejeweled</LinkUrl>
+		<TextureUrl>RS_DATA/Content/MSArcade/Arcade_PunkPunkDrop_01.png</TextureUrl>
+		<RolloverUrl />
+		<CategoryUrl />
+		<ContentType>3</ContentType>
+		<MemberOnly>false</MemberOnly>
+		<LinkType>4</LinkType>
+	</ContentInfoData>
+	<ContentInfoData>
+		<DisplayName>Buggy Racer</DisplayName>
+		<Description>Buggy Racer game inside Main Street.</Description>
+		<ThumbnailUrl>RS_DATA/Content/MSArcade/Arcade_BuggyRacer_screen_01.png</ThumbnailUrl>
+		<LinkUrl>DuneBuggyMenu</LinkUrl>
+		<TextureUrl>RS_DATA/Content/MSArcade/ArcadeBuggyRacer256.png</TextureUrl>
+		<RolloverUrl />
+		<CategoryUrl />
+		<ContentType>3</ContentType>
+		<MemberOnly>false</MemberOnly>
+		<LinkType>4</LinkType>
+	</ContentInfoData>
+	<ContentInfoData>
+		<DisplayName>GhostTown Grab</DisplayName>
+		<Description>GhostTown Grab game inside Main Street.</Description>
+		<ThumbnailUrl>RS_DATA/Content/MSArcade/Arcade_GhostGrab_screen_01.png</ThumbnailUrl>
+		<LinkUrl>WesternWorldMain</LinkUrl>
+		<TextureUrl>RS_DATA/Content/MSArcade/ArcadeGhostGrab256.png</TextureUrl>
+		<RolloverUrl />
+		<CategoryUrl />
+		<ContentType>3</ContentType>
+		<MemberOnly>false</MemberOnly>
+		<LinkType>4</LinkType>
+	</ContentInfoData>
+	<ContentInfoData>
+		<DisplayName>Dodge n Dash</DisplayName>
+		<Description>Dodge Bot game inside Main Street.</Description>
+		<ThumbnailUrl>RS_DATA/Content/MSArcade/Arcade_DodgeBot_screen_01.png</ThumbnailUrl>
+		<LinkUrl>DgDodge</LinkUrl>
+		<TextureUrl>RS_DATA/Content/MSArcade/ArcadeDodgeBot256.png</TextureUrl>
+		<RolloverUrl />
+		<CategoryUrl />
+		<ContentType>3</ContentType>
+		<MemberOnly>false</MemberOnly>
+		<LinkType>4</LinkType>
+	</ContentInfoData>
+	<ContentInfoData>
+		<DisplayName>Sound Bop</DisplayName>
+		<Description>Sound Bop game inside Main Street.</Description>
+		<ThumbnailUrl>RS_DATA/Content/MSArcade/Arcade_SoundBop_screen_01.png</ThumbnailUrl>
+		<LinkUrl>SsSimon</LinkUrl>
+		<TextureUrl>RS_DATA/Content/MSArcade/ArcadeSoundBop256.png</TextureUrl>
+		<RolloverUrl />
+		<CategoryUrl />
+		<ContentType>3</ContentType>
+		<MemberOnly>false</MemberOnly>
+		<LinkType>4</LinkType>
+	</ContentInfoData>
+	<ContentInfoData>
+		<DisplayName>Dragon Playtime</DisplayName>
+		<Description>Dragon Playtime</Description>
+		<ThumbnailUrl>RS_DATA/Content/MSArcade/Arcade_dragon_screen_01.png</ThumbnailUrl>
+		<LinkUrl>JSPetMainStreet</LinkUrl>
+		<TextureUrl>RS_DATA/Content/MSArcade/ArcadeDragon256.png</TextureUrl>
+		<RolloverUrl />
+		<CategoryUrl />
+		<ContentType>3</ContentType>
+		<MemberOnly>false</MemberOnly>
+		<LinkType>3</LinkType>
+	</ContentInfoData>
+	<ContentInfoData>
+		<DisplayName>Robo-A-Go-Go</DisplayName>
+		<Description>Robo-A-Go-Go</Description>
+		<ThumbnailUrl>RS_DATA/Content/MSArcade/Arcade_Robo_screen_01.png</ThumbnailUrl>
+		<LinkUrl>JSRoboAGoGoMainStreet</LinkUrl>
+		<TextureUrl>RS_DATA/Content/MSArcade/ArcadeRobo256.png</TextureUrl>
+		<RolloverUrl />
+		<CategoryUrl />
+		<ContentType>3</ContentType>
+		<MemberOnly>false</MemberOnly>
+		<LinkType>3</LinkType>
+	</ContentInfoData>
+	<ContentInfoData>
+		<DisplayName>Fruit Salad Chop</DisplayName>
+		<Description>Fruit Salad Chop</Description>
+		<ThumbnailUrl>RS_DATA/Content/MSArcade/FruitSaladChopScreen.png</ThumbnailUrl>
+		<LinkUrl>FruitSaladChop</LinkUrl>
+		<TextureUrl>RS_DATA/Content/MSArcade/FruitSaladChop.png</TextureUrl>
+		<RolloverUrl />
+		<CategoryUrl />
+		<ContentType>3</ContentType>
+		<MemberOnly>false</MemberOnly>
+		<LinkType>4</LinkType>
+	</ContentInfoData>
+</ArrayOfContentInfoData>

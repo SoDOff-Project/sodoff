@@ -77,8 +77,7 @@ public class ProfileController : Controller {
     //[Produces("application/xml")]
     [Route("ProfileWebService.asmx/GetProfileTagAll")] // used by Magic & Mythies
     public IActionResult GetProfileTagAll() {
-        // TODO: This is a placeholder
-        return Ok("<?xml version='1.0' encoding='UTF-8'?><ArrayOfProfileTag xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:nil=\"true\"/>");
+        return Ok(XmlUtil.ReadResourceXmlString("profiletags"));
     }
     
     private UserProfileData GetProfileDataFromViking(Viking viking, [FromForm] string apiKey) {
@@ -149,12 +148,19 @@ public class ProfileController : Controller {
             AvatarInfo = avatar,
             AchievementCount = 0,
             MythieCount = 0,
-            AnswerData = new UserAnswerData { UserID = viking.Uid.ToString(), Answers = profileService.GetUserAnswers(viking)},
+            AnswerData = new UserAnswerData { UserID = viking.Uid.ToString(), Answers = profileService.GetUserAnswers(viking) },
             GameCurrency = currency.GameCurrency,
             CashCurrency = currency.CashCurrency,
             ActivityCount = 0,
             BuddyCount = 0,
-            UserGradeData = new UserGrade { UserGradeID = 0 }
+            UserGradeData = new UserGrade { UserGradeID = 0 },
+            UserProfileTag = new UserProfileTag()  {
+                CreateDate = new DateTime(DateTime.Now.Ticks),
+                ProductGroupID = 1,
+                ProfileTags = new List<ProfileTag>(),
+                UserID = viking.Uid,
+                UserProfileTagID = 1
+            }
         };
     }
 }

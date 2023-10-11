@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfProfileTag xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ProfileTag>
+		<ID>1</ID>
+		<NA>Collection</NA>
+		<VAL xsi:nil="true" />
+	</ProfileTag>
+	<ProfileTag>
+		<ID>2</ID>
+		<NA>Customize</NA>
+		<VAL xsi:nil="true" />
+	</ProfileTag>
+	<ProfileTag>
+		<ID>3</ID>
+		<NA>Shopper</NA>
+		<VAL xsi:nil="true" />
+	</ProfileTag>
+	<ProfileTag>
+		<ID>4</ID>
+		<NA>Social</NA>
+		<VAL xsi:nil="true" />
+	</ProfileTag>
+	<ProfileTag>
+		<ID>5</ID>
+		<NA>Nurturing</NA>
+		<VAL xsi:nil="true" />
+	</ProfileTag>
+	<ProfileTag>
+		<ID>6</ID>
+		<NA>Racing</NA>
+		<VAL xsi:nil="true" />
+	</ProfileTag>
+	<ProfileTag>
+		<ID>7</ID>
+		<NA>Shooter</NA>
+		<VAL xsi:nil="true" />
+	</ProfileTag>
+	<ProfileTag>
+		<ID>8</ID>
+		<NA>Adventure</NA>
+		<VAL xsi:nil="true" />
+	</ProfileTag>
+	<ProfileTag>
+		<ID>9</ID>
+		<NA>Music</NA>
+		<VAL xsi:nil="true" />
+	</ProfileTag>
+	<ProfileTag>
+		<ID>10</ID>
+		<NA>Puzzle</NA>
+		<VAL xsi:nil="true" />
+	</ProfileTag>
+	<ProfileTag>
+		<ID>11</ID>
+		<NA>Education</NA>
+		<VAL xsi:nil="true" />
+	</ProfileTag>
+	<ProfileTag>
+		<ID>12</ID>
+		<NA>Action</NA>
+		<VAL xsi:nil="true" />
+	</ProfileTag>
+	<ProfileTag>
+		<ID>13</ID>
+		<NA>Battle</NA>
+		<VAL xsi:nil="true" />
+	</ProfileTag>
+	<ProfileTag>
+		<ID>14</ID>
+		<NA>Early Learning</NA>
+		<VAL xsi:nil="true" />
+	</ProfileTag>
+	<ProfileTag>
+		<ID>15</ID>
+		<NA>Sports</NA>
+		<VAL xsi:nil="true" />
+	</ProfileTag>
+</ArrayOfProfileTag>
