@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
+using Org.BouncyCastle.Security.Certificates;
 using sodoff.Attributes;
 using sodoff.Model;
 using sodoff.Schema;
@@ -1621,9 +1622,92 @@ public class ContentController : Controller {
     [HttpPost]
     //[Produces("application/xml")]
     [Route("ContentWebService.asmx/GetScene")] // used by World Of Jumpstart
-    public IActionResult GetScene() {
-        // TODO: This is a placeholder
-        return Ok("<?xml version=\"1.0\" encoding=\"utf-8\"?><SceneData xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:nil=\"true\" />");
+    [VikingSession]
+    public IActionResult GetScene(Viking viking, [FromForm] string sceneName) {
+        SceneData? scene = viking.SceneData.FirstOrDefault(e => e.SceneName == sceneName);
+
+        if (scene is not null) return Ok(scene.XmlData);
+        else return Ok("");
+    }
+
+    [HttpPost]
+    [Route("ContentWebSerivce.asmx/GetHouse")] // used by World Of Jumpstart
+    [VikingSession]
+    public IActionResult GetHouse(Viking viking) {
+        if (viking.House is not null) return Ok(viking.House.XmlData);
+        else return Ok("");
+    }
+
+    [HttpPost]
+    [Route("ContentWebService.asmx/GetHouseByUserId")] // used by World Of Jumpstart
+    public IActionResult GetHouseByUserId([FromForm] Guid userId)
+    {
+        Viking? viking = ctx.Vikings.FirstOrDefault(e => e.Uid == userId);
+
+        if (viking is not null)
+        {
+            if (viking.House is not null) return Ok(viking.House.XmlData);
+            else return Ok("");
+        }
+
+        return Ok("");
+    }
+
+    [HttpPost]
+    //[Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetSceneByUserId")] // used by World Of Jumpstart
+    public IActionResult GetSceneByUserId([FromForm] Guid userId, [FromForm] string sceneName) {
+        SceneData? scene = ctx.Vikings.FirstOrDefault(e => e.Uid == userId)?.SceneData.FirstOrDefault(x => x.SceneName == sceneName);
+
+        if (scene is not null) return Ok(scene.XmlData);
+        else return Ok(null);
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/SetScene")] // used by World of Jumpstart
+    [VikingSession]
+    public IActionResult SetScene(Viking viking, [FromForm] string sceneName, [FromForm] string contentXml) {
+        SceneData? existingScene = viking.SceneData.FirstOrDefault(e => e.SceneName == sceneName);
+
+        if(existingScene is not null)
+        {
+            existingScene.XmlData = contentXml;
+            ctx.SaveChanges();
+            return Ok(true);
+        }
+        else
+        {
+            SceneData sceneData = new SceneData
+            {
+                SceneName = sceneName,
+                XmlData = contentXml
+            };
+            viking.SceneData.Add(sceneData);
+            ctx.SaveChanges(); 
+            return Ok(true);
+        }
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/SetHouse")] // used by World Of Jumpstart
+    [VikingSession]
+    public IActionResult SetHouse(Viking viking, [FromForm] string contentXml) {
+        HouseData? house = viking.House;
+
+        if(house is null)
+        {
+            HouseData newHouse = new HouseData{ XmlData = contentXml };
+            viking.House = newHouse;
+            ctx.SaveChanges();
+            return Ok(true);
+        } else
+        {
+            house.XmlData = contentXml;
+            ctx.SaveChanges();
+            return Ok(true);
+        }
     }
 
     [HttpPost]
@@ -1634,7 +1718,7 @@ public class ContentController : Controller {
         GetGameDataRequest request = XmlUtil.DeserializeXml<GetGameDataRequest>(gameDataRequest);
         return Ok(gameDataService.GetGameDataForPlayer(viking, request));
     }
-    
+
     [HttpPost]
     [Produces("application/xml")]
     [Route("ContentWebService.asmx/GetUserGameCurrency")]
