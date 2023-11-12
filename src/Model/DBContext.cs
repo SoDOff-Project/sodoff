@@ -20,6 +20,7 @@ public class DBContext : DbContext {
     public DbSet<GameDataPair> GameDataPairs { get; set; } = null!;
     public DbSet<AchievementPoints> AchievementPoints { get; set; } = null!;
     public DbSet<ProfileAnswer> ProfileAnswers { get; set; } = null!;
+    public DbSet<Party> Parties { get; set; } = null!;
     private readonly IOptions<ApiServerConfig> config;
 
     public DBContext(IOptions<ApiServerConfig> config) {
@@ -118,6 +119,9 @@ public class DBContext : DbContext {
         builder.Entity<Viking>().HasMany(v => v.ProfileAnswers)
             .WithOne(e => e.Viking);
 
+        builder.Entity<Viking>().HasMany(v => v.Parties)
+            .WithOne(e => e.Viking);
+
         // Dragons
         builder.Entity<Dragon>().HasOne(d => d.Viking)
             .WithMany(e => e.Dragons)
@@ -213,6 +217,9 @@ public class DBContext : DbContext {
             .HasOne(e => e.Viking)
             .WithMany(v => v.SavedData)
             .HasForeignKey(e => e.VikingId);
+
+        builder.Entity<Party>().HasOne(i => i.Viking)
+            .WithMany(i => i.Parties);
 
         builder.Entity<ProfileAnswer>().HasOne(i => i.Viking)
             .WithMany(i => i.ProfileAnswers)

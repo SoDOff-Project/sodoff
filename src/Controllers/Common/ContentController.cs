@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using Microsoft.EntityFrameworkCore;
 using sodoff.Attributes;
 using sodoff.Model;
 using sodoff.Schema;
@@ -1378,6 +1379,185 @@ public class ContentController : Controller {
             Success = true,
             StatusCode = UserRoomValidationResult.Valid
         });
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetActiveParties")] // used by World Of Jumpstart
+    public IActionResult GetActiveParties()
+    {
+        List<Party> allParties = ctx.Parties.ToList();
+        List<UserParty> userParties = new List<UserParty>();
+
+        foreach(var party in allParties)
+        {
+            if(DateTime.UtcNow >= party.ExpirationDate)
+            {
+                ctx.Parties.Remove(party);
+                ctx.SaveChanges();
+
+                continue;
+            }
+
+            Viking viking = ctx.Vikings.FirstOrDefault(e => e.Id == party.VikingId);
+            AvatarData avatarData = XmlUtil.DeserializeXml<AvatarData>(viking.AvatarSerialized);
+            UserParty userParty = new UserParty
+            {
+                DisplayName = avatarData.DisplayName,
+                UserName = avatarData.DisplayName,
+                ExpirationDate = party.ExpirationDate,
+                Icon = party.LocationIconAsset,
+                Location = party.Location,
+                PrivateParty = party.PrivateParty!.Value,
+                UserID = viking.Uid
+            };
+
+            if (party.Location == "MyNeighborhood") userParty.DisplayName = $"{userParty.UserName}'s Block Party";
+            if (party.Location == "MyVIPRoomInt") userParty.DisplayName = $"{userParty.UserName}'s VIP Party";
+
+            userParties.Add(userParty);
+        }
+
+        return Ok(new UserPartyData { NonBuddyParties = userParties.ToArray() });
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetPartiesByUserID")] // used by World Of Jumpstart
+    public IActionResult GetPartiesByUserID([FromForm] Guid userId)
+    {
+        Viking? viking = ctx.Vikings.FirstOrDefault(e => e.Uid == userId);
+        List<UserPartyComplete> parties = new List<UserPartyComplete>();
+        if(viking != null)
+        {
+            foreach(var party in ctx.Parties)
+            {
+                if (DateTime.UtcNow >= party.ExpirationDate)
+                {
+                    ctx.Parties.Remove(party);
+                    ctx.SaveChanges();
+
+                    continue;
+                }
+
+                AvatarData avatarData = XmlUtil.DeserializeXml<AvatarData>(viking.AvatarSerialized);
+                if(party.Location == "MyNeighborhood")
+                {
+                    UserPartyComplete userPartyComplete = new UserPartyComplete
+                    {
+                        DisplayName = avatarData.DisplayName,
+                        UserName = avatarData.DisplayName,
+                        ExpirationDate = party.ExpirationDate,
+                        Icon = party.LocationIconAsset,
+                        Location = party.Location,
+                        PrivateParty = party.PrivateParty!.Value,
+                        UserID = viking.Uid,
+                        AssetBundle = "RS_DATA/PfMyNeighborhoodParty.unity3d/PfMyNeighborhoodParty"
+                    };
+                    parties.Add(userPartyComplete);
+                } else if (party.Location == "MyVIPRoomInt")
+                {
+                    UserPartyComplete userPartyComplete = new UserPartyComplete
+                    {
+                        DisplayName = avatarData.DisplayName,
+                        UserName = avatarData.DisplayName,
+                        ExpirationDate = party.ExpirationDate,
+                        Icon = party.LocationIconAsset,
+                        Location = party.Location,
+                        PrivateParty = party.PrivateParty!.Value,
+                        UserID = viking.Uid,
+                        AssetBundle = "RS_DATA/PfMyVIPRoomIntPartyGroup.unity3d/PfMyVIPRoomIntPartyGroup"
+                    };
+                    parties.Add(userPartyComplete);
+                }
+            }
+
+            return Ok(new ArrayOfUserPartyComplete { UserPartyComplete = parties.ToArray() });
+        } else
+        {
+            return Ok(new ArrayOfUserPartyComplete());
+        }
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/PurchaseParty")] // used by World Of Jumpstart
+    [VikingSession]
+    public IActionResult PurchaseParty(Viking viking, [FromForm] int itemId)
+    {
+        // create a party based on bought itemid
+
+        Party party = new Party
+        {
+            VikingId = viking.Id,
+            PrivateParty = false
+        };
+
+        int coinTakeaway = 0;
+
+        switch (itemId)
+        {
+            case 2761:
+                party.Location = "MyNeighborhood";
+                party.LocationIconAsset = "RS_DATA/PfUiPartiesList.unity3d/IcoPartyLocationMyNeighborhood";
+                party.ExpirationDate = DateTime.UtcNow.AddMinutes(30);
+                coinTakeaway = 30;
+                break;
+            case 6259:
+                party.Location = "MyNeighborhood";
+                party.LocationIconAsset = "RS_DATA/PfUiPartiesList.unity3d/IcoPartyLocationMyNeighborhood";
+                party.ExpirationDate = DateTime.UtcNow.AddHours(1);
+                coinTakeaway = 60;
+                break;
+            case 6260:
+                party.Location = "MyNeighborhood";
+                party.LocationIconAsset = "RS_DATA/PfUiPartiesList.unity3d/IcoPartyLocationMyNeighborhood";
+                party.ExpirationDate = DateTime.UtcNow.AddHours(4);
+                coinTakeaway = 80;
+                break;
+            case 6261:
+                party.Location = "MyNeighborhood";
+                party.LocationIconAsset = "RS_DATA/PfUiPartiesList.unity3d/IcoPartyLocationMyNeighborhood";
+                party.ExpirationDate = DateTime.UtcNow.AddHours(8);
+                coinTakeaway = 100;
+                break;
+            case 6263:
+                party.Location = "MyVIPRoomInt";
+                party.LocationIconAsset = "RS_DATA/PfUiPartiesList.unity3d/IcoPartyDefault";
+                party.ExpirationDate = DateTime.UtcNow.AddMinutes(30);
+                coinTakeaway = 30;
+                break;
+            case 6264:
+                party.Location = "MyVIPRoomInt";
+                party.LocationIconAsset = "RS_DATA/PfUiPartiesList.unity3d/IcoPartyDefault";
+                party.ExpirationDate = DateTime.UtcNow.AddHours(1);
+                coinTakeaway = 60;
+                break;
+            case 6265:
+                party.Location = "MyVIPRoomInt";
+                party.LocationIconAsset = "RS_DATA/PfUiPartiesList.unity3d/IcoPartyDefault";
+                party.ExpirationDate = DateTime.UtcNow.AddHours(4);
+                coinTakeaway = 80;
+                break;
+            case 6266:
+                party.Location = "MyVIPRoomInt";
+                party.LocationIconAsset = "RS_DATA/PfUiPartiesList.unity3d/IcoPartyDefault";
+                party.ExpirationDate = DateTime.UtcNow.AddHours(8);
+                coinTakeaway = 100;
+                break;
+        }
+
+        // check if party already exists
+
+        if (ctx.Parties.Where(e => e.Location == party.Location).FirstOrDefault(e => e.VikingId == viking.Id) != null) return Ok(null);
+
+        // take away coins
+        viking.AchievementPoints.FirstOrDefault(e => e.Type == (int)AchievementPointTypes.GameCurrency)!.Value -= coinTakeaway;
+
+        ctx.Parties.Add(party);
+        ctx.SaveChanges();
+
+        return Ok(true);
     }
 
     [HttpPost]
