@@ -136,6 +136,19 @@ public class AuthenticationController : Controller {
 
     [HttpPost]
     [Produces("application/xml")]
+    [Route("AuthenticationWebService.asmx/IsValidApiToken")] // used by World Of Jumpstart (FutureLand)
+    public IActionResult IsValidApiToken_V1([FromForm] Guid? apiToken) {
+        if (apiToken is null)
+            return Ok(false);
+        User? user = ctx.Sessions.FirstOrDefault(e => e.ApiToken == apiToken)?.User;
+        Viking? viking = ctx.Sessions.FirstOrDefault(e => e.ApiToken == apiToken)?.Viking;
+        if (user is null && viking is null)
+            return Ok(false);
+        return Ok(true);
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
     [Route("AuthenticationWebService.asmx/IsValidApiToken_V2")]
     public IActionResult IsValidApiToken([FromForm] Guid? apiToken) {
         if (apiToken is null)
