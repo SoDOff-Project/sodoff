@@ -478,7 +478,10 @@ public class ContentController : Controller {
         raisedPetData.IsSelected = false; // The api returns false, not sure why
         raisedPetData.CreateDate = new DateTime(DateTime.Now.Ticks);
         raisedPetData.UpdateDate = new DateTime(DateTime.Now.Ticks);
-        raisedPetData.GrowthState = new RaisedPetGrowthState { Name = "BABY" };
+        if (petTypeID == 2)
+            raisedPetData.GrowthState = new RaisedPetGrowthState { Name = "BABY" };
+        else
+            raisedPetData.GrowthState = new RaisedPetGrowthState { Name = "POWERUP" };
         int imageSlot = (viking.Images.Select(i => i.ImageSlot).DefaultIfEmpty(-1).Max() + 1);
         raisedPetData.ImagePosition = imageSlot;
         // NOTE: Placing an egg into a hatchery slot calls CreatePet, but doesn't SetImage.
