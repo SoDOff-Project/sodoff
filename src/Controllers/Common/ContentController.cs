@@ -764,6 +764,25 @@ public class ContentController : Controller {
 
     [HttpPost]
     [Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetActiveRaisedPetsByTypes")] // used by Math Blaster
+    [VikingSession(UseLock=false)]
+    public RaisedPetData[] GetActiveRaisedPet([FromForm] Guid userId, [FromForm] string petTypeIDs) {
+        Viking? viking = ctx.Vikings.FirstOrDefault(e => e.Uid == userId);
+        Dragon? dragon = viking.SelectedDragon;
+        if (dragon is null) {
+            return new RaisedPetData[0];
+        }
+
+        RaisedPetData dragonData = GetRaisedPetDataFromDragon(dragon);
+        int[] petTypeIDsInt = Array.ConvertAll(petTypeIDs.Split(','), s => int.Parse(s));
+        if (!petTypeIDsInt.Contains(dragonData.PetTypeID))
+            return new RaisedPetData[0];
+
+        return new RaisedPetData[] {dragonData};
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
     [Route("ContentWebService.asmx/GetSelectedRaisedPet")]
     [VikingSession(UseLock=false)]
     public RaisedPetData[]? GetSelectedRaisedPet(Viking viking, [FromForm] string userId, [FromForm] bool isActive) {
