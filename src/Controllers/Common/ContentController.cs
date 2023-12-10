@@ -2123,17 +2123,17 @@ public class ContentController : Controller {
     [Produces("application/xml")]
     [Route("ContentWebService.asmx/GetGameDataByGame")]
     [VikingSession(UseLock = true)]
-    public IActionResult GetGameDataByGame(Viking viking, [FromForm] int gameId, bool isMultiplayer, int difficulty, int gameLevel, string key, int count, bool AscendingOrder, int score, bool buddyFilter) {
-        return Ok(gameDataService.GetGameData(viking, gameId, isMultiplayer, difficulty, gameLevel, key, count, AscendingOrder, buddyFilter));
+    public IActionResult GetGameDataByGame(Viking viking, [FromForm] int gameId, bool isMultiplayer, int difficulty, int gameLevel, string key, int count, bool AscendingOrder, int score, bool buddyFilter, string apiKey) {
+        return Ok(gameDataService.GetGameData(viking, gameId, isMultiplayer, difficulty, gameLevel, key, count, AscendingOrder, buddyFilter, apiKey));
     }
 
     [HttpPost]
     [Produces("application/xml")]
     [Route("V2/ContentWebService.asmx/GetGameDataByGameForDateRange")]
     [VikingSession(UseLock = true)]
-    public IActionResult GetGameDataByGameForDateRange(Viking viking, [FromForm] int gameId, bool isMultiplayer, int difficulty, int gameLevel, string key, int count, bool AscendingOrder, int score, string startDate, string endDate, bool buddyFilter) {
+    public IActionResult GetGameDataByGameForDateRange(Viking viking, [FromForm] int gameId, bool isMultiplayer, int difficulty, int gameLevel, string key, int count, bool AscendingOrder, int score, string startDate, string endDate, bool buddyFilter, string apiKey) {
         CultureInfo usCulture = new CultureInfo("en-US", false);
-        return Ok(gameDataService.GetGameData(viking, gameId, isMultiplayer, difficulty, gameLevel, key, count, AscendingOrder, buddyFilter, DateTime.Parse(startDate, usCulture), DateTime.Parse(endDate, usCulture)));
+        return Ok(gameDataService.GetGameData(viking, gameId, isMultiplayer, difficulty, gameLevel, key, count, AscendingOrder, buddyFilter, apiKey, DateTime.Parse(startDate, usCulture), DateTime.Parse(endDate, usCulture)));
     }
 
     [HttpPost]
