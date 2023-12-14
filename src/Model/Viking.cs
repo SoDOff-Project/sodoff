@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
 namespace sodoff.Model;
@@ -31,5 +31,6 @@ public class Viking {
     public virtual ICollection<PairData> PairData { get; set; } = null!;
     public virtual ICollection<InventoryItem> InventoryItems { get; set; } = null!;
     public virtual ICollection<GameData> GameData { get; set; } = null!;
+    public virtual ICollection<ProfileAnswer> ProfileAnswers { get; set; } = null!;
     public virtual Dragon? SelectedDragon { get; set; }
 }

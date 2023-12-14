@@ -50,6 +50,7 @@
     <None Remove="Resources\defaultmissionlist.xml" />
     <None Remove="Resources\defaultmissionlistv1.xml" />
     <None Remove="Resources\defaultmissionlistmam.xml" />
+	<None Remove="Resources\questiondata.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Resources\childlist.xml">
@@ -115,6 +116,9 @@
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </EmbeddedResource>
     <EmbeddedResource Include="Resources\defaultmissionlistmam.xml">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="Resources\questiondata.xml">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </EmbeddedResource>
   </ItemGroup>

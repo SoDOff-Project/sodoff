@@ -33,6 +33,7 @@ builder.Services.AddScoped<RoomService>();
 builder.Services.AddScoped<InventoryService>();
 builder.Services.AddScoped<AchievementService>();
 builder.Services.AddScoped<GameDataService>();
+builder.Services.AddScoped<ProfileService>();
 
 bool assetServer = builder.Configuration.GetSection("AssetServer").GetValue<bool>("Enabled");
 string assetIP = builder.Configuration.GetSection("AssetServer").GetValue<string>("ListenIP");

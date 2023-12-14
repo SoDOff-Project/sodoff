@@ -19,6 +19,7 @@ public class DBContext : DbContext {
     public DbSet<GameData> GameData { get; set; } = null!;
     public DbSet<GameDataPair> GameDataPairs { get; set; } = null!;
     public DbSet<AchievementPoints> AchievementPoints { get; set; } = null!;
+    public DbSet<ProfileAnswer> ProfileAnswers { get; set; } = null!;
     private readonly IOptions<ApiServerConfig> config;
 
     public DBContext(IOptions<ApiServerConfig> config) {
@@ -198,6 +199,10 @@ public class DBContext : DbContext {
         builder.Entity<AchievementPoints>()
             .HasOne(e => e.Viking)
             .WithMany(e => e.AchievementPoints)
+            .HasForeignKey(e => e.VikingId);
+
+        builder.Entity<ProfileAnswer>().HasOne(i => i.Viking)
+            .WithMany(i => i.ProfileAnswers)
             .HasForeignKey(e => e.VikingId);
     }
 }
