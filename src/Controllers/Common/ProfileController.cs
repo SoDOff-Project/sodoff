@@ -83,12 +83,15 @@ public class ProfileController : Controller {
     private UserProfileData GetProfileDataFromViking(Viking viking, [FromForm] string apiKey) {
         // Get the avatar data
         AvatarData avatarData = null;
-        Gender gender = Gender.Male;
+        Gender? gender = null;
         if (viking.AvatarSerialized is not null) {
             avatarData = XmlUtil.DeserializeXml<AvatarData>(viking.AvatarSerialized);
             avatarData.Id = viking.Id;
-            gender = avatarData.GenderType;
+            if (gender is null)
+                gender = avatarData.GenderType;
         }
+        if (gender is null)
+            gender = Gender.Unknown;
 
         if (avatarData != null && ClientVersion.GetVersion(apiKey) == 0xa3a12a0a) { // TODO adjust version number: we don't know for which versions it is required (for 3.12 it is, for 3.19 and 3.0 it's not)
             if (avatarData.Part.FirstOrDefault(e => e.PartType == "Sword") is null) {
@@ -118,9 +121,10 @@ public class ProfileController : Controller {
                 GenderID = gender,
                 OpenChatEnabled = true,
                 IsApproved = true,
-                RegistrationDate = new DateTime(DateTime.Now.Ticks), // placeholder
-                CreationDate = new DateTime(DateTime.Now.Ticks), // placeholder
-                FacebookUserID = 0
+                RegistrationDate = viking.CreationDate,
+                CreationDate = viking.CreationDate,
+                FacebookUserID = 0,
+                BirthDate = viking.BirthDate
             },
             UserSubscriptionInfo = new UserSubscriptionInfo {
                 UserID = viking.UserId.ToString(),

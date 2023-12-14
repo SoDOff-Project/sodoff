@@ -71,7 +71,7 @@ public class RegistrationController : Controller {
         }
         if (ctx.Users.Count(e => e.Username== u.Username) > 0) {
             return Ok(new RegistrationResult { Status = MembershipUserStatus.DuplicateUserName });
-        }  
+        }
 
         ctx.Users.Add(u);
 
@@ -82,7 +82,9 @@ public class RegistrationController : Controller {
                 User = u,
                 InventoryItems = new List<InventoryItem>(),
                 AchievementPoints = new List<AchievementPoints>(),
-                Rooms = new List<Room>()
+                Rooms = new List<Room>(),
+                CreationDate = DateTime.UtcNow,
+                BirthDate = data.ChildList[0].BirthDate
             };
             ctx.Vikings.Add(v);
         }
@@ -142,11 +144,16 @@ public class RegistrationController : Controller {
             User = user,
             InventoryItems = items,
             AchievementPoints = new List<AchievementPoints>(),
-            Rooms = new List<Room>()
+            Rooms = new List<Room>(),
+            CreationDate = DateTime.Now,
+            BirthDate = data.BirthDate
         };
 
         uint gameVersion = ClientVersion.GetVersion(apiKey);
         missionService.SetUpMissions(v, gameVersion);
+
+        if (data.Gender == "Boy") v.Gender = Gender.Male;
+        else if (data.Gender == "Girl") v.Gender = Gender.Female;
 
         ctx.Vikings.Add(v);
         ctx.SaveChanges();
