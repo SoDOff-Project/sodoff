@@ -61,6 +61,8 @@
     <None Remove="Resources\content_blastermovie.xml" />
     <None Remove="Resources\content_arcade.xml" />
     <None Remove="Resources\content_learning.xml" />
+    <None Remove="Resources\announcements_wojs.xml" />
+    <None Remove="Resources\announcements_ss.xml" />
     <None Remove="Resources\profiletags.xml" />
     <None Remove="Resources\defaulthouse.xml" />
   </ItemGroup>
@@ -164,6 +166,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\content_learning.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\announcements_wojs.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\announcements_ss.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\profiletags.xml">

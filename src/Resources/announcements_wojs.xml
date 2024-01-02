@@ -1,0 +1,17 @@
+<Announcements>
+	<Announcement>
+		<AnnouncementID>10</AnnouncementID>
+		<Description>Concert Song</Description>
+		<AnnouncementText>[[Song1]]=[[RS_DATA/PfConcertSong02.unity3d/PfConcertSong02;181;0]]
+                                  [[Song2]]=[[RS_DATA/PfConcertSong01.unity3d/PfConcertSong01;189;0]]
+                                  [[Song3]]=[[RS_DATA/PfConcertSong03.unity3d/PfConcertSong03;268;0]]
+                                  [[Song4]]=[[RS_DATA/PfConcertSong04.unity3d/PfConcertSong04;209;0]]
+                                  [[Song5]]=[[RS_DATA/PfConcertSong05.unity3d/PfConcertSong05;61;0]]
+                                  [[Song6]]=[[RS_DATA/PfConcertSong06.unity3d/PfConcertSong06;90;0]]
+                                  [[Interval]]=[[30]]
+		</AnnouncementText>
+		<Type>3</Type>
+		<StartDate>2024-02-03</StartDate>
+		<EndDate>2034-02-04</EndDate>
+	</Announcement>
+</Announcements>

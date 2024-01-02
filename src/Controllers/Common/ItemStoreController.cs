@@ -74,8 +74,16 @@ public class ItemStoreController : Controller {
     [Produces("application/xml")]
     [Route("ItemStoreWebService.asmx/GetAnnouncementsByUser")]
     //[VikingSession(UseLock=false)]
-    public IActionResult GetAnnouncements([FromForm] int worldObjectID) {
+    public IActionResult GetAnnouncements([FromForm] string apiKey, [FromForm] int worldObjectID) {
         // TODO: This is a placeholder, although this endpoint seems to be only used to send announcements to the user (such as the server shutdown), so this might be sufficient.
+
+        uint gameVersion = ClientVersion.GetVersion(apiKey);
+        if (gameVersion <= ClientVersion.Max_OldJS && (gameVersion & ClientVersion.WoJS) != 0) {
+            return Ok(XmlUtil.DeserializeXml<AnnouncementList>(XmlUtil.ReadResourceXmlString("announcements_wojs")));
+        } else if (gameVersion == ClientVersion.SS && worldObjectID == 6) {
+            return Ok(XmlUtil.DeserializeXml<AnnouncementList>(XmlUtil.ReadResourceXmlString("announcements_ss")));
+        }
+        
         return Ok(new AnnouncementList());
     }
 }

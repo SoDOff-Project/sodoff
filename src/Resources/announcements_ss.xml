@@ -1,0 +1,12 @@
+<Announcements>
+	<Announcement>
+		<AnnouncementID>1</AnnouncementID>
+		<Description>SanctuaryBabySS</Description>
+		<AnnouncementText>[[Message]]=[[Wanna raise and train a Dragon? Go to the Enchanted Sanctuary today!]]
+                          [[SceneName]]=[[SanctuaryBabySS]]
+		</AnnouncementText>
+		<Type>3</Type>
+		<StartDate>2024-02-03</StartDate>
+		<EndDate>2034-02-04</EndDate>
+	</Announcement>
+</Announcements>
