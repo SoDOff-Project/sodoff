@@ -1,18 +1,25 @@
 ﻿using Microsoft.Extensions.Options;
 using System.Net;
 using System.IO;
+using System.Text.RegularExpressions;
 using sodoff.Configuration;
+using sodoff.Util;
 
 namespace sodoff.Middleware;
 public class AssetMiddleware
 {
     private readonly RequestDelegate _next;
     private readonly IOptions<AssetServerConfig> config;
+    private readonly Regex autoEncryptRegexp;
 
     public AssetMiddleware(RequestDelegate next, IOptions<AssetServerConfig> config)
     {
         _next = next;
         this.config = config;
+        if (config.Value.AutoEncryptRegexp != "")
+            autoEncryptRegexp = new Regex(config.Value.AutoEncryptRegexp);
+        else
+            autoEncryptRegexp = null;
     }
 
     public async Task Invoke(HttpContext context)
@@ -33,7 +40,6 @@ public class AssetMiddleware
         }
 
         string assetPath = path.Remove(0, config.Value.URLPrefix.Length + 1);
-
         string localPath = GetLocalPath("assets/" + assetPath);
 
         if (localPath == string.Empty && config.Value.Mode == AssetServerMode.Partial && config.Value.UseCache)
@@ -47,7 +53,17 @@ public class AssetMiddleware
         }
         else {
             context.Response.Headers["Content-Type"] = "application/octet-stream";
-            await context.Response.SendFileAsync(Path.GetFullPath(localPath));
+            bool needEncrypt = autoEncryptRegexp != null && autoEncryptRegexp.IsMatch(localPath);
+            if (needEncrypt) {
+                await context.Response.WriteAsync(
+                    TripleDES.EncryptASCII(
+                        System.IO.File.ReadAllText(localPath),
+                        config.Value.AutoEncryptKey
+                    )
+                );
+            } else {
+                await context.Response.SendFileAsync(Path.GetFullPath(localPath));
+            }
         }
     }
 
