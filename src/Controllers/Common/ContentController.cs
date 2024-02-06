@@ -194,6 +194,12 @@ public class ContentController : Controller {
         CommonInventoryRequest[] request = XmlUtil.DeserializeXml<CommonInventoryRequest[]>(commonInventoryRequestXml);
         List<CommonInventoryResponseItem> responseItems = new();
 
+        if (request is null) {
+            return Ok(new CommonInventoryResponse {
+                Success = false
+            });
+        }
+        
         // SetCommonInventory can remove any number of items from the inventory, this checks if it's possible
         foreach (var req in request) {
             if (req.Quantity >= 0) continue;
@@ -320,6 +326,7 @@ public class ContentController : Controller {
                 // do not allow override newer version avatar data by older version
                 return Ok(new SetAvatarResult {
                     Success = false,
+                    StatusCode = AvatarValidationResult.Error
                 });
             }
         }
