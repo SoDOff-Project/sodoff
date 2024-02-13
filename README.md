@@ -1,33 +1,69 @@
 # SoD-Off - School of Dragons, Offline
 
 On 7th June, 2023, School of Dragons announced they were "sunsetting" the game, and turning the servers off on the 30th of June.
+At that time, SoD-Off was born. Currently, it is an (almost) complete implementation of the API server for SoD (and some other JS games).
+It allows you to run SoD offline as well as host private online servers.
+
+We provide also MMO server implementation for SoD (https://github.com/SoDOff-Project/sodoff-mmo).
+We recommend using it even in offline mode, as some aspects of the single-player game depend on the MMO connection.
 
 ## Discord
 [![Discord Banner](https://discordapp.com/api/guilds/1124405524679643318/widget.png?style=banner2)](https://discord.gg/bqHtMRbhM3)
 
+## Licence
+
+SoD-Off is open source, distributed under [AGPL](LICENSE) license.
+This license does not cover resources obtained from the game or from responses of original api distributed with the API server, especially: 
+	`missions.xml`, `items.xml`, `allranks.xml` and `store.xml` files from `src/Resources` directory and files inside `src/assets` directory.
+
+
 ## Getting started
 
-For the first time setup, run the following command:
+You need dotnet 6.0 SDK to build api server from sources. To do this (and start server) just run:
 
 ```
-dotnet restore
-```
-
-Then run the server as follows:
-
-```
-# run mitmproxy to redirect requests to the app
-mitmproxy -s mitm-redirect.py
-
-# run the server
 dotnet run --project src/sodoff.csproj
 ```
 
-Then run School of Dragons.
+### Modify client
+
+To play game you need to modify game client to use `http://localhost:5001/.com/DWADragonsUnity/` instead `http://media.jumpstart.com/DWADragonsUnity/` for getting main XML config file (`DWADragonsMain.xml`).
+You can do this editing `DOMain_Data/resources.assets` in hex-editor and replace those URLs.
+
+### Server configuration
+
+Most configuration of server is set in `appsettings.json`. See `"// ..."` keys in this file for options description.
+
+#### supported clients
+
+Each version of supported client need own file `assets/DWADragonsUnity/{PLATFORM}/{VERSION}/DWADragonsMain.xml`.
+By default (can be changed in `appsettings.json`) files for version 2.5.0 and newer will be automatically encrypted (in accordance with the client's expectations).
+
+Sample file for `{PLATFORM} = WIN`, `{VERSION} = 3.31.0` is provided.
+It assumes that the server address is `localhost:5000` (for api) and `localhost:5000` (for assets). When running a public server, the addresses must be adjusted.
+
+#### asset server
+
+Multiple options of asset server can be customized. Most important of them is `ProviderURL` indicating the source of assets downloading in `partial` mode.
+By default it's set to archive.org. Please do not abuse this server (especially do not disable `UseCache` option and do not get rid of `asset-cache` dir content).
+
+#### listening address/port
+
+By default server listening on all IPv4 and IPv6 addresses on ports 5000 (api) and 5001 (assets).
+This can be changed in `appsettings.json`, but it can also requires changes in `DWADragonsMain.xml` and in clients (on change assets server address)
+
+### Server side modding
+
+Server support server side modding like adding new items, adding them to store without modification server source.
+For details see [src/mods/README-MODDING.md](src/mods/README-MODDING.md).
+
 
 ## Status
 
 ### What works
+
+Almost everything:
+
 - register/login
 - create profile
 - list profiles
@@ -40,6 +76,14 @@ Then run School of Dragons.
 - farms
 - minigames
 - MMO (using sodoff-mmo)
+
+### What doesn't work
+
+- play as Guest
+- friends
+- clans
+- in-game messaging system (Terrible Mail)
+
 
 ### Methods
 

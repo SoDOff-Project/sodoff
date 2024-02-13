@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServerDown>
+  <Down>false</Down>
+  <CudosDown>true</CudosDown>
+   <Message>
+  	<ProductGroupID>11</ProductGroupID>
+    <Locale>en-US</Locale>
+    <Title>Update</Title>
+    <!-->For Unplanned Maintenance <-->
+    <!--><Text><![CDATA[
+	Alert! We’ve encountered an unexpected weather delay! Our servers have been covered to protect them. Check back soon.
+	]]>
+	</Text> -->
+    <!-->For Planned Maintenance <-->
+    <Text><![CDATA[
+	The SoDOff server is down because the emulator is being updated. Check back in a few minutes.
+  	]]>
+    </Text>
+  </Message> 
+  <Message>
+  	<ProductGroupID>9</ProductGroupID>
+    <Locale>en-US</Locale>
+    <Title>Update</Title>
+    <!-->For Unplanned Maintenance <-->
+    <!--><Text><![CDATA[
+	Oh no, looks like the Terrible Terrors are at it again!  We hid our servers to protect them.  Check back soon.
+	]]>
+	</Text> -->
+    <!-->For Planned Maintenance <-->
+    <Text><![CDATA[
+	The SoDOff server is down because the emulator is being updated. Check back in a few minutes.
+  	]]>
+    </Text>
+  </Message> 
+   <Message>
+  	<ProductGroupID>1</ProductGroupID>
+    <Locale>en-US</Locale>
+    <Title>Update</Title>
+    <!-->For Unplanned Maintenance <-->
+    <!--><Text><![CDATA[
+	
+	
+	
+	
+	Alert! We’ve encountered an unexpected weather delay! Our servers have been covered to protect them. Check back soon.
+	]]>
+	</Text><-->
+    <!-->For Planned Maintenance <-->
+    <Text><![CDATA[
+	
+	
+	
+	
+	The SoDOff server is down because the emulator is being updated. Check back in a few minutes.
+  	]]>
+    </Text>
+  </Message> 
+  <Message>
+  	<ProductGroupID>17</ProductGroupID>
+    <Locale>en-US</Locale>
+    <Title>Update</Title>
+    <!-->For Unplanned Maintenance <-->
+    <!--><Text><![CDATA[
+	
+	
+	
+	
+	Alert! We’ve encountered an unexpected weather delay! Our servers have been covered to protect them. Check back soon.
+	]]>
+	</Text><-->
+    <!-->For Planned Maintenance <-->
+    <Text><![CDATA[
+	
+	
+	
+	
+	The SoDOff server is down because the emulator is being updated. Check back in a few minutes.
+  	]]>
+    </Text>
+  </Message>
+  <Message>
+  	<ProductGroupID>15</ProductGroupID>
+    <Locale>en-US</Locale>
+    <Title>Update</Title>
+    <!-->For Unplanned Maintenance <-->
+    <!--><Text><![CDATA[
+	
+	
+	
+	
+	Message from Aurrick: I broke the servers but don't worry. I'm stealing new ones. Back soon!
+	]]>
+	</Text><-->
+    <!-->For Planned Maintenance <-->
+    <Text><![CDATA[
+	
+	
+	
+	
+	The SoDOff server is down because the emulator is being updated. Check back in a few minutes.
+  	]]>
+    </Text>
+  </Message>
+  <Message>
+  	<ProductGroupID>14</ProductGroupID>
+    <Locale>en-US</Locale>
+    <Title>Update</Title>
+    <!-->For Unplanned Maintenance <-->
+    <!--><Text><![CDATA[
+	
+	
+	
+	
+	Oh no, looks like the Shadow Punks have attacked the server!  We hid our servers to protect them.  Check back soon.
+	]]>
+	</Text><-->
+    <!-->For Planned Maintenance <-->
+    <Text><![CDATA[
+	
+	
+	
+	
+	
+	The SoDOff server is down because the emulator is being updated. Check back in a few minutes.
+  	]]>
+    </Text>
+  </Message> 
+  <Message>
+    <ProductGroupID>12</ProductGroupID>
+    <Locale>en-US</Locale>
+    <Title>Update</Title>
+    <!-->For Unplanned Maintenance <-->
+    <!--><Text><![CDATA[
+	
+	
+	
+	
+	Oh no! It looks like Dave is at it again with his Medusa Serum! We hid our servers to protect them. Check back soon!
+  ]]>
+  </Text><-->
+    <!-->For Planned Maintenance <-->
+    <Text><![CDATA[
+	
+	
+	
+	
+	The SoDOff server is down because the emulator is being updated. Check back in a few minutes.
+  ]]>
+    </Text>
+  </Message>
+  <Message>
+  	<ProductGroupID>9</ProductGroupID>
+    <Locale>es-MX</Locale>
+    <Title>Update</Title>
+    <!-->For Unplanned Maintenance <-->
+    <!--><Text><![CDATA[
+	¡Oh no, parece que el Terrible Terror está haciendo desastres otra vez! Escondimos nuestros servidores para protegerlos.¡Regresa pronto!
+	]]>
+	</Text><-->
+    <!-->For Planned Maintenance <-->
+    <Text><![CDATA[
+	The SoDOff server is down because the emulator is being updated. Check back in a few minutes.
+  ]]>
+    </Text>
+  </Message>
+  <Message>
+  	<ProductGroupID>9</ProductGroupID>
+    <Locale>pt-BR</Locale>
+    <Title>Update</Title>
+    <!-->For Unplanned Maintenance <-->
+    <!--><Text><![CDATA[
+	Essa não! Pelo jeito, os Terrible Terrors estão aprontando novamente! Escondemos nossos servidores para protegê-los. Volte em breve!
+  ]]>
+    </Text><-->
+    <!-->For Planned Maintenance <-->
+    <Text><![CDATA[
+	The SoDOff server is down because the emulator is being updated. Check back in a few minutes.
+  ]]>
+    </Text>
+  </Message>
+  <Message>
+  	<ProductGroupID>9</ProductGroupID>
+    <Locale>zh-CN</Locale>
+    <Title>Update</Title>
+    <!-->For Unplanned Maintenance <-->
+    <!--><Text><![CDATA[
+	恐怖龙又搞事啦！我们把服务器都藏起来，进行保护。回见喽！ 
+  ]]>
+    </Text><-->
+    <!-->For Planned Maintenance <-->
+    <Text><![CDATA[
+	The SoDOff server is down because the emulator is being updated. Check back in a few minutes.
+  ]]>
+    </Text>
+  </Message>
+    <Message>
+  	<ProductGroupID>9</ProductGroupID>
+    <Locale>fr-CA</Locale>
+    <Title>Update</Title>
+    <!-->For Unplanned Maintenance <-->
+    <!--><Text><![CDATA[
+	Oh no, looks like the Terrible Terrors are at it again!  We hid our servers to protect them.  Check back soon!
+  	]]>
+    </Text><-->
+    <!-->For Planned Maintenance <-->
+    <Text><![CDATA[
+	The SoDOff server is down because the emulator is being updated. Check back in a few minutes.
+  	]]>
+    </Text>
+  </Message>
+    <Message>
+  	<ProductGroupID>9</ProductGroupID>
+    <Locale>de-DE</Locale>
+    <Title>Update</Title>
+    <!-->For Unplanned Maintenance <-->
+    <!--><Text><![CDATA[
+	Oh no, looks like the Terrible Terrors are at it again!  We hid our servers to protect them.  Check back soon.
+  	]]>
+    </Text><-->
+    <!-->For Planned Maintenance <-->
+    <Text><![CDATA[
+	The SoDOff server is down because the emulator is being updated. Check back in a few minutes.
+  	]]>
+    </Text>
+  </Message>
+    <Message>
+  	<ProductGroupID>9</ProductGroupID>
+    <Locale>ko-KR</Locale>
+    <Title>Update</Title>
+    <!-->For Unplanned Maintenance <-->
+    <!--><Text><![CDATA[
+	Oh no, looks like the Terrible Terrors are at it again!  We hid our servers to protect them.  Check back soon.
+  	]]>
+    </Text><-->
+    <!-->For Planned Maintenance <-->
+    <Text><![CDATA[
+	The SoDOff server is down because the emulator is being updated. Check back in a few minutes.
+  	]]>
+    </Text>
+  </Message>
+    <Message>
+  	<ProductGroupID>9</ProductGroupID>
+    <Locale>ru-RU</Locale>
+    <Title>Update</Title>
+    <!-->For Unplanned Maintenance <-->
+    <!--><Text><![CDATA[
+	Oh no, looks like the Terrible Terrors are at it again!  We hid our servers to protect them.  Check back soon.
+  	]]>
+    </Text><-->
+    <!-->For Planned Maintenance <-->
+    <Text><![CDATA[
+	The SoDOff server is down because the emulator is being updated. Check back in a few minutes.
+  	]]>
+    </Text>
+  </Message>
+	<Message>
+		<ProductGroupID>10</ProductGroupID>
+		<Locale>en-US</Locale>
+    <!-->For Unplanned Maintenance <-->
+    <!--><Text>Alert! We’ve encountered an unexpected weather delay!  Our servers have been covered to protect them. Check back soon.</Text><-->
+    <!-->For Planned Maintenance <-->
+    <Title>Update</Title>	
+	<Text>The SoDOff server is down because the emulator is being updated. Check back in a few minutes.</Text>
+	</Message>
+  <Scheduled>
+  	<!-- Date format needs to be MM/dd/yyyy hh:mm AM/PM PST TimeZone-->
+	<StartTime>07/30/2023 11:59 PM</StartTime>
+	<EndTime>12/31/2035 12:00 AM</EndTime>
+	<ModifiedTime>05/30/2023 10:48 AM</ModifiedTime>
+	<Message>
+  		<ProductGroupID>12</ProductGroupID>
+	  	<Locale>en-US</Locale>
+		  <Title>NOTICE</Title>	
+  		<Text>Welcome back dragon rider!
+		  
+Welcome to SoDOff Experimental Server!
+SoDOff is a School of Dragons server emulator. The emulator is in very early stages of development, many features are currently missing. Things can and WILL break!
+
+Please note that we are not associated with JumpStart or DreamWorks.
+
+-	The SoDOff Team</Text>
+	</Message>
+  	<Message>
+	  	<ProductGroupID>9</ProductGroupID>
+		  <Locale>en-US</Locale>
+		  <Title>NOTICE</Title>	
+		  <Text>Welcome back dragon rider!
+		  
+Welcome to SoDOff Experimental Server!
+SoDOff is a School of Dragons server emulator. The emulator is in very early stages of development, many features are currently missing. Things can and WILL break!
+
+Please note that we are not associated with JumpStart or DreamWorks.
+
+-	The SoDOff Team
+</Text>
+  	</Message>
+  	<Message>
+	  	<ProductGroupID>9</ProductGroupID>
+		  <Locale>de-DE</Locale>
+		  <Title>NOTIZ</Title>	
+		  <Text>Welcome back dragon rider!
+		  
+Welcome to SoDOff Experimental Server!
+SoDOff is a School of Dragons server emulator. The emulator is in very early stages of development, many features are currently missing. Things can and WILL break!
+
+Please note that we are not associated with JumpStart or DreamWorks.
+
+-	The SoDOff Team
+</Text>
+  	</Message>
+	<Message>
+  		<ProductGroupID>9</ProductGroupID>
+	  	<Locale>es-MX</Locale>
+		  <Title>Apagado de Servidores</Title>
+  		<Text>Welcome back dragon rider!
+		  
+Welcome to SoDOff Experimental Server!
+SoDOff is a School of Dragons server emulator. The emulator is in very early stages of development, many features are currently missing. Things can and WILL break!
+
+Please note that we are not associated with JumpStart or DreamWorks.
+
+-	The SoDOff Team
+    </Text>
+	</Message>
+  	<Message>
+	  	<ProductGroupID>9</ProductGroupID>
+		  <Locale>fr-CA</Locale>
+		  <Title>Arrêt des serveurs</Title>	
+		  <Text>Welcome back dragon rider!
+		  
+Welcome to SoDOff Experimental Server!
+SoDOff is a School of Dragons server emulator. The emulator is in very early stages of development, many features are currently missing. Things can and WILL break!
+
+Please note that we are not associated with JumpStart or DreamWorks.
+
+-	The SoDOff Team
+</Text>
+  	</Message>
+  	<Message>
+	  	<ProductGroupID>9</ProductGroupID>
+		  <Locale>ko-KR</Locale>
+		  <Title>서버 셧다운</Title>	
+		  <Text>Welcome back dragon rider!
+		  
+Welcome to SoDOff Experimental Server!
+SoDOff is a School of Dragons server emulator. The emulator is in very early stages of development, many features are currently missing. Things can and WILL break!
+
+Please note that we are not associated with JumpStart or DreamWorks.
+
+-	The SoDOff Team
+</Text>
+  	</Message>
+  	<Message>
+	  	<ProductGroupID>9</ProductGroupID>
+		  <Locale>pt-BR</Locale>
+  		<Title>Desligamento dos servidores</Title>
+	  	<Text>Welcome back dragon rider!
+		  
+Welcome to SoDOff Experimental Server!
+SoDOff is a School of Dragons server emulator. The emulator is in very early stages of development, many features are currently missing. Things can and WILL break!
+
+Please note that we are not associated with JumpStart or DreamWorks.
+
+-	The SoDOff Team</Text>
+  	</Message>
+  	<Message>
+	  	<ProductGroupID>9</ProductGroupID>
+		  <Locale>ru-RU</Locale>
+		  <Title>Выключение серверов</Title>	
+		  <Text>Welcome back dragon rider!
+		  
+Welcome to SoDOff Experimental Server!
+SoDOff is a School of Dragons server emulator. The emulator is in very early stages of development, many features are currently missing. Things can and WILL break!
+
+Please note that we are not associated with JumpStart or DreamWorks.
+
+-	The SoDOff Team</Text>
+  	</Message>
+  	<Message>
+	  	<ProductGroupID>9</ProductGroupID>
+		  <Locale>th-TH</Locale>
+		  <Title>การปิดเซิร์ฟเวอร์</Title>	
+		  <Text>Welcome back dragon rider!
+		  
+Welcome to SoDOff Experimental Server!
+SoDOff is a School of Dragons server emulator. The emulator is in very early stages of development, many features are currently missing. Things can and WILL break!
+
+Please note that we are not associated with JumpStart or DreamWorks.
+
+-	The SoDOff Team</Text>
+  	</Message>
+	<Message>
+		  <ProductGroupID>9</ProductGroupID>
+		  <Locale>zh-CN</Locale>
+  		<Title>服务器关闭</Title>
+	  	<Text>Welcome back dragon rider!
+		  
+Welcome to SoDOff Experimental Server!
+SoDOff is a School of Dragons server emulator. The emulator is in very early stages of development, many features are currently missing. Things can and WILL break!
+
+Please note that we are not associated with JumpStart or DreamWorks.
+
+-	The SoDOff Team</Text>
+  	</Message>
+	<NoticeBeforeInDays>300</NoticeBeforeInDays>
+	<DisplayCount>-1</DisplayCount>
+  </Scheduled>
+</ServerDown>
