@@ -107,7 +107,13 @@ public class AssetMiddleware
                             }
 
                             // after successfully write data to temporary file, rename it to proper asset filename
-                            File.Move(filePathTmp, filePath);
+                            try {
+                                File.Move(filePathTmp, filePath);
+                            } catch (System.IO.IOException) {
+                                // this can happen for example if two clients request the same file in the same time
+                                // TODO: avoid redundant download in those cases
+                                File.Delete(filePathTmp);
+                            }
                         } else {
                             await inputStream.CopyToAsync(context.Response.Body);
                         }
