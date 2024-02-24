@@ -35,22 +35,22 @@ public class MissionStoreSingleton {
         return DeepCopy(missions[missionID]);
     }
 
-    public int[] GetActiveMissions(string apiKey) {
-        if (ClientVersion.Use2013SoDTutorial(apiKey)) {
-            return activeMissionsV1;
-        }
-        if (ClientVersion.IsMaM(apiKey)) {
+    public int[] GetActiveMissions(uint gameVersion) {
+        if (gameVersion == ClientVersion.MaM) {
             return activeMissionsMaM;
+        }
+        if (gameVersion < 0xa2a00a0a) {
+            return activeMissionsV1;
         }
         return activeMissions;
     }
 
-    public int[] GetUpcomingMissions(string apiKey) {
-        if (ClientVersion.Use2013SoDTutorial(apiKey)) {
-            return upcomingMissionsV1;
-        }
-        if (ClientVersion.IsMaM(apiKey)) {
+    public int[] GetUpcomingMissions(uint gameVersion) {
+        if (gameVersion == ClientVersion.MaM) {
             return upcomingMissionsMaM;
+        }
+        if (gameVersion < 0xa2a00a0a) {
+            return upcomingMissionsV1;
         }
         return upcomingMissions;
     }

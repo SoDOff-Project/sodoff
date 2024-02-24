@@ -17,20 +17,20 @@ public class MissionService {
         this.achievementService = achievementService;
     }
 
-    public Mission GetMissionWithProgress(int missionId, int userId, string apiKey) {
+    public Mission GetMissionWithProgress(int missionId, int userId, uint gameVersion) {
         Mission mission = null;
 
         if (missionId == 999) { // TODO This is not a pretty solution with hard-coded values.
-            if (ClientVersion.Use2013SoDTutorial(apiKey)) {
+            if (gameVersion < 0xa2a03a0a) {
                 mission = missionStore.GetMission(30999);
-            } else if (ClientVersion.Use2016SoDTutorial(apiKey)) {
+            } else if (gameVersion < 0xa3a03a0a) {
                 mission = missionStore.GetMission(20999);
-            } else if (ClientVersion.Use2019SoDTutorial(apiKey)) {
+            } else if (gameVersion <= 0xa3a23a0a) {
                 mission = missionStore.GetMission(10999);
             }
-        } else if (missionId == 1044 && ClientVersion.IsMaM(apiKey)) {
+        } else if (missionId == 1044 && gameVersion == ClientVersion.MaM) {
             mission = missionStore.GetMission(11044);
-        } else if (missionId == 1074 && ClientVersion.IsMaM(apiKey)) {
+        } else if (missionId == 1074 && gameVersion == ClientVersion.MaM) {
             mission = missionStore.GetMission(11074);
         }
 
@@ -45,7 +45,7 @@ public class MissionService {
         return mission;
     }
 
-    public List<MissionCompletedResult> UpdateTaskProgress(int missionId, int taskId, int userId, bool completed, string xmlPayload, string apiKey) {
+    public List<MissionCompletedResult> UpdateTaskProgress(int missionId, int taskId, int userId, bool completed, string xmlPayload, uint gameVersion) {
         SetTaskProgressDB(missionId, taskId, userId, completed, xmlPayload);
 
         // NOTE: This won't work if a mission can be completed by completing an inner mission
@@ -59,7 +59,7 @@ public class MissionService {
         // I do know that outer missions have inner missions as RuleItems, and if the RuleItem is supposed to be "complete" and it isn't, the quest breaks when the player quits the game and loads the quest again
         List<MissionCompletedResult> result = new();
         if (completed) {
-            Mission mission = GetMissionWithProgress(missionId, userId, apiKey);
+            Mission mission = GetMissionWithProgress(missionId, userId, gameVersion);
             if (MissionCompleted(mission)) {
                 // Update mission from active to completed
                 Viking viking = ctx.Vikings.FirstOrDefault(x => x.Id == userId)!;
@@ -74,7 +74,7 @@ public class MissionService {
                             task.Payload = null;
                             task.Completed = false;
                         }
-                        if (missionStore.GetActiveMissions(apiKey).Contains(missionId))
+                        if (missionStore.GetActiveMissions(gameVersion).Contains(missionId))
                             missionState.MissionStatus = MissionStatus.Active;
                         else
                             missionState.MissionStatus = MissionStatus.Upcoming;
@@ -126,17 +126,17 @@ public class MissionService {
             mission.Completed = 1;
     }
 
-    public void SetUpMissions(Viking viking, string apiKey) {
+    public void SetUpMissions(Viking viking, uint gameVersion) {
         viking.MissionStates = new List<MissionState>();
 
-        foreach (int m in missionStore.GetActiveMissions(apiKey)) {
+        foreach (int m in missionStore.GetActiveMissions(gameVersion)) {
             viking.MissionStates.Add(new MissionState {
                 MissionId = m,
                 MissionStatus = MissionStatus.Active
             });
         }
         
-        foreach (int m in missionStore.GetUpcomingMissions(apiKey)) {
+        foreach (int m in missionStore.GetUpcomingMissions(gameVersion)) {
             viking.MissionStates.Add(new MissionState {
                 MissionId = m,
                 MissionStatus = MissionStatus.Upcoming

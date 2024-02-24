@@ -126,12 +126,13 @@ public class RegistrationController : Controller {
             Rooms = new List<Room>()
         };
 
-        missionService.SetUpMissions(v, apiKey);
+        uint gameVersion = ClientVersion.GetVersion(apiKey);
+        missionService.SetUpMissions(v, gameVersion);
 
         ctx.Vikings.Add(v);
         ctx.SaveChanges();
 
-        if (ClientVersion.Use2013SoDTutorial(apiKey)) {
+        if (gameVersion < 0xa2a09a0a) {
             keyValueService.SetPairData(null, v, null, 2017, new Schema.PairData {
                 Pairs = new Schema.Pair[]{
                     new Schema.Pair {

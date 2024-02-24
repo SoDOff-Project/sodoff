@@ -116,7 +116,7 @@ public class ProfileController : Controller {
             avatarData.Id = viking.Id;
         }
 
-        if (avatarData != null && ClientVersion.Use2019SoDTutorial(apiKey)) {
+        if (avatarData != null && ClientVersion.GetVersion(apiKey) == 0xa3a12a0a) { // TODO adjust version number: we don't know for which versions it is required (for 3.12 it is, for 3.19 and 3.0 it's not)
             if (avatarData.Part.FirstOrDefault(e => e.PartType == "Sword") is null) {
                 var extraParts = new AvatarDataPart[] {
                     new AvatarDataPart {
@@ -139,7 +139,7 @@ public class ProfileController : Controller {
                 ParentUserID = viking.UserId.ToString(),
                 Username = viking.Name,
                 FirstName = viking.Name,
-                MultiplayerEnabled = !ClientVersion.IsOldSoD(apiKey),
+                MultiplayerEnabled = ClientVersion.IsMultiplayerSupported(apiKey),
                 Locale = "en-US", // placeholder
                 GenderID = Gender.Male, // placeholder
                 OpenChatEnabled = true,

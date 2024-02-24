@@ -95,7 +95,7 @@ public class AuthenticationController : Controller {
                 Username = user.Username,
                 MembershipID = "ef84db9-59c6-4950-b8ea-bbc1521f899b", // placeholder
                 FacebookUserID = 0,
-                MultiplayerEnabled = !ClientVersion.IsOldSoD(apiKey),
+                MultiplayerEnabled = ClientVersion.IsMultiplayerSupported(apiKey),
                 IsApproved = true,
                 Age = 24,
                 OpenChatEnabled = true
@@ -110,7 +110,7 @@ public class AuthenticationController : Controller {
                 UserID = viking.Uid.ToString(),
                 Username = viking.Name,
                 FacebookUserID = 0,
-                MultiplayerEnabled = !ClientVersion.IsOldSoD(apiKey),
+                MultiplayerEnabled = ClientVersion.IsMultiplayerSupported(apiKey),
                 IsApproved = true,
                 Age = 24,
                 OpenChatEnabled = true

@@ -646,9 +646,10 @@ public class ContentController : Controller {
         if (viking is null)
             return Ok("error");
         
+        uint gameVersion = ClientVersion.GetVersion(apiKey);
         UserMissionStateResult result = new UserMissionStateResult { Missions = new List<Mission>() };
         foreach (var mission in viking.MissionStates.Where(x => x.MissionStatus == MissionStatus.Upcoming))
-            result.Missions.Add(missionService.GetMissionWithProgress(mission.MissionId, viking.Id, apiKey));
+            result.Missions.Add(missionService.GetMissionWithProgress(mission.MissionId, viking.Id, gameVersion));
 
         result.UserID = viking.Uid;
         return Ok(result);
@@ -662,9 +663,10 @@ public class ContentController : Controller {
         if (viking is null)
             return Ok("error");
         
+        uint gameVersion = ClientVersion.GetVersion(apiKey);
         UserMissionStateResult result = new UserMissionStateResult { Missions = new List<Mission>()  };
         foreach (var mission in viking.MissionStates.Where(x => x.MissionStatus == MissionStatus.Active)) {
-            Mission updatedMission = missionService.GetMissionWithProgress(mission.MissionId, viking.Id, apiKey);
+            Mission updatedMission = missionService.GetMissionWithProgress(mission.MissionId, viking.Id, gameVersion);
             if (mission.UserAccepted != null)
                 updatedMission.Accepted = (bool)mission.UserAccepted;
             result.Missions.Add(updatedMission);
@@ -682,9 +684,10 @@ public class ContentController : Controller {
         if (viking is null)
             return Ok("error");
 
+        uint gameVersion = ClientVersion.GetVersion(apiKey);
         UserMissionStateResult result = new UserMissionStateResult { Missions = new List<Mission>()  };
         foreach (var mission in viking.MissionStates.Where(x => x.MissionStatus == MissionStatus.Completed))
-            result.Missions.Add(missionService.GetMissionWithProgress(mission.MissionId, viking.Id, apiKey));
+            result.Missions.Add(missionService.GetMissionWithProgress(mission.MissionId, viking.Id, gameVersion));
 
         result.UserID = viking.Uid;
         return Ok(result);
@@ -716,9 +719,10 @@ public class ContentController : Controller {
         if (viking is null)
             return Ok("error");
 
+        uint gameVersion = ClientVersion.GetVersion(apiKey);
         UserMissionStateResult result = new UserMissionStateResult { Missions = new List<Mission>()  };
         foreach (var mission in viking.MissionStates.Where(x => x.MissionStatus != MissionStatus.Completed)) {
-            Mission updatedMission = missionService.GetMissionWithProgress(mission.MissionId, viking.Id, apiKey);
+            Mission updatedMission = missionService.GetMissionWithProgress(mission.MissionId, viking.Id, gameVersion);
 
             if (mission.MissionStatus == MissionStatus.Upcoming) {
                 // NOTE: in old SoD job board mission must be send as non active and required accept
@@ -748,19 +752,20 @@ public class ContentController : Controller {
         if (viking is null)
             return Ok("error");
 
+        uint gameVersion = ClientVersion.GetVersion(apiKey);
         UserMissionStateResult result = new UserMissionStateResult { Missions = new List<Mission>()  };
         if (filterV2.MissionPair.Count > 0) {
             foreach (var m in filterV2.MissionPair)
                 if (m.MissionID != null)
-                    result.Missions.Add(missionService.GetMissionWithProgress((int)m.MissionID, viking.Id, apiKey));
+                    result.Missions.Add(missionService.GetMissionWithProgress((int)m.MissionID, viking.Id, gameVersion));
         // TODO: probably should also check for mission based on filterV2.ProductGroupID vs mission.GroupID
         } else {
             if (filterV2.GetCompletedMission ?? false) {
                 foreach (var mission in viking.MissionStates.Where(x => x.MissionStatus == MissionStatus.Completed))
-                    result.Missions.Add(missionService.GetMissionWithProgress(mission.MissionId, viking.Id, apiKey));
+                    result.Missions.Add(missionService.GetMissionWithProgress(mission.MissionId, viking.Id, gameVersion));
             } else {
                 foreach (var mission in viking.MissionStates.Where(x => x.MissionStatus != MissionStatus.Completed))
-                    result.Missions.Add(missionService.GetMissionWithProgress(mission.MissionId, viking.Id, apiKey));
+                    result.Missions.Add(missionService.GetMissionWithProgress(mission.MissionId, viking.Id, gameVersion));
             }
         }
 
@@ -776,7 +781,8 @@ public class ContentController : Controller {
         if (viking.Uid != userId)
             return Unauthorized("Can't set not owned task");
 
-        List<MissionCompletedResult> results = missionService.UpdateTaskProgress(missionId, taskId, viking.Id, completed, xmlPayload, apiKey);
+        uint gameVersion = ClientVersion.GetVersion(apiKey);
+        List<MissionCompletedResult> results = missionService.UpdateTaskProgress(missionId, taskId, viking.Id, completed, xmlPayload, gameVersion);
 
         SetTaskStateResult taskResult = new SetTaskStateResult {
             Success = true,
@@ -797,7 +803,8 @@ public class ContentController : Controller {
         if (viking.Uid != userId)
             return Unauthorized("Can't set not owned task");
 
-        List<MissionCompletedResult> results = missionService.UpdateTaskProgress(missionId, taskId, viking.Id, completed, xmlPayload, apiKey);
+        uint gameVersion = ClientVersion.GetVersion(apiKey);
+        List<MissionCompletedResult> results = missionService.UpdateTaskProgress(missionId, taskId, viking.Id, completed, xmlPayload, gameVersion);
 
         SetTaskStateResult taskResult = new SetTaskStateResult {
             Success = true,
