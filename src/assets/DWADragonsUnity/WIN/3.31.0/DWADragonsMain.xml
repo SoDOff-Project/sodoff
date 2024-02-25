@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ProductConfig>
+	<!-- API SERVER CONFIG -->
+	
+	<ContentServerURL>http://localhost:5000/ContentWebService.asmx/</ContentServerURL>
+	<ContentServerV2URL>http://localhost:5000/V2/ContentWebService.asmx/</ContentServerV2URL>
+	<ContentServerV3URL>http://localhost:5000/v3/ContentWebService.asmx/</ContentServerV3URL>
+	<ContentServerV4URL>http://localhost:5000/V4/ContentWebService.asmx/</ContentServerV4URL>
+	<TrackServerURL>http://localhost:5000/ContentWebService.asmx/</TrackServerURL>
+
+	<ItemStoreServerURL>http://localhost:5000/ItemStoreWebService.asmx/</ItemStoreServerURL>
+	<AchievementServerURL>http://localhost:5000/AchievementWebService.asmx/</AchievementServerURL>
+	<AchievementServerV2URL>http://localhost:5000/V2/AchievementWebService.asmx/</AchievementServerV2URL>
+
+	<MembershipServerURL>http://localhost:5000/MembershipWebService.asmx/</MembershipServerURL>
+	<AuthenticationServerURL>http://localhost:5000/AuthenticationWebService.asmx/</AuthenticationServerURL>
+	<AuthenticationServerV3URL>http://localhost:5000/v3/AuthenticationWebService.asmx/</AuthenticationServerV3URL>
+	<RegistrationServerV3URL>http://localhost:5000/v3/RegistrationWebService.asmx/</RegistrationServerV3URL>
+	<RegistrationServerV4URL>http://localhost:5000/V4/RegistrationWebService.asmx/</RegistrationServerV4URL>
+	<UserServerURL>http://localhost:5000/ProfileWebService.asmx/</UserServerURL>
+
+	<ConfigurationServerURL>http://localhost:5000/ConfigurationWebService.asmx/</ConfigurationServerURL>
+	<RatingServerV2URL>http://localhost:5000/V2/Ratingwebservice.asmx/</RatingServerV2URL>
+	<ChallengeServerURL>http://localhost:5000/ChallengeWebService.asmx/</ChallengeServerURL>
+	<MessagingServerURL>http://localhost:5000/MessagingWebService.asmx/</MessagingServerURL>
+
+	<!-- not implemented - social system -->
+	<GroupServerURL>http://localhost:5000/GroupWebService.asmx/</GroupServerURL>
+	<GroupServerV2URL>http://localhost:5000/V2/GroupWebService.asmx/</GroupServerV2URL>
+	<MessageServerURL>http://localhost:5000/MessageWebService.asmx/</MessageServerURL>
+	<MessageServerV2URL>http://localhost:5000/v2/MessageWebService.asmx/</MessageServerV2URL>
+	<MessageServerV3URL>http://localhost:5000/v3/MessageWebService.asmx/</MessageServerV3URL>
+	<InviteServerV2URL>http://localhost:5000/v2/InviteFriendWebService.asmx/</InviteServerV2URL>
+	<ChatServerURL>http://localhost:5000/ChatWebService.asmx/</ChatServerURL>
+
+	<!-- unused -->
+	<AnalyticsServerURL>http://localhost/AnalyticsWebService.asmx/</AnalyticsServerURL>
+	<MissionServerURL>http://localhost/MissionWebService.asmx/</MissionServerURL>
+	<AvatarWebServiceURL>http://localhost/AvatarWebService.asmx/</AvatarWebServiceURL>
+	<RatingServerURL>http://localhost/RatingWebService.asmx/</RatingServerURL>
+	<ScoreServerURL>http://localhost/ScoreWebService.asmx/</ScoreServerURL>
+	<MobileStoreURL>http://localhost/MobileStoreWebService.asmx/</MobileStoreURL>
+	<SubscriptionServerURL>http://localhost/SubscriptionWebService.asmx/</SubscriptionServerURL>
+	<PaymentServerURL>http://localhost/PaymentWebService.asmx/</PaymentServerURL>
+	<PaymentServerV2URL>http://localhost/V2/PaymentWebService.asmx/</PaymentServerV2URL>
+	<PrizeCodeServerURL>http://localhost/PrizeCodeWebService.asmx/</PrizeCodeServerURL>
+	<PrizeCodeServerV2URL>http://localhost/Common/V2/PrizeCodeWebService.asmx/</PrizeCodeServerV2URL>
+	<CalendarServerURL>http://localhost/ContentServer/CalendarWebService.asmx/</CalendarServerURL>
+	<PushNotificationURL>http://localhost/RegistrationWebService.asmx/</PushNotificationURL>
+	<LocaleServerURL>http://localhost/LocaleService.asmx/</LocaleServerURL>
+	<LocaleServerV2URL>http://localhost/V2/LocaleWebService.asmx/</LocaleServerV2URL>
+	<TokenExpiredURL>http://localhost/launch.aspx</TokenExpiredURL>
+
+	<!-- SMARTFOX SERVER CONFIG -->
+	
+	<MMOServer>localhost</MMOServer>
+	<MMOServerPort>9933</MMOServerPort>
+	
+	<MMOServerVersion>S2X</MMOServerVersion>
+	<MMOIdleTimeout>240</MMOIdleTimeout>
+	<MMODebug>false</MMODebug>
+	<MMOHttpPort>8080</MMOHttpPort>
+	<MMOUseBlueBox>false</MMOUseBlueBox>
+	<MMOBlueBoxPollingRate>500</MMOBlueBoxPollingRate>
+	<MMOUDPPollingRate>500</MMOUDPPollingRate>
+	<ZoneInfoUpdateInterval>300000</ZoneInfoUpdateInterval>
+
+	<!-- ASSET SERVER CONFIGURATION -->
+	
+	<RootURL>http://localhost:5001/.com/DWADragonsUnity/WIN/{Version}/Mid/</RootURL>
+	<ContentDataURL>http://localhost:5001/.com/DWADragonsUnity/WIN/{Version}/Mid/contentdata</ContentDataURL>
+	<DataURL>http://localhost:5001/.com/DWADragonsUnity/WIN/{Version}/Mid/data</DataURL>
+	<SceneURL>http://localhost:5001/.com/DWADragonsUnity/WIN/{Version}/Mid/scene</SceneURL>
+	<SharedDataURL>http://localhost:5001/.com/DWADragonsUnity/WIN/{Version}/Mid/shareddata</SharedDataURL>
+	<SoundURL>http://localhost:5001/.com/DWADragonsUnity/WIN/{Version}/Mid/sound</SoundURL>
+	<MoviesURL>http://localhost:5001/.com/DWADragonsUnity/WIN/{Version}/Mid/movies</MoviesURL>
+
+	<LocalRootURL>.</LocalRootURL>
+	<LocalContentDataURL>./contentdata</LocalContentDataURL>
+	<LocalDataURL>./data</LocalDataURL>
+	<LocalSceneURL>./scene</LocalSceneURL>
+	<LocalSharedDataURL>./shareddata</LocalSharedDataURL>
+	<LocalSoundURL>./sound</LocalSoundURL>
+	<LocalMoviesURL>./movies</LocalMoviesURL>
+
+	<AppURL>.</AppURL>
+	<Token></Token>
+	
+	<LogEventServer>127.0.0.1</LogEventServer>
+
+	<ConsolePassword>6c955c0b5efd67396e950f56542e86b6</ConsolePassword>
+	<UnityCacheSize>2000000000</UnityCacheSize>
+	<Manifests>dwavatar</Manifests>
+	<EnablePlayfab>false</EnablePlayfab>
+
+	<TokenExpiredText>
+		<Text>Your Viking is now idle. Click on the OK button to reconnect.</Text>
+		<ID>42286</ID>
+	</TokenExpiredText>
+	<LoginFromOtherLocationText>
+		<Text>You have been logged out because you have signed in from another computer or device.</Text>
+		<ID>9000</ID>
+	</LoginFromOtherLocationText>
+	<DisconnectText>
+		<Text>Your Viking is now idle. Click on the OK button to reconnect.</Text>
+		<ID>9001</ID>
+	</DisconnectText>
+	<DisconnectTitleText>
+		<Text>Notification</Text>
+		<ID>10674</ID>
+	</DisconnectTitleText>
+	<ProductRuleFailedText>
+		<Text>Download failed, please retry! Possible invalid DES secret in client!</Text>
+		<ID>42287</ID>
+	</ProductRuleFailedText>
+
+	<PlatformSettings Name="default">
+		<MaxMMOData DefaultMaxMMO="50" DefaultMaxFullMMO="50" />
+		<GraphicsSettings>
+			<Texture>
+				<Default>Mid</Default>
+				<Available>Low,Mid,High</Available>
+			</Texture>
+			<Shadow>
+				<Default>High</Default>
+				<Available>Off,Low,Mid,High</Available>
+			</Shadow>
+			<Effects>
+				<Default>Low</Default>
+				<Available>Off,Low,Mid,High</Available>
+			</Effects>
+		</GraphicsSettings>
+		<DownloadTextureSize>128</DownloadTextureSize>
+	</PlatformSettings>
+
+	<Locale>
+			<ID>en-US</ID>
+	</Locale>
+	<Locale>
+		<ID>es-MX</ID>
+		<Variant>es</Variant>
+		<Variant>es-ES</Variant>
+		<Variant>es-LA</Variant>
+		<Variant>es-US</Variant>
+		<Variant>es_ES</Variant>
+		<Variant>es_LA</Variant>
+		<Variant>es_MX</Variant>
+		<Variant>es_US</Variant>
+		<Variant>spanish</Variant>
+	</Locale>
+	<Locale>
+		<ID>pt-BR</ID>
+		<Variant>pt</Variant>
+		<Variant>pt-PT</Variant>
+		<Variant>pt_BR</Variant>
+		<Variant>pt_PT</Variant>
+		<Variant>brazilian</Variant>
+	</Locale>
+	<Locale>
+		<ID>zh-CN</ID>
+		<Variant>zh</Variant>
+		<Variant>zh-Hans</Variant>
+		<Variant>zh_CN</Variant>
+		<Variant>zh_Hans</Variant>
+		<Variant>schinese</Variant>
+	</Locale>
+	<Locale>
+		<ID>de-DE</ID>
+		<Variant>de</Variant>
+		<Variant>de-CH</Variant>
+		<Variant>de_DE</Variant>
+		<Variant>de_CH</Variant>
+		<Variant>german</Variant>
+	</Locale>
+	<Locale>
+		<ID>fr-CA</ID>
+		<Variant>fr</Variant>
+		<Variant>fr-FR</Variant>
+		<Variant>fr-CH</Variant>
+		<Variant>fr_CA</Variant>
+		<Variant>fr_FR</Variant>
+		<Variant>fr_CH</Variant>
+		<Variant>french</Variant>
+	</Locale>
+	<Locale>
+		<ID>ko-KR</ID>
+		<Variant>ko</Variant>
+		<Variant>ko_KR</Variant>
+		<Variant>koreana</Variant>
+	</Locale>
+	<Locale>
+		<ID>ru-RU</ID>
+		<Variant>ru</Variant>
+		<Variant>ru_RU</Variant>
+		<Variant>russian</Variant>
+	</Locale>
+	<Locale>
+		<ID>th-TH</ID>
+		<Variant>th</Variant>
+		<Variant>th-TH</Variant>
+		<Variant>th_TH</Variant>
+	</Locale>
+	<Locale>
+		<ID>ar-EG</ID>
+		<Variant>ar</Variant>
+		<Variant>ar-DZ</Variant>
+		<Variant>ar-BH</Variant>
+		<Variant>ar-IQ</Variant>
+		<Variant>ar-JO</Variant>
+		<Variant>ar-KW</Variant>
+		<Variant>ar-LB</Variant>
+		<Variant>ar-LY</Variant>
+		<Variant>ar-MA</Variant>
+		<Variant>ar-OM</Variant>
+		<Variant>ar-QA</Variant>
+		<Variant>ar-SA</Variant>
+		<Variant>ar-SY</Variant>
+		<Variant>ar-TN</Variant>
+		<Variant>ar-AE</Variant>
+		<Variant>ar-YE</Variant>
+	</Locale>
+</ProductConfig>
