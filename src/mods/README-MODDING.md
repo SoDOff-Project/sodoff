@@ -1,47 +1,47 @@
-# Server side modding
+# Server Side Modding
 
-## Mod installations
+## Mod Installation
 
-Place mods as directory inside `src/mods`.
-The mod directory must contain `manifest.xml` file in the first directory tree level.
+Place mods as individual directories inside `src/mods`.
+Each mod folder must contain a `manifest.xml` file at its top directory level.
 For example: `src/mods/MyFirstMod/manifest.xml`
 
 ## `manifest.xml` syntax
 
-Root node for `manifest.xml` is `<sodoffmod>`. It can contain child nodes:
+The root node in `manifest.xml` is `<sodoffmod>`. It can include the following child nodes:
 
 * `<items>` - item database manipulation
 * `<store>` - store database manipulation (not implemented yet)
 * ...
 
-### item database manipulation
+### Item Database Manipulation
 
-`<items>` may contain may `<item>` child nodes. Each of them define one item modification. Modification type can be specified by `action` attribute, supported values:
+`<items>` may contain `<item>` child nodes. Each of them defines one item modification. The modification type can be specified by the `action` attribute. The supported values are:
 
 * `add` - add new item
-	* default when no `action` attribute
+	* default if the `action` attribute is not present
 * `remove` - remove item
-* `replace` - replace item definition for existed item id
+* `replace` - replace item definition for an existed item ID
 
-`<item>` node may contains subnodes:
+`<item>` may contain the following subnodes:
 
-* `<id>` - specify item id
-	* if not used item id will be read from item definition in `<data>`
-* `<storeID>` - specify store id to add item to them
-	* can occur multiple times
-	* if not used item will be not added to any store
-* `<data>` - item definition (syntax like `<I>` node in [src/Resources/items.xml](../Resources/items.xml))
-	* can be committed in `remove` action`
+* `<id>` - item ID
+	* if not used, the item ID will be retrieved from the item definition within `<data>`
+* `<storeID>` - specifies the store ID to which the item will be added
+	* can be used multiple times
+	* if not used, the item will not be added to any store
+* `<data>` - item definition (syntax like the `<I>` node in [src/Resources/items.xml](../Resources/items.xml))
+	* can be omitted in the `remove` action
 
 #### Example
 
-* remove Toothless ticket item (item id `8034`)
-* add Night Furry Egg item (item id `29999`) and add it to store (store id `92`, for store description see comment in [src/Resources/store.xml](../Resources/store.xml).
-* item id (for new items) should be unique to avoid mod collision, recommended format to use: `prefix * 10000 + private_id`, where:
-	* `prefix` must be grater than 2 to avoid collision with original game and official SoDOff items 
-	* `prefix` is unique mod author prefix (see SoDOff discord for details)
-	* `private_id` is for digit number (0-9999) to free use by the this author
-	* for example for `prefix = 789` and `private_id = 13` item id will be `7890013`
+* remove the Toothless ticket item (item ID `8034`)
+* add a Night Furry Egg item (item ID `29999`) and add it to store (store ID `92`, for store description see comment in [src/Resources/store.xml](../Resources/store.xml))
+* The item ID for new items should be unique to prevent mod collisions. The recommended format is: `prefix * 10000 + private_id`, where:
+	* `prefix` must be grater than 2 to avoid collision with the original game and official SoDOff items
+	* `prefix` is a unique mod author prefix
+	* `private_id` ranges from 0 to 9999 and is available for unrestricted use by the author
+	* for instance, if `prefix = 789` and `private_id = 13`, the item ID would be `7890013`
 
 ```
 <sodoffmod>
