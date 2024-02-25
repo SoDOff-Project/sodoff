@@ -36,12 +36,12 @@ The root node in `manifest.xml` is `<sodoffmod>`. It can include the following c
 #### Example
 
 * remove the Toothless ticket item (item ID `8034`)
-* add a Night Furry Egg item (item ID `29999`) and add it to store (store ID `92`, for store description see comment in [src/Resources/store.xml](../Resources/store.xml))
-* The item ID for new items should be unique to prevent mod collisions. The recommended format is: `prefix * 10000 + private_id`, where:
-	* `prefix` must be grater than 2 to avoid collision with the original game and official SoDOff items
+* add a Night Furry Egg item (item ID `99999`) and add it to store (store ID `92`, for store description see comment in [src/Resources/store.xml](../Resources/store.xml))
+* The item ID for new items should be unique to prevent mod collisions. The recommended format is: `prefix * 100000 + private_id`, where:
+	* `prefix` must be grater than 0 to avoid collision with the original game and official SoDOff items
 	* `prefix` is a unique mod author prefix
-	* `private_id` ranges from 0 to 9999 and is available for unrestricted use by the author
-	* for instance, if `prefix = 789` and `private_id = 13`, the item ID would be `7890013`
+	* `private_id` ranges from 0 to 99999 and is available for unrestricted use by the author
+	* for instance, if `prefix = 789` and `private_id = 123`, the item ID would be `78900123`
 
 ```
 <sodoffmod>
@@ -56,19 +56,19 @@ The root node in `manifest.xml` is `<sodoffmod>`. It can include the following c
 				<at>
 					<k>PetTypeID</k>
 					<v>17</v>
-					<id>29999</id>
+					<id>99999</id>
 				</at>
 				<c>
 					<cid>456</cid>
 					<cn>Dragons Dragon Egg</cn>
 					<i xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
-					<id>29999</id>
+					<id>99999</id>
 				</c>
 				<c>
 					<cid>550</cid>
 					<cn>Strike Class Eggs</cn>
 					<i xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:nil="true"/>
-					<id>29999</id>
+					<id>99999</id>
 				</c>
 				<ct>0</ct>
 				<ct2>250</ct2>
@@ -76,7 +76,7 @@ The root node in `manifest.xml` is `<sodoffmod>`. It can include the following c
 				<d>Tame the cunning and mischievous Night Furry in your stables</d>
 				<icn>RS_DATA/DragonEgg.unity3d/IcoEggDevilishDervish</icn>
 				<im>-1</im>
-				<id>29999</id>
+				<id>99999</id>
 				<itn>Night Furry Egg</itn>
 				<l>false</l>
 				<s>false</s>
