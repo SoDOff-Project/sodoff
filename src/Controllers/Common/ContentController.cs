@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using sodoff.Attributes;
 using sodoff.Model;
 using sodoff.Schema;
 using sodoff.Services;
 using sodoff.Util;
+using sodoff.Configuration;
 using System;
 using System.Globalization;
 
@@ -19,7 +21,9 @@ public class ContentController : Controller {
     private InventoryService inventoryService;
     private GameDataService gameDataService;
     private Random random = new Random();
-    public ContentController(DBContext ctx, KeyValueService keyValueService, ItemService itemService, MissionService missionService, RoomService roomService, AchievementService achievementService, InventoryService inventoryService, GameDataService gameDataService) {
+    private readonly IOptions<ApiServerConfig> config;
+    
+    public ContentController(DBContext ctx, KeyValueService keyValueService, ItemService itemService, MissionService missionService, RoomService roomService, AchievementService achievementService, InventoryService inventoryService, GameDataService gameDataService, IOptions<ApiServerConfig> config) {
         this.ctx = ctx;
         this.keyValueService = keyValueService;
         this.itemService = itemService;
@@ -28,6 +32,7 @@ public class ContentController : Controller {
         this.achievementService = achievementService;
         this.inventoryService = inventoryService;
         this.gameDataService = gameDataService;
+        this.config = config;
     }
 
     [HttpPost]
@@ -1630,7 +1635,12 @@ public class ContentController : Controller {
             return null;
         }
 
-        string imageUrl = string.Format("{0}://{1}/RawImage/{2}/{3}/{4}.jpg", HttpContext.Request.Scheme, HttpContext.Request.Host, viking.Uid, ImageType, ImageSlot);
+        string imageUrl;
+        if (String.IsNullOrEmpty(config.Value.ResponseURL)) {
+            imageUrl = string.Format("{0}://{1}/RawImage/{2}/{3}/{4}.jpg", HttpContext.Request.Scheme, HttpContext.Request.Host, viking.Uid, ImageType, ImageSlot);
+        } else {
+            imageUrl = string.Format("{0}/RawImage/{1}/{2}/{3}.jpg", config.Value.ResponseURL, viking.Uid, ImageType, ImageSlot);
+        }
 
         return new ImageData {
             ImageURL = imageUrl,

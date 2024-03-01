@@ -13,6 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.Configure<AssetServerConfig>(builder.Configuration.GetSection("AssetServer"));
+builder.Services.Configure<ApiServerConfig>(builder.Configuration.GetSection("ApiServer"));
 builder.Services.AddControllers(options => {
     options.OutputFormatters.Add(new XmlSerializerOutputFormatter(new XmlWriterSettings() { OmitXmlDeclaration = false }));
     options.OutputFormatters.RemoveType<HttpNoContentOutputFormatter>();
