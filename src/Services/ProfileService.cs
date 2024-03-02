@@ -7,10 +7,29 @@ namespace sodoff.Services
     public class ProfileService
     {
         private readonly DBContext ctx;
+        private List<Schema.ProfileAnswer> allAnswersFromData;
+        private List<ProfileQuestion> allQuestionsFromData;
 
         public ProfileService(DBContext ctx)
         {
             this.ctx = ctx;
+
+            ProfileQuestionData questionData = XmlUtil.DeserializeXml<ProfileQuestionData>(XmlUtil.ReadResourceXmlString("questiondata"));
+
+            allAnswersFromData = new List<Schema.ProfileAnswer>();
+            allQuestionsFromData = new List<ProfileQuestion>();
+
+            foreach(var list in questionData.Lists)
+            {
+                foreach(var question in list.Questions)
+                {
+                    allQuestionsFromData.Add(question);
+                    foreach(var answer in question.Answers)
+                    {
+                        allAnswersFromData.Add(answer);
+                    }
+                }
+            }
         }
 
         public bool SetAnswer(Viking viking, int qId, int aId)
@@ -28,7 +47,6 @@ namespace sodoff.Services
 
             Model.ProfileAnswer answer = new Model.ProfileAnswer
             {
-                VikingId = viking.Id,
                 AnswerID = aId,
                 QuestionID = qId,
             };
@@ -77,30 +95,12 @@ namespace sodoff.Services
 
         public ProfileQuestion GetQuestionFromAnswerId(int aId)
         {
-            ProfileQuestionData questionData = XmlUtil.DeserializeXml<ProfileQuestionData>(XmlUtil.ReadResourceXmlString("questiondata"));
-
-            List<Schema.ProfileAnswer> allAnswersFromData = new List<Schema.ProfileAnswer>();
-            List<ProfileQuestion> allQuestionsFromData = new List<ProfileQuestion>();
-
-            foreach(var list in questionData.Lists)
-            {
-                foreach(var question in list.Questions)
-                {
-                    allQuestionsFromData.Add(question);
-                    foreach(var answer in question.Answers)
-                    {
-                        allAnswersFromData.Add(answer);
-                    }
-                }
-            }
-
-            Schema.ProfileAnswer profileAnswer = allAnswersFromData.FirstOrDefault(e => e.ID == aId);
+            Schema.ProfileAnswer? profileAnswer = allAnswersFromData.FirstOrDefault(e => e.ID == aId);
 
             if (profileAnswer != null)
             {
-                ProfileQuestion questionFromAnswer = allQuestionsFromData.FirstOrDefault(e => e.ID == profileAnswer.QuestionID);
-                if (questionFromAnswer != null) return questionFromAnswer;
-                else return null!;
+                ProfileQuestion? questionFromAnswer = allQuestionsFromData.FirstOrDefault(e => e.ID == profileAnswer.QuestionID);
+                return questionFromAnswer!;
             }
 
             return null!;

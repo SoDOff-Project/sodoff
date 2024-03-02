@@ -155,7 +155,7 @@ public class ProfileController : Controller {
                 FirstName = viking.Name,
                 MultiplayerEnabled = ClientVersion.IsMultiplayerSupported(apiKey),
                 Locale = "en-US", // placeholder
-                GenderID = viking.Gender,
+                GenderID = avatarData.GenderType,
                 OpenChatEnabled = true,
                 IsApproved = true,
                 RegistrationDate = new DateTime(DateTime.Now.Ticks), // placeholder
