@@ -28,6 +28,10 @@ public class ClientVersion {
             apiKey == "1552008f-4a95-46f5-80e2-58574da65875"
         ) {
             return WoJS;
+        } else if (
+            apiKey == "b4e0f71a-1cda-462a-97b3-0b355e87e0c8"
+        ) {
+            return WoJS+10; // WoJS--Adventureland
         }
         return 0;
     }
