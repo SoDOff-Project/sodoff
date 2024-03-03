@@ -3,8 +3,11 @@
 .DS_Store
 src/bin
 src/obj
-src/sodoff.db
-src/sodoff.db-shm
-src/sodoff.db-wal
+src/sodoff*.db
+src/sodoff*.db-shm
+src/sodoff*.db-wal
+src/assets/
+src/mods/
+src/assets-cache/
 src/Properties
 __pycache__/
