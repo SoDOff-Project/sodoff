@@ -84,9 +84,11 @@ public class ProfileController : Controller {
     private UserProfileData GetProfileDataFromViking(Viking viking, [FromForm] string apiKey) {
         // Get the avatar data
         AvatarData avatarData = null;
+        Gender gender = Gender.Male;
         if (viking.AvatarSerialized is not null) {
             avatarData = XmlUtil.DeserializeXml<AvatarData>(viking.AvatarSerialized);
             avatarData.Id = viking.Id;
+            gender = avatarData.GenderType;
         }
 
         if (avatarData != null && ClientVersion.GetVersion(apiKey) == 0xa3a12a0a) { // TODO adjust version number: we don't know for which versions it is required (for 3.12 it is, for 3.19 and 3.0 it's not)
@@ -114,7 +116,7 @@ public class ProfileController : Controller {
                 FirstName = viking.Name,
                 MultiplayerEnabled = ClientVersion.IsMultiplayerSupported(apiKey),
                 Locale = "en-US", // placeholder
-                GenderID = avatarData.GenderType,
+                GenderID = gender,
                 OpenChatEnabled = true,
                 IsApproved = true,
                 RegistrationDate = new DateTime(DateTime.Now.Ticks), // placeholder
