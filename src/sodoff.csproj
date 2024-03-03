@@ -41,6 +41,7 @@
     <None Remove="Resources\items.xml" />
     <None Remove="Resources\missions.xml" />
     <None Remove="Resources\mmo.xml" />
+    <None Remove="Resources\displaynames.xml" />
     <None Remove="Resources\rankattrib.xml" />
     <None Remove="Resources\rewardmultiplier.xml" />
     <None Remove="Resources\store.xml" />
@@ -50,6 +51,7 @@
     <None Remove="Resources\defaultmissionlist.xml" />
     <None Remove="Resources\defaultmissionlistv1.xml" />
     <None Remove="Resources\defaultmissionlistmam.xml" />
+    <None Remove="Resources\defaultmissionlist_wojs.xml" />
 	<None Remove="Resources\questiondata.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -77,6 +79,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\mmo.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\displaynames.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\rewardmultiplier.xml">
@@ -109,6 +114,9 @@
 	  <EmbeddedResource Include="Resources\missions.xml">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </EmbeddedResource>
+	  <EmbeddedResource Include="Resources\missions_wojs.xml">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </EmbeddedResource>
     <EmbeddedResource Include="Resources\defaultmissionlist.xml">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </EmbeddedResource>
@@ -116,6 +124,9 @@
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </EmbeddedResource>
     <EmbeddedResource Include="Resources\defaultmissionlistmam.xml">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </EmbeddedResource>
+    <EmbeddedResource Include="Resources\defaultmissionlist_wojs.xml">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </EmbeddedResource>
 	  <EmbeddedResource Include="Resources\questiondata.xml">

@@ -33,11 +33,18 @@ public class AuthenticationController : Controller {
     [Route("v3/AuthenticationWebService.asmx/LoginParent")]
     [DecryptRequest("parentLoginData")]
     [EncryptResponse]
-    public IActionResult LoginParent() {
+    public IActionResult LoginParent([FromForm] string apiKey) {
         ParentLoginData data = XmlUtil.DeserializeXml<ParentLoginData>(Request.Form["parentLoginData"]);
 
         // Authenticate the user
-        User? user = ctx.Users.FirstOrDefault(e => e.Username == data.UserName);
+        User? user = null;
+        uint gameVersion = ClientVersion.GetVersion(apiKey);
+        if (gameVersion == ClientVersion.WoJS || gameVersion == ClientVersion.MB) {
+            user = ctx.Users.FirstOrDefault(e => e.Email == data.UserName);
+        } else {
+            user = ctx.Users.FirstOrDefault(e => e.Username == data.UserName);
+        }
+
         if (user is null || new PasswordHasher<object>().VerifyHashedPassword(null, user.Password, data.Password) != PasswordVerificationResult.Success) {
             return Ok(new ParentLoginInfo { Status = MembershipUserStatus.InvalidPassword });
         }
@@ -52,6 +59,11 @@ public class AuthenticationController : Controller {
         ctx.Sessions.Add(session);
         ctx.SaveChanges();
 
+        var childList = new List<sodoff.Schema.UserLoginInfo>();
+        foreach (var viking in user.Vikings) {
+            childList.Add(new sodoff.Schema.UserLoginInfo{UserName = viking.Name, UserID = viking.Uid.ToString()});
+        }
+
         var response = new ParentLoginInfo {
             UserName = user.Username,
             //Email = user.Email, /* disabled to avoid put email in client debug logs */
@@ -59,7 +71,8 @@ public class AuthenticationController : Controller {
             UserID = user.Id.ToString(),
             Status = MembershipUserStatus.Success,
             SendActivationReminder = false,
-            UnAuthorized = false
+            UnAuthorized = false,
+            ChildList = childList.ToArray()
         };
 
         return Ok(response);
@@ -123,8 +136,23 @@ public class AuthenticationController : Controller {
 
     [HttpPost]
     [Produces("application/xml")]
+    [Route("AuthenticationWebService.asmx/IsValidApiToken")] // used by World Of Jumpstart (FutureLand)
+    public IActionResult IsValidApiToken_V1([FromForm] Guid? apiToken) {
+        if (apiToken is null)
+            return Ok(false);
+        User? user = ctx.Sessions.FirstOrDefault(e => e.ApiToken == apiToken)?.User;
+        Viking? viking = ctx.Sessions.FirstOrDefault(e => e.ApiToken == apiToken)?.Viking;
+        if (user is null && viking is null)
+            return Ok(false);
+        return Ok(true);
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
     [Route("AuthenticationWebService.asmx/IsValidApiToken_V2")]
-    public IActionResult IsValidApiToken([FromForm] Guid apiToken) {
+    public IActionResult IsValidApiToken([FromForm] Guid? apiToken) {
+        if (apiToken is null)
+            return Ok(ApiTokenStatus.TokenNotFound);
         User? user = ctx.Sessions.FirstOrDefault(e => e.ApiToken == apiToken)?.User;
         Viking? viking = ctx.Sessions.FirstOrDefault(e => e.ApiToken == apiToken)?.Viking;
         if (user is null && viking is null)

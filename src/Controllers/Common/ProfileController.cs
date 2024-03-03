@@ -61,47 +61,6 @@ public class ProfileController : Controller {
     [Route("ProfileWebService.asmx/GetQuestions")]
     public IActionResult GetQuestions() {
         return Ok(XmlUtil.ReadResourceXmlString("questiondata"));
-
-		//return Ok(new ProfileQuestionData {
-  //          Lists = new ProfileQuestionList[] {
-  //              new ProfileQuestionList {
-  //                  ID = 4,
-  //                  Questions = new ProfileQuestion[] {
-  //                      new ProfileQuestion {
-  //                          CategoryID = 3,
-  //                          IsActive = "true", // this is a string, which makes me sad
-  //                          Locale = "en-US",
-  //                          Ordinal = 1,
-  //                          ID = 48,
-  //                          DisplayText = "How Did You Hear About US ?",
-  //                          Answers = new ProfileAnswer[] {
-  //                              new ProfileAnswer {
-  //                                  ID = 320,
-  //                                  DisplayText = "TV Commercial",
-  //                                  Locale = "en-US",
-  //                                  Ordinal = 1,
-  //                                  QuestionID = 48
-  //                              },
-  //                              new ProfileAnswer {
-  //                                  ID = 324,
-  //                                  DisplayText = "I bought the RIders Of Berk DVD",
-  //                                  Locale = "en-US",
-  //                                  Ordinal = 5,
-  //                                  QuestionID = 48
-  //                              },
-  //                              new ProfileAnswer {
-  //                                  ID = 325,
-  //                                  DisplayText = "I bought the Defenders of Berk DVD",
-  //                                  Locale = "en-US",
-  //                                  Ordinal = 6,
-  //                                  QuestionID = 48
-  //                              }
-  //                          }
-  //                      }
-  //                  }
-  //              }
-  //          }
-  //      });
     }
 
     [HttpPost]

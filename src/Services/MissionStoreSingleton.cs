@@ -12,6 +12,8 @@ public class MissionStoreSingleton {
     private int[] upcomingMissionsV1;
     private int[] activeMissionsMaM;
     private int[] upcomingMissionsMaM;
+    private int[] activeMissionsWoJS;
+    private int[] upcomingMissionsWoJS;
 
     public MissionStoreSingleton() {
         ServerMissionArray missionArray = XmlUtil.DeserializeXml<ServerMissionArray>(XmlUtil.ReadResourceXmlString("missions"));
@@ -29,6 +31,14 @@ public class MissionStoreSingleton {
         defaultMissions = XmlUtil.DeserializeXml<DefaultMissions>(XmlUtil.ReadResourceXmlString("defaultmissionlistmam"));
         activeMissionsMaM = defaultMissions.Active;
         upcomingMissionsMaM = defaultMissions.Upcoming;
+
+        missionArray = XmlUtil.DeserializeXml<ServerMissionArray>(XmlUtil.ReadResourceXmlString("missions_wojs"));
+        defaultMissions = XmlUtil.DeserializeXml<DefaultMissions>(XmlUtil.ReadResourceXmlString("defaultmissionlist_wojs"));
+        foreach (var mission in missionArray.MissionDataArray) {
+            SetUpRecursive(mission); // TODO: use separate missions dict for WoJS (?)
+        }
+        activeMissionsWoJS = defaultMissions.Active;
+        upcomingMissionsWoJS = defaultMissions.Upcoming;
     }
 
     public Mission GetMission(int missionID) {
@@ -39,6 +49,9 @@ public class MissionStoreSingleton {
         if (gameVersion == ClientVersion.MaM) {
             return activeMissionsMaM;
         }
+        if (gameVersion == ClientVersion.WoJS) {
+            return activeMissionsWoJS;
+        }
         if (gameVersion < 0xa2a00a0a) {
             return activeMissionsV1;
         }
@@ -48,6 +61,9 @@ public class MissionStoreSingleton {
     public int[] GetUpcomingMissions(uint gameVersion) {
         if (gameVersion == ClientVersion.MaM) {
             return upcomingMissionsMaM;
+        }
+        if (gameVersion == ClientVersion.WoJS) {
+            return upcomingMissionsWoJS;
         }
         if (gameVersion < 0xa2a00a0a) {
             return upcomingMissionsV1;

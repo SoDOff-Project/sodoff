@@ -20,10 +20,11 @@ public class ContentController : Controller {
     private AchievementService achievementService;
     private InventoryService inventoryService;
     private GameDataService gameDataService;
+    private DisplayNamesService displayNamesService;
     private Random random = new Random();
     private readonly IOptions<ApiServerConfig> config;
     
-    public ContentController(DBContext ctx, KeyValueService keyValueService, ItemService itemService, MissionService missionService, RoomService roomService, AchievementService achievementService, InventoryService inventoryService, GameDataService gameDataService, IOptions<ApiServerConfig> config) {
+    public ContentController(DBContext ctx, KeyValueService keyValueService, ItemService itemService, MissionService missionService, RoomService roomService, AchievementService achievementService, InventoryService inventoryService, GameDataService gameDataService, DisplayNamesService displayNamesService, IOptions<ApiServerConfig> config) {
         this.ctx = ctx;
         this.keyValueService = keyValueService;
         this.itemService = itemService;
@@ -32,7 +33,96 @@ public class ContentController : Controller {
         this.achievementService = achievementService;
         this.inventoryService = inventoryService;
         this.gameDataService = gameDataService;
+        this.displayNamesService = displayNamesService;
         this.config = config;
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetRaisedPetGrowthStates")] // used by World Of Jumpstart 1.1
+    public RaisedPetGrowthState[] GetRaisedPetGrowthStates()
+    {
+        return new RaisedPetGrowthState[] {
+            new RaisedPetGrowthState {GrowthStateID = 0, Name = "none"},
+            new RaisedPetGrowthState {GrowthStateID = 1, Name = "powerup"},
+            new RaisedPetGrowthState {GrowthStateID = 2, Name = "find"},
+            new RaisedPetGrowthState {GrowthStateID = 3, Name = "eggInHand"},
+            new RaisedPetGrowthState {GrowthStateID = 4, Name = "hatching"},
+            new RaisedPetGrowthState {GrowthStateID = 5, Name = "baby"},
+            new RaisedPetGrowthState {GrowthStateID = 6, Name = "child"},
+            new RaisedPetGrowthState {GrowthStateID = 7, Name = "teen"},
+            new RaisedPetGrowthState {GrowthStateID = 8, Name = "adult"},
+        };
+    }
+    
+    [HttpPost]
+    //[Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetProduct")] // used by World Of Jumpstart
+    [VikingSession(UseLock=false)]
+    public string? GetProduct(Viking viking, [FromForm] string apiKey) {
+        return Util.SavedData.Get(
+            viking,
+            ClientVersion.GetVersion(apiKey)
+        );
+    }
+
+    [HttpPost]
+    //[Produces("application/xml")]
+    [Route("ContentWebService.asmx/SetProduct")] // used by World Of Jumpstart
+    [VikingSession]
+    public bool SetProduct(Viking viking, [FromForm] string contentXml, [FromForm] string apiKey) {
+        Util.SavedData.Set(
+            viking,
+            ClientVersion.GetVersion(apiKey),
+            contentXml
+        );
+        ctx.SaveChanges();
+        return true;
+    }
+
+    // NOTE: "Pet" (Petz) system (GetCurrentPetByUserID, GetCurrentPet, SetCurrentPet, DelCurrentPet) is a totally different system than "RaisedPet" (Dragons)
+
+    [HttpPost]
+    //[Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetCurrentPetByUserID")] // used by World Of Jumpstart
+    public string GetCurrentPetByUserID([FromForm] Guid userId) {
+        return GetCurrentPet(ctx.Vikings.FirstOrDefault(e => e.Uid == userId));
+    }
+
+    [HttpPost]
+    //[Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetCurrentPet")] // used by World Of Jumpstart
+    [VikingSession]
+    public string GetCurrentPet(Viking viking) {
+        string? ret = Util.SavedData.Get(
+            viking,
+            ClientVersion.WoJS + 1
+        );
+        if (ret is null)
+            return XmlUtil.SerializeXml<PetData>(null);
+        return ret;
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/SetCurrentPet")] // used by World Of Jumpstart
+    [VikingSession]
+    public bool SetCurrentPet(Viking viking, [FromForm] string? contentXml) {
+        Util.SavedData.Set(
+            viking,
+            ClientVersion.WoJS + 1,
+            contentXml
+        );
+        ctx.SaveChanges();
+        return true;
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/DelCurrentPet")] // used by World Of Jumpstart
+    [VikingSession]
+    public bool DelCurrentPet(Viking viking) {
+        return SetCurrentPet(viking, null);
     }
 
     [HttpPost]
@@ -317,6 +407,40 @@ public class ContentController : Controller {
 
     [HttpPost]
     [Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetAvatar")] // used by World Of Jumpstart
+    [VikingSession(UseLock=false)]
+    public IActionResult GetAvatar(Viking viking) {
+        AvatarData avatarData = XmlUtil.DeserializeXml<AvatarData>(viking.AvatarSerialized);
+        avatarData.Id = viking.Id;
+        return Ok(avatarData);
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/SetAvatar")] // used by World Of Jumpstart
+    [VikingSession]
+    public IActionResult SetAvatarV1(Viking viking, [FromForm] string contentXML) {
+        if (viking.AvatarSerialized != null) {
+            AvatarData dbAvatarData = XmlUtil.DeserializeXml<AvatarData>(viking.AvatarSerialized);
+            AvatarData reqAvatarData = XmlUtil.DeserializeXml<AvatarData>(contentXML);
+
+            int dbAvatarVersion = GetAvatarVersion(dbAvatarData);
+            int reqAvatarVersion = GetAvatarVersion(reqAvatarData);
+
+            if (dbAvatarVersion > reqAvatarVersion) {
+                // do not allow override newer version avatar data by older version
+                return Ok(false);
+            }
+        }
+
+        viking.AvatarSerialized = contentXML;
+        ctx.SaveChanges();
+
+        return Ok(true);
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
     [Route("V2/ContentWebService.asmx/SetAvatar")]
     [VikingSession]
     public IActionResult SetAvatar(Viking viking, [FromForm] string contentXML) {
@@ -363,7 +487,10 @@ public class ContentController : Controller {
         raisedPetData.IsSelected = false; // The api returns false, not sure why
         raisedPetData.CreateDate = new DateTime(DateTime.Now.Ticks);
         raisedPetData.UpdateDate = new DateTime(DateTime.Now.Ticks);
-        raisedPetData.GrowthState = new RaisedPetGrowthState { Name = "BABY" };
+        if (petTypeID == 2)
+            raisedPetData.GrowthState = new RaisedPetGrowthState { Name = "BABY" };
+        else
+            raisedPetData.GrowthState = new RaisedPetGrowthState { Name = "POWERUP" };
         int imageSlot = (viking.Images.Select(i => i.ImageSlot).DefaultIfEmpty(-1).Max() + 1);
         raisedPetData.ImagePosition = imageSlot;
         // NOTE: Placing an egg into a hatchery slot calls CreatePet, but doesn't SetImage.
@@ -456,6 +583,28 @@ public class ContentController : Controller {
 
     [HttpPost]
     [Produces("application/xml")]
+    [Route("ContentWebService.asmx/SetRaisedPet")] // used by World Of Jumpstart
+    [VikingSession]
+    public IActionResult SetRaisedPetv1(Viking viking, [FromForm] string raisedPetData) {
+        RaisedPetData petData = XmlUtil.DeserializeXml<RaisedPetData>(raisedPetData);
+
+        // Find the dragon
+        Dragon? dragon = viking.Dragons.FirstOrDefault(e => e.Id == petData.RaisedPetID);
+        if (dragon is null) {
+            return Ok(new SetRaisedPetResponse {
+                RaisedPetSetResult = RaisedPetSetResult.Invalid
+            });
+        }
+
+        dragon.RaisedPetData = XmlUtil.SerializeXml(UpdateDragon(dragon, petData));
+        ctx.Update(dragon);
+        ctx.SaveChanges();
+
+        return Ok(true);
+    }
+    
+    [HttpPost]
+    [Produces("application/xml")]
     [Route("V2/ContentWebService.asmx/SetRaisedPet")] // used by Magic & Mythies
     [VikingSession]
     public IActionResult SetRaisedPetv2(Viking viking, [FromForm] string raisedPetData) {
@@ -502,6 +651,31 @@ public class ContentController : Controller {
         return Ok(new SetRaisedPetResponse {
             RaisedPetSetResult = RaisedPetSetResult.Success
         });
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/SetRaisedPetInactive")] // used by World Of Jumpstart
+    [VikingSession]
+    public IActionResult SetRaisedPetInactive(Viking viking, [FromForm] int raisedPetID) {
+        if (raisedPetID == viking.SelectedDragonId) {
+            viking.SelectedDragonId = null;
+        } else {
+            Dragon? dragon = viking.Dragons.FirstOrDefault(e => e.Id == raisedPetID);
+            if (dragon is null) {
+                return Ok(false);
+            }
+
+            // check if Minisaurs - we real delete only Minisaurs
+            RaisedPetData dragonData = XmlUtil.DeserializeXml<RaisedPetData>(dragon.RaisedPetData);
+            if (dragonData.PetTypeID != 2) {
+                return Ok(false);
+            }
+
+            viking.Dragons.Remove(dragon);
+        }
+        ctx.SaveChanges();
+        return Ok(true);
     }
 
     [HttpPost]
@@ -576,6 +750,48 @@ public class ContentController : Controller {
 
     [HttpPost]
     [Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetActiveRaisedPet")] // used by World Of Jumpstart
+    [VikingSession(UseLock=false)]
+    public RaisedPetData[] GetActiveRaisedPet(Viking viking, [FromForm] string userId, [FromForm] int petTypeID) {
+        if (petTypeID == 2) {
+            // player can have multiple Minisaurs at the same time ... Minisaurs should never have been selected also ... so use GetUnselectedPetByTypes in this case
+            return GetUnselectedPetByTypes(viking, "2", false);
+        }
+
+        Dragon? dragon = viking.SelectedDragon;
+        if (dragon is null) {
+            return new RaisedPetData[0];
+        }
+
+        RaisedPetData dragonData = GetRaisedPetDataFromDragon(dragon);
+        if (petTypeID != dragonData.PetTypeID)
+            return new RaisedPetData[0];
+
+        // NOTE: returned dragon PetTypeID should be equal value of pair 1967 → CurrentRaisedPetType
+        return new RaisedPetData[] {dragonData};
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetActiveRaisedPetsByTypes")] // used by Math Blaster
+    [VikingSession(UseLock=false)]
+    public RaisedPetData[] GetActiveRaisedPet([FromForm] Guid userId, [FromForm] string petTypeIDs) {
+        Viking? viking = ctx.Vikings.FirstOrDefault(e => e.Uid == userId);
+        Dragon? dragon = viking.SelectedDragon;
+        if (dragon is null) {
+            return new RaisedPetData[0];
+        }
+
+        RaisedPetData dragonData = GetRaisedPetDataFromDragon(dragon);
+        int[] petTypeIDsInt = Array.ConvertAll(petTypeIDs.Split(','), s => int.Parse(s));
+        if (!petTypeIDsInt.Contains(dragonData.PetTypeID))
+            return new RaisedPetData[0];
+
+        return new RaisedPetData[] {dragonData};
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
     [Route("ContentWebService.asmx/GetSelectedRaisedPet")]
     [VikingSession(UseLock=false)]
     public RaisedPetData[]? GetSelectedRaisedPet(Viking viking, [FromForm] string userId, [FromForm] bool isActive) {
@@ -589,6 +805,30 @@ public class ContentController : Controller {
         };
     }
 
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetInactiveRaisedPet")] // used by World Of Jumpstart 1.1
+    [VikingSession(UseLock=false)]
+    public RaisedPetData[] GetInactiveRaisedPet(Viking viking, [FromForm] int petTypeID) {
+        RaisedPetData[] dragons = viking.Dragons
+            .Where(d => d.RaisedPetData is not null && d.Id != viking.SelectedDragonId)
+            .Select(d => GetRaisedPetDataFromDragon(d, viking.SelectedDragonId))
+            .ToArray();
+
+        List<RaisedPetData> filteredDragons = new List<RaisedPetData>();
+        foreach (RaisedPetData dragon in dragons) {
+            if (petTypeID == dragon.PetTypeID) {
+                filteredDragons.Add(dragon);
+            }
+        }
+
+        if (filteredDragons.Count == 0) {
+            return null;
+        }
+
+        return filteredDragons.ToArray();
+    }
+    
     [HttpPost]
     [Produces("application/xml")]
     [Route("ContentWebService.asmx/SetImage")]
@@ -1157,6 +1397,35 @@ public class ContentController : Controller {
     }
 
     [HttpPost]
+    //[Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetDisplayNames")] // used by World Of Jumpstart
+    [Route("ContentWebService.asmx/GetDisplayNamesByCategoryID")] // used by Math Blaster
+    public IActionResult GetDisplayNames() {
+        // TODO: This is a placeholder
+        return Ok(XmlUtil.ReadResourceXmlString("displaynames"));
+    }
+
+    [HttpPost]
+    //[Produces("application/xml")]
+    [Route("ContentWebService.asmx/SetDisplayName")] // used by World Of Jumpstart
+    [VikingSession]
+    public IActionResult SetProduct(Viking viking, [FromForm] int firstNameID, [FromForm] int secondNameID, [FromForm] int thirdNameID) {
+        AvatarData avatarData = XmlUtil.DeserializeXml<AvatarData>(viking.AvatarSerialized);
+        avatarData.DisplayName = displayNamesService.GetName(firstNameID, secondNameID, thirdNameID);
+        viking.AvatarSerialized = XmlUtil.SerializeXml(avatarData);
+        ctx.SaveChanges();
+        return Ok();
+    }
+
+    [HttpPost]
+    //[Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetScene")] // used by World Of Jumpstart
+    public IActionResult GetScene() {
+        // TODO: This is a placeholder
+        return Ok("<?xml version=\"1.0\" encoding=\"utf-8\"?><SceneData xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:nil=\"true\" />");
+    }
+
+    [HttpPost]
     [Produces("application/xml")]
     [Route("V2/ContentWebService.asmx/GetGameData")]
     [VikingSession]
@@ -1568,6 +1837,30 @@ public class ContentController : Controller {
     public IActionResult GetGameDataByGameForDateRange(Viking viking, [FromForm] int gameId, bool isMultiplayer, int difficulty, int gameLevel, string key, int count, bool AscendingOrder, int score, string startDate, string endDate, bool buddyFilter) {
         CultureInfo usCulture = new CultureInfo("en-US", false);
         return Ok(gameDataService.GetGameData(viking, gameId, isMultiplayer, difficulty, gameLevel, key, count, AscendingOrder, buddyFilter, DateTime.Parse(startDate, usCulture), DateTime.Parse(endDate, usCulture)));
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetPeriodicGameDataByGame")] // used by Math Blaster
+    public IActionResult GetPeriodicGameDataByGame() {
+        // TODO: This is a placeholder
+        return Ok(new GameDataSummary());
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("MissionWebService.asmx/GetTreasureChest")] // used by Math Blaster
+    public IActionResult GetTreasureChest() {
+        // TODO: This is a placeholder
+        return Ok(new TreasureChestData());
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("MissionWebService.asmx/GetWorldId")] // used by Math Blaster
+    public IActionResult GetWorldId() {
+        // TODO: This is a placeholder
+        return Ok(0);
     }
 
     private static RaisedPetData GetRaisedPetDataFromDragon (Dragon dragon, int? selectedDragonId = null) {
