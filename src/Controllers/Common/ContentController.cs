@@ -69,7 +69,7 @@ public class ContentController : Controller {
     [HttpPost]
     //[Produces("application/xml")]
     [Route("ContentWebService.asmx/SetProduct")] // used by World Of Jumpstart
-    [VikingSession]
+    [VikingSession(UseLock=true)]
     public bool SetProduct(Viking viking, [FromForm] string contentXml, [FromForm] string apiKey) {
         Util.SavedData.Set(
             viking,

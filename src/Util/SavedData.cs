@@ -7,7 +7,6 @@ public class SavedData {
     }
 
     public static void Set(Viking viking, uint saveId, string? contentXml) {
-        Console.WriteLine($"\n\n{saveId} {contentXml}\n");
         Model.SavedData? savedData = viking.SavedData.FirstOrDefault(s => s.SaveId == saveId);
         if (savedData is null) {
             savedData = new() {
