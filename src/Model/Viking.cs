@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using sodoff.Schema;
 
 namespace sodoff.Model;
 
@@ -27,11 +28,18 @@ public class Viking {
     public virtual ICollection<MissionState> MissionStates { get; set; } = null!;
     public virtual ICollection<TaskStatus> TaskStatuses { get; set; } = null!;
     public virtual ICollection<Room> Rooms { get; set; } = null!;
+    public virtual ICollection<SceneData> SceneData { get; set; } = null!;
+    public virtual HouseData House { get; set; } = null!;
     public virtual ICollection<AchievementPoints> AchievementPoints { get; set; } = null!;
     public virtual ICollection<PairData> PairData { get; set; } = null!;
     public virtual ICollection<InventoryItem> InventoryItems { get; set; } = null!;
     public virtual ICollection<GameData> GameData { get; set; } = null!;
     public virtual ICollection<ProfileAnswer> ProfileAnswers { get; set; } = null!;
     public virtual ICollection<SavedData> SavedData { get; set; } = null!;
+    public virtual ICollection<Party> Parties { get; set; } = null!;
     public virtual Dragon? SelectedDragon { get; set; }
+
+    public DateTime? CreationDate { get; set; }
+    public DateTime? BirthDate { get; set; }
+    public Gender? Gender { get; set; }
 }

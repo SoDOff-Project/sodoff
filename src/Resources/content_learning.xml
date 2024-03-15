@@ -1,0 +1,122 @@
+<ArrayOfContentInfoData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<ContentInfoData>
+		<DisplayName>Monkey Madness</DisplayName>
+		<Description>Monkey Madness</Description>
+		<ThumbnailUrl>RS_DATA/Content/MSArcade/Learning_Monkey_screen_01.png</ThumbnailUrl>
+		<LinkUrl>PnMonkeyMS</LinkUrl>
+		<TextureUrl>RS_DATA/Content/MSArcade/LearnMonkey256.png</TextureUrl>
+		<RolloverUrl />
+		<CategoryUrl>RS_DATA/Content/MSArcade/IcoAge3_5.png</CategoryUrl>
+		<ContentType>4</ContentType>
+		<MemberOnly>false</MemberOnly>
+		<LinkType>4</LinkType>
+	</ContentInfoData>
+	<ContentInfoData>
+		<DisplayName>Lucky Ducky</DisplayName>
+		<Description>Lucky Ducky</Description>
+		<ThumbnailUrl>RS_DATA/Content/MSArcade/Learning_Duckies_screen_01.png</ThumbnailUrl>
+		<LinkUrl>CnDuckyMS</LinkUrl>
+		<TextureUrl>RS_DATA/Content/MSArcade/LearnDuckies256.png</TextureUrl>
+		<RolloverUrl />
+		<CategoryUrl>RS_DATA/Content/MSArcade/IcoAge3_5.png</CategoryUrl>
+		<ContentType>4</ContentType>
+		<MemberOnly>false</MemberOnly>
+		<LinkType>4</LinkType>
+	</ContentInfoData>
+	<ContentInfoData>
+		<DisplayName>Hops' JetPack</DisplayName>
+		<Description>Hops' JetPack MS</Description>
+		<ThumbnailUrl>RS_DATA/Content/MSArcade/Learning_JetPack_screen_01.png</ThumbnailUrl>
+		<LinkUrl>JetPackMS</LinkUrl>
+		<TextureUrl>RS_DATA/Content/MSArcade/LearnJetPack256.png</TextureUrl>
+		<RolloverUrl />
+		<CategoryUrl>RS_DATA/Content/MSArcade/IcoAge5_8.png</CategoryUrl>
+		<ContentType>4</ContentType>
+		<MemberOnly>false</MemberOnly>
+		<LinkType>4</LinkType>
+	</ContentInfoData>
+	<ContentInfoData>
+		<DisplayName>Bubble Trouble</DisplayName>
+		<Description>Bubble Trouble MS</Description>
+		<ThumbnailUrl>RS_DATA/Content/MSArcade/Learning_Bubble_screen_01.png</ThumbnailUrl>
+		<LinkUrl>BubbleTroubleMS</LinkUrl>
+		<TextureUrl>RS_DATA/Content/MSArcade/LearnBubble256.png</TextureUrl>
+		<RolloverUrl />
+		<CategoryUrl>RS_DATA/Content/MSArcade/IcoAge5_8.png</CategoryUrl>
+		<ContentType>4</ContentType>
+		<MemberOnly>false</MemberOnly>
+		<LinkType>4</LinkType>
+	</ContentInfoData>
+	<ContentInfoData>
+		<DisplayName>Bunny Hop</DisplayName>
+		<Description>Bunny Hop MS</Description>
+		<ThumbnailUrl>RS_DATA/Content/MSArcade/Learning_Bunny_screen_01.png</ThumbnailUrl>
+		<LinkUrl>PnBunnyMS</LinkUrl>
+		<TextureUrl>RS_DATA/Content/MSArcade/LearnBunny256.png</TextureUrl>
+		<RolloverUrl />
+		<CategoryUrl>RS_DATA/Content/MSArcade/IcoAge3_5.png</CategoryUrl>
+		<ContentType>4</ContentType>
+		<MemberOnly>True</MemberOnly>
+		<LinkType>4</LinkType>
+	</ContentInfoData>
+	<ContentInfoData>
+		<DisplayName>Ladybug Learning</DisplayName>
+		<Description>Ladybug Learning MS</Description>
+		<ThumbnailUrl>RS_DATA/Content/MSArcade/Learning_Ladybug_screen_01.png</ThumbnailUrl>
+		<LinkUrl>CnLadyBugMS</LinkUrl>
+		<TextureUrl>RS_DATA/Content/MSArcade/LearnLadybug256.png</TextureUrl>
+		<RolloverUrl />
+		<CategoryUrl>RS_DATA/Content/MSArcade/IcoAge3_5.png</CategoryUrl>
+		<ContentType>4</ContentType>
+		<MemberOnly>True</MemberOnly>
+		<LinkType>4</LinkType>
+	</ContentInfoData>
+	<ContentInfoData>
+		<DisplayName>Cow-abunga</DisplayName>
+		<Description>Cow-abunga MS</Description>
+		<ThumbnailUrl>RS_DATA/Content/MSArcade/Learning_Cow_screen_01.png</ThumbnailUrl>
+		<LinkUrl>PnCowMS</LinkUrl>
+		<TextureUrl>RS_DATA/Content/MSArcade/LearnCow256.png</TextureUrl>
+		<RolloverUrl />
+		<CategoryUrl>RS_DATA/Content/MSArcade/IcoAge3_5.png</CategoryUrl>
+		<ContentType>4</ContentType>
+		<MemberOnly>True</MemberOnly>
+		<LinkType>4</LinkType>
+	</ContentInfoData>
+	<ContentInfoData>
+		<DisplayName>Kite Delight</DisplayName>
+		<Description>Kite Delight MS</Description>
+		<ThumbnailUrl>RS_DATA/Content/MSArcade/Learning_Kite_screen_01.png</ThumbnailUrl>
+		<LinkUrl>CnKiteMS</LinkUrl>
+		<TextureUrl>RS_DATA/Content/MSArcade/LearnKite256.png</TextureUrl>
+		<RolloverUrl />
+		<CategoryUrl>RS_DATA/Content/MSArcade/IcoAge3_5.png</CategoryUrl>
+		<ContentType>4</ContentType>
+		<MemberOnly>True</MemberOnly>
+		<LinkType>4</LinkType>
+	</ContentInfoData>
+	<ContentInfoData>
+		<DisplayName>Blast Off Math</DisplayName>
+		<Description>Blast Off Math</Description>
+		<ThumbnailUrl>RS_DATA/Content/MSArcade/JS_Blastoff_Math.png</ThumbnailUrl>
+		<LinkUrl>BlastOffMS</LinkUrl>
+		<TextureUrl>RS_DATA/Content/MSArcade/BlastOffMath.png</TextureUrl>
+		<RolloverUrl />
+		<CategoryUrl>RS_DATA/Content/MSArcade/IcoAge5_8.png</CategoryUrl>
+		<ContentType>4</ContentType>
+		<MemberOnly>false</MemberOnly>
+		<LinkType>4</LinkType>
+	</ContentInfoData>
+	<ContentInfoData>
+		<DisplayName>Blast Off Reading</DisplayName>
+		<Description>Blast Off Reading</Description>
+		<ThumbnailUrl>RS_DATA/Content/MSArcade/JS_Blastoff_Reading.png</ThumbnailUrl>
+		<LinkUrl>BlastOffMS</LinkUrl>
+		<TextureUrl>RS_DATA/Content/MSArcade/BlastOffReading.png</TextureUrl>
+		<RolloverUrl />
+		<CategoryUrl>RS_DATA/Content/MSArcade/IcoAge5_8.png</CategoryUrl>
+		<ContentType>4</ContentType>
+		<MemberOnly>false</MemberOnly>
+		<LinkType>4</LinkType>
+	</ContentInfoData>
+</ArrayOfContentInfoData>

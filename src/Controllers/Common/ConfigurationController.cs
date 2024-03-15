@@ -17,4 +17,29 @@ public class ConfigurationController : Controller {
         }
         return Ok(XmlUtil.ReadResourceXmlString("mmo"));
     }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ConfigurationWebService.asmx/GetContentByTypeByUser")] // used by World Of Jumpstart
+    public IActionResult GetContentByTypeByUser([FromForm] int contentType)
+    {
+        if (contentType == 1) return Ok(new ContentInfo
+        {
+            ContentInfoArray = XmlUtil.DeserializeXml<ContentInfoData[]>(XmlUtil.ReadResourceXmlString("content_jukebox"))
+        });
+        if (contentType == 2) return Ok(new ContentInfo
+        {
+            ContentInfoArray = XmlUtil.DeserializeXml<ContentInfoData[]>(XmlUtil.ReadResourceXmlString("content_movie"))
+        });
+        if (contentType == 3) return Ok(new ContentInfo
+        {
+            ContentInfoArray = XmlUtil.DeserializeXml<ContentInfoData[]>(XmlUtil.ReadResourceXmlString("content_arcade"))
+        });
+        if (contentType == 4) return Ok(new ContentInfo
+        {
+            ContentInfoArray = XmlUtil.DeserializeXml<ContentInfoData[]>(XmlUtil.ReadResourceXmlString("content_learning"))
+        });
+
+        return NotFound();
+    }
 }

@@ -77,19 +77,21 @@ public class ProfileController : Controller {
     //[Produces("application/xml")]
     [Route("ProfileWebService.asmx/GetProfileTagAll")] // used by Magic & Mythies
     public IActionResult GetProfileTagAll() {
-        // TODO: This is a placeholder
-        return Ok("<?xml version='1.0' encoding='UTF-8'?><ArrayOfProfileTag xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:nil=\"true\"/>");
+        return Ok(XmlUtil.ReadResourceXmlString("profiletags"));
     }
     
     private UserProfileData GetProfileDataFromViking(Viking viking, [FromForm] string apiKey) {
         // Get the avatar data
         AvatarData avatarData = null;
-        Gender gender = Gender.Male;
+        Gender? gender = null;
         if (viking.AvatarSerialized is not null) {
             avatarData = XmlUtil.DeserializeXml<AvatarData>(viking.AvatarSerialized);
             avatarData.Id = viking.Id;
-            gender = avatarData.GenderType;
+            if (gender is null)
+                gender = avatarData.GenderType;
         }
+        if (gender is null)
+            gender = Gender.Unknown;
 
         if (avatarData != null && ClientVersion.GetVersion(apiKey) == 0xa3a12a0a) { // TODO adjust version number: we don't know for which versions it is required (for 3.12 it is, for 3.19 and 3.0 it's not)
             if (avatarData.Part.FirstOrDefault(e => e.PartType == "Sword") is null) {
@@ -119,9 +121,10 @@ public class ProfileController : Controller {
                 GenderID = gender,
                 OpenChatEnabled = true,
                 IsApproved = true,
-                RegistrationDate = new DateTime(DateTime.Now.Ticks), // placeholder
-                CreationDate = new DateTime(DateTime.Now.Ticks), // placeholder
-                FacebookUserID = 0
+                RegistrationDate = viking.CreationDate,
+                CreationDate = viking.CreationDate,
+                FacebookUserID = 0,
+                BirthDate = viking.BirthDate
             },
             UserSubscriptionInfo = new UserSubscriptionInfo {
                 UserID = viking.UserId.ToString(),
@@ -149,12 +152,19 @@ public class ProfileController : Controller {
             AvatarInfo = avatar,
             AchievementCount = 0,
             MythieCount = 0,
-            AnswerData = new UserAnswerData { UserID = viking.Uid.ToString(), Answers = profileService.GetUserAnswers(viking)},
+            AnswerData = new UserAnswerData { UserID = viking.Uid.ToString(), Answers = profileService.GetUserAnswers(viking) },
             GameCurrency = currency.GameCurrency,
             CashCurrency = currency.CashCurrency,
             ActivityCount = 0,
             BuddyCount = 0,
-            UserGradeData = new UserGrade { UserGradeID = 0 }
+            UserGradeData = new UserGrade { UserGradeID = 0 },
+            UserProfileTag = new UserProfileTag()  {
+                CreateDate = new DateTime(DateTime.Now.Ticks),
+                ProductGroupID = 1,
+                ProfileTags = new List<ProfileTag>(),
+                UserID = viking.Uid,
+                UserProfileTagID = 1
+            }
         };
     }
 }

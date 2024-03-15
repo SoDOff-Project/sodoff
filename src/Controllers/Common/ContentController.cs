@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using Microsoft.EntityFrameworkCore;
+using Org.BouncyCastle.Security.Certificates;
 using sodoff.Attributes;
 using sodoff.Model;
 using sodoff.Schema;
@@ -271,6 +273,15 @@ public class ContentController : Controller {
                 }
             });
         }
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetCommonInventoryByUserId")] // used by World Of Jumpstart (?)
+    public IActionResult GetCommonInventoryByUserId([FromForm] Guid userId, [FromForm] int ContainerId)
+    {
+        Viking? viking = ctx.Vikings.FirstOrDefault(e => e.Uid == userId);
+        return GetCommonInventory(null, viking);
     }
 
     [HttpPost]
@@ -1373,6 +1384,185 @@ public class ContentController : Controller {
 
     [HttpPost]
     [Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetActiveParties")] // used by World Of Jumpstart
+    public IActionResult GetActiveParties()
+    {
+        List<Party> allParties = ctx.Parties.ToList();
+        List<UserParty> userParties = new List<UserParty>();
+
+        foreach(var party in allParties)
+        {
+            if(DateTime.UtcNow >= party.ExpirationDate)
+            {
+                ctx.Parties.Remove(party);
+                ctx.SaveChanges();
+
+                continue;
+            }
+
+            Viking viking = ctx.Vikings.FirstOrDefault(e => e.Id == party.VikingId);
+            AvatarData avatarData = XmlUtil.DeserializeXml<AvatarData>(viking.AvatarSerialized);
+            UserParty userParty = new UserParty
+            {
+                DisplayName = avatarData.DisplayName,
+                UserName = avatarData.DisplayName,
+                ExpirationDate = party.ExpirationDate,
+                Icon = party.LocationIconAsset,
+                Location = party.Location,
+                PrivateParty = party.PrivateParty!.Value,
+                UserID = viking.Uid
+            };
+
+            if (party.Location == "MyNeighborhood") userParty.DisplayName = $"{userParty.UserName}'s Block Party";
+            if (party.Location == "MyVIPRoomInt") userParty.DisplayName = $"{userParty.UserName}'s VIP Party";
+
+            userParties.Add(userParty);
+        }
+
+        return Ok(new UserPartyData { NonBuddyParties = userParties.ToArray() });
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetPartiesByUserID")] // used by World Of Jumpstart
+    public IActionResult GetPartiesByUserID([FromForm] Guid userId)
+    {
+        Viking? viking = ctx.Vikings.FirstOrDefault(e => e.Uid == userId);
+        List<UserPartyComplete> parties = new List<UserPartyComplete>();
+        if(viking != null)
+        {
+            foreach(var party in ctx.Parties)
+            {
+                if (DateTime.UtcNow >= party.ExpirationDate)
+                {
+                    ctx.Parties.Remove(party);
+                    ctx.SaveChanges();
+
+                    continue;
+                }
+
+                AvatarData avatarData = XmlUtil.DeserializeXml<AvatarData>(viking.AvatarSerialized);
+                if(party.Location == "MyNeighborhood")
+                {
+                    UserPartyComplete userPartyComplete = new UserPartyComplete
+                    {
+                        DisplayName = avatarData.DisplayName,
+                        UserName = avatarData.DisplayName,
+                        ExpirationDate = party.ExpirationDate,
+                        Icon = party.LocationIconAsset,
+                        Location = party.Location,
+                        PrivateParty = party.PrivateParty!.Value,
+                        UserID = viking.Uid,
+                        AssetBundle = "RS_DATA/PfMyNeighborhoodParty.unity3d/PfMyNeighborhoodParty"
+                    };
+                    parties.Add(userPartyComplete);
+                } else if (party.Location == "MyVIPRoomInt")
+                {
+                    UserPartyComplete userPartyComplete = new UserPartyComplete
+                    {
+                        DisplayName = avatarData.DisplayName,
+                        UserName = avatarData.DisplayName,
+                        ExpirationDate = party.ExpirationDate,
+                        Icon = party.LocationIconAsset,
+                        Location = party.Location,
+                        PrivateParty = party.PrivateParty!.Value,
+                        UserID = viking.Uid,
+                        AssetBundle = "RS_DATA/PfMyVIPRoomIntPartyGroup.unity3d/PfMyVIPRoomIntPartyGroup"
+                    };
+                    parties.Add(userPartyComplete);
+                }
+            }
+
+            return Ok(new ArrayOfUserPartyComplete { UserPartyComplete = parties.ToArray() });
+        } else
+        {
+            return Ok(new ArrayOfUserPartyComplete());
+        }
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/PurchaseParty")] // used by World Of Jumpstart
+    [VikingSession]
+    public IActionResult PurchaseParty(Viking viking, [FromForm] int itemId)
+    {
+        // create a party based on bought itemid
+
+        Party party = new Party
+        {
+            VikingId = viking.Id,
+            PrivateParty = false
+        };
+
+        int coinTakeaway = 0;
+
+        switch (itemId)
+        {
+            case 2761:
+                party.Location = "MyNeighborhood";
+                party.LocationIconAsset = "RS_DATA/PfUiPartiesList.unity3d/IcoPartyLocationMyNeighborhood";
+                party.ExpirationDate = DateTime.UtcNow.AddMinutes(30);
+                coinTakeaway = 30;
+                break;
+            case 6259:
+                party.Location = "MyNeighborhood";
+                party.LocationIconAsset = "RS_DATA/PfUiPartiesList.unity3d/IcoPartyLocationMyNeighborhood";
+                party.ExpirationDate = DateTime.UtcNow.AddHours(1);
+                coinTakeaway = 60;
+                break;
+            case 6260:
+                party.Location = "MyNeighborhood";
+                party.LocationIconAsset = "RS_DATA/PfUiPartiesList.unity3d/IcoPartyLocationMyNeighborhood";
+                party.ExpirationDate = DateTime.UtcNow.AddHours(4);
+                coinTakeaway = 80;
+                break;
+            case 6261:
+                party.Location = "MyNeighborhood";
+                party.LocationIconAsset = "RS_DATA/PfUiPartiesList.unity3d/IcoPartyLocationMyNeighborhood";
+                party.ExpirationDate = DateTime.UtcNow.AddHours(8);
+                coinTakeaway = 100;
+                break;
+            case 6263:
+                party.Location = "MyVIPRoomInt";
+                party.LocationIconAsset = "RS_DATA/PfUiPartiesList.unity3d/IcoPartyDefault";
+                party.ExpirationDate = DateTime.UtcNow.AddMinutes(30);
+                coinTakeaway = 30;
+                break;
+            case 6264:
+                party.Location = "MyVIPRoomInt";
+                party.LocationIconAsset = "RS_DATA/PfUiPartiesList.unity3d/IcoPartyDefault";
+                party.ExpirationDate = DateTime.UtcNow.AddHours(1);
+                coinTakeaway = 60;
+                break;
+            case 6265:
+                party.Location = "MyVIPRoomInt";
+                party.LocationIconAsset = "RS_DATA/PfUiPartiesList.unity3d/IcoPartyDefault";
+                party.ExpirationDate = DateTime.UtcNow.AddHours(4);
+                coinTakeaway = 80;
+                break;
+            case 6266:
+                party.Location = "MyVIPRoomInt";
+                party.LocationIconAsset = "RS_DATA/PfUiPartiesList.unity3d/IcoPartyDefault";
+                party.ExpirationDate = DateTime.UtcNow.AddHours(8);
+                coinTakeaway = 100;
+                break;
+        }
+
+        // check if party already exists
+
+        if (ctx.Parties.Where(e => e.Location == party.Location).FirstOrDefault(e => e.VikingId == viking.Id) != null) return Ok(null);
+
+        // take away coins
+        viking.AchievementPoints.FirstOrDefault(e => e.Type == (int)AchievementPointTypes.GameCurrency)!.Value -= coinTakeaway;
+
+        ctx.Parties.Add(party);
+        ctx.SaveChanges();
+
+        return Ok(true);
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
     [Route("ContentWebService.asmx/GetUserActivityByUserID")]
     public IActionResult GetUserActivityByUserID() {
         // TODO: This is a placeholder
@@ -1406,6 +1596,18 @@ public class ContentController : Controller {
     }
 
     [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetDisplayNameByUserId")] // used by World Of Jumpstart
+    public IActionResult GetDisplayNameByUserId([FromForm] Guid userId)
+    {
+        Viking? idViking = ctx.Vikings.FirstOrDefault(e => e.Uid == userId);
+        if (idViking is null) return Ok("???");
+
+        // return display name
+        return Ok(XmlUtil.DeserializeXml<AvatarData>(idViking.AvatarSerialized!).DisplayName);
+    }
+
+    [HttpPost]
     //[Produces("application/xml")]
     [Route("ContentWebService.asmx/SetDisplayName")] // used by World Of Jumpstart
     [VikingSession]
@@ -1420,9 +1622,92 @@ public class ContentController : Controller {
     [HttpPost]
     //[Produces("application/xml")]
     [Route("ContentWebService.asmx/GetScene")] // used by World Of Jumpstart
-    public IActionResult GetScene() {
-        // TODO: This is a placeholder
-        return Ok("<?xml version=\"1.0\" encoding=\"utf-8\"?><SceneData xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:nil=\"true\" />");
+    [VikingSession]
+    public IActionResult GetScene(Viking viking, [FromForm] string sceneName) {
+        SceneData? scene = viking.SceneData.FirstOrDefault(e => e.SceneName == sceneName);
+
+        if (scene is not null) return Ok(scene.XmlData);
+        else return Ok("");
+    }
+
+    [HttpPost]
+    [Route("ContentWebSerivce.asmx/GetHouse")] // used by World Of Jumpstart
+    [VikingSession]
+    public IActionResult GetHouse(Viking viking) {
+        if (viking.House is not null) return Ok(viking.House.XmlData);
+        else return Ok("");
+    }
+
+    [HttpPost]
+    [Route("ContentWebService.asmx/GetHouseByUserId")] // used by World Of Jumpstart
+    public IActionResult GetHouseByUserId([FromForm] Guid userId)
+    {
+        Viking? viking = ctx.Vikings.FirstOrDefault(e => e.Uid == userId);
+
+        if (viking is not null)
+        {
+            if (viking.House is not null) return Ok(viking.House.XmlData);
+            else return Ok("");
+        }
+
+        return Ok("");
+    }
+
+    [HttpPost]
+    //[Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetSceneByUserId")] // used by World Of Jumpstart
+    public IActionResult GetSceneByUserId([FromForm] Guid userId, [FromForm] string sceneName) {
+        SceneData? scene = ctx.Vikings.FirstOrDefault(e => e.Uid == userId)?.SceneData.FirstOrDefault(x => x.SceneName == sceneName);
+
+        if (scene is not null) return Ok(scene.XmlData);
+        else return Ok(null);
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/SetScene")] // used by World of Jumpstart
+    [VikingSession]
+    public IActionResult SetScene(Viking viking, [FromForm] string sceneName, [FromForm] string contentXml) {
+        SceneData? existingScene = viking.SceneData.FirstOrDefault(e => e.SceneName == sceneName);
+
+        if(existingScene is not null)
+        {
+            existingScene.XmlData = contentXml;
+            ctx.SaveChanges();
+            return Ok(true);
+        }
+        else
+        {
+            SceneData sceneData = new SceneData
+            {
+                SceneName = sceneName,
+                XmlData = contentXml
+            };
+            viking.SceneData.Add(sceneData);
+            ctx.SaveChanges(); 
+            return Ok(true);
+        }
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/SetHouse")] // used by World Of Jumpstart
+    [VikingSession]
+    public IActionResult SetHouse(Viking viking, [FromForm] string contentXml) {
+        HouseData? house = viking.House;
+
+        if(house is null)
+        {
+            HouseData newHouse = new HouseData{ XmlData = contentXml };
+            viking.House = newHouse;
+            ctx.SaveChanges();
+            return Ok(true);
+        } else
+        {
+            house.XmlData = contentXml;
+            ctx.SaveChanges();
+            return Ok(true);
+        }
     }
 
     [HttpPost]
@@ -1433,7 +1718,7 @@ public class ContentController : Controller {
         GetGameDataRequest request = XmlUtil.DeserializeXml<GetGameDataRequest>(gameDataRequest);
         return Ok(gameDataService.GetGameDataForPlayer(viking, request));
     }
-    
+
     [HttpPost]
     [Produces("application/xml")]
     [Route("ContentWebService.asmx/GetUserGameCurrency")]
@@ -1441,6 +1726,18 @@ public class ContentController : Controller {
     public IActionResult GetUserGameCurrency(Viking viking) {
         // TODO: This is a placeholder
         return Ok(achievementService.GetUserCurrency(viking));
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/SetGameCurrency")] // used by World Of Jumpstart
+    [VikingSession]
+    public IActionResult SetUserGameCurrency(Viking viking, [FromForm] int amount)
+    {
+        achievementService.AddAchievementPoints(viking, AchievementPointTypes.GameCurrency, amount);
+
+        ctx.SaveChanges();
+        return Ok(achievementService.GetUserCurrency(viking).GameCurrency ?? 0);
     }
 
     [HttpPost]
@@ -1826,17 +2123,17 @@ public class ContentController : Controller {
     [Produces("application/xml")]
     [Route("ContentWebService.asmx/GetGameDataByGame")]
     [VikingSession(UseLock = true)]
-    public IActionResult GetGameDataByGame(Viking viking, [FromForm] int gameId, bool isMultiplayer, int difficulty, int gameLevel, string key, int count, bool AscendingOrder, int score, bool buddyFilter) {
-        return Ok(gameDataService.GetGameData(viking, gameId, isMultiplayer, difficulty, gameLevel, key, count, AscendingOrder, buddyFilter));
+    public IActionResult GetGameDataByGame(Viking viking, [FromForm] int gameId, bool isMultiplayer, int difficulty, int gameLevel, string key, int count, bool AscendingOrder, int score, bool buddyFilter, string apiKey) {
+        return Ok(gameDataService.GetGameData(viking, gameId, isMultiplayer, difficulty, gameLevel, key, count, AscendingOrder, buddyFilter, apiKey));
     }
 
     [HttpPost]
     [Produces("application/xml")]
     [Route("V2/ContentWebService.asmx/GetGameDataByGameForDateRange")]
     [VikingSession(UseLock = true)]
-    public IActionResult GetGameDataByGameForDateRange(Viking viking, [FromForm] int gameId, bool isMultiplayer, int difficulty, int gameLevel, string key, int count, bool AscendingOrder, int score, string startDate, string endDate, bool buddyFilter) {
+    public IActionResult GetGameDataByGameForDateRange(Viking viking, [FromForm] int gameId, bool isMultiplayer, int difficulty, int gameLevel, string key, int count, bool AscendingOrder, int score, string startDate, string endDate, bool buddyFilter, string apiKey) {
         CultureInfo usCulture = new CultureInfo("en-US", false);
-        return Ok(gameDataService.GetGameData(viking, gameId, isMultiplayer, difficulty, gameLevel, key, count, AscendingOrder, buddyFilter, DateTime.Parse(startDate, usCulture), DateTime.Parse(endDate, usCulture)));
+        return Ok(gameDataService.GetGameData(viking, gameId, isMultiplayer, difficulty, gameLevel, key, count, AscendingOrder, buddyFilter, apiKey, DateTime.Parse(startDate, usCulture), DateTime.Parse(endDate, usCulture)));
     }
 
     [HttpPost]
@@ -1861,6 +2158,15 @@ public class ContentController : Controller {
     public IActionResult GetWorldId() {
         // TODO: This is a placeholder
         return Ok(0);
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetRevealIndex")] // used by World Of Jumpstart (Learning Games)
+    public IActionResult GetRevealIndex()
+    {
+        // TODO - figure out proper way of doing this, if any
+        return Ok(random.Next(1, 15));
     }
 
     private static RaisedPetData GetRaisedPetDataFromDragon (Dragon dragon, int? selectedDragonId = null) {

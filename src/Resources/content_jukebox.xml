@@ -1,0 +1,602 @@
+<ArrayOfContentInfoData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ContentInfoData>
+    <DisplayName>The BFF Song by Miya Mackenzie</DisplayName>
+    <Description>The BFF Song</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/Miya_Mackenzie_The_BFF_Song.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>The Tide is High by Miya Mackenzie</DisplayName>
+    <Description>The Tide is High</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/Miya_Mackenzie_Tide_Is_High.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Won't Back Down by Miya Mackenzie</DisplayName>
+    <Description>Won't Back Down</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/Miya_Mackenzie_Won't_Back_Down.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Addicted to You by Miya Mackenzie</DisplayName>
+    <Description>Addicted to You</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/Miya_Mackenzie_Addcited_to_You.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Before and After  by Miya Mackenzie</DisplayName>
+    <Description>Before and After</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/Miya_Mackenzie_Before_And_After.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Gonna Be Alright by Miya Mackenzie</DisplayName>
+    <Description>Gonna Be Alright</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/Miya_Mackenzie_Gonna_Be_Alright.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>I Feel Free by Miya Mackenzie</DisplayName>
+    <Description>I Feel Free</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/Miya_Mackenzie_I_Feel_Free.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>I'm So Done by Miya Mackenzie</DisplayName>
+    <Description>I'm So Done</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/Miya_Mackenzie_I'm_So_Done.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>One Wish by Miya Mackenzie</DisplayName>
+    <Description>One Wish</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/Miya_Mackenzie_One_Wish.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Only You by Miya Mackenzie</DisplayName>
+    <Description>Only You</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/Miya_Mackenzie_Only_You.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>A Fisherman</DisplayName>
+    <Description>A Fisherman</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/Fisher.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>ABC Harmony</DisplayName>
+    <Description>ABC Harmony</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/AllInHarmony.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Art Friends</DisplayName>
+    <Description>Art Friends</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/KRFWMV1_song.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Baa-baa Black Sheep</DisplayName>
+    <Description>Baa-baa Black Sheep</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/SHEEP.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Barn House Rock</DisplayName>
+    <Description>Barn House Rock</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/ELVIS.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Be Your Best</DisplayName>
+    <Description>Be Your Best</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/Responsiblity.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Come on Down to the Barnyard</DisplayName>
+    <Description>Come on Down to the Barnyard</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/RHYTHM.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Count in Spanish</DisplayName>
+    <Description>Count in Spanish</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/CountInEnglishAndSpanish.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Egyptian Treasure Map</DisplayName>
+    <Description>Egyptian Treasure Map</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/Egypt.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Fire Safety Tips</DisplayName>
+    <Description>Fire Safety Tips</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/FireSafety.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Fish in the Pond</DisplayName>
+    <Description>Fish in the Pond</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/Pond.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Frere Jacques, Dormez Vous?</DisplayName>
+    <Description>Frere Jacques, Dormez Vous?</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/SLEEP.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Get Ready for JumpStart</DisplayName>
+    <Description>Get Ready for JumpStart</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/WelcomeToJumpStartWorld.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Grandma's Garden</DisplayName>
+    <Description>Grandma's Garden</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/InGrandmasGarden.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Grandma's House</DisplayName>
+    <Description>Grandma's House</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/Mmsong.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Help Me Find My Cat</DisplayName>
+    <Description>Help Me Find My Cat</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/Gatito.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Home on the Range</DisplayName>
+    <Description>Home on the Range</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/GiveMeAHome.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>I Am a Horse</DisplayName>
+    <Description>I Am a Horse</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/HORSE.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Just Ask</DisplayName>
+    <Description>Just Ask</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/SC_RM06_Ask.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Learn Your ABCs</DisplayName>
+    <Description>Learn Your ABCs</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/ABCsAreFor.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Letters of the Alphabet</DisplayName>
+    <Description>Letters of the Alphabet</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/Tssong.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Make a Collage</DisplayName>
+    <Description>Make a Collage</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/KRFHMV1_song.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>My Waterfall</DisplayName>
+    <Description>My Waterfall</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/AMusicWaterfall.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Old MacDonald Had a Farm</DisplayName>
+    <Description>Old MacDonald Had a Farm</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/OLDMAC.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Read to Tell a Story</DisplayName>
+    <Description>Read to Tell a Story</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/Read.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Rhyme with Coat</DisplayName>
+    <Description>Rhyme with Coat</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/RainCoat_Mixed.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Rock 'N' Roll Verbs</DisplayName>
+    <Description>Rock 'N' Roll Verbs</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/RockNRollVerbs.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Science Is Fab</DisplayName>
+    <Description>Science Is Fab</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/LearningScience.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Shapes of Life</DisplayName>
+    <Description>Shapes of Life</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/AllTheShapes.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Sing in Spanish</DisplayName>
+    <Description>Sing in Spanish</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/Colores.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Song About a Line</DisplayName>
+    <Description>Song About a Line</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/KRRRMV1_song.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Space Super Hero</DisplayName>
+    <Description>Space Super Hero</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/Blaster.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Textures Oh Yeah</DisplayName>
+    <Description>Textures Oh Yeah</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/KRCSMV1_song.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Turtle Footprints</DisplayName>
+    <Description>Turtle Footprints</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/Foot.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Two Little Mice</DisplayName>
+    <Description>Two Little Mice</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/CAT.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>What Is a Noun?</DisplayName>
+    <Description>What Is a Noun?</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/WhatIsANoun.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>What Is a Rhyme?</DisplayName>
+    <Description>What Is a Rhyme?</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/Rhyme.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>What Is Art?</DisplayName>
+    <Description>What Is Art?</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/BSSNG1.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Where Are the Animals?</DisplayName>
+    <Description>Where Are the Animals?</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/Wdsong.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+  <ContentInfoData>
+    <DisplayName>Where Did It Come From?</DisplayName>
+    <Description>Where Did It Come From?</Description>
+    <ThumbnailUrl />
+    <LinkUrl>RS_DATA/Content/Music/WhereDidItComeFrom.ogg</LinkUrl>
+    <TextureUrl />
+    <RolloverUrl />
+    <CategoryUrl />
+    <ContentType>1</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <LinkType>0</LinkType>
+  </ContentInfoData>
+</ArrayOfContentInfoData>

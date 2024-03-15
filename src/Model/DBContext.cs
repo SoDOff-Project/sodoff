@@ -15,11 +15,14 @@ public class DBContext : DbContext {
     public DbSet<InventoryItem> InventoryItems { get; set; } = null!;
     public DbSet<MissionState> MissionStates { get; set; } = null!;
     public DbSet<Room> Rooms { get; set; } = null!;
+    public DbSet<SceneData> SceneData { get; set; } = null!;
+    public DbSet<HouseData> Houses { get; set; } = null!;
     public DbSet<RoomItem> RoomItems { get; set; } = null!;
     public DbSet<GameData> GameData { get; set; } = null!;
     public DbSet<GameDataPair> GameDataPairs { get; set; } = null!;
     public DbSet<AchievementPoints> AchievementPoints { get; set; } = null!;
     public DbSet<ProfileAnswer> ProfileAnswers { get; set; } = null!;
+    public DbSet<Party> Parties { get; set; } = null!;
     private readonly IOptions<ApiServerConfig> config;
 
     public DBContext(IOptions<ApiServerConfig> config) {
@@ -93,6 +96,12 @@ public class DBContext : DbContext {
         builder.Entity<Viking>().HasMany(v => v.Rooms)
             .WithOne(e => e.Viking);
 
+        builder.Entity<Viking>().HasMany(v => v.SceneData)
+            .WithOne(e => e.Viking);
+
+        builder.Entity<Viking>().HasOne(v => v.House)
+            .WithOne(e => e.Viking);
+
         builder.Entity<Viking>().HasMany(v => v.AchievementPoints)
             .WithOne(e => e.Viking);
 
@@ -116,6 +125,9 @@ public class DBContext : DbContext {
             .WithOne(e => e.Viking);
 
         builder.Entity<Viking>().HasMany(v => v.ProfileAnswers)
+            .WithOne(e => e.Viking);
+
+        builder.Entity<Viking>().HasMany(v => v.Parties)
             .WithOne(e => e.Viking);
 
         // Dragons
@@ -214,8 +226,18 @@ public class DBContext : DbContext {
             .WithMany(v => v.SavedData)
             .HasForeignKey(e => e.VikingId);
 
+        builder.Entity<Party>().HasOne(i => i.Viking)
+            .WithMany(i => i.Parties);
+
         builder.Entity<ProfileAnswer>().HasOne(i => i.Viking)
             .WithMany(i => i.ProfileAnswers)
             .HasForeignKey(e => e.VikingId);
+
+        builder.Entity<SceneData>().HasOne(i => i.Viking)
+            .WithMany(i => i.SceneData)
+            .HasForeignKey(e => e.VikingId);
+
+        builder.Entity<HouseData>().HasOne(i => i.Viking)
+            .WithOne(e => e.House);
     }
 }
