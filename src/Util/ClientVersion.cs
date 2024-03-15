@@ -35,8 +35,4 @@ public class ClientVersion {
         }
         return 0;
     }
-
-    public static bool IsMultiplayerSupported(string apiKey) {
-        return GetVersion(apiKey) >= 0xa3a19a0a;
-    }
 }

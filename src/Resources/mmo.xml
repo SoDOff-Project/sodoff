@@ -1,22 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ArrayOfMMOServerInfo xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://api.jumpstart.com/">
-<!-- 
-	This file can be used to provide different mmo servers for different zones (<ZN> tag in <MMOServerInfo>).
-	This configuration is optional. For zones not specified in this file default entry from DWADragonsMain.xml will be used.
-	
-	For each zone that is to use a different server, an entry should be created `<MMOServerInfo>` node:
-	
-	<MMOServerInfo>
-		<IP xmlns="">127.0.0.1</IP>
-		<PN xmlns="">9933</PN>
-		<VR xmlns="">S2X</VR>
-		<DF xmlns="">false</DF>
-		<ZN xmlns="">HubSchoolDO</ZN>
-		<RZN xmlns="">JumpStart</RZN>
-	</MMOServerInfo>
-	
-	<ZN> values for SoD 3.31: ArenaFrenzyDO ArmorWingIslandDO BerkCloudsDO BerkDocksDO BerkFarmDO CreditsDO DEClubhouseINTDO DarkDeepCavesDO DarkDeepDO DragonRacingDO FarmingDO FarmingDreadfallDO FarmingOceanDO FarmingThawfestDO GauntletDO GlacierIslandDO GreatHallBerkIntDO GreatHallSchoolIntDO HatcheryINT02DO HatcheryINTDO HelheimsGateDO HobblegruntIslandDO HubArctic01DO HubArcticINTDO HubAuctionIslandDO HubBerkDO HubBerkNewDO HubCenoteDO HubDeathsongIslandDO HubDragonIslandDO HubDragonIslandINTDO HubDragonsEdgeDO HubEruptodonIslandDO HubHiddenWorldDO HubHiddenWorldNBDO HubLookoutDO HubSchoolDO HubTradewindIslandDO HubTrainingDO HubVanaheimDO HubWarlordIslandDO HubWilderness01DO MudrakerIslandDO MyRoomINTDO OpenOceanDO PirateQueenShipDO RacingDragon ScuttleclawIslandDO ShipGraveyardDO TargetPracticeDO TitanIslandDO ZipplebackIslandDO
-	
-	It's possible provide multiple servers (multiple <MMOServerInfo> nodes) per zone ... <DF> can be used to indicated default server(s).
--->
-</ArrayOfMMOServerInfo>
+<MMOConfig>
+	<!-- For version doesn't match to entries in this file default (empty <ArrayOfMMOServerInfo>) will be send. -->
+
+	<Version>
+		<!-- SoD <= 2.3 -->
+		<VersionMin>0xa0000000</VersionMin>
+		<VersionMax>0xa2a03a0a</VersionMax>
+		<ZoneList>ArenaFrenzyDO ArmorWingIslandDO BerkCloudsDO BerkDocksDO BerkFarmDO CreditsDO DEClubhouseINTDO DarkDeepDO DragonRacingDO FarmingDO FarmingOceanDO GauntletDO GlacierIslandDO GreatHallSchoolIntDO HatcheryINT02DO HatcheryINTDO HelheimsGateDO HobblegruntIslandDO HubArctic01DO HubArcticINTDO HubAuctionIslandDO HubBerkDO HubDeathsongIslandDO HubDragonIslandDO HubDragonIslandINTDO HubDragonsEdgeDO HubEruptodonIslandDO HubLookoutDO HubSchoolDO HubTrainingDO HubWilderness01DO MudrakerIslandDO MyRoomINTDO OpenOceanDO RacingDragon ScuttleclawIslandDO ShipGraveyardDO TargetPracticeDO TitanIslandDO ZipplebackIslandDO</ZoneList>
+	</Version>
+
+	<Version>
+		<!-- Math Blaster -->
+		<VersionMin>0x00700000</VersionMin>
+		<VersionMax>0x00700000</VersionMax>
+		<ZoneList>DNAMorph AlienWorldJungle GauntletShooter AlienRace Spaceport ReadyRoom AlienBattleGame TrainingRoom FaceOffGame AlienWorldIce AlienAdult SnatchItMB AlienRiderGame AlienBaby AlienBattleArena SpaceRacing Academy AlienRider Hangar AlienLarvaRoom MyPodInt DNAMorph AlienWorldJungle GauntletShooter AlienRace Spaceport ReadyRoom AlienBattleGame TrainingRoom FaceOffGame AlienWorldIce AlienAdult SnatchItMB AlienRiderGame AlienBaby AlienBattleArena SpaceRacing Academy AlienRider Hangar AlienLarvaRoom MyPodInt DNAMorph AlienWorldJungle GauntletShooter AlienRace Spaceport ReadyRoom AlienBattleGame TrainingRoom FaceOffGame AlienWorldIce AlienAdult SnatchItMB AlienRiderGame AlienBaby AlienBattleArena SpaceRacing Academy AlienRider Hangar AlienLarvaRoom MyPodInt DNAMorph AlienWorldJungle GauntletShooter AlienRace Spaceport ReadyRoom AlienBattleGame TrainingRoom FaceOffGame AlienWorldIce AlienAdult SnatchItMB AlienRiderGame AlienBaby AlienBattleArena SpaceRacing Academy AlienRider Hangar AlienLarvaRoom MyPodInt DNAMorph AlienWorldJungle GauntletShooter AlienRace Spaceport ReadyRoom AlienBattleGame TrainingRoom FaceOffGame AlienWorldIce AlienAdult SnatchItMB AlienRiderGame AlienBaby AlienBattleArena SpaceRacing Academy AlienRider Hangar AlienLarvaRoom MyPodInt</ZoneList>
+	</Version>
+
+	<Version>
+		<!-- World of JumpStart -->
+		<VersionMin>0x00600000</VersionMin>
+		<VersionMax>0x00600000</VersionMax>
+		<ZoneList>DWMadPenguinHQINT UncleMilton EnemyValley LoungeIntUpper UncleMiltonBounceHouse Boardwalk MyRoomsInt DWMadEuropeAlps SpeedDrome WinterWonderland GemMineInt Beach TrainingIsland * IslandX SanctuaryBaby DWMadEuropeParis AdventureCanyon DWMadNYHarbor JumpStartBowlInt TownCenter SanctuaryFlying MultiplayerSystem DWMadNYCentralParkFunZone MainStreet LearningInt HomeBase Hollows FreeFallMtn ArcadeInt ShipWreckLagoon DWMadEuropeItaly MummyMazeInt EnchantedSanctuary MyVIPRoomInt DownTown DWMadNYCentralPark MyNeighborhood MountainJetpack DWMadNYTimesSquare MainStreetFunZone DuneBuggyZone LoungeInt JSStadiumInt SanctuaryAdult BroomStickArena RabbitHoleInt CoconutMall Lobby </ZoneList>
+	</Version>
+
+	<!-- Multiple <MMOServerInfo> child can be used instead of <ZoneList>
+	     to provide different MMO servers for different zones (<ZN> tag in <MMOServerInfo>).
+
+	     For zones not specified in this config, default entry from DWADragonsMain.xml will be used.
+
+	     It's possible provide multiple servers (multiple <MMOServerInfo> nodes) per zone.
+	     <DF> can be used to indicated default server(s).
+
+	     <ZN> values for SoD 3.31: ArenaFrenzyDO ArmorWingIslandDO BerkCloudsDO BerkDocksDO BerkFarmDO CreditsDO DEClubhouseINTDO DarkDeepCavesDO DarkDeepDO DragonRacingDO FarmingDO FarmingDreadfallDO FarmingOceanDO FarmingThawfestDO GauntletDO GlacierIslandDO GreatHallBerkIntDO GreatHallSchoolIntDO HatcheryINT02DO HatcheryINTDO HelheimsGateDO HobblegruntIslandDO HubArctic01DO HubArcticINTDO HubAuctionIslandDO HubBerkDO HubBerkNewDO HubCenoteDO HubDeathsongIslandDO HubDragonIslandDO HubDragonIslandINTDO HubDragonsEdgeDO HubEruptodonIslandDO HubHiddenWorldDO HubHiddenWorldNBDO HubLookoutDO HubSchoolDO HubTradewindIslandDO HubTrainingDO HubVanaheimDO HubWarlordIslandDO HubWilderness01DO MudrakerIslandDO MyRoomINTDO OpenOceanDO PirateQueenShipDO RacingDragon ScuttleclawIslandDO ShipGraveyardDO TargetPracticeDO TitanIslandDO ZipplebackIslandDO
+
+	     Example:
+
+	<Version>
+		<VersionMin>0x0000</VersionMin>
+		<VersionMax>0x0010</VersionMax>
+		<MMOServerInfo>
+			<IP xmlns="">127.0.0.1</IP>
+			<PN xmlns="">9933</PN>
+			<VR xmlns="">S2X</VR>
+			<DF xmlns="">true</DF>
+			<ZN xmlns="">HubSchoolDO</ZN>
+			<RZN xmlns="">JumpStart</RZN>
+		</MMOServerInfo>
+		<MMOServerInfo>
+			<IP xmlns="">127.0.0.2</IP>
+			<PN xmlns="">9933</PN>
+			<VR xmlns="">S2X</VR>
+			<DF xmlns="">false</DF>
+			<ZN xmlns="">HubSchoolDO</ZN>
+			<RZN xmlns="">JumpStart</RZN>
+		</MMOServerInfo>
+	</Version>
+	-->
+</MMOConfig>

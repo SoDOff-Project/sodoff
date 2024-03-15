@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using sodoff.Attributes;
 using sodoff.Model;
 using sodoff.Schema;
 using sodoff.Util;
+using sodoff.Configuration;
 
 namespace sodoff.Controllers.Common;
 
@@ -11,9 +13,11 @@ namespace sodoff.Controllers.Common;
 public class AuthenticationController : Controller {
 
     private readonly DBContext ctx;
+    private readonly IOptions<ApiServerConfig> config;
 
-    public AuthenticationController(DBContext ctx) {
+    public AuthenticationController(DBContext ctx, IOptions<ApiServerConfig> config) {
         this.ctx = ctx;
+        this.config = config;
     }
 
     [HttpPost]
@@ -108,7 +112,7 @@ public class AuthenticationController : Controller {
                 Username = user.Username,
                 MembershipID = "ef84db9-59c6-4950-b8ea-bbc1521f899b", // placeholder
                 FacebookUserID = 0,
-                MultiplayerEnabled = ClientVersion.IsMultiplayerSupported(apiKey),
+                MultiplayerEnabled = ClientVersion.GetVersion(apiKey) >= config.Value.MMOSupportMinVersion,
                 IsApproved = true,
                 Age = 24,
                 OpenChatEnabled = true
@@ -123,7 +127,7 @@ public class AuthenticationController : Controller {
                 UserID = viking.Uid.ToString(),
                 Username = viking.Name,
                 FacebookUserID = 0,
-                MultiplayerEnabled = ClientVersion.IsMultiplayerSupported(apiKey),
+                MultiplayerEnabled = ClientVersion.GetVersion(apiKey) >= config.Value.MMOSupportMinVersion,
                 IsApproved = true,
                 Age = 24,
                 OpenChatEnabled = true

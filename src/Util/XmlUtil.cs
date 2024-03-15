@@ -32,4 +32,10 @@ public class XmlUtil {
             result = reader.ReadToEnd();
         return result;
     }
+
+    public static uint HexToUint(string hex) {
+        if (hex.StartsWith("0x", StringComparison.CurrentCultureIgnoreCase))
+            hex = hex.Substring(2);
+        return Convert.ToUInt32(hex, 16);
+    }
 }

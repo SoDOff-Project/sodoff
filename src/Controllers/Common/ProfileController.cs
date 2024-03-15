@@ -1,10 +1,12 @@
 ﻿using System.Reflection;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using sodoff.Attributes;
 using sodoff.Model;
 using sodoff.Schema;
 using sodoff.Services;
 using sodoff.Util;
+using sodoff.Configuration;
 
 namespace sodoff.Controllers.Common;
 public class ProfileController : Controller {
@@ -12,10 +14,13 @@ public class ProfileController : Controller {
     private readonly DBContext ctx;
     private AchievementService achievementService;
     private ProfileService profileService;
-    public ProfileController(DBContext ctx, AchievementService achievementService, ProfileService profileService) {
+    private readonly IOptions<ApiServerConfig> config;
+
+    public ProfileController(DBContext ctx, AchievementService achievementService, ProfileService profileService, IOptions<ApiServerConfig> config) {
         this.ctx = ctx;
         this.achievementService = achievementService;
         this.profileService = profileService;
+        this.config = config;
     }
 
     [HttpPost]
@@ -116,7 +121,7 @@ public class ProfileController : Controller {
                 ParentUserID = viking.UserId.ToString(),
                 Username = viking.Name,
                 FirstName = viking.Name,
-                MultiplayerEnabled = ClientVersion.IsMultiplayerSupported(apiKey),
+                MultiplayerEnabled = ClientVersion.GetVersion(apiKey) >= config.Value.MMOSupportMinVersion,
                 Locale = "en-US", // placeholder
                 GenderID = gender,
                 OpenChatEnabled = true,
