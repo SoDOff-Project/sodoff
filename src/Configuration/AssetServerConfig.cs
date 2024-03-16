@@ -4,6 +4,7 @@ public class AssetServerConfig {
     public string ListenIP { get; set; } = string.Empty;
     public int Port { get; set; } = 5001;
     public string URLPrefix { get; set; } = string.Empty;
+    public bool UseAnyURLPrefix { get; set; } = true;
     public AssetServerMode Mode { get; set; }
     public string ProviderURL { get; set; } = string.Empty;
     public string AutoEncryptRegexp { get; set; } = string.Empty;

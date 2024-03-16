@@ -34,12 +34,27 @@ public class AssetMiddleware
     {
         string path = context.Request.Path;
 
-        if (path is null || !string.IsNullOrEmpty(config.Value.URLPrefix) && !path.StartsWith("/" + config.Value.URLPrefix) || config.Value.Mode == AssetServerMode.None) {
+        if (path is null || config.Value.Mode == AssetServerMode.None) {
             context.Response.StatusCode = 400;
             return;
         }
 
-        string assetPath = path.Remove(0, config.Value.URLPrefix.Length + 1);
+        string assetPath;
+        if (config.Value.UseAnyURLPrefix) {
+            int firstSlash = path.IndexOf('/', 1);
+            if (firstSlash < 0) {
+                context.Response.StatusCode = 400;
+                return;
+            }
+            assetPath = path.Remove(0, firstSlash + 1);
+        } else {
+            if (!string.IsNullOrEmpty(config.Value.URLPrefix) && !path.StartsWith("/" + config.Value.URLPrefix)) {
+                context.Response.StatusCode = 400;
+                return;
+            }
+            assetPath = path.Remove(0, config.Value.URLPrefix.Length + 1);
+        }
+
         string localPath = GetLocalPath("assets/" + assetPath);
 
         if (localPath == string.Empty && config.Value.Mode == AssetServerMode.Partial && config.Value.UseCache)
