@@ -98,7 +98,7 @@ public class ContentController : Controller {
     public string GetCurrentPet(Viking viking) {
         string? ret = Util.SavedData.Get(
             viking,
-            ClientVersion.WoJS + 1
+            Util.SavedData.Pet()
         );
         if (ret is null)
             return XmlUtil.SerializeXml<PetData>(null);
@@ -112,7 +112,7 @@ public class ContentController : Controller {
     public bool SetCurrentPet(Viking viking, [FromForm] string? contentXml) {
         Util.SavedData.Set(
             viking,
-            ClientVersion.WoJS + 1,
+            Util.SavedData.Pet(),
             contentXml
         );
         ctx.SaveChanges();
@@ -1634,23 +1634,20 @@ public class ContentController : Controller {
     [Route("ContentWebSerivce.asmx/GetHouse")] // used by World Of Jumpstart
     [VikingSession]
     public IActionResult GetHouse(Viking viking) {
-        if (viking.House is not null) return Ok(viking.House.XmlData);
-        else return Ok("");
+        string? ret = Util.SavedData.Get(
+            viking,
+            Util.SavedData.House()
+        );
+        if (ret != null)
+            return Ok(ret);
+        return Ok("");
     }
 
     [HttpPost]
     [Route("ContentWebService.asmx/GetHouseByUserId")] // used by World Of Jumpstart
     public IActionResult GetHouseByUserId([FromForm] Guid userId)
     {
-        Viking? viking = ctx.Vikings.FirstOrDefault(e => e.Uid == userId);
-
-        if (viking is not null)
-        {
-            if (viking.House is not null) return Ok(viking.House.XmlData);
-            else return Ok("");
-        }
-
-        return Ok("");
+        return GetHouse(ctx.Vikings.FirstOrDefault(e => e.Uid == userId));
     }
 
     [HttpPost]
@@ -1694,20 +1691,13 @@ public class ContentController : Controller {
     [Route("ContentWebService.asmx/SetHouse")] // used by World Of Jumpstart
     [VikingSession]
     public IActionResult SetHouse(Viking viking, [FromForm] string contentXml) {
-        HouseData? house = viking.House;
-
-        if(house is null)
-        {
-            HouseData newHouse = new HouseData{ XmlData = contentXml };
-            viking.House = newHouse;
-            ctx.SaveChanges();
-            return Ok(true);
-        } else
-        {
-            house.XmlData = contentXml;
-            ctx.SaveChanges();
-            return Ok(true);
-        }
+        Util.SavedData.Set(
+            viking,
+            Util.SavedData.House(),
+            contentXml
+        );
+        ctx.SaveChanges();
+        return Ok(true);
     }
 
     [HttpPost]

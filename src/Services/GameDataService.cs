@@ -45,7 +45,8 @@ public class GameDataService {
         var query2 = query.SelectMany(e => e.GameDataPairs)
             .Where(x => x.Name == key);
 
-        if (ClientVersion.GetVersion(apiKey) == ClientVersion.WoJS) {
+        uint gameVersion = ClientVersion.GetVersion(apiKey);
+        if (gameVersion <= ClientVersion.Max_OldJS) {
             // use DisplayName instead of Name
             if (AscendingOrder)
                 selectedData = query2.OrderBy(e => e.Value).Select(e => new GameDataResponse(

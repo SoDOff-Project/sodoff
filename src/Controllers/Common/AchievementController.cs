@@ -40,7 +40,8 @@ public class AchievementController : Controller {
     //[Produces("application/xml")]
     [Route("AchievementWebService.asmx/GetAllRanks")]
     public IActionResult GetAllRanks([FromForm] string apiKey) {
-        if (ClientVersion.GetVersion(apiKey) == ClientVersion.WoJS)
+        uint gameVersion = ClientVersion.GetVersion(apiKey);
+        if (gameVersion <= ClientVersion.Max_OldJS && (gameVersion & ClientVersion.WoJS) != 0)
             return Ok(XmlUtil.ReadResourceXmlString("allranks_wojs"));
 
         // TODO, this is a placeholder

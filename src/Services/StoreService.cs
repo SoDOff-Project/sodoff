@@ -10,7 +10,7 @@ public class StoreService {
         StoreData[] storeArray = XmlUtil.DeserializeXml<StoreData[]>(XmlUtil.ReadResourceXmlString("store"));
         foreach (var s in storeArray) {
             ItemsInStoreData newStore = new() {
-                ID = s.Id,
+                ID = s.Id % 1000, // % 1000 for support store variants (for example 30123 and 123 is the same store but for different games / versions)
                 StoreName = s.StoreName,
                 Description = s.Description,
                 SalesAtStore = s.SalesAtStore,
@@ -36,6 +36,14 @@ public class StoreService {
     }
 
     public ItemsInStoreData GetStore(int id) {
+        return stores[id];
+    }
+
+    public ItemsInStoreData GetStore(int id, uint gameVersion) {
+        if (gameVersion < ClientVersion.WoJS_NewAvatar) {
+            if (stores.ContainsKey(id+30000))
+                return stores[id+30000];
+        }
         return stores[id];
     }
 

@@ -43,7 +43,7 @@ public class AuthenticationController : Controller {
         // Authenticate the user
         User? user = null;
         uint gameVersion = ClientVersion.GetVersion(apiKey);
-        if (gameVersion == ClientVersion.WoJS || gameVersion == ClientVersion.MB) {
+        if (gameVersion <= ClientVersion.Max_OldJS) {
             user = ctx.Users.FirstOrDefault(e => e.Email == data.UserName);
         } else {
             user = ctx.Users.FirstOrDefault(e => e.Username == data.UserName);

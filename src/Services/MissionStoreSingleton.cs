@@ -46,29 +46,35 @@ public class MissionStoreSingleton {
     }
 
     public int[] GetActiveMissions(uint gameVersion) {
+        if (gameVersion >= 0xa2a00a0a) {
+            return activeMissions;
+        }
+        if (gameVersion >= ClientVersion.Min_SoD) {
+            return activeMissionsV1;
+        }
         if (gameVersion == ClientVersion.MaM) {
             return activeMissionsMaM;
         }
-        if (gameVersion == ClientVersion.WoJS) {
+        if ((gameVersion & ClientVersion.WoJS) != 0) {
             return activeMissionsWoJS;
         }
-        if (gameVersion < 0xa2a00a0a) {
-            return activeMissionsV1;
-        }
-        return activeMissions;
+        return new int[0];
     }
 
     public int[] GetUpcomingMissions(uint gameVersion) {
+        if (gameVersion >= 0xa2a00a0a) {
+            return upcomingMissions;
+        }
+        if (gameVersion >= ClientVersion.Min_SoD) {
+            return upcomingMissionsV1;
+        }
         if (gameVersion == ClientVersion.MaM) {
             return upcomingMissionsMaM;
         }
-        if (gameVersion == ClientVersion.WoJS) {
+        if ((gameVersion & ClientVersion.WoJS) != 0) {
             return upcomingMissionsWoJS;
         }
-        if (gameVersion < 0xa2a00a0a) {
-            return upcomingMissionsV1;
-        }
-        return upcomingMissions;
+        return new int[0];
     }
 
     private void SetUpRecursive(Mission mission) {

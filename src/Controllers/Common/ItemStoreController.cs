@@ -49,8 +49,8 @@ public class ItemStoreController : Controller {
     [HttpPost]
     [Produces("application/xml")]
     [Route("ItemStoreWebService.asmx/GetItemsInStore")] // used by World Of Jumpstart
-    public IActionResult GetItemsInStore([FromForm] int storeId) {
-        return Ok(storeService.GetStore(storeId));
+    public IActionResult GetItemsInStore([FromForm] int storeId, [FromForm] string apiKey) {
+        return Ok(storeService.GetStore(storeId, ClientVersion.GetVersion(apiKey)));
     }
 
     [HttpPost]
