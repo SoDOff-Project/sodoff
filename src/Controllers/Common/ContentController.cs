@@ -1874,6 +1874,8 @@ public class ContentController : Controller {
 
             itemService.CheckAndOpenBox((int)(output.ItemID), gender, out int newItemId, out int quantity);
             for (int i=0; i<quantity; ++i) {
+                if (output.Tier is null)
+                    throw new Exception($"Blueprint {blueprintItem.ItemID} hasn't output tier. Fix item definition: <bp> -> <OUT> -> <T>");
                 resItemList.Add(
                     inventoryService.AddBattleItemToInventory(viking, newItemId, (int)output.Tier)
                 );
