@@ -1,20 +1,22 @@
-#See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
-
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
-WORKDIR /app
-
+# Use the official .NET SDK image for building the application
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["src/sodoff.csproj", "src/"]
-RUN dotnet restore "src/sodoff.csproj"
+
+# Copy the source code
 COPY . .
-WORKDIR "/src/src"
-RUN dotnet build "sodoff.csproj" -c Release -o /app/build
 
-FROM build AS publish
-RUN dotnet publish "sodoff.csproj" -c Release -o /app/publish /p:UseAppHost=false
+# Restore dependencies and build the application
+RUN dotnet build -c Release -o /app
 
-FROM base AS final
+# move mods and assets directors from sources to /app
+RUN mv src/mods /app && ln -s /app/mods src/
+RUN mv src/assets /app && ln -s /app/assets src/
+
+# Create clean run environment (without source and sdk)
+# FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
+# WORKDIR /app
+# COPY --from=build /app .
+
+# Run the application
 WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "sodoff.dll"]
+ENTRYPOINT ["./sodoff"]

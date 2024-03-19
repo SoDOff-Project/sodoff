@@ -8,10 +8,17 @@ services:
     #   - 5000:5000
     networks:
       sodoff_network:
+        # use static ip address for nginx proxy configuration
+        #  - if run multiple instances of this docker, each instance should use unique address
+        #  - if do not use proxy, port mapping as above should be enough
         ipv4_address: 172.16.99.10
 
 networks:
   sodoff_network:
+    name: sodoff_network
+    # bellow network configuration should be put in at least one file
+    #  - but it may be in many or all
+    #  - without it it will work like `external: true`
     driver: bridge
     ipam:
       config:
