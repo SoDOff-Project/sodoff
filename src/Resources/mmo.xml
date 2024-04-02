@@ -11,15 +11,15 @@
 
 	<Version>
 		<!-- Math Blaster -->
-		<VersionMin>0x00700000</VersionMin>
-		<VersionMax>0x00700000</VersionMax>
+		<VersionMin>0x08000000</VersionMin>
+		<VersionMax>0x08ffffff</VersionMax>
 		<ZoneList>DNAMorph AlienWorldJungle GauntletShooter AlienRace Spaceport ReadyRoom AlienBattleGame TrainingRoom FaceOffGame AlienWorldIce AlienAdult SnatchItMB AlienRiderGame AlienBaby AlienBattleArena SpaceRacing Academy AlienRider Hangar AlienLarvaRoom MyPodInt DNAMorph AlienWorldJungle GauntletShooter AlienRace Spaceport ReadyRoom AlienBattleGame TrainingRoom FaceOffGame AlienWorldIce AlienAdult SnatchItMB AlienRiderGame AlienBaby AlienBattleArena SpaceRacing Academy AlienRider Hangar AlienLarvaRoom MyPodInt DNAMorph AlienWorldJungle GauntletShooter AlienRace Spaceport ReadyRoom AlienBattleGame TrainingRoom FaceOffGame AlienWorldIce AlienAdult SnatchItMB AlienRiderGame AlienBaby AlienBattleArena SpaceRacing Academy AlienRider Hangar AlienLarvaRoom MyPodInt DNAMorph AlienWorldJungle GauntletShooter AlienRace Spaceport ReadyRoom AlienBattleGame TrainingRoom FaceOffGame AlienWorldIce AlienAdult SnatchItMB AlienRiderGame AlienBaby AlienBattleArena SpaceRacing Academy AlienRider Hangar AlienLarvaRoom MyPodInt DNAMorph AlienWorldJungle GauntletShooter AlienRace Spaceport ReadyRoom AlienBattleGame TrainingRoom FaceOffGame AlienWorldIce AlienAdult SnatchItMB AlienRiderGame AlienBaby AlienBattleArena SpaceRacing Academy AlienRider Hangar AlienLarvaRoom MyPodInt</ZoneList>
 	</Version>
 
 	<Version>
 		<!-- World of JumpStart -->
-		<VersionMin>0x00600000</VersionMin>
-		<VersionMax>0x00600000</VersionMax>
+		<VersionMin>0x01000000</VersionMin>
+		<VersionMax>0x01ffffff</VersionMax>
 		<ZoneList>DWMadPenguinHQINT UncleMilton EnemyValley LoungeIntUpper UncleMiltonBounceHouse Boardwalk MyRoomsInt DWMadEuropeAlps SpeedDrome WinterWonderland GemMineInt Beach TrainingIsland * IslandX SanctuaryBaby DWMadEuropeParis AdventureCanyon DWMadNYHarbor JumpStartBowlInt TownCenter SanctuaryFlying MultiplayerSystem DWMadNYCentralParkFunZone MainStreet LearningInt HomeBase Hollows FreeFallMtn ArcadeInt ShipWreckLagoon DWMadEuropeItaly MummyMazeInt EnchantedSanctuary MyVIPRoomInt DownTown DWMadNYCentralPark MyNeighborhood MountainJetpack DWMadNYTimesSquare MainStreetFunZone DuneBuggyZone LoungeInt JSStadiumInt SanctuaryAdult BroomStickArena RabbitHoleInt CoconutMall Lobby </ZoneList>
 	</Version>
 

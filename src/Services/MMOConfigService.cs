@@ -38,7 +38,7 @@ public class MMOConfigService {
     public MMOServerInformation GetMMOServerInformation(uint version) {
         if (version >= config.Value.MMOSupportMinVersion) {
             return new MMOServerInformation {
-                MMOServerDataArray = mmoconfig.Versions.FirstOrDefault(c => c.VersionFirst >= version && c.VersionLast <= version)?.MMOServerDataArray
+                MMOServerDataArray = mmoconfig.Versions.FirstOrDefault(c => version >= c.VersionFirst && version <= c.VersionLast)?.MMOServerDataArray
             };
         } else {
             return new MMOServerInformation();
