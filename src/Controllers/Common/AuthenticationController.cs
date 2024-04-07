@@ -212,4 +212,19 @@ public class AuthenticationController : Controller {
 
         return Ok(MembershipUserStatus.Success);
     }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("Authentication/MMOAuthentication")]
+    public IActionResult MMOAuthentication([FromForm] Guid token) {
+        AuthenticationInfo info = new();
+        info.Authenticated = false;
+        var session = ctx.Sessions.FirstOrDefault(x => x.ApiToken == token);
+        if (session != null) {
+            info.Authenticated = true;
+            info.DisplayName = session.Viking.Name;
+            info.Role = Role.User;
+        }
+        return Ok(info);
+    }
 }
