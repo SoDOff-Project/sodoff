@@ -223,7 +223,9 @@ public class AuthenticationController : Controller {
         if (session != null) {
             info.Authenticated = true;
             info.DisplayName = session.Viking.Name;
-            info.Role = Role.User;
+            Role? role = session.Viking.MMORoles.FirstOrDefault()?.Role;
+            if (role != null)
+                info.Role = (Role)role;
         }
         return Ok(info);
     }
