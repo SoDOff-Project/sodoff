@@ -15,5 +15,5 @@ public class AuthenticationInfo {
 
 [Serializable]
 public enum Role {
-    User = 0, Admin = 1, Moderator = 2
+    User = 0, Moderator = 1, Admin = 2
 }
