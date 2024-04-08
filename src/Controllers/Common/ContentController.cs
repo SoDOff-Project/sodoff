@@ -1435,55 +1435,41 @@ public class ContentController : Controller {
     {
         Viking? viking = ctx.Vikings.FirstOrDefault(e => e.Uid == userId);
         List<UserPartyComplete> parties = new List<UserPartyComplete>();
-        if(viking != null)
-        {
-            foreach(var party in ctx.Parties)
-            {
-                if (DateTime.UtcNow >= party.ExpirationDate)
-                {
-                    ctx.Parties.Remove(party);
-                    ctx.SaveChanges();
 
-                    continue;
-                }
-
-                AvatarData avatarData = XmlUtil.DeserializeXml<AvatarData>(viking.AvatarSerialized);
-                if(party.Location == "MyNeighborhood")
-                {
-                    UserPartyComplete userPartyComplete = new UserPartyComplete
-                    {
-                        DisplayName = avatarData.DisplayName,
-                        UserName = avatarData.DisplayName,
-                        ExpirationDate = party.ExpirationDate,
-                        Icon = party.LocationIconAsset,
-                        Location = party.Location,
-                        PrivateParty = party.PrivateParty!.Value,
-                        UserID = viking.Uid,
-                        AssetBundle = "RS_DATA/PfMyNeighborhoodParty.unity3d/PfMyNeighborhoodParty"
-                    };
-                    parties.Add(userPartyComplete);
-                } else if (party.Location == "MyVIPRoomInt")
-                {
-                    UserPartyComplete userPartyComplete = new UserPartyComplete
-                    {
-                        DisplayName = avatarData.DisplayName,
-                        UserName = avatarData.DisplayName,
-                        ExpirationDate = party.ExpirationDate,
-                        Icon = party.LocationIconAsset,
-                        Location = party.Location,
-                        PrivateParty = party.PrivateParty!.Value,
-                        UserID = viking.Uid,
-                        AssetBundle = "RS_DATA/PfMyVIPRoomIntPartyGroup.unity3d/PfMyVIPRoomIntPartyGroup"
-                    };
-                    parties.Add(userPartyComplete);
-                }
-            }
-
-            return Ok(new ArrayOfUserPartyComplete { UserPartyComplete = parties.ToArray() });
-        } else
+        if(viking is null)
         {
             return Ok(new ArrayOfUserPartyComplete());
         }
+
+        bool needSave = false;
+        foreach(var party in viking.Parties)
+        {
+            if (DateTime.UtcNow >= party.ExpirationDate)
+            {
+                viking.Parties.Remove(party);
+                needSave = true;
+                continue;
+            }
+
+            AvatarData avatarData = XmlUtil.DeserializeXml<AvatarData>(viking.AvatarSerialized);
+            UserPartyComplete userPartyComplete = new UserPartyComplete
+            {
+                DisplayName = avatarData.DisplayName,
+                UserName = avatarData.DisplayName,
+                ExpirationDate = party.ExpirationDate,
+                Icon = party.LocationIconAsset,
+                Location = party.Location,
+                PrivateParty = party.PrivateParty!.Value,
+                UserID = viking.Uid,
+                AssetBundle = party.AssetBundle
+            };
+            parties.Add(userPartyComplete);
+        }
+
+        if (needSave)
+            ctx.SaveChanges();
+
+        return Ok(new ArrayOfUserPartyComplete { UserPartyComplete = parties.ToArray() });
     }
 
     [HttpPost]
@@ -1492,76 +1478,44 @@ public class ContentController : Controller {
     [VikingSession]
     public IActionResult PurchaseParty(Viking viking, [FromForm] int itemId)
     {
-        // create a party based on bought itemid
+        ItemData itemData = itemService.GetItem(itemId);
 
+        // create a party based on bought itemid
         Party party = new Party
         {
-            VikingId = viking.Id,
             PrivateParty = false
         };
 
-        int coinTakeaway = 0;
+        string? partyType = itemData.Attribute?.FirstOrDefault(a => a.Key == "PartyType").Value;
 
-        switch (itemId)
-        {
-            case 2761:
-                party.Location = "MyNeighborhood";
-                party.LocationIconAsset = "RS_DATA/PfUiPartiesList.unity3d/IcoPartyLocationMyNeighborhood";
-                party.ExpirationDate = DateTime.UtcNow.AddMinutes(30);
-                coinTakeaway = 30;
-                break;
-            case 6259:
-                party.Location = "MyNeighborhood";
-                party.LocationIconAsset = "RS_DATA/PfUiPartiesList.unity3d/IcoPartyLocationMyNeighborhood";
-                party.ExpirationDate = DateTime.UtcNow.AddHours(1);
-                coinTakeaway = 60;
-                break;
-            case 6260:
-                party.Location = "MyNeighborhood";
-                party.LocationIconAsset = "RS_DATA/PfUiPartiesList.unity3d/IcoPartyLocationMyNeighborhood";
-                party.ExpirationDate = DateTime.UtcNow.AddHours(4);
-                coinTakeaway = 80;
-                break;
-            case 6261:
-                party.Location = "MyNeighborhood";
-                party.LocationIconAsset = "RS_DATA/PfUiPartiesList.unity3d/IcoPartyLocationMyNeighborhood";
-                party.ExpirationDate = DateTime.UtcNow.AddHours(8);
-                coinTakeaway = 100;
-                break;
-            case 6263:
-                party.Location = "MyVIPRoomInt";
-                party.LocationIconAsset = "RS_DATA/PfUiPartiesList.unity3d/IcoPartyDefault";
-                party.ExpirationDate = DateTime.UtcNow.AddMinutes(30);
-                coinTakeaway = 30;
-                break;
-            case 6264:
-                party.Location = "MyVIPRoomInt";
-                party.LocationIconAsset = "RS_DATA/PfUiPartiesList.unity3d/IcoPartyDefault";
-                party.ExpirationDate = DateTime.UtcNow.AddHours(1);
-                coinTakeaway = 60;
-                break;
-            case 6265:
-                party.Location = "MyVIPRoomInt";
-                party.LocationIconAsset = "RS_DATA/PfUiPartiesList.unity3d/IcoPartyDefault";
-                party.ExpirationDate = DateTime.UtcNow.AddHours(4);
-                coinTakeaway = 80;
-                break;
-            case 6266:
-                party.Location = "MyVIPRoomInt";
-                party.LocationIconAsset = "RS_DATA/PfUiPartiesList.unity3d/IcoPartyDefault";
-                party.ExpirationDate = DateTime.UtcNow.AddHours(8);
-                coinTakeaway = 100;
-                break;
+        if (partyType is null) {
+            return Ok(null);
         }
 
-        // check if party already exists
+        if (partyType == "Default") {
+            party.Location = "MyNeighborhood";
+            party.LocationIconAsset = "RS_DATA/PfUiPartiesList.unity3d/IcoPartyLocationMyNeighborhood";
+            party.AssetBundle = "RS_DATA/PfMyNeighborhoodParty.unity3d/PfMyNeighborhoodParty";
+        } else if (partyType == "VIPRoom") {
+            party.Location = "MyVIPRoomInt";
+            party.LocationIconAsset = "RS_DATA/PfUiPartiesList.unity3d/IcoPartyDefault";
+            party.AssetBundle = "RS_DATA/PfMyVIPRoomIntPartyGroup.unity3d/PfMyVIPRoomIntPartyGroup";
+        } else {
+            Console.WriteLine($"Unsupported partyType = {partyType}");
+            return Ok(null);
+        }
 
-        if (ctx.Parties.Where(e => e.Location == party.Location).FirstOrDefault(e => e.VikingId == viking.Id) != null) return Ok(null);
+        party.ExpirationDate = DateTime.UtcNow.AddMinutes(
+            Int32.Parse(itemData.Attribute.FirstOrDefault(a => a.Key == "Time").Value)
+        );
+
+        // check if party already exists
+        if (viking.Parties.FirstOrDefault(e => e.Location == party.Location) != null) return Ok(null);
 
         // take away coins
-        viking.AchievementPoints.FirstOrDefault(e => e.Type == (int)AchievementPointTypes.GameCurrency)!.Value -= coinTakeaway;
+        viking.AchievementPoints.FirstOrDefault(e => e.Type == (int)AchievementPointTypes.GameCurrency)!.Value -= itemData.Cost;
 
-        ctx.Parties.Add(party);
+        viking.Parties.Add(party);
         ctx.SaveChanges();
 
         return Ok(true);
