@@ -41,6 +41,15 @@ public class MissionService {
             mission.MissionID = missionId;
         }
 
+        // move expansion board missions to Headmaster for old versions
+        if (mission.GroupID == 61 && gameVersion <= 0xa3a23a0a) {
+            mission.GroupID = 6;
+            foreach (var m in mission.Missions) {
+                if (mission.GroupID == 61)
+                    mission.GroupID = 6;
+            }
+        }
+
         UpdateMissionRecursive(mission, userId);
         return mission;
     }

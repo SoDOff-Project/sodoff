@@ -11,6 +11,14 @@ public class RatingController : Controller
 
     [HttpPost]
     [Produces("application/xml")]
+    [Route("MissionWebService.asmx/GetPayout")] // used by World Of Jumpstart
+    public IActionResult GetPayout([FromForm] int points) {
+        // TODO - placeholder
+        return Ok(points / 100);
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
     [Route("ScoreWebService.asmx/SetScore")] // used by World Of Jumpstart
     public IActionResult SetScore()
     {

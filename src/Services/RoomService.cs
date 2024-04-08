@@ -104,12 +104,14 @@ public class RoomService {
         ctx.SaveChanges();
     }
 
-    public UserItemPositionList GetUserItemPositionList(Room room) {
+    public UserItemPositionList GetUserItemPositionList(Room room, uint gameVersion) {
         List<UserItemPosition> itemPosition = new();
         foreach (var item in room.Items) {
             UserItemPosition data = XmlUtil.DeserializeXml<UserItemPosition>(item.RoomItemData);
             data.UserItemPositionID = item.Id;
-            data.ItemID = data.Item.ItemID;
+            data.ItemID = data.Item?.ItemID;
+            if (gameVersion < 0xa3a00a0a && data.Uses is null)
+                data.Uses = -1;
             itemPosition.Add(data);
         }
         return new UserItemPositionList { UserItemPosition = itemPosition.ToArray() };

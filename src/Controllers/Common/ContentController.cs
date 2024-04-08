@@ -670,6 +670,12 @@ public class ContentController : Controller {
     [VikingSession]
     public IActionResult SetRaisedPetInactive(Viking viking, [FromForm] int raisedPetID) {
         if (raisedPetID == viking.SelectedDragonId) {
+            RaisedPetData dragonData = XmlUtil.DeserializeXml<RaisedPetData>(viking.SelectedDragon.RaisedPetData);
+            RaisedPetAttribute? attribute = dragonData.Attributes.FirstOrDefault(a => a.Key == "GrowTime");
+            if (attribute != null) {
+                attribute.Value = DateTime.UtcNow.ToString("yyyy#M#d#H#m#s");
+                viking.SelectedDragon.RaisedPetData = XmlUtil.SerializeXml(dragonData);
+            }
             viking.SelectedDragonId = null;
         } else {
             Dragon? dragon = viking.Dragons.FirstOrDefault(e => e.Id == raisedPetID);
@@ -1151,7 +1157,7 @@ public class ContentController : Controller {
     [HttpPost]
     [Produces("application/xml")]
     [Route("V2/ContentWebService.asmx/PurchaseItems")]
-    [VikingSession]
+    [VikingSession(UseLock = true)]
     public IActionResult PurchaseItems(Viking viking, [FromForm] string purchaseItemRequest) {
         PurchaseStoreItemRequest request = XmlUtil.DeserializeXml<PurchaseStoreItemRequest>(purchaseItemRequest);
         List<CommonInventoryResponseItem> items = new List<CommonInventoryResponseItem>();
@@ -1217,7 +1223,7 @@ public class ContentController : Controller {
     [HttpPost]
     [Produces("application/xml")]
     [Route("ContentWebService.asmx/PurchaseItems")]
-    [VikingSession]
+    [VikingSession(UseLock = true)]
     public IActionResult PurchaseItemsV1(Viking viking, [FromForm] string itemIDArrayXml) {
         int[] itemIdArr = XmlUtil.DeserializeXml<int[]>(itemIDArrayXml);
         List<CommonInventoryResponseItem> items = new List<CommonInventoryResponseItem>();
@@ -1270,7 +1276,7 @@ public class ContentController : Controller {
     [HttpPost]
     [Produces("application/xml")]
     [Route("ContentWebService.asmx/GetUserRoomItemPositions")]
-    public IActionResult GetUserRoomItemPositions([FromForm] Guid userId, [FromForm] string roomID) {
+    public IActionResult GetUserRoomItemPositions([FromForm] Guid userId, [FromForm] string roomID, [FromForm] string apiKey) {
         // NOTE: this is public info (for mmo) - no session check
         Viking? viking = ctx.Vikings.FirstOrDefault(e => e.Uid == userId);
 
@@ -1280,7 +1286,7 @@ public class ContentController : Controller {
         if (room is null)
             return Ok(new UserItemPositionList { UserItemPosition = new UserItemPosition[0] });
 
-        return Ok(roomService.GetUserItemPositionList(room));
+        return Ok(roomService.GetUserItemPositionList(room, ClientVersion.GetVersion(apiKey)));
     }
 
     [HttpPost]

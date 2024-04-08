@@ -13001,8 +13001,6 @@ SoD 3.31 main store section and subsection filtering:
 		<ii>12251</ii>
 		<ii>12252</ii>
 		<ii>12253</ii>
-		<ii>12721</ii>
-		<ii>12732</ii>
 		<ii>13106</ii>
 		<ii>13151</ii>
 		<ii>13152</ii>
@@ -17133,6 +17131,8 @@ SoD 3.31 main store section and subsection filtering:
 			<id>10919</id>
 			<c>6</c>
 		</pitem>
+		<ii>12732</ii>
+		<ii>12721</ii>
 		<ii>10824</ii>
 		<ii>12487</ii>
 		<ii>13166</ii>
