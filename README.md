@@ -23,8 +23,12 @@ dotnet run --project src/sodoff.csproj
 
 ### Modifying the Client
 
-To play the game you need to modify the game client to use `http://localhost:5001/.com/DWADragonsUnity/` instead of `http://media.jumpstart.com/DWADragonsUnity/`.
-You can do this by editing `DOMain_Data/resources.assets` in a hex-editor and swapping the URLs.
+To play the game you need to modify the game client to use `http://localhost:5001/.com/conf/` instead of `http://media.jumpstart.com/DWADragonsUnity/`.
+You can use *ClientPatcher* tool form https://github.com/SoDOff-Project/sodoff-tools to do this. This tool also change correct ApiKey and 3DesKey values.
+You can also do this by manually editing `DOMain_Data/resources.assets` in a hex-editor and swapping the URLs (and keys if needed).
+
+By default we use `conf` instead of `DWADragonsUnity` for XML configuration to allow the use of a longer server name/IP address (limitation of url length in resources.assets).
+Provided sample `DWADragonsMain.xml` file still requires the use of the `DWADragonsUnity` directory for assets.
 
 ### Server Configuration
 
@@ -32,7 +36,9 @@ Most of the server configuration is stored in `appsettings.json`.  Check out the
 
 #### Supported Clients
 
-For each supported client version, there must be a corresponding file located at `assets/DWADragonsUnity/{PLATFORM}/{VERSION}/DWADragonsMain.xml`.
+The server support multiple versions of School of Dragons and some other JS online games (like Magic & Mythies, Math Blaster and World of JumpStart).
+
+For each supported SoD client version, there must be a corresponding file located at `assets/conf/{PLATFORM}/{VERSION}/DWADragonsMain.xml`.
 By default (modifiable in appsettings.json), files for version 2.5.0 and newer will be automatically encrypted to meet the client's requirements.
 
 A sample file is provided for `{PLATFORM} = WIN`, `{VERSION} = 3.31.0`.
@@ -42,6 +48,7 @@ It assumes that the server address are `localhost:5000` (API) and `localhost:500
 
 Various settings for the asset server are customizable, with the key one being `ProviderURL`, which specifies the source for downloading assets in `partial` mode. By default, it's configured to use archive.org
 Please do not abuse the archive.org server, do not disable the `UseCache` option and do not delete the contents of the `asset-cache` directory.
+The [SoDOff-tools](https://github.com/SoDOff-Project/sodoff-tools) repository contains an *AssetsDownloader* tool to pre-download assets (this may be needed in case of a slow connection to `ProviderURL`).
 
 #### Listening address/port
 
