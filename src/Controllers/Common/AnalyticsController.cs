@@ -14,6 +14,7 @@ namespace sodoff.Controllers.Common
         }
 
         [Route("ping")]
+        [Route("ContentWebService.asmx")] // ping URL used by SoD
         public IActionResult Ping()
         {
             return Ok();

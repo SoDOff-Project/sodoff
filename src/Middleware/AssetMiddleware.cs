@@ -138,11 +138,12 @@ public class AssetMiddleware
                 }
             }
         }
-        catch (Exception) {
+        catch (Exception err) {
+            Console.WriteLine($"{err}");
             if (File.Exists(filePathTmp))
                 File.Delete(filePathTmp);
             if (!context.Response.HasStarted)
-                context.Response.StatusCode = 502;
+                context.Response.StatusCode = 404;
         }
     }
 
