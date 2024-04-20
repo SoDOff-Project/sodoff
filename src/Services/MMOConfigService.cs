@@ -31,6 +31,15 @@ public class MMOConfigService {
                     }
                 }
                 v.MMOServerDataArray = MMOServerDataList.ToArray();
+            } else {
+                foreach (var s in v.MMOServerDataArray) {
+                    if (String.IsNullOrEmpty(s.IPAddress)) {
+                        s.IPAddress = config.Value.MMOAdress;
+                    }
+                    if (s.Port == 0) {
+                        s.Port = config.Value.MMOPort;
+                    }
+                }
             }
         }
     }
