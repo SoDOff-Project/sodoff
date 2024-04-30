@@ -61,6 +61,12 @@ public class ItemStoreController : Controller {
         return Ok(XmlUtil.ReadResourceXmlString("rankattrib"));
     }
 
+    [Route("ItemStoreWebService.asmx/GetAssetVersions")]
+    public IActionResult GetAssetVersions() {
+        // TODO return AssetVersion[]
+        return Ok(null);
+    }
+
     [HttpPost]
     [Produces("application/xml")]
     [Route("ItemStoreWebService.asmx/GetAnnouncementsByUser")]

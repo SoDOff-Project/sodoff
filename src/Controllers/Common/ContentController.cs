@@ -602,9 +602,7 @@ public class ContentController : Controller {
         // Find the dragon
         Dragon? dragon = viking.Dragons.FirstOrDefault(e => e.Id == petData.RaisedPetID);
         if (dragon is null) {
-            return Ok(new SetRaisedPetResponse {
-                RaisedPetSetResult = RaisedPetSetResult.Invalid
-            });
+            return Ok(false);
         }
 
         dragon.RaisedPetData = XmlUtil.SerializeXml(UpdateDragon(dragon, petData));
@@ -1576,7 +1574,7 @@ public class ContentController : Controller {
         avatarData.DisplayName = displayNamesService.GetName(firstNameID, secondNameID, thirdNameID);
         viking.AvatarSerialized = XmlUtil.SerializeXml(avatarData);
         ctx.SaveChanges();
-        return Ok();
+        return Ok(true);
     }
 
     [HttpPost]
