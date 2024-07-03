@@ -84,6 +84,7 @@ methods = [
   'SendRawGameData',
   'GetGameData',
   'GetGameDataByGame',
+  'GetGameDataByUser',
   'GetGameDataByGameForDateRange',
   'GetTopAchievementPointUsers',
   'SetDisplayName',

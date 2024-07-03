@@ -105,6 +105,7 @@ Almost everything:
 - GetDefaultNameSuggestion
 - GetDetailedChildList
 - GetGameData
+- GetGameDataByUser
 - GetImage
 - GetImageByUserId
 - GetItem
