@@ -633,7 +633,7 @@ public class ContentController : Controller {
             return Ok(false);
         }
 
-        if (petData.Texture.StartsWith("RS_SHARED/Larva.unity3d/LarvaTex") && petData.GrowthState.GrowthStateID>4) {
+        if (petData.Texture != null && petData.Texture.StartsWith("RS_SHARED/Larva.unity3d/LarvaTex") && petData.GrowthState.GrowthStateID>4) {
             petData.Texture = "RS_SHARED/" + petData.PetTypeID switch {
                  5 => "EyeClops.unity3d/EyeClopsBrainRedTex",           // EyeClops
                  6 => "RodeoLizard.unity3d/BlueLizardTex",              // RodeoLizard
