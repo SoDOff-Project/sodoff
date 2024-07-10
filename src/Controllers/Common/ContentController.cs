@@ -622,7 +622,7 @@ public class ContentController : Controller {
 
     [HttpPost]
     [Produces("application/xml")]
-    [Route("ContentWebService.asmx/SetRaisedPet")] // used by World Of Jumpstart
+    [Route("ContentWebService.asmx/SetRaisedPet")] // used by World Of Jumpstart and Math Blaster
     [VikingSession]
     public IActionResult SetRaisedPetv1(Viking viking, [FromForm] string raisedPetData) {
         RaisedPetData petData = XmlUtil.DeserializeXml<RaisedPetData>(raisedPetData);
@@ -631,6 +631,17 @@ public class ContentController : Controller {
         Dragon? dragon = viking.Dragons.FirstOrDefault(e => e.Id == petData.RaisedPetID);
         if (dragon is null) {
             return Ok(false);
+        }
+
+        if (petData.Texture.StartsWith("RS_SHARED/Larva.unity3d/LarvaTex") && petData.GrowthState.GrowthStateID>4) {
+            petData.Texture = "RS_SHARED/" + petData.PetTypeID switch {
+                 5 => "EyeClops.unity3d/EyeClopsBrainRedTex",           // EyeClops
+                 6 => "RodeoLizard.unity3d/BlueLizardTex",              // RodeoLizard
+                 7 => "MonsterAlien01.unity3d/BlasterMythieGreenTex",   // MonsterAlien01
+                11 => "SpaceGriffin.unity3d/SpaceGriffinNormalBlueTex", // SpaceGriffin
+                10 => "Tweeter.unity3d/TweeterMuttNormalPurple",        // Tweeter
+                 _ => "null" // Anything with any other ID shouldn't exist.
+            };
         }
 
         dragon.RaisedPetData = XmlUtil.SerializeXml(UpdateDragon(dragon, petData));
