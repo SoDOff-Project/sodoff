@@ -38,6 +38,7 @@ builder.Services.AddScoped<InventoryService>();
 builder.Services.AddScoped<AchievementService>();
 builder.Services.AddScoped<GameDataService>();
 builder.Services.AddScoped<ProfileService>();
+builder.Services.AddScoped<NeighborhoodService>();
 
 bool assetServer = builder.Configuration.GetSection("AssetServer").GetValue<bool>("Enabled");
 string assetIP = builder.Configuration.GetSection("AssetServer").GetValue<string>("ListenIP");

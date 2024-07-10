@@ -37,6 +37,7 @@ public class Viking {
     public virtual ICollection<SavedData> SavedData { get; set; } = null!;
     public virtual ICollection<Party> Parties { get; set; } = null!;
     public virtual ICollection<MMORole> MMORoles { get; set; } = null!;
+    public virtual Neighborhood? Neighborhood { get; set; } = null!;
     public virtual Dragon? SelectedDragon { get; set; }
 
     public DateTime? CreationDate { get; set; }

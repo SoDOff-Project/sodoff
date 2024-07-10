@@ -59,6 +59,7 @@
     <None Remove="Resources\content_arcade.xml" />
     <None Remove="Resources\content_learning.xml" />
     <None Remove="Resources\profiletags.xml" />
+    <None Remove="Resources\defaulthouse.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Resources\childlist.xml">
@@ -154,6 +155,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\profiletags.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+	<EmbeddedResource Include="Resources\defaulthouse.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>

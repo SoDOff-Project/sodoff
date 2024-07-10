@@ -23,10 +23,23 @@ public class ContentController : Controller {
     private InventoryService inventoryService;
     private GameDataService gameDataService;
     private DisplayNamesService displayNamesService;
+    private NeighborhoodService neighborhoodService;
     private Random random = new Random();
     private readonly IOptions<ApiServerConfig> config;
     
-    public ContentController(DBContext ctx, KeyValueService keyValueService, ItemService itemService, MissionService missionService, RoomService roomService, AchievementService achievementService, InventoryService inventoryService, GameDataService gameDataService, DisplayNamesService displayNamesService, IOptions<ApiServerConfig> config) {
+    public ContentController(
+        DBContext ctx,
+        KeyValueService keyValueService,
+        ItemService itemService,
+        MissionService missionService,
+        RoomService roomService,
+        AchievementService achievementService,
+        InventoryService inventoryService,
+        GameDataService gameDataService,
+        DisplayNamesService displayNamesService,
+        NeighborhoodService neighborhoodService,
+        IOptions<ApiServerConfig> config
+    ) {
         this.ctx = ctx;
         this.keyValueService = keyValueService;
         this.itemService = itemService;
@@ -36,6 +49,7 @@ public class ContentController : Controller {
         this.inventoryService = inventoryService;
         this.gameDataService = gameDataService;
         this.displayNamesService = displayNamesService;
+        this.neighborhoodService = neighborhoodService;
         this.config = config;
     }
 
@@ -424,6 +438,20 @@ public class ContentController : Controller {
         AvatarData avatarData = XmlUtil.DeserializeXml<AvatarData>(viking.AvatarSerialized);
         avatarData.Id = viking.Id;
         return Ok(avatarData);
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetAvatarByUserID")] // used by World Of Jumpstart, only for public information
+    public IActionResult GetAvatarByUserId([FromForm] Guid userId)
+    {
+        Viking? viking = ctx.Vikings.FirstOrDefault(e => e.Uid == userId);
+        AvatarData avatarData = XmlUtil.DeserializeXml<AvatarData>(viking.AvatarSerialized);
+
+        avatarData.Id = viking.Id;
+
+        if (viking != null && avatarData != null) return Ok(avatarData);
+        else return Ok(new AvatarData());
     }
 
     [HttpPost]
@@ -1598,7 +1626,7 @@ public class ContentController : Controller {
         );
         if (ret != null)
             return Ok(ret);
-        return Ok("");
+        return Ok(XmlUtil.ReadResourceXmlString("defaulthouse"));
     }
 
     [HttpPost]
@@ -1656,6 +1684,21 @@ public class ContentController : Controller {
         );
         ctx.SaveChanges();
         return Ok(true);
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/SetNeighbor")] // used by World Of Jumpstart
+    [VikingSession(UseLock=true)]
+    public IActionResult SetNeighbor(Viking viking, string neighboruserid, int slot) {
+        return Ok(neighborhoodService.SaveNeighbors(viking, neighboruserid, slot));
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetNeighborsByUserID")] // used by World Of Jumpstart
+    public IActionResult GetNeighborsByUserID(string userId) {
+        return Ok(neighborhoodService.GetNeighbors(userId));
     }
 
     [HttpPost]
@@ -2096,10 +2139,18 @@ public class ContentController : Controller {
 
     [HttpPost]
     [Produces("application/xml")]
-    [Route("ContentWebService.asmx/GetPeriodicGameDataByGame")] // used by Math Blaster
-    public IActionResult GetPeriodicGameDataByGame() {
-        // TODO: This is a placeholder
-        return Ok(new GameDataSummary());
+    [Route("ContentWebService.asmx/GetPeriodicGameDataByGame")] // used by Math Blaster and WoJS (probably from 24 hours ago to now)
+    [VikingSession(UseLock = true)]
+    public IActionResult GetPeriodicGameDataByGame(Viking viking, [FromForm] int gameId, bool isMultiplayer, int difficulty, int gameLevel, string key, int count, bool AscendingOrder, int score, bool buddyFilter, string apiKey) {
+        return Ok(gameDataService.GetGameData(viking, gameId, isMultiplayer, difficulty, gameLevel, key, count, AscendingOrder, buddyFilter, apiKey, DateTime.Now.AddHours(-24), DateTime.Now));
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetGamePlayDataForDateRange")] // used by WoJS
+    public IActionResult GetGamePlayDataForDateRange(Viking viking, string startDate, string endDate) {
+        // stub, didn't work for some reason, even with the correct response
+        return Ok(new ArrayOfGamePlayData());
     }
 
     [HttpPost]

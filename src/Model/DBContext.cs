@@ -23,6 +23,9 @@ public class DBContext : DbContext {
     public DbSet<ProfileAnswer> ProfileAnswers { get; set; } = null!;
     public DbSet<MMORole> MMORoles { get; set; } = null!;
     public DbSet<Party> Parties { get; set; } = null!;
+    public DbSet<Neighborhood> Neighborhoods { get; set; } = null!;
+    // we had a brief debate on whether it's neighborhoods or neighborheed
+
     private readonly IOptions<ApiServerConfig> config;
 
     public DBContext(IOptions<ApiServerConfig> config) {
@@ -128,6 +131,9 @@ public class DBContext : DbContext {
             .WithOne(e => e.Viking);
 
         builder.Entity<Viking>().HasMany(v => v.MMORoles)
+            .WithOne(e => e.Viking);
+
+        builder.Entity<Viking>().HasOne(v => v.Neighborhood)
             .WithOne(e => e.Viking);
 
         // Dragons
@@ -241,5 +247,10 @@ public class DBContext : DbContext {
         builder.Entity<MMORole>().HasOne(r => r.Viking)
             .WithMany(e => e.MMORoles)
             .HasForeignKey(e => e.VikingId);
+
+        // Neighborhoods
+        builder.Entity<Neighborhood>().HasOne(r => r.Viking)
+            .WithOne(e => e.Neighborhood)
+            .HasForeignKey<Neighborhood>(e => e.VikingId);
     }
 }
