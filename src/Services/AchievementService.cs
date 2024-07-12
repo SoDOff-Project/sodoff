@@ -200,5 +200,34 @@ namespace sodoff.Services {
                 DateRange = new DateRange()
             };
         }
+        public ArrayOfUserAchievementInfo GetTopAchievementBuddies(UserAchievementInfoRequest request) {
+            // TODO: Type and mode are currently ignored
+            List<UserAchievementInfo> achievementInfo = new();
+            var topAchievers = ctx.AchievementPoints.Where(x => x.Type == request.PointTypeID)
+                .Select(e => new { e.Viking.Uid, e.Viking.Name, e.Value })
+                .OrderByDescending(e => e.Value)
+                .Take(10); // Lets not sent 50,000 entries to the client please.
+
+            foreach (var a in topAchievers) {
+                achievementInfo.Add(new UserAchievementInfo {
+                    UserID = a.Uid,
+                    UserName = a.Name,
+                    AchievementPointTotal = a.Value,
+                    PointTypeID = (AchievementPointTypes)request.PointTypeID
+                });
+            }
+            if (achievementInfo.Count<=0) { // If there are no points for this (liekly won't be until implemented), just add GC and everything might be fine.
+                achievementInfo.Add(new UserAchievementInfo {
+                    UserID = new Guid("ffffffff-0000-0000-0000-000000000001"),
+                    UserName = "GC",
+                    AchievementPointTotal = 69,
+                    PointTypeID = (AchievementPointTypes)request.PointTypeID
+                });
+            }
+
+            return new ArrayOfUserAchievementInfo {
+                UserAchievementInfo = achievementInfo.ToArray()
+            };
+        }
     }
 }

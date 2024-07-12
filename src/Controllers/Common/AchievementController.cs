@@ -231,4 +231,16 @@ public class AchievementController : Controller {
         UserAchievementInfoRequest infoRequest = XmlUtil.DeserializeXml<UserAchievementInfoRequest>(request);
         return Ok(achievementService.GetTopAchievementUsers(infoRequest));
     }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("AchievementWebService.asmx/GetTopAchievementPointBuddiesByType")] // Used by Math Blaster
+    [VikingSession]
+    public IActionResult GetTopAchievementPointBuddiesByType([FromForm] string userId, [FromForm] int pointTypeID) {
+        UserAchievementInfoRequest infoRequest = new UserAchievementInfoRequest {
+            UserID = new Guid(userId),
+            PointTypeID = pointTypeID
+        };
+        return Ok(achievementService.GetTopAchievementBuddies(infoRequest));
+    }
 }
