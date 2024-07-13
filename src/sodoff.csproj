@@ -56,6 +56,7 @@
     <None Remove="Resources\questiondata.xml" />
     <None Remove="Resources\content_jukebox.xml" />
     <None Remove="Resources\content_movie.xml" />
+    <None Remove="Resources\content_blastermovie.xml" />
     <None Remove="Resources\content_arcade.xml" />
     <None Remove="Resources\content_learning.xml" />
     <None Remove="Resources\profiletags.xml" />
@@ -146,6 +147,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\content_movie.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\content_blastermovie.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\content_arcade.xml">

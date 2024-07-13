@@ -1,0 +1,52 @@
+﻿<ArrayOfContentInfoData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- Blaster B.F.F's -->
+  <ContentInfoData>
+    <DisplayName>Blaster B.F.F's</DisplayName>
+    <ThumbnailUrl>RS_MOVIES/BlasterMovieBestFriend.jpg</ThumbnailUrl>
+    <LinkUrl>RS_MOVIES/BlasterMovieBestFriend.ogg</LinkUrl>
+    <ContentType>5</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <CategoryUrl>RS_MOVIES/MasterBasicsIntro.jpg</CategoryUrl>
+    <LinkType>2</LinkType>
+  </ContentInfoData>
+  <!-- The Terrible Monkey King -->
+    <ContentInfoData>
+    <DisplayName>The Terrible Monkey King</DisplayName>
+    <ThumbnailUrl>RS_MOVIES/BlasterMovie9-12.jpg</ThumbnailUrl>
+    <LinkUrl>RS_MOVIES/BlasterMovie9-12.ogg</LinkUrl>
+    <ContentType>5</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <CategoryUrl>RS_MOVIES/MasterBasicsIntro.jpg</CategoryUrl>
+    <LinkType>2</LinkType>
+  </ContentInfoData>
+  <!-- Master the Basics -->
+  <ContentInfoData>
+    <DisplayName>Master the Basics</DisplayName>
+    <ThumbnailUrl>RS_MOVIES/MasterBasicsIntro.jpg</ThumbnailUrl>
+    <LinkUrl>RS_MOVIES/MasterBasicsIntro.ogg</LinkUrl>
+    <ContentType>5</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <CategoryUrl>RS_MOVIES/MasterBasicsIntro.jpg</CategoryUrl>
+    <LinkType>2</LinkType>
+  </ContentInfoData>
+  <!-- Gelator the Brain Drainer -->
+  <ContentInfoData>
+    <DisplayName>Gelator the Brain Drainer</DisplayName>
+    <ThumbnailUrl>RS_MOVIES/BlasterMovie6-9.jpg</ThumbnailUrl>
+    <LinkUrl>RS_MOVIES/BlasterMovie6-9.ogg</LinkUrl>
+    <ContentType>5</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <CategoryUrl>RS_MOVIES/MasterBasicsIntro.jpg</CategoryUrl>
+    <LinkType>2</LinkType>
+  </ContentInfoData>
+  <!-- Bugs in the System -->
+  <ContentInfoData>
+    <DisplayName>Bugs in the System</DisplayName>
+    <ThumbnailUrl>RS_MOVIES/MB89Intro.jpg</ThumbnailUrl>
+    <LinkUrl>RS_MOVIES/MB89Intro.ogg</LinkUrl>
+    <ContentType>5</ContentType>
+    <MemberOnly>false</MemberOnly>
+    <CategoryUrl>RS_MOVIES/MasterBasicsIntro.jpg</CategoryUrl>
+    <LinkType>2</LinkType>
+  </ContentInfoData>
+</ArrayOfContentInfoData>
