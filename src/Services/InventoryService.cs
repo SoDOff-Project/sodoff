@@ -57,6 +57,23 @@ namespace sodoff.Services {
             };
         }
 
+        public Dictionary<int, int> AddItemsToInventoryBulk(Viking viking, Dictionary<int,int> itemsWithQuantity) {
+            List<InventoryItem> items = new();
+            Dictionary<int, int> itemsWithInventoryId = new();
+            List<CommonInventoryResponseItem> responses = new();
+            foreach (var i in itemsWithQuantity) {
+                items.Add(AddItemToInventory(viking, i.Key, i.Value));
+            }
+
+            ctx.SaveChanges();
+
+            foreach (var item in items) {
+                itemsWithInventoryId[item.ItemId] = item.Id;
+            }
+
+            return itemsWithInventoryId;
+        }
+
         public InventoryItemStatsMap AddBattleItemToInventory(Viking viking, int itemId, int itemTier, ItemStat[] itemStat = null) {
             // get item data
             ItemData itemData = itemService.GetItem(itemId);
