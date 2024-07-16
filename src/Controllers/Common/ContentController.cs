@@ -446,12 +446,15 @@ public class ContentController : Controller {
     public IActionResult GetAvatarByUserId([FromForm] Guid userId)
     {
         Viking? viking = ctx.Vikings.FirstOrDefault(e => e.Uid == userId);
+        if (viking is null)
+            return Ok(new AvatarData());
+
         AvatarData avatarData = XmlUtil.DeserializeXml<AvatarData>(viking.AvatarSerialized);
-
+        if (avatarData is null)
+            return Ok(new AvatarData());
+        
         avatarData.Id = viking.Id;
-
-        if (viking != null && avatarData != null) return Ok(avatarData);
-        else return Ok(new AvatarData());
+        return Ok(avatarData);
     }
 
     [HttpPost]
