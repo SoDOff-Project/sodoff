@@ -1,14 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
-using Org.BouncyCastle.Security.Certificates;
 using sodoff.Attributes;
 using sodoff.Model;
 using sodoff.Schema;
 using sodoff.Services;
 using sodoff.Util;
 using sodoff.Configuration;
-using System;
 using System.Globalization;
 
 namespace sodoff.Controllers.Common;
@@ -1210,64 +1208,9 @@ public class ContentController : Controller {
     [VikingSession(UseLock = true)]
     public IActionResult PurchaseItems(Viking viking, [FromForm] string purchaseItemRequest) {
         PurchaseStoreItemRequest request = XmlUtil.DeserializeXml<PurchaseStoreItemRequest>(purchaseItemRequest);
-        List<CommonInventoryResponseItem> items = new List<CommonInventoryResponseItem>();
-        Gender gender = XmlUtil.DeserializeXml<AvatarData>(viking.AvatarSerialized).GenderType;
-        bool success = true;
-        for (int i = 0; i < request.Items.Length; i++) {
-            int itemId = request.Items[i];
-            ItemData item = itemService.GetItem(itemId);
-            UserGameCurrency currency = achievementService.GetUserCurrency(viking);
-            int coinCost = (int)Math.Round(item.FinalDiscoutModifier * item.Cost);
-            int gemCost = (int)Math.Round(item.FinalDiscoutModifier * item.CashCost);
-            if (currency.GameCurrency - coinCost < 0 && currency.CashCurrency - gemCost < 0) {
-                success = false;
-                break;
-            }
-            achievementService.AddAchievementPoints(viking, AchievementPointTypes.GameCurrency, -coinCost);
-            achievementService.AddAchievementPoints(viking, AchievementPointTypes.CashCurrency, -gemCost);
-            if (request.AddMysteryBoxToInventory) {
-                // force add boxes as item (without "opening")
-                items.Add(inventoryService.AddItemToInventoryAndGetResponse(viking, itemId, 1));
-            } else if (itemService.IsBundleItem(itemId)) {
-                // open and add bundle
-                ItemData bundleItem = itemService.GetItem(itemId);
-                foreach (var reward in bundleItem.Relationship.Where(e => e.Type == "Bundle")) {
-                    int quantity = itemService.GetItemQuantity(reward);
-                    for (int j=0; j<quantity; ++j)
-                        items.Add(inventoryService.AddItemToInventoryAndGetResponse(viking, reward.ItemId, 1));
-                }
-            } else if (itemService.IsGemBundle(itemId, out int gems)) {
-                achievementService.AddAchievementPoints(viking, AchievementPointTypes.CashCurrency, gems);
-                items.Add(new CommonInventoryResponseItem {
-                    CommonInventoryID = 0,
-                    ItemID = itemId,
-                    Quantity = 0
-                });
-            } else if (itemService.IsCoinBundle(itemId, out int coins)) {
-                achievementService.AddAchievementPoints(viking, AchievementPointTypes.GameCurrency, coins);
-                items.Add(new CommonInventoryResponseItem {
-                    CommonInventoryID = 0,
-                    ItemID = itemId,
-                    Quantity = 0
-                });
-            }
-            else {
-                // check for mystery box ... open if need
-                itemService.CheckAndOpenBox(itemId, gender, out itemId, out int quantity);
-                for (int j=0; j<quantity; ++j) {
-                    items.Add(inventoryService.AddItemToInventoryAndGetResponse(viking, itemId, 1));
-                }
-            }
-            // NOTE: The quantity of purchased items is always 0 and the items are instead duplicated in both the request and the response.
-            //       Call AddItemToInventoryAndGetResponse with Quantity == 1 we get response with quantity == 0.
-        }
+        var itemsToPurchase = request.Items.GroupBy(id => id).ToDictionary(g => g.Key, g => g.Count());
 
-        CommonInventoryResponse response = new CommonInventoryResponse {
-            Success = success,
-            CommonInventoryIDs = items.ToArray(),
-            UserGameCurrency = achievementService.GetUserCurrency(viking)
-        };
-        return Ok(response);
+        return Ok(PurchaseItemsImpl(viking, itemsToPurchase, request.AddMysteryBoxToInventory));
     }
 
     [HttpPost]
@@ -1276,51 +1219,9 @@ public class ContentController : Controller {
     [VikingSession(UseLock = true)]
     public IActionResult PurchaseItemsV1(Viking viking, [FromForm] string itemIDArrayXml) {
         int[] itemIdArr = XmlUtil.DeserializeXml<int[]>(itemIDArrayXml);
-        List<CommonInventoryResponseItem> items = new List<CommonInventoryResponseItem>();
-        Gender gender = XmlUtil.DeserializeXml<AvatarData>(viking.AvatarSerialized).GenderType;
-        bool success = true;
-        for (int i = 0; i < itemIdArr.Length; i++) {
-            ItemData item = itemService.GetItem(itemIdArr[i]);
-            UserGameCurrency currency = achievementService.GetUserCurrency(viking);
-            int coinCost = (int)Math.Round(item.FinalDiscoutModifier * item.Cost);
-            int gemCost = (int)Math.Round(item.FinalDiscoutModifier * item.CashCost);
-            if (currency.GameCurrency - coinCost < 0 && currency.CashCurrency - gemCost < 0) {
-                success = false;
-                break;
-            }
-            achievementService.AddAchievementPoints(viking, AchievementPointTypes.GameCurrency, -coinCost);
-            achievementService.AddAchievementPoints(viking, AchievementPointTypes.CashCurrency, -gemCost);
-            if (itemService.IsGemBundle(itemIdArr[i], out int gems)) {
-                achievementService.AddAchievementPoints(viking, AchievementPointTypes.CashCurrency, gems);
-                items.Add(new CommonInventoryResponseItem {
-                    CommonInventoryID = 0,
-                    ItemID = itemIdArr[i],
-                    Quantity = 0
-                });
-            } else if (itemService.IsCoinBundle(itemIdArr[i], out int coins)) {
-                achievementService.AddAchievementPoints(viking, AchievementPointTypes.GameCurrency, coins);
-                items.Add(new CommonInventoryResponseItem {
-                    CommonInventoryID = 0,
-                    ItemID = itemIdArr[i],
-                    Quantity = 0
-                });
-            }
-            else {
-                itemService.CheckAndOpenBox(itemIdArr[i], gender, out int itemId, out int quantity);
-                for (int j=0; j<quantity; ++j) {
-                    items.Add(inventoryService.AddItemToInventoryAndGetResponse(viking, itemId, 1));
-                    // NOTE: The quantity of purchased items is always 0 and the items are instead duplicated in both the request and the response.
-                    //       Call AddItemToInventoryAndGetResponse with Quantity == 1 we get response with quantity == 0.
-                }
-            }
-        }
+        var itemsToPurchase = itemIdArr.GroupBy(id => id).ToDictionary(g => g.Key, g => g.Count());
 
-        CommonInventoryResponse response = new CommonInventoryResponse {
-            Success = success,
-            CommonInventoryIDs = items.ToArray(),
-            UserGameCurrency = achievementService.GetUserCurrency(viking)
-        };
-        return Ok(response);
+        return Ok(PurchaseItemsImpl(viking, itemsToPurchase, false));
     }
 
     [HttpPost]
@@ -2325,5 +2226,107 @@ public class ContentController : Controller {
         if (name == username || rand.NextDouble() >= 0.5)
             return adjectives[rand.Next(adjectives.Length)] + name;
         return name;
+    }
+
+    private CommonInventoryResponse PurchaseItemsImpl(Viking viking, Dictionary<int, int> itemsToPurchase, bool addAsMysteryBox) {
+        // Viking information
+        UserGameCurrency currency = achievementService.GetUserCurrency(viking);
+        Gender gender = XmlUtil.DeserializeXml<AvatarData>(viking.AvatarSerialized).GenderType;
+
+        // Purchase information
+        int totalCoinCost = 0, totalGemCost = 0, coinsToAdd = 0, gemsToAdd = 0;
+        Dictionary<int, int> inventoryItemsToAdd = new(); // dict of items to add to the inventory
+        Dictionary<int, int> itemsToSendBack = new(); // dict of items that are sent back in the response
+
+        foreach (var i in itemsToPurchase) {
+            ItemData item = itemService.GetItem(i.Key);
+            // Calculate cost
+            totalCoinCost += (int)Math.Round(item.FinalDiscoutModifier * item.Cost) * i.Value;
+            totalGemCost += (int)Math.Round(item.FinalDiscoutModifier * item.CashCost) * i.Value;
+
+            // Resolve items to purchase
+            if (addAsMysteryBox) {
+                // add mystery box to inventory
+                inventoryItemsToAdd.TryAdd(i.Key, 0);
+                inventoryItemsToAdd[i.Key] += i.Value;
+                itemsToSendBack.TryAdd(i.Key, 0);
+                itemsToSendBack[i.Key] += i.Value;
+            }
+            else if (itemService.IsGemBundle(i.Key, out int gemValue)) {
+                // get gem value
+                gemsToAdd += gemValue * i.Value;
+                itemsToSendBack.TryAdd(i.Key, 0);
+                itemsToSendBack[i.Key] += i.Value;
+            }
+            else if (itemService.IsCoinBundle(i.Key, out int coinValue)) {
+                // get coin value
+                coinsToAdd += coinValue * i.Value;
+                itemsToSendBack.TryAdd(i.Key, 0);
+                itemsToSendBack[i.Key] += i.Value;
+            }
+            else if (itemService.IsBundleItem(i.Key)) {
+                ItemData bundleItem = itemService.GetItem(i.Key);
+                // resolve items in the bundle
+                foreach (var reward in bundleItem.Relationship.Where(e => e.Type == "Bundle")) {
+                    int quantity = itemService.GetItemQuantity(reward, i.Value);
+                    inventoryItemsToAdd.TryAdd(reward.ItemId, 0);
+                    inventoryItemsToAdd[reward.ItemId] += quantity;
+                    itemsToSendBack.TryAdd(reward.ItemId, 0);
+                    itemsToSendBack[reward.ItemId] += quantity;
+                }
+            }
+            else if (itemService.IsBoxItem(i.Key)) {
+                // open boxes individually
+                for (int j = 0; j < i.Value; j++) {
+                    itemService.OpenBox(i.Key, gender, out int itemId, out int quantity);
+                    inventoryItemsToAdd.TryAdd(itemId, 0);
+                    inventoryItemsToAdd[itemId] += quantity;
+                    itemsToSendBack.TryAdd(itemId, 0);
+                    itemsToSendBack[itemId] += quantity;
+                }
+            }
+            else {
+                // add item to inventory
+                inventoryItemsToAdd.TryAdd(i.Key, 0);
+                inventoryItemsToAdd[i.Key] += i.Value;
+                itemsToSendBack.TryAdd(i.Key, 0);
+                itemsToSendBack[i.Key] += i.Value;
+            }
+        }
+
+        // check if the user can afford the purchase
+        if (currency.GameCurrency - totalCoinCost < 0 && currency.CashCurrency - totalGemCost < 0) {
+            return new CommonInventoryResponse {
+                Success = false,
+                CommonInventoryIDs = new CommonInventoryResponseItem[0],
+                UserGameCurrency = achievementService.GetUserCurrency(viking)
+            };
+        }
+
+        // deduct the cost of the purchase
+        achievementService.AddAchievementPoints(viking, AchievementPointTypes.GameCurrency, -totalCoinCost + coinsToAdd);
+        achievementService.AddAchievementPoints(viking, AchievementPointTypes.CashCurrency, -totalGemCost + gemsToAdd);
+
+        // add items to the inventory (database)
+        var addedItems = inventoryService.AddItemsToInventoryBulk(viking, inventoryItemsToAdd);
+
+        // build response
+        List<CommonInventoryResponseItem> items = new List<CommonInventoryResponseItem>();
+        foreach (var i in itemsToSendBack) {
+            items.AddRange(Enumerable.Repeat(
+                new CommonInventoryResponseItem {
+                    CommonInventoryID = addedItems.ContainsKey(i.Key) ? addedItems[i.Key] : 0, // return inventory id if this item was added to the DB
+                    ItemID = i.Key,
+                    Quantity = 0
+                }, i.Value));
+        }
+        // NOTE: The quantity of purchased items can always be 0 and the items are instead duplicated in both the request and the response.
+        // Item quantities are used for non-store related requests/responses.
+
+        return new CommonInventoryResponse {
+            Success = true,
+            CommonInventoryIDs = items.ToArray(),
+            UserGameCurrency = achievementService.GetUserCurrency(viking)
+        };
     }
 }
