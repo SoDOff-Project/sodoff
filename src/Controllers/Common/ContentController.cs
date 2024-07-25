@@ -2271,8 +2271,8 @@ public class ContentController : Controller {
         }
 
         // deduct the cost of the purchase
-        achievementService.AddAchievementPoints(viking, AchievementPointTypes.GameCurrency, -totalCoinCost + gemsToAdd);
-        achievementService.AddAchievementPoints(viking, AchievementPointTypes.CashCurrency, -totalGemCost + coinsToAdd);
+        achievementService.AddAchievementPoints(viking, AchievementPointTypes.GameCurrency, -totalCoinCost + coinsToAdd);
+        achievementService.AddAchievementPoints(viking, AchievementPointTypes.CashCurrency, -totalGemCost + gemsToAdd);
 
         // add items to the inventory (database)
         var addedItems = inventoryService.AddItemsToInventoryBulk(viking, inventoryItemsToAdd);
