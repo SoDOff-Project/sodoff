@@ -41,22 +41,14 @@ namespace sodoff.Services {
             return items[itemID];
         }
 
-        public int GetItemQuantity(ItemDataRelationship itemData) {
-            return GetItemQuantityImpl(itemData);
-        }
-
-        public int GetBulkItemQuantity(ItemDataRelationship itemData, int quantity) {
-            return GetItemQuantityImpl(itemData, quantity);
-        }
-
-        private int GetItemQuantityImpl(ItemDataRelationship itemData, int repeat = 1) {
+        public int GetItemQuantity(ItemDataRelationship itemData, int bulkSize = 1) {
             if (itemData.MaxQuantity is null || itemData.MaxQuantity < 2 || itemData.MaxQuantity == itemData.Quantity) {
                 if (itemData.Quantity == 0)
-                    return 1 * repeat;
+                    return 1 * bulkSize;
                 else
-                    return itemData.Quantity * repeat;
+                    return itemData.Quantity * bulkSize;
             }
-            return random.Next(1 * repeat, (int)itemData.MaxQuantity * repeat + 1);
+            return random.Next(1 * bulkSize, (int)itemData.MaxQuantity * bulkSize + 1);
         }
 
         public ItemDataRelationship OpenBox(ItemData boxItem, Gender gender) {

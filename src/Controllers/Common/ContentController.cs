@@ -2235,7 +2235,7 @@ public class ContentController : Controller {
                 ItemData bundleItem = itemService.GetItem(i.Key);
                 // resolve items in the bundle
                 foreach (var reward in bundleItem.Relationship.Where(e => e.Type == "Bundle")) {
-                    int quantity = itemService.GetBulkItemQuantity(reward, i.Value);
+                    int quantity = itemService.GetItemQuantity(reward, i.Value);
                     inventoryItemsToAdd.TryAdd(reward.ItemId, 0);
                     inventoryItemsToAdd[reward.ItemId] += quantity;
                     itemsToSendBack.TryAdd(reward.ItemId, 0);
