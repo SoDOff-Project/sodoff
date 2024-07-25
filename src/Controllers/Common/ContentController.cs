@@ -2287,8 +2287,8 @@ public class ContentController : Controller {
                     Quantity = 0
                 }, i.Value));
         }
-        // NOTE: The quantity of purchased items is always 0 and the items are instead duplicated in both the request and the response.
-        //       Call AddItemToInventoryAndGetResponse with Quantity == 1 we get response with quantity == 0.
+        // NOTE: The quantity of purchased items can always be 0 and the items are instead duplicated in both the request and the response.
+        // Item quantities are used for non-store related requests/responses.
 
         return new CommonInventoryResponse {
             Success = true,
