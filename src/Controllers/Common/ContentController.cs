@@ -2195,7 +2195,7 @@ public class ContentController : Controller {
         return name;
     }
 
-    private CommonInventoryResponse PurchaseItemsImpl(Viking viking, Dictionary<int, int> itemsToPurchase, bool mysteryBox) {
+    private CommonInventoryResponse PurchaseItemsImpl(Viking viking, Dictionary<int, int> itemsToPurchase, bool addAsMysteryBox) {
         // Viking information
         UserGameCurrency currency = achievementService.GetUserCurrency(viking);
         Gender gender = XmlUtil.DeserializeXml<AvatarData>(viking.AvatarSerialized).GenderType;
@@ -2212,7 +2212,7 @@ public class ContentController : Controller {
             totalGemCost += (int)Math.Round(item.FinalDiscoutModifier * item.CashCost) * i.Value;
 
             // Resolve items to purchase
-            if (mysteryBox) {
+            if (addAsMysteryBox) {
                 // add mystery box to inventory
                 inventoryItemsToAdd.TryAdd(i.Key, 0);
                 inventoryItemsToAdd[i.Key] += i.Value;
