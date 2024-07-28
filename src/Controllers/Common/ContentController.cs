@@ -634,18 +634,19 @@ public class ContentController : Controller {
             return Ok(false);
         }
 
-        if (petData.Texture != null && petData.Texture.StartsWith("RS_SHARED/Larva.unity3d/LarvaTex") && petData.GrowthState.GrowthStateID>4) {
+        petData = UpdateDragon(dragon, petData);
+        if (petData.Texture != null && petData.Texture.StartsWith("RS_SHARED/Larva.unity3d/LarvaTex") && petData.GrowthState.GrowthStateID > 4) {
             petData.Texture = "RS_SHARED/" + petData.PetTypeID switch {
-                 5 => "EyeClops.unity3d/EyeClopsBrainRedTex",           // EyeClops
-                 6 => "RodeoLizard.unity3d/BlueLizardTex",              // RodeoLizard
-                 7 => "MonsterAlien01.unity3d/BlasterMythieGreenTex",   // MonsterAlien01
+                5 => "EyeClops.unity3d/EyeClopsBrainRedTex",           // EyeClops
+                6 => "RodeoLizard.unity3d/BlueLizardTex",              // RodeoLizard
+                7 => "MonsterAlien01.unity3d/BlasterMythieGreenTex",   // MonsterAlien01
                 11 => "SpaceGriffin.unity3d/SpaceGriffinNormalBlueTex", // SpaceGriffin
                 10 => "Tweeter.unity3d/TweeterMuttNormalPurple",        // Tweeter
-                 _ => "null" // Anything with any other ID shouldn't exist.
+                _ => "null" // Anything with any other ID shouldn't exist.
             };
         }
+        dragon.RaisedPetData = XmlUtil.SerializeXml(petData);
 
-        dragon.RaisedPetData = XmlUtil.SerializeXml(UpdateDragon(dragon, petData));
         ctx.Update(dragon);
         ctx.SaveChanges();
 
