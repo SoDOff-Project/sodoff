@@ -43,7 +43,8 @@ public class AchievementController : Controller {
         uint gameVersion = ClientVersion.GetVersion(apiKey);
         if (gameVersion <= ClientVersion.Max_OldJS && (gameVersion & ClientVersion.WoJS) != 0)
             return Ok(XmlUtil.ReadResourceXmlString("allranks_wojs"));
-
+        else if (gameVersion == ClientVersion.MB)
+            return Ok(XmlUtil.ReadResourceXmlString("allranks_mb"));
         // TODO, this is a placeholder
         return Ok(XmlUtil.ReadResourceXmlString("allranks"));
     }

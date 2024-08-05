@@ -1,0 +1,861 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfUserRank xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://api.jumpstart.com/">
+  <UserRank>
+    <RankID xmlns="">1</RankID>
+    <Name xmlns="">Cadet Yellow</Name>
+    <Description xmlns="">Rank 1- Base rank- Yellow arm and leg bands</Description>
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBRank01.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">0</Value>
+    <IsMember xmlns="">false</IsMember>
+    <PointTypeID xmlns="">1</PointTypeID>
+    <GlobalRankID xmlns="">11</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">2</RankID>
+    <Name xmlns="">Cadet Orange</Name>
+    <Description xmlns="">Rank 2- Arm and leg bands change to orange</Description>
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBRank02.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">25</Value>
+    <IsMember xmlns="">false</IsMember>
+    <PointTypeID xmlns="">1</PointTypeID>
+    <GlobalRankID xmlns="">12</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">3</RankID>
+    <Name xmlns="">Cadet Green</Name>
+    <Description xmlns="">Rank 3- Arm and leg bands change to green and Gauntlet Given</Description>
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBRank03.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">75</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">1</PointTypeID>
+    <GlobalRankID xmlns="">13</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">4</RankID>
+    <Name xmlns="">Cadet Red</Name>
+    <Description xmlns="">Rank 4- Arm and leg bands change to Red</Description>
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBRank04.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">150</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">1</PointTypeID>
+    <GlobalRankID xmlns="">14</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">5</RankID>
+    <Name xmlns="">Cadet Blue</Name>
+    <Description xmlns="">Rank 5- Player receieves Particle Gauntlet Shooter and gloves arm and leg bands change to Blue.</Description>
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBRank05.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">225</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">1</PointTypeID>
+    <GlobalRankID xmlns="">15</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">6</RankID>
+    <Name xmlns="">Cadet 1st Class Yellow</Name>
+    <Description xmlns="">Rank 6- Player now has gauntlet and arm/leg bands are yellow</Description>
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBRank06.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">325</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">1</PointTypeID>
+    <GlobalRankID xmlns="">16</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">7</RankID>
+    <Name xmlns="">Cadet 1st Class Orange</Name>
+    <Description xmlns="">Rank 7- Player now has gauntlet and arm/leg bands are orange</Description>
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBRank07.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">425</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">1</PointTypeID>
+    <GlobalRankID xmlns="">17</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">8</RankID>
+    <Name xmlns="">Cadet 1st Class Green</Name>
+    <Description xmlns="">Rank 8- Player now has gauntlet and arm/leg bands are green</Description>
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBRank08.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">550</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">1</PointTypeID>
+    <GlobalRankID xmlns="">18</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">9</RankID>
+    <Name xmlns="">Cadet 1st Class Red</Name>
+    <Description xmlns="">Rank 9- Player now has gauntlet and arm/leg bands are red</Description>
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBRank09.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">675</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">1</PointTypeID>
+    <GlobalRankID xmlns="">19</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">10</RankID>
+    <Name xmlns="">Cadet 1st Class Blue</Name>
+    <Description xmlns="">Rank 10- Player receieves Sash (Deco Band ) and arm/leg bands change to Blue. </Description>
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBRank10.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">825</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">1</PointTypeID>
+    <GlobalRankID xmlns="">20</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">11</RankID>
+    <Name xmlns="">Private Yellow</Name>
+    <Description xmlns="">Rank 11- Player now has the gauntlet/sash and arm/leg bands are yellow</Description>
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBRank11.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">975</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">1</PointTypeID>
+    <GlobalRankID xmlns="">21</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">12</RankID>
+    <Name xmlns="">Private Orange</Name>
+    <Description xmlns="">Rank 12- Player now has the gauntlet/sash and arm/leg bands are orange</Description>
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBRank12.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">1150</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">1</PointTypeID>
+    <GlobalRankID xmlns="">22</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">13</RankID>
+    <Name xmlns="">Private Green</Name>
+    <Description xmlns="">Rank 13- Player now has the gauntlet/sash and arm/leg bands are green</Description>
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBRank13.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">1325</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">1</PointTypeID>
+    <GlobalRankID xmlns="">23</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">14</RankID>
+    <Name xmlns="">Private Red</Name>
+    <Description xmlns="">Rank 14- Player now has the gauntlet/sash and arm/leg bands are red</Description>
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBRank14.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">1525</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">1</PointTypeID>
+    <GlobalRankID xmlns="">24</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">15</RankID>
+    <Name xmlns="">Private Blue</Name>
+    <Description xmlns="">Rank 15- Player receieves Functional Boots and arm/leg bands change to Blue.</Description>
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBRank15.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">1725</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">1</PointTypeID>
+    <GlobalRankID xmlns="">25</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">16</RankID>
+    <Name xmlns="">Private 1st Class Yellow</Name>
+    <Description xmlns="">Rank 16- Player now has the gauntlet/sash/boots and arm/leg bands are yellow</Description>
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBRank16.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">1925</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">1</PointTypeID>
+    <GlobalRankID xmlns="">26</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">17</RankID>
+    <Name xmlns="">Private 1st Class Orange</Name>
+    <Description xmlns="">Rank 17- Player now has the gauntlet/sash/boots and arm/leg bands are orange</Description>
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBRank17.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">2125</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">1</PointTypeID>
+    <GlobalRankID xmlns="">27</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">18</RankID>
+    <Name xmlns="">Private 1st Class Green</Name>
+    <Description xmlns="">Rank 18- Player now has the gauntlet/sash/boots and arm/leg bands are Red</Description>
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBRank18.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">2325</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">1</PointTypeID>
+    <GlobalRankID xmlns="">28</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">19</RankID>
+    <Name xmlns="">Private 1st Class Red</Name>
+    <Description xmlns="">Rank 19- Player now has the gauntlet/sash/boots and arm/leg bands are Green</Description>
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBRank19.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">2525</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">1</PointTypeID>
+    <GlobalRankID xmlns="">29</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">20</RankID>
+    <Name xmlns="">Private 1st Class Blue</Name>
+    <Description xmlns="">Rank 20- Player receieves Utility Belt and arm/leg bands change to Blue.</Description>
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBRank20.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">2725</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">1</PointTypeID>
+    <GlobalRankID xmlns="">30</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">21</RankID>
+    <Name xmlns="">Corporal Yellow</Name>
+    <Description xmlns="">Rank 21- Player now has the gauntlet/sash/boots/belt and arm/leg bands are yellow</Description>
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBRank21.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">3300</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">1</PointTypeID>
+    <GlobalRankID xmlns="">31</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">22</RankID>
+    <Name xmlns="">Corporal Orange</Name>
+    <Description xmlns="">Rank 22- Player now has the gauntlet/sash/boots/belt and arm/leg bands are orange</Description>
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBRank22.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">3800</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">1</PointTypeID>
+    <GlobalRankID xmlns="">32</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">23</RankID>
+    <Name xmlns="">Corporal Green</Name>
+    <Description xmlns="">Rank 23- Player now has the gauntlet/sash/boots/belt and arm/leg bands are green</Description>
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBRank23.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">4300</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">1</PointTypeID>
+    <GlobalRankID xmlns="">33</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">24</RankID>
+    <Name xmlns="">Corporal Green</Name>
+    <Description xmlns="">Rank 24- Player now has the gauntlet/sash/boots/belt and arm/leg bands are Red</Description>
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBRank24.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">4800</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">1</PointTypeID>
+    <GlobalRankID xmlns="">34</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">25</RankID>
+    <Name xmlns="">Corporal Blue</Name>
+    <Description xmlns="">Rank 25- Player recieves Shoulder Insignia and arm/leg bands turn to Blue</Description>
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBRank25.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">5300</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">1</PointTypeID>
+    <GlobalRankID xmlns="">35</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">26</RankID>
+    <Name xmlns="">Corporal 1st Class Yellow</Name>
+    <Description xmlns="">Rank 26- Player now has the gauntlet/sash/boots/belt/Shoulder Insignia and arm/leg bands are yellow</Description>
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBRank26.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">5800</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">1</PointTypeID>
+    <GlobalRankID xmlns="">36</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">27</RankID>
+    <Name xmlns="">Corporal 1st Class Orange</Name>
+    <Description xmlns="">Rank 27- Player now has the gauntlet/sash/boots/belt/Shoulder Insignia and arm/leg bands are Orange</Description>
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBRank27.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">6300</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">1</PointTypeID>
+    <GlobalRankID xmlns="">37</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">28</RankID>
+    <Name xmlns="">Corporal 1st Class Green</Name>
+    <Description xmlns="">Rank 28- Player now has the gauntlet/sash/boots/belt/Shoulder Insignia and arm/leg bands are Green</Description>
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBRank28.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">6800</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">1</PointTypeID>
+    <GlobalRankID xmlns="">38</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">29</RankID>
+    <Name xmlns="">Corporal 1st Class Red</Name>
+    <Description xmlns="">Rank 29- Player now has the gauntlet/sash/boots/belt/Shoulder Insignia and arm/leg bands are Red</Description>
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBRank29.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">7300</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">1</PointTypeID>
+    <GlobalRankID xmlns="">39</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">30</RankID>
+    <Name xmlns="">Corporal 1st Class Blue</Name>
+    <Description xmlns="">Rank 30- Player recieves Leg Insignia and arm/leg bands turn to Blue</Description>
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBRank30.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">7800</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">1</PointTypeID>
+    <GlobalRankID xmlns="">40</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">31</RankID>
+    <Name xmlns="">Just STARting</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank01.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">0</Value>
+    <IsMember xmlns="">false</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">141</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">32</RankID>
+    <Name xmlns="">Night Sky Newbie</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank02.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">10</Value>
+    <IsMember xmlns="">false</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">142</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">33</RankID>
+    <Name xmlns="">Twinkle Twinkle Little Star</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank03.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">50</Value>
+    <IsMember xmlns="">false</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">143</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">34</RankID>
+    <Name xmlns="">Just a Taste of Stardom</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank04.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">100</Value>
+    <IsMember xmlns="">false</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">144</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">35</RankID>
+    <Name xmlns="">Seeker of the Stars</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank05.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">150</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">145</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">36</RankID>
+    <Name xmlns="">Reaching for the Stars</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank06.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">200</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">146</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">37</RankID>
+    <Name xmlns="">Wishing Upon a Star</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank07.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">250</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">147</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">38</RankID>
+    <Name xmlns="">Starlet Bound</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank08.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">300</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">148</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">39</RankID>
+    <Name xmlns="">Stargazer</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank09.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">375</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">149</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">40</RankID>
+    <Name xmlns="">Star Struck</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank10.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">450</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">150</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">41</RankID>
+    <Name xmlns="">Rising Star</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank11.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">525</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">151</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">42</RankID>
+    <Name xmlns="">Among the Stars</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank12.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">725</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">152</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">43</RankID>
+    <Name xmlns="">Mingling with the stars</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank13.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">925</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">153</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">44</RankID>
+    <Name xmlns="">Shooting Star </Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank14.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">1125</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">154</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">45</RankID>
+    <Name xmlns="">Oh My Stars!</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank15.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">1325</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">155</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">46</RankID>
+    <Name xmlns="">You're a Shining Star</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank16.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">1525</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">156</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">47</RankID>
+    <Name xmlns="">Partying Like a Rock Star</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank17.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">1825</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">157</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">48</RankID>
+    <Name xmlns="">Hey Now, You're an All-Star</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank18.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">2125</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">158</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">49</RankID>
+    <Name xmlns="">Lucky Luminary</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank19.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">2425</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">159</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">50</RankID>
+    <Name xmlns="">To the Stars and Beyond</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank20.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">3000</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">160</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">52</RankID>
+    <Name xmlns="">Pegasus Anew</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank21.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">3500</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">167</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">53</RankID>
+    <Name xmlns="">Inaugural Pegasus</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank22.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">4000</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">168</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">54</RankID>
+    <Name xmlns="">Pegasus Pup</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank23.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">4500</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">169</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">55</RankID>
+    <Name xmlns="">Pegasus on the move</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank24.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">5250</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">170</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">56</RankID>
+    <Name xmlns="">Junior Pegasus</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank25.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">6000</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">171</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">57</RankID>
+    <Name xmlns="">Proud to be a Pegasus</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank26.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">6750</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">172</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">58</RankID>
+    <Name xmlns="">Progressive Pegasus</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank27.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">7500</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">173</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">59</RankID>
+    <Name xmlns="">Prized Pegasus </Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank28.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">8250</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">174</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">60</RankID>
+    <Name xmlns="">Powerful Pegasus</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank29.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">9000</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">175</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">61</RankID>
+    <Name xmlns="">Major-League Pegasus</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank30.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">10000</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">176</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">62</RankID>
+    <Name xmlns="">Most Popular Pegasus</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank31.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">11000</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">177</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">63</RankID>
+    <Name xmlns="">Premier Pegasus</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank32.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">12000</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">178</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">64</RankID>
+    <Name xmlns="">Perfect Pegasus</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank33.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">13000</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">179</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">65</RankID>
+    <Name xmlns="">Leading the Pegasus pack</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank34.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">14000</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">180</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">66</RankID>
+    <Name xmlns="">BEARly There Bear</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank35.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">14500</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">181</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">67</RankID>
+    <Name xmlns="">Bear Beginnings</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank36.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">15500</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">182</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">68</RankID>
+    <Name xmlns="">Bear With Me</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank37.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">16750</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">183</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">69</RankID>
+    <Name xmlns="">Bear-y Good, Blaster</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank38.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">18000</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">184</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">70</RankID>
+    <Name xmlns="">Bear Builder</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank39.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">19250</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">185</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">71</RankID>
+    <Name xmlns="">Solar Bear</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank40.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">20250</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">186</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">72</RankID>
+    <Name xmlns="">UnBEARably Cool</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank41.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">21250</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">187</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">73</RankID>
+    <Name xmlns="">Big, Bad Bear</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank42.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">22250</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">188</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">74</RankID>
+    <Name xmlns="">Bear Hug Time</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank43.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">23250</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">189</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">75</RankID>
+    <Name xmlns="">Bolstering Bear</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank44.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">25000</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">190</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">76</RankID>
+    <Name xmlns="">Bear-riffic</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank45.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">26750</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">191</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">77</RankID>
+    <Name xmlns="">Bright Bear</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank46.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">28500</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">192</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">78</RankID>
+    <Name xmlns="">Beaming Bear</Name>
+    <Description xmlns="" />
+    <Image xmlns="">RS_DATA/Content/Ranks/AniMBSocialRank47.png</Image>
+    <Audio xmlns="" />
+    <Value xmlns="">30250</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">3</PointTypeID>
+    <GlobalRankID xmlns="">193</GlobalRankID>
+  </UserRank>
+  <UserRank>
+    <RankID xmlns="">51</RankID>
+    <Name xmlns="">Just starting</Name>
+    <Description xmlns="">Pet point</Description>
+    <Image xmlns=""> </Image>
+    <Audio xmlns=""> </Audio>
+    <Value xmlns="">0</Value>
+    <IsMember xmlns="">true</IsMember>
+    <PointTypeID xmlns="">4</PointTypeID>
+    <GlobalRankID xmlns="">165</GlobalRankID>
+  </UserRank>
+</ArrayOfUserRank>

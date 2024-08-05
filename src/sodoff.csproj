@@ -43,9 +43,11 @@
     <None Remove="Resources\mmo.xml" />
     <None Remove="Resources\displaynames.xml" />
     <None Remove="Resources\rankattrib.xml" />
+    <None Remove="Resources\rankattrib_mb.xml" />
     <None Remove="Resources\rewardmultiplier.xml" />
     <None Remove="Resources\store.xml" />
     <None Remove="Resources\allranks.xml" />
+    <None Remove="Resources\allranks_mb.xml" />
     <None Remove="Resources\allranks_wojs.xml" />
     <None Remove="Resources\achievementsids.xml" />
     <None Remove="Resources\achievementstasks.xml" />
@@ -98,6 +100,9 @@
     <EmbeddedResource Include="Resources\rankattrib.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\rankattrib_mb.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\achievementtaskinfo.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -105,6 +110,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\allranks.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\allranks_mb.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\allranks_wojs.xml">

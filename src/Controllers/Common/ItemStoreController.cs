@@ -56,8 +56,11 @@ public class ItemStoreController : Controller {
     [HttpPost]
     //[Produces("application/xml")]
     [Route("ItemStoreWebService.asmx/GetRankAttributeData")]
-    public IActionResult GetRankAttributeData() {
-        // TODO
+    public IActionResult GetRankAttributeData([FromForm] string apiKey) {
+        uint gameVersion = ClientVersion.GetVersion(apiKey);
+        if (gameVersion == ClientVersion.MB)
+            return Ok(XmlUtil.ReadResourceXmlString("rankattrib_mb"));
+        // TODO, this is a placeholder
         return Ok(XmlUtil.ReadResourceXmlString("rankattrib"));
     }
 
