@@ -2134,6 +2134,34 @@ public class ContentController : Controller {
         return Ok(random.Next(1, 15));
     }
 
+    [HttpPost]
+    //[Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetGameProgress")] // used by Math Blaster (Ice Cubed)
+    [VikingSession]
+    public string GetGameProgress(Viking viking, [FromForm] int gameId) {
+        string? ret = Util.SavedData.Get(
+            viking,
+            (uint)gameId
+        );
+        if (ret is null)
+            return XmlUtil.SerializeXml<GameProgress>(null);
+        return ret;
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/SetGameProgress")] // used by Math Blaster (Ice Cubed)
+    [VikingSession]
+    public IActionResult SetGameProgress(Viking viking, [FromForm] int gameId, [FromForm] string xmlDocumentData) {
+        Util.SavedData.Set(
+            viking,
+            (uint)gameId,
+            xmlDocumentData
+        );
+        ctx.SaveChanges();
+        return Ok();
+    }
+
     private static RaisedPetData GetRaisedPetDataFromDragon (Dragon dragon, int? selectedDragonId = null) {
         if (selectedDragonId is null)
             selectedDragonId = dragon.Viking.SelectedDragonId;
