@@ -8,15 +8,11 @@ namespace sodoff.Utils;
 
 public class ConsoleFunctions {
     //function to log when the server start and when the server is ready
-    public static void log(string Option) {
-        if (Option == "Server Start")
-        {
-            Console.WriteLine("Server is starting");
-        }
-        else if (Option == "Server Running")
+    public static void log(string Option, int AssetPort) {
+        if (Option == "Server Running")
         {
             Console.WriteLine("Server is running");
-            Console.WriteLine("Server is running at Asset Server: http://localhost:5001 and Api Server: http://localhost:5000");
+            Console.WriteLine("Server is running at Asset Server: http://localhost:" + AssetPort + "and Api Server: http://localhost:5000");
             Console.WriteLine("You can start the game now");
             Console.WriteLine("Press Ctrl + C to close the server");
         }
