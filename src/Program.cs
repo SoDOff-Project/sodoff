@@ -75,6 +75,9 @@ app.MapControllers();
 
 // Shows message that server started
 VerboseLogging.ServerStartedMessage();
-OpenGamePrompt.prompt();
+if (GamePromptOptions)
+{
+    OpenGamePrompt.prompt();
+}
 PrintInfo.print();
 app.Run();
