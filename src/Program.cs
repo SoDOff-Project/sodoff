@@ -12,6 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 bool ConsoleOptions = builder.Configuration.GetSection("ConsoleOptions").GetValue<bool>("Show logs");
+bool GamePromptOptions = builder.Configuration.GetSection("GamePromptOptions").GetValue<bool>("Open Game");
 
 // shows information about loading assets/api stuff
 if (ConsoleOptions == true)
