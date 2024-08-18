@@ -11,6 +11,13 @@ using System.Net;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+bool ConsoleOptions = builder.Configuration.GetSection("ConsoleOptions").GetValue<bool>("Show logs");
+
+// shows information about loading assets/api stuff
+if (ConsoleOptions == true)
+{
+    VerboseLogging.log();
+}
 
 builder.Services.Configure<AssetServerConfig>(builder.Configuration.GetSection("AssetServer"));
 builder.Services.Configure<ApiServerConfig>(builder.Configuration.GetSection("ApiServer"));
@@ -66,4 +73,8 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+// Shows message that server started
+VerboseLogging.ServerStartedMessage();
+OpenGamePrompt.prompt();
+PrintInfo.print();
 app.Run();
