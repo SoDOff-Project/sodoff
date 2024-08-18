@@ -16,7 +16,7 @@ bool gameOpenEnable = builder.Configuration.GetSection("GamePromptOptions").GetV
 string ClientPath = builder.Configuration.GetSection("GamePromptOptions").GetValue<string>("ClientPath");
 
 // shows that the server is starting
-ConsoleFunctions.log("Server Start");
+Console.WriteLine("Server is starting");
 
 builder.Services.Configure<AssetServerConfig>(builder.Configuration.GetSection("AssetServer"));
 builder.Services.Configure<ApiServerConfig>(builder.Configuration.GetSection("ApiServer"));
@@ -74,7 +74,7 @@ app.MapControllers();
 
 // Shows message that server is running
 
-ConsoleFunctions.log("Server Running");
+ConsoleFunctions.log("Server Running", assetPort);
 
 //asks the user to automally open the game client
 if (gameOpenEnable == true)
