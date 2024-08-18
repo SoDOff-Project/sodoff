@@ -11,8 +11,7 @@ public class ConsoleFunctions {
     public static void log(string Option, int AssetPort) {
         if (Option == "Server Running")
         {
-            Console.WriteLine("Server is running");
-            Console.WriteLine("Server is running at Asset Server: http://localhost:" + AssetPort + "and Api Server: http://localhost:5000");
+            Console.WriteLine("Server is running at Asset Server: http://localhost:" + AssetPort + " and Api Server: http://localhost:5000");
             Console.WriteLine("You can start the game now");
             Console.WriteLine("Press Ctrl + C to close the server");
         }
