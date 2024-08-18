@@ -11,14 +11,12 @@ using System.Net;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-bool ConsoleOptions = builder.Configuration.GetSection("ConsoleOptions").GetValue<bool>("Show logs");
-bool GamePromptOptions = builder.Configuration.GetSection("GamePromptOptions").GetValue<bool>("Open Game");
 
-// shows information about loading assets/api stuff
-if (ConsoleOptions == true)
-{
-    VerboseLogging.log();
-}
+bool gameOpenEnable = builder.Configuration.GetSection("GamePromptOptions").GetValue<bool>("Enabled");
+string ClientPath = builder.Configuration.GetSection("GamePromptOptions").GetValue<string>("ClientPath");
+
+// shows that the server is starting
+ConsoleFunctions.log("Server Start");
 
 builder.Services.Configure<AssetServerConfig>(builder.Configuration.GetSection("AssetServer"));
 builder.Services.Configure<ApiServerConfig>(builder.Configuration.GetSection("ApiServer"));
@@ -74,11 +72,21 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-// Shows message that server started
-VerboseLogging.ServerStartedMessage();
-if (GamePromptOptions)
+// Shows message that server is running
+
+ConsoleFunctions.log("Server Running");
+
+//asks the user to automally open the game client
+if (gameOpenEnable == true)
 {
-    OpenGamePrompt.prompt();
+    if (ClientPath.EndsWith("exe"))
+    {
+        ConsoleFunctions.prompt(ClientPath);
+    }
+    else
+    {
+        Console.WriteLine("Invalid or empty Configuration value, Check your configuration file appsettings.json ClientPath is incorrect");
+    }
 }
-PrintInfo.print();
+
 app.Run();
