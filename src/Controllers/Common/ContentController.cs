@@ -523,6 +523,7 @@ public class ContentController : Controller {
         raisedPetData.PetTypeID = petTypeID;
         raisedPetData.RaisedPetID = 0; // Initially make zero, so the db auto-fills
         raisedPetData.EntityID = Guid.Parse(dragonId);
+        uint gameVersion = ClientVersion.GetVersion(apiKey);
         if (gameVersion > ClientVersion.Max_OldJS || (gameVersion & ClientVersion.WoJS) == 0)
             raisedPetData.Name = string.Concat("Dragon-", dragonId.AsSpan(0, 8)); // Start off with a random name (if game isn't WoJS)
         raisedPetData.IsSelected = false; // The api returns false, not sure why
