@@ -514,7 +514,7 @@ public class ContentController : Controller {
     [Produces("application/xml")]
     [Route("ContentWebService.asmx/CreateRaisedPet")] // used by SoD 1.6
     [VikingSession]
-    public RaisedPetData? CreateRaisedPet(Viking viking, int petTypeID) {
+    public RaisedPetData? CreateRaisedPet([FromForm] string apiKey, Viking viking, int petTypeID) {
         // Update the RaisedPetData with the info
         String dragonId = Guid.NewGuid().ToString();
         
