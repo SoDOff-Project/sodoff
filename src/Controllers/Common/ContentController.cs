@@ -514,7 +514,7 @@ public class ContentController : Controller {
     [Produces("application/xml")]
     [Route("ContentWebService.asmx/CreateRaisedPet")] // used by SoD 1.6
     [VikingSession]
-    public RaisedPetData? CreateRaisedPet(Viking viking, int petTypeID) {
+    public RaisedPetData? CreateRaisedPet([FromForm] string apiKey, Viking viking, int petTypeID) {
         // Update the RaisedPetData with the info
         String dragonId = Guid.NewGuid().ToString();
         
@@ -523,7 +523,9 @@ public class ContentController : Controller {
         raisedPetData.PetTypeID = petTypeID;
         raisedPetData.RaisedPetID = 0; // Initially make zero, so the db auto-fills
         raisedPetData.EntityID = Guid.Parse(dragonId);
-        raisedPetData.Name = string.Concat("Dragon-", dragonId.AsSpan(0, 8)); // Start off with a random name
+        uint gameVersion = ClientVersion.GetVersion(apiKey);
+        if (gameVersion > ClientVersion.Max_OldJS || (gameVersion & ClientVersion.WoJS) == 0)
+            raisedPetData.Name = string.Concat("Dragon-", dragonId.AsSpan(0, 8)); // Start off with a random name (if game isn't WoJS)
         raisedPetData.IsSelected = false; // The api returns false, not sure why
         raisedPetData.CreateDate = new DateTime(DateTime.Now.Ticks);
         raisedPetData.UpdateDate = new DateTime(DateTime.Now.Ticks);
