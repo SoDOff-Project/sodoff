@@ -82,7 +82,7 @@ namespace sodoff.Services {
                     viking.AchievementPoints.Add(xpPoints);
                 }
                 
-				int initialPoints = xpPoints.Value;
+		int initialPoints = xpPoints.Value;
                 xpPoints.Value += value ?? 0;
                 
                 if (value > 0 && initialPoints > xpPoints.Value) {
