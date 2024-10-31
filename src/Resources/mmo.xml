@@ -20,7 +20,7 @@
 		<!-- World of JumpStart -->
 		<VersionMin>0x01000000</VersionMin>
 		<VersionMax>0x01ffffff</VersionMax>
-		<ZoneList>DWMadPenguinHQINT UncleMilton EnemyValley LoungeIntUpper UncleMiltonBounceHouse Boardwalk MyRoomsInt DWMadEuropeAlps SpeedDrome WinterWonderland GemMineInt Beach TrainingIsland * IslandX SanctuaryBaby DWMadEuropeParis AdventureCanyon DWMadNYHarbor JumpStartBowlInt TownCenter SanctuaryFlying MultiplayerSystem DWMadNYCentralParkFunZone MainStreet LearningInt HomeBase Hollows FreeFallMtn ArcadeInt ShipWreckLagoon DWMadEuropeItaly MummyMazeInt EnchantedSanctuary MyVIPRoomInt DownTown DWMadNYCentralPark MyNeighborhood MountainJetpack DWMadNYTimesSquare MainStreetFunZone DuneBuggyZone LoungeInt JSStadiumInt SanctuaryAdult BroomStickArena RabbitHoleInt CoconutMall Lobby </ZoneList>
+		<ZoneList>DWMadPenguinHQINT UncleMilton EnemyValley LoungeIntUpper UncleMiltonBounceHouse Boardwalk MyRoomsInt DWMadEuropeAlps SpeedDrome WinterWonderland GemMineInt Beach TrainingIsland * IslandX SanctuaryBaby DWMadEuropeParis AdventureCanyon DWMadNYHarbor JumpStartBowlInt TownCenter SanctuaryFlying MultiplayerSystem DWMadNYCentralParkFunZone MainStreet LearningInt HomeBase Hollows FreeFallMtn ArcadeInt ShipWreckLagoon DWMadEuropeItaly MummyMazeInt EnchantedSanctuary MyVIPRoomInt DownTown DWMadNYCentralPark MyNeighborhood MountainJetpack DWMadNYTimesSquare MainStreetFunZone DuneBuggyZone LoungeInt JSStadiumInt SanctuaryAdult BroomStickArena RabbitHoleInt CoconutMall Lobby Lounge ScoobyDoo SanctuaryForest SanctuaryBonus</ZoneList>
 	</Version>
 
 	<Version>
