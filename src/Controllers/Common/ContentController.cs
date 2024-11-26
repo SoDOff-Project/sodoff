@@ -22,6 +22,7 @@ public class ContentController : Controller {
     private GameDataService gameDataService;
     private DisplayNamesService displayNamesService;
     private NeighborhoodService neighborhoodService;
+    private MMOCommunicationService mMOCommunicationService;
     private Random random = new Random();
     private readonly IOptions<ApiServerConfig> config;
     
@@ -36,6 +37,7 @@ public class ContentController : Controller {
         GameDataService gameDataService,
         DisplayNamesService displayNamesService,
         NeighborhoodService neighborhoodService,
+        MMOCommunicationService mMOCommunicationService,
         IOptions<ApiServerConfig> config
     ) {
         this.ctx = ctx;
@@ -48,6 +50,7 @@ public class ContentController : Controller {
         this.gameDataService = gameDataService;
         this.displayNamesService = displayNamesService;
         this.neighborhoodService = neighborhoodService;
+        this.mMOCommunicationService = mMOCommunicationService;
         this.config = config;
     }
 
@@ -1608,13 +1611,14 @@ public class ContentController : Controller {
     [Produces("application/xml")]
     [Route("ContentWebService.asmx/SetScene")] // used by World of Jumpstart
     [VikingSession]
-    public IActionResult SetScene(Viking viking, [FromForm] string sceneName, [FromForm] string contentXml) {
+    public IActionResult SetScene(Viking viking, [FromForm] string sceneName, [FromForm] string contentXml, [FromForm] string apiToken) {
         SceneData? existingScene = viking.SceneData.FirstOrDefault(e => e.SceneName == sceneName);
 
         if(existingScene is not null)
         {
             existingScene.XmlData = contentXml;
             ctx.SaveChanges();
+            mMOCommunicationService.SendPacketToRoom(apiToken, sceneName + '_' + viking.Uid.ToString(), "SNE", new string[] { "SNE", "-1", contentXml, "8" });
             return Ok(true);
         }
         else
@@ -1634,13 +1638,14 @@ public class ContentController : Controller {
     [Produces("application/xml")]
     [Route("ContentWebService.asmx/SetHouse")] // used by World Of Jumpstart
     [VikingSession]
-    public IActionResult SetHouse(Viking viking, [FromForm] string contentXml) {
+    public IActionResult SetHouse(Viking viking, [FromForm] string contentXml, [FromForm] string apiToken) {
         Util.SavedData.Set(
             viking,
             Util.SavedData.House(),
             contentXml
         );
         ctx.SaveChanges();
+        mMOCommunicationService.SendPacketToRoom(apiToken, $"MyNeighborhood_{viking.Uid}", "SNE", new string[] { "SNE", "-1", viking.Uid.ToString(), "10" }); // hardcoding neighborhood here for now, client doesn't send a scene name here
         return Ok(true);
     }
 
@@ -1648,8 +1653,8 @@ public class ContentController : Controller {
     [Produces("application/xml")]
     [Route("ContentWebService.asmx/SetNeighbor")] // used by World Of Jumpstart
     [VikingSession(UseLock=true)]
-    public IActionResult SetNeighbor(Viking viking, string neighboruserid, int slot) {
-        return Ok(neighborhoodService.SaveNeighbors(viking, neighboruserid, slot));
+    public IActionResult SetNeighbor(Viking viking, string neighboruserid, int slot, string apiToken) {
+        return Ok(neighborhoodService.SaveNeighbors(viking, neighboruserid, slot, apiToken));
     }
 
     [HttpPost]

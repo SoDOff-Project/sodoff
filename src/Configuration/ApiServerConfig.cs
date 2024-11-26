@@ -4,6 +4,7 @@ public class ApiServerConfig {
 
     public string MMOAdress { get; set; } = "127.0.0.1";
     public int MMOPort { get; set; } = 9933;
+    public int MMOHttpApiPort { get; set; } = 9934;
     public uint MMOSupportMinVersion { get; set; } = 0;
 
     public DbProviders DbProvider { get; set; } = DbProviders.SQLite;
