@@ -61,9 +61,7 @@ public class GroupController : Controller {
     public Schema.Group[] GetGroupsByGroupType([FromForm] string apiKey, [FromForm] string groupType) {
         AddEMDGroups();
         List<Schema.Group> groups = new List<Schema.Group>();
-        Console.WriteLine("Wanting "+apiKey);
         foreach (Model.Group group in ctx.Groups) {
-            Console.WriteLine($"{group.Name} is {group.Type} with {group.ApiKey}");
             if (group.ApiKey == apiKey && group.Type.ToString() == groupType) groups.Add(new Schema.Group {
                 GroupID = group.GroupID.ToString(),
                 Name = group.Name,
