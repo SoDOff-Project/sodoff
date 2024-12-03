@@ -10,13 +10,13 @@ public class GroupController : Controller {
         GroupID = "8e68214a-c801-4759-8461-d01f28484134",
         Name = "Dragons",
         Color = "234,57,23",
-        Logo = "RS_DATA/Content/PlayerData/EMD/IcoEMDTeamDragons.png" // If anyone knows where these are please fill them in.
+        Logo = "RS_DATA/Content/PlayerData/EMD/IcoEMDTeamDragons.png"
     };
     public static readonly Schema.Group EMD_Scorpions = new Schema.Group {
         GroupID = "db0aa225-2f0e-424c-83a7-73783fe63fef",
         Name = "Scorpions",
         Color = "120,183,53",
-        Logo = "RS_DATA/Content/PlayerData/EMD/IcoEMDTeamScorpions.png" // If anyone knows where these are please fill them in.
+        Logo = "RS_DATA/Content/PlayerData/EMD/IcoEMDTeamScorpions.png"
     };
 
 
