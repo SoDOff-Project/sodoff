@@ -18,8 +18,8 @@ public class ConfigurationController : Controller {
     [Route("ConfigurationWebService.asmx/GetMMOServerInfo")] // used by SuperSecret
     public IActionResult GetMMOServerInfoWithZone([FromForm] string apiKey) {
         return Ok(mmoConfigService.GetMMOServerInformation(
-            ClientVersion.GetVersion(apiKey.ToLower())) // NOTE: in this request apiKey is send uppercase
-        );
+            ClientVersion.GetVersion(apiKey.ToLower()) // NOTE: in this request apiKey is send uppercase
+        ));
     }
 
     [HttpPost]
