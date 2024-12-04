@@ -150,6 +150,7 @@ Almost everything:
 
 #### Implemented enough (probably)
 - GetCommonInventory (V1 -  returns the viking's inventory if it is called with a viking; otherwise returns 8 viking slots)
+- GetGroupsByGroupType (only useful for Eat My Dust at the moment)
 - GetQuestions (doesn't return all questions, probably doesn't need to)
 - GetRules (doesn't return any rules, probably doesn't need to)
 - GetSubscriptionInfo (always returns member, with end date 10 years from now)
@@ -159,7 +160,6 @@ Almost everything:
 - SetUserAchievementAndGetReward (works like SetAchievementAndGetReward)
 - SetUserRoom
 - ValidateName
-- GetGroupsByGroupType (only useful for Eat My Dust at the moment)
 
 #### Partially implemented
 - ApplyPayout (doesn't calculate rewards properly)
@@ -169,10 +169,10 @@ Almost everything:
 - GetTopAchievementPointUsers (ignores type [all, buddy, hall of fame, ...] and mode [overall, monthly, weekly] properties)
 - GetUserAchievements (used by Magic & Mythies)
 - GetUserRoomList (room categories are not implemented, but it's enough for SoD)
+- JoinGroup (for Eat My Dust only)
 - ProcessRewardedItems (gives gems, but doesn't give gold, gold is not yet implemented)
 - SellItems (gives gems, but doesn't give gold, gold is not yet implemented)
 - SetUserAchievementTask (returns a real reward but still use task placeholder)
-- JoinGroup (for Eat My Dust only)
 
 #### Currently static or stubbed
 - GetAchievementTaskInfo (returns a static XML)
