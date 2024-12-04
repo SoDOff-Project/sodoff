@@ -159,6 +159,7 @@ Almost everything:
 - SetUserAchievementAndGetReward (works like SetAchievementAndGetReward)
 - SetUserRoom
 - ValidateName
+- GetGroupsByGroupType (only useful for Eat My Dust at the moment)
 
 #### Partially implemented
 - ApplyPayout (doesn't calculate rewards properly)
@@ -171,6 +172,7 @@ Almost everything:
 - ProcessRewardedItems (gives gems, but doesn't give gold, gold is not yet implemented)
 - SellItems (gives gems, but doesn't give gold, gold is not yet implemented)
 - SetUserAchievementTask (returns a real reward but still use task placeholder)
+- JoinGroup (for Eat My Dust only)
 
 #### Currently static or stubbed
 - GetAchievementTaskInfo (returns a static XML)
