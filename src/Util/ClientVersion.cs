@@ -30,6 +30,10 @@ public class ClientVersion {
         ) {
             return MB;
         } else if (
+            "DD602CF1-CC98-4738-9A0A-56DDE3026947".Equals(apiKey, StringComparison.OrdinalIgnoreCase) // compare lowercase for mmo check
+        ) {
+            return EMD;
+        } else if (
             apiKey == "34b0ae13-eccc-4d64-b6d0-733d2562080e"
         ) {
             return SS;

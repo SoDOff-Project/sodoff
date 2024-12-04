@@ -35,7 +35,14 @@
 		</MMOServerInfo>
 	</Version>
 
-	<!-- Multiple <MMOServerInfo> child can be used instead of <ZoneList>
+	<Version>
+		<!-- Eat My Dust -->
+		<VersionMin>0x04000000</VersionMin>
+		<VersionMax>0x04ffffff</VersionMax>
+		<ZoneList>BadlandsEMD RoadSideAttractionEMD JunkYardEMD PitRowEMD RacingCircuitEMD MyGarageEMDInt DragonHomeEMD ScorpionHomeEMD</ZoneList>
+	</Version>
+  
+  <!-- Multiple <MMOServerInfo> child can be used instead of <ZoneList>
 	     to provide different MMO servers for different zones (<ZN> tag in <MMOServerInfo>).
 
 	     For zones not specified in this config, default entry from DWADragonsMain.xml will be used.
