@@ -43,4 +43,5 @@ public class Viking {
     public DateTime? CreationDate { get; set; }
     public DateTime? BirthDate { get; set; }
     public Gender? Gender { get; set; }
+    public uint? GameVersion { get; set; }
 }
