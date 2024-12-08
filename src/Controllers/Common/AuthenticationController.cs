@@ -168,7 +168,7 @@ public class AuthenticationController : Controller {
     [Route("AuthenticationWebService.asmx/LoginChild")]
     [DecryptRequest("childUserID")]
     [EncryptResponse]
-    public IActionResult LoginChild([FromForm] Guid parentApiToken) {
+    public IActionResult LoginChild([FromForm] Guid parentApiToken, [FromForm] string apiKey) {
         User? user = ctx.Sessions.FirstOrDefault(e => e.ApiToken == parentApiToken)?.User;
         if (user is null) {
             return Unauthorized();
@@ -180,6 +180,19 @@ public class AuthenticationController : Controller {
         if (viking is null) {
             return Unauthorized();
         }
+
+        uint gameVersion = ClientVersion.GetVersion(apiKey);
+        if (viking.GameVersion is null)
+            viking.GameVersion = gameVersion;
+        if (
+            (viking.GameVersion != gameVersion) &&
+            !(viking.GameVersion >= ClientVersion.Min_SoD && gameVersion >= ClientVersion.Min_SoD) &&
+            !(viking.GameVersion >= ClientVersion.WoJS && gameVersion >= ClientVersion.WoJS && viking.GameVersion < ClientVersion.WoJS_NewAvatar && gameVersion < ClientVersion.WoJS_NewAvatar)
+        )
+            return Unauthorized();
+            // do not let players log into users from other games, exceptions:
+            //   1) different version of SoD
+            //   2) WoJS with old avatar and lands
 
         // Check if user is viking parent
         if (user != viking.User) {
