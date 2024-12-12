@@ -6,6 +6,7 @@ using sodoff.Model;
 using sodoff.Schema;
 using sodoff.Util;
 using sodoff.Configuration;
+using sodoff.Services;
 
 namespace sodoff.Controllers.Common;
 
@@ -14,10 +15,12 @@ public class AuthenticationController : Controller {
 
     private readonly DBContext ctx;
     private readonly IOptions<ApiServerConfig> config;
+    private readonly ModerationService moderationService;
 
-    public AuthenticationController(DBContext ctx, IOptions<ApiServerConfig> config) {
+    public AuthenticationController(DBContext ctx, IOptions<ApiServerConfig> config, ModerationService moderationService) {
         this.ctx = ctx;
         this.config = config;
+        this.moderationService = moderationService;
     }
 
     [HttpPost]
@@ -51,6 +54,14 @@ public class AuthenticationController : Controller {
 
         if (user is null || new PasswordHasher<object>().VerifyHashedPassword(null, user.Password, data.Password) != PasswordVerificationResult.Success) {
             return Ok(new ParentLoginInfo { Status = MembershipUserStatus.InvalidPassword });
+        }
+
+        // check for recent bans, if recent ban is not up and is a complete suspension, disallow login
+        UserBan? userBan = moderationService.GetLatestBanFromUser(user);
+
+        if(userBan is not null) {
+            if (userBan.BanType != UserBanType.IndefiniteSuspension && DateTime.UtcNow >= userBan.EndsAt) { moderationService.RemoveBanFromUser(user, userBan); userBan.EndsAt = DateTime.UtcNow; } // remove ban if its up and set retreived userban to have an end date of now
+            if (userBan.BanType == UserBanType.IndefiniteSuspension || (userBan.BanType == UserBanType.TemporarySuspension && DateTime.UtcNow < userBan.EndsAt)) return Ok(new ParentLoginInfo{ Status = MembershipUserStatus.UserIsBanned });
         }
 
         // Create session
