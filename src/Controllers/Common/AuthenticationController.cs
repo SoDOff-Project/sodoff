@@ -60,8 +60,11 @@ public class AuthenticationController : Controller {
         UserBan? userBan = moderationService.GetLatestBanFromUser(user);
 
         if(userBan is not null) {
-            if (userBan.BanType != UserBanType.IndefiniteSuspension && DateTime.UtcNow >= userBan.EndsAt) { moderationService.RemoveBanFromUser(user, userBan); userBan.EndsAt = DateTime.UtcNow; } // remove ban if its up and set retreived userban to have an end date of now
-            if (userBan.BanType == UserBanType.IndefiniteSuspension || (userBan.BanType == UserBanType.TemporarySuspension && DateTime.UtcNow < userBan.EndsAt)) return Ok(new ParentLoginInfo{ Status = MembershipUserStatus.UserIsBanned });
+            if (userBan.BanType != UserBanType.IndefiniteSuspension && DateTime.Compare(DateTime.UtcNow, userBan.EndsAt!.Value) >= 0) { moderationService.RemoveBanFromUser(user, userBan); userBan.EndsAt = DateTime.UtcNow; } // remove ban if its up and set retreived userban to have an end date of now
+            if (userBan.BanType == UserBanType.IndefiniteSuspension || (userBan.BanType == UserBanType.TemporarySuspension && DateTime.Compare(DateTime.UtcNow, userBan.EndsAt!.Value) < 0)) {
+                if (gameVersion <= ClientVersion.Max_OldJS) return Ok(new ParentLoginInfo{ Status = MembershipUserStatus.ProviderError });
+                else return Ok(new ParentLoginInfo{ Status = MembershipUserStatus.UserIsBanned });
+            };
         }
 
         // Create session
