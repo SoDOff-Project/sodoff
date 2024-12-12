@@ -25,6 +25,7 @@ public class DBContext : DbContext {
     public DbSet<Party> Parties { get; set; } = null!;
     public DbSet<Neighborhood> Neighborhoods { get; set; } = null!;
     // we had a brief debate on whether it's neighborhoods or neighborheed
+    public DbSet<UserBan> UserBans { get; set; } = null!;
 
     private readonly IOptions<ApiServerConfig> config;
 
@@ -252,5 +253,9 @@ public class DBContext : DbContext {
         builder.Entity<Neighborhood>().HasOne(r => r.Viking)
             .WithOne(e => e.Neighborhood)
             .HasForeignKey<Neighborhood>(e => e.VikingId);
+        
+        builder.Entity<UserBan>().HasOne(r => r.User)
+            .WithMany(e => e.Bans)
+            .HasForeignKey(e => e.UserId);
     }
 }
