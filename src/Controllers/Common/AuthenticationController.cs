@@ -57,7 +57,7 @@ public class AuthenticationController : Controller {
         }
 
         // check for recent bans, if recent ban is not up and is a complete suspension, disallow login
-        UserBan? userBan = moderationService.GetLatestBanFromUser(user);
+        UserBan? userBan = moderationService.GetAllBansFromUser(user, true).FirstOrDefault(e => e.BanType == UserBanType.IndefiniteSuspension || e.BanType == UserBanType.TemporarySuspension);
 
         if(userBan is not null) {
             if (userBan.BanType != UserBanType.IndefiniteSuspension && DateTime.Compare(DateTime.UtcNow, userBan.EndsAt!.Value) >= 0) { moderationService.RemoveBanFromUser(user, userBan); userBan.EndsAt = DateTime.UtcNow; } // remove ban if its up and set retreived userban to have an end date of now
