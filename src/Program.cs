@@ -7,6 +7,7 @@ using sodoff.Services;
 using sodoff.Utils;
 using System.Xml;
 using System.Net;
+using System.Diagnostics;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -67,5 +68,7 @@ if (assetServer)
 app.UseAuthorization();
 
 app.MapControllers();
+
+if (Debugger.IsAttached) app.UseHttpLogging();
 
 app.Run();
