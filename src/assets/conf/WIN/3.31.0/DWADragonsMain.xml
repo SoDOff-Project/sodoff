@@ -67,13 +67,13 @@
 
 	<!-- ASSET SERVER CONFIGURATION -->
 	
-	<RootURL>http://localhost:5001/.com/DWADragonsUnity/WIN/{Version}/Mid/</RootURL>
-	<ContentDataURL>http://localhost:5001/.com/DWADragonsUnity/WIN/{Version}/Mid/contentdata</ContentDataURL>
-	<DataURL>http://localhost:5001/.com/DWADragonsUnity/WIN/{Version}/Mid/data</DataURL>
-	<SceneURL>http://localhost:5001/.com/DWADragonsUnity/WIN/{Version}/Mid/scene</SceneURL>
-	<SharedDataURL>http://localhost:5001/.com/DWADragonsUnity/WIN/{Version}/Mid/shareddata</SharedDataURL>
-	<SoundURL>http://localhost:5001/.com/DWADragonsUnity/WIN/{Version}/Mid/sound</SoundURL>
-	<MoviesURL>http://localhost:5001/.com/DWADragonsUnity/WIN/{Version}/Mid/movies</MoviesURL>
+	<RootURL>https://sodoff.com/DWADragonsUnity/WIN/{Version}/Mid/</RootURL>
+	<ContentDataURL>https://sodoff.com/DWADragonsUnity/WIN/{Version}/Mid/contentdata</ContentDataURL>
+	<DataURL>https://sodoff.com/DWADragonsUnity/WIN/{Version}/Mid/data</DataURL>
+	<SceneURL>https://sodoff.com/DWADragonsUnity/WIN/{Version}/Mid/scene</SceneURL>
+	<SharedDataURL>https://sodoff.com/DWADragonsUnity/WIN/{Version}/Mid/shareddata</SharedDataURL>
+	<SoundURL>https://sodoff.com/DWADragonsUnity/WIN/{Version}/Mid/sound</SoundURL>
+	<MoviesURL>https://sodoff.com/DWADragonsUnity/WIN/{Version}/Mid/movies</MoviesURL>
 
 	<LocalRootURL>.</LocalRootURL>
 	<LocalContentDataURL>./contentdata</LocalContentDataURL>

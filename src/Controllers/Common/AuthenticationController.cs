@@ -62,7 +62,7 @@ public class AuthenticationController : Controller {
         if(userBan is not null) {
             if (userBan.BanType != UserBanType.IndefiniteSuspension && DateTime.Compare(DateTime.UtcNow, userBan.EndsAt!.Value) >= 0) { moderationService.RemoveBanFromUser(user, userBan); userBan.EndsAt = DateTime.UtcNow; } // remove ban if its up and set retreived userban to have an end date of now
             if (userBan.BanType == UserBanType.IndefiniteSuspension || (userBan.BanType == UserBanType.TemporarySuspension && DateTime.Compare(DateTime.UtcNow, userBan.EndsAt!.Value) < 0)) {
-                if (gameVersion <= ClientVersion.Max_OldJS) return Ok(new ParentLoginInfo{ Status = MembershipUserStatus.ProviderError });
+                if (gameVersion <= ClientVersion.Max_OldJS) return Ok(new ParentLoginInfo{ Status = MembershipUserStatus.ProviderError }); // everything 'OldJS' doesn't have 'UserIsBanned', so we use 'ProviderError' i
                 else return Ok(new ParentLoginInfo{ Status = MembershipUserStatus.UserIsBanned });
             };
         }
@@ -162,6 +162,7 @@ public class AuthenticationController : Controller {
         Viking? viking = ctx.Sessions.FirstOrDefault(e => e.ApiToken == apiToken)?.Viking;
         if (user is null && viking is null)
             return Ok(false);
+
         return Ok(true);
     }
 
@@ -175,6 +176,7 @@ public class AuthenticationController : Controller {
         Viking? viking = ctx.Sessions.FirstOrDefault(e => e.ApiToken == apiToken)?.Viking;
         if (user is null && viking is null)
             return Ok(ApiTokenStatus.TokenNotFound);
+
         return Ok(ApiTokenStatus.TokenValid);
     }
 
