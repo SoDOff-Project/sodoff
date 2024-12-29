@@ -30,6 +30,10 @@ public class ClientVersion {
         ) {
             return MB;
         } else if (
+            apiKey == "dd602cf1-cc98-4738-9a0a-56dde3026947"
+        ) {
+            return EMD;
+        } else if (
             apiKey == "34b0ae13-eccc-4d64-b6d0-733d2562080e"
         ) {
             return SS;
