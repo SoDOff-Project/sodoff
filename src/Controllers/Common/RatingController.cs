@@ -251,15 +251,6 @@ public class RatingController : Controller
     [Produces("application/xml")]
     [Route("RatingWebService.asmx/GetTopRatedUserByCategoryID")]
     public IActionResult GetUserRanks([FromForm] int categoryID, [FromForm] int numberOfRecord) {
-        Console.WriteLine(new ArrayOfUserRatingRankInfo {
-            UserRatingRankInfo = ctx.RatingRanks
-                .Where(rr => rr.RatedUserID != null && (categoryID == rr.CategoryID
-                    || (categoryID == 4 && rr.CategoryID == 5) // The party board searches for 4 but the pod rating is set in 5.
-                ))
-                .Take(numberOfRecord)
-                .Select(rr => new UserRatingRankInfo { RankInfo = new RatingRankInfo(rr) })
-                .ToArray()
-        });
         return Ok(new ArrayOfUserRatingRankInfo {
             UserRatingRankInfo = ctx.RatingRanks
                 .Where(rr => rr.RatedUserID != null && (categoryID == rr.CategoryID
