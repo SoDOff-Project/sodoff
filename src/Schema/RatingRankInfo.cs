@@ -11,7 +11,7 @@ public class RatingRankInfo {
     public RatingRankInfo(RatingRank rank) {
         Id = rank.Id;
         CategoryID = rank.CategoryID;
-        RatedEntityID = rank.RatedEntityID;
+        RatedEntityID = rank.RatedEntityID??0;
         Rank = rank.Rank;
         RatingAverage = rank.RatingAverage;
         TotalVotes = rank.TotalVotes;

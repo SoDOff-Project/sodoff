@@ -138,7 +138,7 @@ public class RatingController : Controller
                 CategoryID = category,
                 RatedEntityID = eID,
                 RatedUserID = uID,
-                Rank = 0 // Start here, work way down.
+                Rank = 0
             };
             ctx.RatingRanks.Add(rank);
         }
@@ -159,19 +159,20 @@ public class RatingController : Controller
         }
         if (eID != -1 || uID != null) {
             RatingRank[] ranks = ctx.RatingRanks
-                .Where(rr => rr.CategoryID == category) // Only rank by category.
+                .Where(rr => rr != rank && rr.CategoryID == category) // Only rank by category.
                 .OrderBy(rr => rr.Rank)
                 .ToArray();
             bool resortOthers = false;
+            rank.Rank = 1; // Start here, work way down.
             for (int i=0;i<ranks.Length;i++) {
-                if (ranks[i] == rank) continue;
                 if (!resortOthers && ranks[i].RatingAverage < rank.RatingAverage) {
                     rank.Rank = i+1;
                     resortOthers = true;
                 }
-                if (resortOthers) ranks[i].Rank++;
-                Console.WriteLine(ranks[i].Id+" "+resortOthers);
+                if (resortOthers) ranks[i].Rank = i+2;
+                else ranks[i].Rank = i+1;
             }
+            if (!resortOthers) rank.Rank = ranks.Length+1;
         }
         rating.Value = value;
         rating.Date = DateTime.UtcNow;
@@ -221,10 +222,13 @@ public class RatingController : Controller
             ).ToArray();
     }
 
-    [HttpPost]
-    [Route("RatingWebService.asmx/DeleteEntityRating")]
-    [VikingSession]
-    public IActionResult DeleteRating(Viking viking, [FromForm] int categoryID, [FromForm] int ratedEntityID) {
+    // TODO: Implement for shipwreck tracks, maybe.
+    // Looking at the code, we actually want to delete all ratings for the entity.
+    // This current implementation only deletes the user's ranking, and not thoroughly.
+    //[HttpPost]
+    //[Route("RatingWebService.asmx/DeleteEntityRating")]
+    //[VikingSession]
+    public IActionResult ClearRating(Viking viking, [FromForm] int categoryID, [FromForm] int ratedEntityID) {
         Rating? rating = viking.Ratings.FirstOrDefault(
             r => categoryID == r.CategoryID && r.RatedEntityID == ratedEntityID && r.RatedUserID == null
         );
@@ -237,7 +241,7 @@ public class RatingController : Controller
     [Route("RatingWebService.asmx/GetTopRatedByCategoryID")]
     public RatingRankInfo[] GetRanks([FromForm] int categoryID, [FromForm] int numberOfRecord) {
         return ctx.RatingRanks
-            .Where(rr => categoryID == rr.CategoryID && rr.RatedUserID == null)
+            .Where(rr => categoryID == rr.CategoryID)
             .Take(numberOfRecord)
             .Select(rr => new RatingRankInfo(rr))
             .ToArray();
@@ -247,13 +251,23 @@ public class RatingController : Controller
     [Produces("application/xml")]
     [Route("RatingWebService.asmx/GetTopRatedUserByCategoryID")]
     public IActionResult GetUserRanks([FromForm] int categoryID, [FromForm] int numberOfRecord) {
-        return Ok(new ArrayOfUserRatingRankInfo {
+        Console.WriteLine(new ArrayOfUserRatingRankInfo {
             UserRatingRankInfo = ctx.RatingRanks
                 .Where(rr => rr.RatedUserID != null && (categoryID == rr.CategoryID
-                    || (categoryID == 4 && rr.CategoryID == 5) // The party board searches for 4 but the pod rating is set by 5.
+                    || (categoryID == 4 && rr.CategoryID == 5) // The party board searches for 4 but the pod rating is set in 5.
                 ))
                 .Take(numberOfRecord)
                 .Select(rr => new UserRatingRankInfo { RankInfo = new RatingRankInfo(rr) })
+                .ToArray()
+        });
+        return Ok(new ArrayOfUserRatingRankInfo {
+            UserRatingRankInfo = ctx.RatingRanks
+                .Where(rr => rr.RatedUserID != null && (categoryID == rr.CategoryID
+                    || (categoryID == 4 && rr.CategoryID == 5) // The party board searches for 4 but the pod rating is set in 5.
+                ))
+                .OrderBy(rr => rr.Rank)
+                .Take(numberOfRecord)
+                .Select(rr => new UserRatingRankInfo { RankInfo = new RatingRankInfo(rr), RatedUserID = new Guid(rr.RatedUserID) })
                 .ToArray()
         });
     }
