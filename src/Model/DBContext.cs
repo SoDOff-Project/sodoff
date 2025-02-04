@@ -143,7 +143,7 @@ public class DBContext : DbContext {
             .WithMany(e => e.Vikings);
 
         builder.Entity<Viking>().HasMany(v => v.Ratings)
-            .WithOne(r => r.Owner);
+            .WithOne(r => r.Viking);
 
         // Dragons
         builder.Entity<Dragon>().HasOne(d => d.Viking)
@@ -267,9 +267,9 @@ public class DBContext : DbContext {
             .WithMany(e => e.Groups);
 
         // Rating
-        builder.Entity<Rating>().HasOne(r => r.Owner)
+        builder.Entity<Rating>().HasOne(r => r.Viking)
             .WithMany(v => v.Ratings)
-            .HasForeignKey(r => r.OwnerId);
+            .HasForeignKey(r => r.VikingId);
 
         builder.Entity<Rating>().HasOne(r => r.Rank)
             .WithMany(rr => rr.Ratings)

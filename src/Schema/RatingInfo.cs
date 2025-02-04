@@ -1,5 +1,4 @@
-﻿using sodoff.Model;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
 
 namespace sodoff.Schema;
 

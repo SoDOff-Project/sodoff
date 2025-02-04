@@ -1,5 +1,4 @@
-﻿using sodoff.Schema;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace sodoff.Model;
 
@@ -8,12 +7,11 @@ public class Rating {
     public int Id { get; set; }
 
     /// <summary>Viking that controls this data.</summary>
-    public virtual Viking? Owner { get; set; }
+    public virtual Viking? Viking { get; set; }
 
     public virtual RatingRank? Rank { get; set; }
 
-    /// <summary>VikingId</summary>
-    public int OwnerId { get; set; }
+    public int VikingId { get; set; }
 
     public int RankId { get; set; } // Done this to prevent it from generating an unnecessary pairs table.
 

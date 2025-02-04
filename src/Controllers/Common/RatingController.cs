@@ -1,13 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
 using sodoff.Attributes;
-using sodoff.Configuration;
 using sodoff.Model;
 using sodoff.Schema;
-using sodoff.Services;
 using sodoff.Util;
-using System.Security.Cryptography;
 
 namespace sodoff.Controllers.Common;
 
@@ -123,7 +119,7 @@ public class RatingController : Controller
         bool newRating = rating == null;
         if (newRating) {
             rating = new Rating {
-                OwnerId = viking.Id,
+                VikingId = viking.Id,
                 CategoryID = category,
                 RatedEntityID = eID,
                 RatedUserID = uID
@@ -213,7 +209,7 @@ public class RatingController : Controller
             .Where(r => r.CategoryID == categoryID && r.RatedEntityID == ratedEntityID && r.RatedUserID == null)
             .Select(r => new RatingInfo {
                     Id = r.Id,
-                    OwnerUid = r.Owner.Uid,
+                    OwnerUid = r.Viking.Uid,
                     CategoryID = r.CategoryID,
                     RatedEntityID = r.RatedEntityID,
                     Value = r.Value,
