@@ -79,6 +79,30 @@ public class RatingController : Controller
 
             case string x when x.StartsWith("MSCnDucky"):
                 return Ok(60);
+
+            case string x when x.StartsWith("Calendar"):
+                        return Ok(points / 40);
+
+            case string x when x.StartsWith("PearlPush"):
+                        return Ok(points / 20);
+
+            case string x when x.StartsWith("FLLetItRide"):
+                        return Ok(points <= 28 ? 2 : 5);
+
+            case string x when x.StartsWith("FLLetItRideMastered"):
+                        return Ok(points <= 15 ? 4 :
+                                points <= 25 ? 6 :
+                                points <= 35 ? 9 :
+                                points <= 45 ? 12 : 15);
+
+            case string x when x.StartsWith("FashionShowWin"):
+                        return Ok(points >= 1 ? 20 : 0);
+
+            case string x when x.StartsWith("FashionShowLose"):
+                        return Ok(points >= 0 ? 10 : 0);
+
+            case string x when x.StartsWith("FashionShowTie"):
+                        return Ok(points >= 2 ? 15 : 0);
         }
 
         return Ok(points / (350 / 3));
