@@ -111,7 +111,7 @@ public class RatingController : Controller
     }
 
     // This method is the only thing that adds ratings.
-    public RatingInfo SubmitRating(Viking viking, int category, int? eID, string? uID, int value) {
+    private RatingInfo SetRating(Viking viking, int category, int? eID, string? uID, int value) {
         RatingRank? rank;
         Rating? rating = viking.Ratings.FirstOrDefault(
             r => category == r.CategoryID && r.RatedEntityID == eID && r.RatedUserID == uID
@@ -138,18 +138,13 @@ public class RatingController : Controller
             };
             ctx.RatingRanks.Add(rank);
         }
-        rank.TotalVotes = rank.Ratings?.Count??1;
-        if (newRating) {
-            rating.Rank = rank;
-            rank.TotalVotes++;
-        }
+        if (newRating) rating.Rank = rank;
+        rating.Value = value;
         if (rank.Ratings != null) {
             rank.RatingAverage = 0;
             foreach (Rating r in rank.Ratings) {
-                if (r == rating) continue;
-                rank.RatingAverage += (float)((decimal)r.Value / (decimal)rank.TotalVotes);
+                rank.RatingAverage += (float)((decimal)r.Value / (decimal)rank.Ratings.Count);
             }
-            rank.RatingAverage += (float)((decimal)value / (decimal)rank.TotalVotes);
         } else {
             rank.RatingAverage = value;
         }
@@ -170,11 +165,10 @@ public class RatingController : Controller
             }
             if (!resortOthers) rank.Rank = ranks.Length+1;
         }
-        rating.Value = value;
         rating.Date = DateTime.UtcNow;
         rank.UpdateDate = rating.Date;
         ctx.SaveChanges();
-        RatingInfo info = new() {
+        return new RatingInfo() {
             Id = rating.Id,
             OwnerUid = viking.Uid,
             CategoryID = category,
@@ -182,29 +176,28 @@ public class RatingController : Controller
             Value = value,
             Date = rating.Date
         };
-        return info;
     }
 
     [HttpPost]
     [Produces("application/xml")]
     [Route("RatingWebService.asmx/SetRating")]
     [VikingSession]
-    public IActionResult SubmitRating(Viking viking, [FromForm] int categoryID, [FromForm] int ratedEntityID, [FromForm] int ratedValue) {
-        return Ok(SubmitRating(viking, categoryID, ratedEntityID, null, ratedValue));
+    public IActionResult SetRating(Viking viking, [FromForm] int categoryID, [FromForm] int ratedEntityID, [FromForm] int ratedValue) {
+        return Ok(SetRating(viking, categoryID, ratedEntityID, null, ratedValue));
     }
 
     [HttpPost]
     [Produces("application/xml")]
     [Route("RatingWebService.asmx/SetUserRating")]
     [VikingSession]
-    public IActionResult SubmitUserRating(Viking viking, [FromForm] int categoryID, [FromForm] string ratedUserID, [FromForm] int ratedValue) {
-        return Ok(SubmitRating(viking, categoryID, null, ratedUserID, ratedValue));
+    public IActionResult SetUserRating(Viking viking, [FromForm] int categoryID, [FromForm] string ratedUserID, [FromForm] int ratedValue) {
+        return Ok(SetRating(viking, categoryID, null, ratedUserID, ratedValue));
     }
 
     [HttpPost]
     [Produces("application/xml")]
     [Route("RatingWebService.asmx/GetRatingByRatedEntity")]
-    public RatingInfo[] GetAllRatings([FromForm] int categoryID, [FromForm] int ratedEntityID) {
+    public RatingInfo[] GetRatingByRatedEntity([FromForm] int categoryID, [FromForm] int ratedEntityID) {
         return ctx.Ratings
             .Where(r => r.CategoryID == categoryID && r.RatedEntityID == ratedEntityID && r.RatedUserID == null)
             .Select(r => new RatingInfo {
@@ -218,24 +211,10 @@ public class RatingController : Controller
             ).ToArray();
     }
 
-    // TODO: Implement for shipwreck tracks, maybe.
-    // Looking at the code, we actually want to delete all ratings for the entity.
-    // This current implementation only deletes the user's ranking, and not thoroughly.
-    //[HttpPost]
-    //[Route("RatingWebService.asmx/DeleteEntityRating")]
-    //[VikingSession]
-    public IActionResult ClearRating(Viking viking, [FromForm] int categoryID, [FromForm] int ratedEntityID) {
-        Rating? rating = viking.Ratings.FirstOrDefault(
-            r => categoryID == r.CategoryID && r.RatedEntityID == ratedEntityID && r.RatedUserID == null
-        );
-        if (rating != null) ctx.Ratings.Remove(rating);
-        return Ok();
-    }
-
     [HttpPost]
     [Produces("application/xml")]
     [Route("RatingWebService.asmx/GetTopRatedByCategoryID")]
-    public RatingRankInfo[] GetRanks([FromForm] int categoryID, [FromForm] int numberOfRecord) {
+    public RatingRankInfo[] GetTopRatedByCategoryID([FromForm] int categoryID, [FromForm] int numberOfRecord) {
         return ctx.RatingRanks
             .Where(rr => categoryID == rr.CategoryID)
             .Take(numberOfRecord)
@@ -246,7 +225,7 @@ public class RatingController : Controller
     [HttpPost]
     [Produces("application/xml")]
     [Route("RatingWebService.asmx/GetTopRatedUserByCategoryID")]
-    public IActionResult GetUserRanks([FromForm] int categoryID, [FromForm] int numberOfRecord) {
+    public IActionResult GetTopRatedUserByCategoryID([FromForm] int categoryID, [FromForm] int numberOfRecord) {
         return Ok(new ArrayOfUserRatingRankInfo {
             UserRatingRankInfo = ctx.RatingRanks
                 .Where(rr => rr.RatedUserID != null && (categoryID == rr.CategoryID
@@ -262,7 +241,7 @@ public class RatingController : Controller
     [HttpPost]
     [Produces("application/xml")]
     [Route("RatingWebService.asmx/GetEntityRatedRank")]
-    public IActionResult GetRank([FromForm] int categoryID, [FromForm] int ratedEntityID) {
+    public IActionResult GetEntityRatedRank([FromForm] int categoryID, [FromForm] int ratedEntityID) {
         // TODO: Add a shortcut here for shipwreck lagoon tracks.
         RatingRank? rank = ctx.RatingRanks.FirstOrDefault(rr => categoryID == rr.CategoryID && rr.RatedEntityID == ratedEntityID);
         if (rank == null) return Ok();
@@ -272,7 +251,7 @@ public class RatingController : Controller
     [HttpPost]
     [Produces("application/xml")]
     [Route("RatingWebService.asmx/GetRatingForRatedUser")]
-    public IActionResult GetUserRating([FromForm] int categoryID, [FromForm] string ratedUserID) {
+    public IActionResult GetRatingForRatedUser([FromForm] int categoryID, [FromForm] string ratedUserID) {
         Rating? rating = ctx.Ratings.FirstOrDefault(
             r => categoryID == r.CategoryID && r.RatedEntityID == null && r.RatedUserID == ratedUserID
         );
@@ -282,7 +261,7 @@ public class RatingController : Controller
     [HttpPost]
     [Produces("application/xml")]
     [Route("RatingWebService.asmx/GetRatingForRatedEntity")]
-    public IActionResult GetRating([FromForm] int categoryID, [FromForm] int ratedEntityID) {
+    public IActionResult GetRatingForRatedEntity([FromForm] int categoryID, [FromForm] int ratedEntityID) {
         Rating? rating = ctx.Ratings.FirstOrDefault(
             r => categoryID == r.CategoryID && r.RatedEntityID == ratedEntityID && r.RatedUserID == null
         );

@@ -16,8 +16,6 @@ public class RatingRank {
     /// <summary>On a scale of 1-5</summary>
     public float RatingAverage { get; set; }
 
-    public int TotalVotes { get; set; }
-
     public DateTime UpdateDate { get; set; }
 
     public virtual ICollection<Rating> Ratings { get; set; } = null!;
