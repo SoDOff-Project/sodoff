@@ -26,6 +26,8 @@ public class DBContext : DbContext {
     public DbSet<Neighborhood> Neighborhoods { get; set; } = null!;
     // we had a brief debate on whether it's neighborhoods or neighborheed
     public DbSet<Group> Groups { get; set; } = null!;
+    public DbSet<Rating> Ratings { get; set; } = null!;
+    public DbSet<RatingRank> RatingRanks { get; set; } = null!;
 
     private readonly IOptions<ApiServerConfig> config;
 
@@ -139,6 +141,9 @@ public class DBContext : DbContext {
 
         builder.Entity<Viking>().HasMany(v => v.Groups)
             .WithMany(e => e.Vikings);
+
+        builder.Entity<Viking>().HasMany(v => v.Ratings)
+            .WithOne(r => r.Viking);
 
         // Dragons
         builder.Entity<Dragon>().HasOne(d => d.Viking)
@@ -260,5 +265,17 @@ public class DBContext : DbContext {
         // Groups
         builder.Entity<Group>().HasMany(r => r.Vikings)
             .WithMany(e => e.Groups);
+
+        // Rating
+        builder.Entity<Rating>().HasOne(r => r.Viking)
+            .WithMany(v => v.Ratings)
+            .HasForeignKey(r => r.VikingId);
+
+        builder.Entity<Rating>().HasOne(r => r.Rank)
+            .WithMany(rr => rr.Ratings)
+            .HasForeignKey(r => r.RankId);
+
+        builder.Entity<RatingRank>().HasMany(rr => rr.Ratings)
+            .WithOne(r => r.Rank);
     }
 }
