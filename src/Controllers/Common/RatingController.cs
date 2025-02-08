@@ -114,40 +114,35 @@ public class RatingController : Controller
     private RatingInfo SetRating(Viking viking, int category, int? eID, string? uID, int value) {
         RatingRank? rank;
         Rating? rating = viking.Ratings.FirstOrDefault(
-            r => category == r.CategoryID && r.RatedEntityID == eID && r.RatedUserID == uID
+            r => category == r.Rank.CategoryID && r.Rank.RatedEntityID == eID && r.Rank.RatedUserID == uID
         );
-        bool newRating = rating == null;
-        if (newRating) {
+        if (rating == null) {
+            rank = ctx.RatingRanks.FirstOrDefault(rr => rr.CategoryID == category && rr.RatedEntityID == eID && rr.RatedUserID == uID);
+            if (rank == null) {
+                rank = new RatingRank {
+                    CategoryID = category,
+                    RatedEntityID = eID,
+                    RatedUserID = uID,
+                    Rank = 0,
+                    Ratings = new List<Rating>()
+                };
+                ctx.RatingRanks.Add(rank);
+            }
             rating = new Rating {
                 VikingId = viking.Id,
-                CategoryID = category,
-                RatedEntityID = eID,
-                RatedUserID = uID
+                Rank = rank
             };
             ctx.Ratings.Add(rating);
-            rank = ctx.RatingRanks.FirstOrDefault(rr => rr.CategoryID == category && rr.RatedEntityID == eID && rr.RatedUserID == uID);
         } else {
             rank = rating.Rank;
         }
-        if (rank == null) {
-            rank = new RatingRank {
-                CategoryID = category,
-                RatedEntityID = eID,
-                RatedUserID = uID,
-                Rank = 0
-            };
-            ctx.RatingRanks.Add(rank);
-        }
-        if (newRating) rating.Rank = rank;
+
         rating.Value = value;
-        if (rank.Ratings != null) {
-            rank.RatingAverage = 0;
-            foreach (Rating r in rank.Ratings) {
-                rank.RatingAverage += (float)((decimal)r.Value / (decimal)rank.Ratings.Count);
-            }
-        } else {
-            rank.RatingAverage = value;
+        rank.RatingAverage = 0;
+        foreach (Rating r in rank.Ratings) {
+            rank.RatingAverage += (float)((decimal)r.Value / (decimal)rank.Ratings.Count);
         }
+
         if (eID != -1 || uID != null) {
             RatingRank[] ranks = ctx.RatingRanks
                 .Where(rr => rr != rank && rr.CategoryID == category) // Only rank by category.
@@ -197,14 +192,15 @@ public class RatingController : Controller
     [HttpPost]
     [Produces("application/xml")]
     [Route("RatingWebService.asmx/GetRatingByRatedEntity")]
-    public RatingInfo[] GetRatingByRatedEntity([FromForm] int categoryID, [FromForm] int ratedEntityID) {
+    [VikingSession]
+    public RatingInfo[] GetRatingByRatedEntity(Viking viking, [FromForm] int categoryID, [FromForm] int ratedEntityID) {
         return ctx.Ratings
-            .Where(r => r.CategoryID == categoryID && r.RatedEntityID == ratedEntityID && r.RatedUserID == null)
+            .Where(r => r.Viking == viking && r.Rank.CategoryID == categoryID && r.Rank.RatedEntityID == ratedEntityID && r.Rank.RatedUserID == null)
             .Select(r => new RatingInfo {
                     Id = r.Id,
                     OwnerUid = r.Viking.Uid,
-                    CategoryID = r.CategoryID,
-                    RatedEntityID = r.RatedEntityID,
+                    CategoryID = r.Rank.CategoryID,
+                    RatedEntityID = r.Rank.RatedEntityID,
                     Value = r.Value,
                     Date = r.Date
                 }
@@ -251,9 +247,10 @@ public class RatingController : Controller
     [HttpPost]
     [Produces("application/xml")]
     [Route("RatingWebService.asmx/GetRatingForRatedUser")]
-    public IActionResult GetRatingForRatedUser([FromForm] int categoryID, [FromForm] string ratedUserID) {
+    [VikingSession]
+    public IActionResult GetRatingForRatedUser(Viking viking, [FromForm] int categoryID, [FromForm] string ratedUserID) {
         Rating? rating = ctx.Ratings.FirstOrDefault(
-            r => categoryID == r.CategoryID && r.RatedEntityID == null && r.RatedUserID == ratedUserID
+            r => r.Viking == viking && categoryID == r.Rank.CategoryID && r.Rank.RatedEntityID == null && r.Rank.RatedUserID == ratedUserID
         );
         return Ok(rating?.Value ?? 0);
     }
@@ -261,9 +258,10 @@ public class RatingController : Controller
     [HttpPost]
     [Produces("application/xml")]
     [Route("RatingWebService.asmx/GetRatingForRatedEntity")]
-    public IActionResult GetRatingForRatedEntity([FromForm] int categoryID, [FromForm] int ratedEntityID) {
+    [VikingSession]
+    public IActionResult GetRatingForRatedEntity(Viking viking, [FromForm] int categoryID, [FromForm] int ratedEntityID) {
         Rating? rating = ctx.Ratings.FirstOrDefault(
-            r => categoryID == r.CategoryID && r.RatedEntityID == ratedEntityID && r.RatedUserID == null
+            r => r.Viking == viking && categoryID == r.Rank.CategoryID && r.Rank.RatedEntityID == ratedEntityID && r.Rank.RatedUserID == null
         );
         return Ok(rating?.Value ?? 0);
     }

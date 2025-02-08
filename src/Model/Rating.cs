@@ -10,17 +10,12 @@ public class Rating {
 
     public int RankId { get; set; }
 
-    public int CategoryID { get; set; }
-
-    public int? RatedEntityID { get; set; }
-    public string? RatedUserID { get; set; }
-
     public int Value { get; set; }
 
     public DateTime Date { get; set; }
 
 
-    public virtual Viking? Viking { get; set; }
+    public virtual Viking Viking { get; set; }
 
-    public virtual RatingRank? Rank { get; set; }
+    public virtual RatingRank Rank { get; set; }
 }
