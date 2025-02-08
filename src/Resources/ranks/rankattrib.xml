@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfRankAttributeData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://tempuri.org/">
+	<RankAttributeData>
+		<r xmlns="">254</r>
+		<a xmlns="">
+			<k>ENERGY</k>
+			<v>20</v>
+		</a>
+		<a xmlns="">
+			<k>FIRE</k>
+			<v>100</v>
+		</a>
+		<a xmlns="">
+			<k>HAPPINESS</k>
+			<v>100</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">255</r>
+		<a xmlns="">
+			<k>ENERGY</k>
+			<v>22</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">256</r>
+		<a xmlns="">
+			<k>ENERGY</k>
+			<v>24</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">257</r>
+		<a xmlns="">
+			<k>ENERGY</k>
+			<v>26</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">258</r>
+		<a xmlns="">
+			<k>ENERGY</k>
+			<v>28</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">259</r>
+		<a xmlns="">
+			<k>ENERGY</k>
+			<v>30</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">260</r>
+		<a xmlns="">
+			<k>ENERGY</k>
+			<v>32</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">261</r>
+		<a xmlns="">
+			<k>ENERGY</k>
+			<v>34</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">262</r>
+		<a xmlns="">
+			<k>ENERGY</k>
+			<v>36</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">263</r>
+		<a xmlns="">
+			<k>ENERGY</k>
+			<v>38</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">264</r>
+		<a xmlns="">
+			<k>ENERGY</k>
+			<v>40</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">265</r>
+		<a xmlns="">
+			<k>ENERGY</k>
+			<v>42</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">266</r>
+		<a xmlns="">
+			<k>ENERGY</k>
+			<v>44</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">267</r>
+		<a xmlns="">
+			<k>ENERGY</k>
+			<v>46</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">268</r>
+		<a xmlns="">
+			<k>ENERGY</k>
+			<v>48</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">269</r>
+		<a xmlns="">
+			<k>ENERGY</k>
+			<v>50</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">270</r>
+		<a xmlns="">
+			<k>ENERGY</k>
+			<v>52</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">271</r>
+		<a xmlns="">
+			<k>ENERGY</k>
+			<v>54</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">272</r>
+		<a xmlns="">
+			<k>ENERGY</k>
+			<v>56</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">273</r>
+		<a xmlns="">
+			<k>ENERGY</k>
+			<v>58</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">274</r>
+		<a xmlns="">
+			<k>ENERGY</k>
+			<v>60</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">275</r>
+		<a xmlns="">
+			<k>ENERGY</k>
+			<v>62</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">276</r>
+		<a xmlns="">
+			<k>ENERGY</k>
+			<v>64</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">277</r>
+		<a xmlns="">
+			<k>ENERGY</k>
+			<v>66</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">278</r>
+		<a xmlns="">
+			<k>ENERGY</k>
+			<v>68</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">279</r>
+		<a xmlns="">
+			<k>ENERGY</k>
+			<v>70</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">280</r>
+		<a xmlns="">
+			<k>ENERGY</k>
+			<v>72</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">281</r>
+		<a xmlns="">
+			<k>ENERGY</k>
+			<v>74</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">282</r>
+		<a xmlns="">
+			<k>ENERGY</k>
+			<v>76</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">283</r>
+		<a xmlns="">
+			<k>ENERGY</k>
+			<v>78</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">284</r>
+		<a xmlns="">
+			<k>HEALTH</k>
+			<v>50</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">285</r>
+		<a xmlns="">
+			<k>HEALTH</k>
+			<v>100</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">286</r>
+		<a xmlns="">
+			<k>HEALTH</k>
+			<v>150</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">287</r>
+		<a xmlns="">
+			<k>HEALTH</k>
+			<v>200</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">288</r>
+		<a xmlns="">
+			<k>HEALTH</k>
+			<v>250</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">289</r>
+		<a xmlns="">
+			<k>HEALTH</k>
+			<v>300</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">290</r>
+		<a xmlns="">
+			<k>HEALTH</k>
+			<v>350</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">291</r>
+		<a xmlns="">
+			<k>HEALTH</k>
+			<v>400</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">292</r>
+		<a xmlns="">
+			<k>HEALTH</k>
+			<v>450</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">293</r>
+		<a xmlns="">
+			<k>HEALTH</k>
+			<v>500</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">294</r>
+		<a xmlns="">
+			<k>HEALTH</k>
+			<v>550</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">295</r>
+		<a xmlns="">
+			<k>HEALTH</k>
+			<v>600</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">296</r>
+		<a xmlns="">
+			<k>HEALTH</k>
+			<v>650</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">297</r>
+		<a xmlns="">
+			<k>HEALTH</k>
+			<v>700</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">298</r>
+		<a xmlns="">
+			<k>HEALTH</k>
+			<v>750</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">299</r>
+		<a xmlns="">
+			<k>HEALTH</k>
+			<v>800</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">300</r>
+		<a xmlns="">
+			<k>HEALTH</k>
+			<v>850</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">301</r>
+		<a xmlns="">
+			<k>HEALTH</k>
+			<v>900</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">302</r>
+		<a xmlns="">
+			<k>HEALTH</k>
+			<v>950</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">303</r>
+		<a xmlns="">
+			<k>HEALTH</k>
+			<v>1000</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">304</r>
+		<a xmlns="">
+			<k>HEALTH</k>
+			<v>1050</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">305</r>
+		<a xmlns="">
+			<k>HEALTH</k>
+			<v>1100</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">306</r>
+		<a xmlns="">
+			<k>HEALTH</k>
+			<v>1150</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">307</r>
+		<a xmlns="">
+			<k>HEALTH</k>
+			<v>1200</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">308</r>
+		<a xmlns="">
+			<k>HEALTH</k>
+			<v>1250</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">309</r>
+		<a xmlns="">
+			<k>HEALTH</k>
+			<v>1300</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">310</r>
+		<a xmlns="">
+			<k>HEALTH</k>
+			<v>1350</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">311</r>
+		<a xmlns="">
+			<k>HEALTH</k>
+			<v>1400</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">312</r>
+		<a xmlns="">
+			<k>HEALTH</k>
+			<v>1450</v>
+		</a>
+	</RankAttributeData>
+	<RankAttributeData>
+		<r xmlns="">313</r>
+		<a xmlns="">
+			<k>HEALTH</k>
+			<v>1500</v>
+		</a>
+	</RankAttributeData>
+</ArrayOfRankAttributeData>

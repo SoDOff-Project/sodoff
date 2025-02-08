@@ -9,6 +9,9 @@ public enum AchievementPointTypes {
     [XmlEnum("2")]
     GameCurrency = 2, // gold
     
+    [XmlEnum("3")]
+    Unknown3 = 3, // unknown, used in MB AchievementTasks
+    
     [XmlEnum("4")]
     Unknown4 = 4,
     

@@ -11,9 +11,12 @@ namespace sodoff.Controllers.Common;
 public class AchievementController : Controller {
 
     public readonly DBContext ctx;
+    private AchievementStoreSingleton achievementStore;
     private AchievementService achievementService;
-    public AchievementController(DBContext ctx, AchievementService achievementService) {
+    
+    public AchievementController(DBContext ctx, AchievementStoreSingleton achievementStore, AchievementService achievementService) {
         this.ctx = ctx;
+        this.achievementStore = achievementStore;
         this.achievementService = achievementService;
     }
 
@@ -42,19 +45,26 @@ public class AchievementController : Controller {
     public IActionResult GetAllRanks([FromForm] string apiKey) {
         uint gameVersion = ClientVersion.GetVersion(apiKey);
         if (gameVersion <= ClientVersion.Max_OldJS && (gameVersion & ClientVersion.WoJS) != 0)
-            return Ok(XmlUtil.ReadResourceXmlString("allranks_wojs"));
-        else if (gameVersion == ClientVersion.MB)
-            return Ok(XmlUtil.ReadResourceXmlString("allranks_mb"));
-        // TODO, this is a placeholder
-        return Ok(XmlUtil.ReadResourceXmlString("allranks"));
+            return Ok(XmlUtil.ReadResourceXmlString("ranks.allranks_wojs"));
+        if (gameVersion == ClientVersion.MB)
+            return Ok(XmlUtil.ReadResourceXmlString("ranks.allranks_mb"));
+        return Ok(XmlUtil.ReadResourceXmlString("ranks.allranks_sod"));
     }
 
     [HttpPost]
-    //[Produces("application/xml")]
+    [Produces("application/xml")]
     [Route("AchievementWebService.asmx/GetAchievementTaskInfo")]
-    public IActionResult GetAchievementTaskInfo() {
-        // TODO
-        return Ok(XmlUtil.ReadResourceXmlString("achievementtaskinfo"));
+    public IActionResult GetAchievementTaskInfo([FromForm] string achievementTaskIDList, [FromForm] string apiKey) {
+        int[] achievementTaskIDs = XmlUtil.DeserializeXml<int[]>(achievementTaskIDList);
+        List<AchievementTaskInfo> achievementTaskInfos = new();
+        foreach (int taskId in achievementTaskIDs) {
+            var achievementInfo = achievementStore.GetAllAchievementTaskInfo(taskId, ClientVersion.GetVersion(apiKey));
+            if (achievementInfo != null)
+                achievementTaskInfos.AddRange(achievementInfo);
+        }
+        return Ok(new ArrayOfAchievementTaskInfo {
+            AchievementTaskInfo = achievementTaskInfos.ToArray()
+        });
     }
 
     [HttpPost]
@@ -89,7 +99,6 @@ public class AchievementController : Controller {
         }
 
         AchievementPointTypes xpType = (AchievementPointTypes)type;
-        // TODO: we allow set currencies here, do we want this?
         achievementService.SetAchievementPoints(viking, xpType, value);
         ctx.SaveChanges();
         return Ok("OK");
@@ -146,8 +155,8 @@ public class AchievementController : Controller {
         ArrayOfUserAchievementInfo arrAchievements = new ArrayOfUserAchievementInfo {
             UserAchievementInfo = new UserAchievementInfo[]{
                 achievementService.CreateUserAchievementInfo(viking, AchievementPointTypes.PlayerXP),
-                achievementService.CreateUserAchievementInfo(viking.Uid, 60000, AchievementPointTypes.PlayerFarmingXP), // TODO: placeholder until there is no leveling for farm XP
-                achievementService.CreateUserAchievementInfo(viking.Uid, 20000, AchievementPointTypes.PlayerFishingXP), // TODO: placeholder until there is no leveling for fishing XP
+                achievementService.CreateUserAchievementInfo(viking, AchievementPointTypes.PlayerFarmingXP),
+                achievementService.CreateUserAchievementInfo(viking, AchievementPointTypes.PlayerFishingXP),
             }
         };
 
@@ -171,27 +180,50 @@ public class AchievementController : Controller {
     [Route("V2/AchievementWebService.asmx/SetUserAchievementTask")]
     [DecryptRequest("achievementTaskSetRequest")]
     [VikingSession(UseLock=true)]
-    public IActionResult SetUserAchievementTask(Viking viking) {
+    public IActionResult SetUserAchievementTask(Viking viking, [FromForm] string apiKey) {
         AchievementTaskSetRequest request = XmlUtil.DeserializeXml<AchievementTaskSetRequest>(Request.Form["achievementTaskSetRequest"]);
 
         var response = new List<AchievementTaskSetResponse>();
         foreach (var task in request.AchievementTaskSet) {
             response.Add(
-                new AchievementTaskSetResponse {
-                    Success = true,
-                    UserMessage = true, // TODO: placeholder
-                    AchievementName = "Placeholder Achievement", // TODO: placeholder
-                    Level = 1, // TODO: placeholder
-                    AchievementTaskGroupID = 1279, // TODO: placeholder
-                    LastLevelCompleted = true, // TODO: placeholder
-                    AchievementInfoID = 1279, // TODO: placeholder
-                    AchievementRewards = achievementService.ApplyAchievementRewardsByTask(viking, task)
-                }
+                achievementService.ApplyAchievementRewardsByTask(viking, task.TaskID, ClientVersion.GetVersion(apiKey))
             );
         }
         ctx.SaveChanges();
 
         return Ok(new ArrayOfAchievementTaskSetResponse { AchievementTaskSetResponse = response.ToArray() });
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("AchievementWebService.asmx/SetUserAchievementTask")] // used by World Of Jumpstart
+    [VikingSession(UseLock=true)]
+    public IActionResult SetUserAchievementTaskV1(Viking viking, [FromForm] int taskID, [FromForm] string apiKey) {
+        var response = achievementService.ApplyAchievementRewardsByTask(viking, taskID, ClientVersion.GetVersion(apiKey));
+        ctx.SaveChanges();
+
+        return Ok(response);
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("AchievementWebService.asmx/GetUserAchievementTask")]
+    // [VikingSession]
+    public IActionResult GetUserAchievementTask([FromForm] string userId, [FromForm] string apiKey) {
+        Viking? viking = ctx.Vikings.FirstOrDefault(e => e.Uid == Guid.Parse(userId));
+        if (viking is null)
+            return Ok(new ArrayOfUserAchievementTask());
+        return Ok(new ArrayOfUserAchievementTask {
+            UserAchievementTask = achievementService.GetUserAchievementTask(viking, ClientVersion.GetVersion(apiKey))
+        });
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("V2/AchievementWebService.asmx/GetUserAchievementTaskRedeemableRewards")]
+    // [VikingSession]
+    public IActionResult GetUserAchievementTaskRedeemableRewards() {
+        return Ok(); // TODO: this should be <UATRRS>
     }
 
     [HttpPost]

@@ -37,59 +37,6 @@
   </Choose>
 
   <ItemGroup>
-    <None Remove="Resources\achievementtaskinfo.xml" />
-    <None Remove="Resources\items.xml" />
-    <None Remove="Resources\missions.xml" />
-    <None Remove="Resources\mmo.xml" />
-    <None Remove="Resources\displaynames.xml" />
-    <None Remove="Resources\rankattrib.xml" />
-    <None Remove="Resources\rankattrib_mb.xml" />
-    <None Remove="Resources\rewardmultiplier.xml" />
-    <None Remove="Resources\store.xml" />
-    <None Remove="Resources\allranks.xml" />
-    <None Remove="Resources\allranks_mb.xml" />
-    <None Remove="Resources\allranks_wojs.xml" />
-    <None Remove="Resources\achievementsids.xml" />
-    <None Remove="Resources\achievementstasks.xml" />
-    <None Remove="Resources\defaultmissionlist.xml" />
-    <None Remove="Resources\defaultmissionlistv1.xml" />
-    <None Remove="Resources\defaultmissionlistmam.xml" />
-    <None Remove="Resources\defaultmissionlist_wojs.xml" />
-    <None Remove="Resources\questiondata.xml" />
-    <None Remove="Resources\content_jukebox.xml" />
-    <None Remove="Resources\content_movie.xml" />
-    <None Remove="Resources\content_blastermovie.xml" />
-    <None Remove="Resources\content_arcade.xml" />
-    <None Remove="Resources\content_learning.xml" />
-    <None Remove="Resources\announcements_wojs.xml" />
-    <None Remove="Resources\announcements_ss.xml" />
-    <None Remove="Resources\profiletags.xml" />
-    <None Remove="Resources\defaulthouse.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Update="Resources\childlist.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\store.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-      <None Update="Resources\items.xml">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </None>
-      <None Update="Resources\tutorialmission.xml">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </None>
-    <None Update="Resources\achievementsids.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\achievementstasks.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="Resources\dtrewards.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Resources\mmo.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -99,31 +46,43 @@
     <EmbeddedResource Include="Resources\rewardmultiplier.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\rankattrib.xml">
+    <EmbeddedResource Include="Resources\ranks\rankattrib.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\rankattrib_mb.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\achievementtaskinfo.xml">
+    <EmbeddedResource Include="Resources\ranks\rankattrib_mb.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\store.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\allranks.xml">
+    <EmbeddedResource Include="Resources\ranks\allranks_sod.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\allranks_mb.xml">
+    <EmbeddedResource Include="Resources\ranks\allranks_mb.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\allranks_wojs.xml">
+    <EmbeddedResource Include="Resources\ranks\allranks_wojs.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\achievementsids.xml">
+    <EmbeddedResource Include="Resources\achievements\achievementid_sod.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\achievementstasks.xml">
+    <EmbeddedResource Include="Resources\achievements\achievementtaskinfo_sod.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\achievements\achievementtaskinfo_mam.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\achievements\achievementtaskinfo_mb.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\achievements\achievementtaskinfo_emd.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\achievements\achievementtaskinfo_ss.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\achievements\achievementtaskinfo_wojs.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\dtrewards.xml">
@@ -132,22 +91,25 @@
     <EmbeddedResource Include="Resources\items.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\missions.xml">
+    <EmbeddedResource Include="Resources\missions\missions_sod.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\missions_wojs.xml">
+    <EmbeddedResource Include="Resources\missions\missions_mam.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\defaultmissionlist.xml">
+    <EmbeddedResource Include="Resources\missions\missions_wojs.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\defaultmissionlistv1.xml">
+    <EmbeddedResource Include="Resources\missions\defaultmissionlist.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\defaultmissionlistmam.xml">
+    <EmbeddedResource Include="Resources\missions\defaultmissionlist_sod_v1.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\defaultmissionlist_wojs.xml">
+    <EmbeddedResource Include="Resources\missions\defaultmissionlist_mam.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\missions\defaultmissionlist_wojs.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\questiondata.xml">

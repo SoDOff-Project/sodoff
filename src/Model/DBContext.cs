@@ -117,6 +117,9 @@ public class DBContext : DbContext {
         builder.Entity<Viking>().HasMany(v => v.TaskStatuses)
             .WithOne(e => e.Viking);
 
+        builder.Entity<Viking>().HasMany(v => v.AchievementTaskStates)
+            .WithOne(e => e.Viking);
+
         builder.Entity<Viking>().HasOne(v => v.SelectedDragon)
             .WithOne()
             .HasForeignKey<Viking>(e => e.SelectedDragonId);
@@ -225,6 +228,10 @@ public class DBContext : DbContext {
 
         builder.Entity<MissionState>().HasOne(m => m.Viking)
             .WithMany(e => e.MissionStates)
+            .HasForeignKey(e => e.VikingId);
+
+        builder.Entity<AchievementTaskState>().HasOne(m => m.Viking)
+            .WithMany(e => e.AchievementTaskStates)
             .HasForeignKey(e => e.VikingId);
 
         builder.Entity<AchievementPoints>().HasKey(e => new { e.VikingId, e.Type });

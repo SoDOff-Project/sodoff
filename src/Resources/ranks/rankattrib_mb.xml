@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfRankAttributeData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://tempuri.org/">
+  <RankAttributeData>
+    <r xmlns="">1</r>
+    <a xmlns="">
+      <k>BoyBotResName</k>
+      <v>RS_SHARED/PfMBAvLegsMBasic.unity3d/PfMBAvLegsMBasic</v>
+    </a>
+    <a xmlns="">
+      <k>BoyTopResName</k>
+      <v>RS_SHARED/PfMBAvTopMBasic.unity3d/PfMBAvTopMBasic</v>
+    </a>
+    <a xmlns="">
+      <k>Color</k>
+      <v>1, 1, 0</v>
+    </a>
+    <a xmlns="">
+      <k>GirlBotResName</k>
+      <v>RS_SHARED/PfMBAvLegsFBasic.unity3d/PfMBAvLegsFBasic</v>
+    </a>
+    <a xmlns="">
+      <k>GirlTopResName</k>
+      <v>RS_SHARED/PfMBAvTopFBasic.unity3d/PfMBAvTopFBasic</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">2</r>
+    <a xmlns="">
+      <k>Color</k>
+      <v>1, 0.483, 0</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">3</r>
+    <a xmlns="">
+      <k>Color</k>
+      <v>0, 1, 0</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">4</r>
+    <a xmlns="">
+      <k>Color</k>
+      <v>1, 0, 0</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">5</r>
+    <a xmlns="">
+      <k>BForceBlasterBonus</k>
+      <v>.25</v>
+    </a>
+    <a xmlns="">
+      <k>BlasterProjectileColor</k>
+      <v>0,1,0</v>
+    </a>
+    <a xmlns="">
+      <k>BoyTopResName</k>
+      <v>RS_SHARED/PfMBAvTopMGlove.unity3d/PfMBAvTopMGlove</v>
+    </a>
+    <a xmlns="">
+      <k>Color</k>
+      <v>0, 0, 1</v>
+    </a>
+    <a xmlns="">
+      <k>GirlTopResName</k>
+      <v>RS_SHARED/PfMBAvTopFGlove.unity3d/PfMBAvTopFGlove</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">6</r>
+    <a xmlns="">
+      <k>Color</k>
+      <v>1, 1, 0</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">7</r>
+    <a xmlns="">
+      <k>Color</k>
+      <v>1, 0.483, 0</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">8</r>
+    <a xmlns="">
+      <k>Color</k>
+      <v>0, 1, 0</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">9</r>
+    <a xmlns="">
+      <k>Color</k>
+      <v>1, 0, 0</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">10</r>
+    <a xmlns="">
+      <k>BoyTopResName</k>
+      <v>RS_SHARED/PfMBAvTopMSash.unity3d/PfMBAvTopMSash</v>
+    </a>
+    <a xmlns="">
+      <k>Color</k>
+      <v>0.016, 0, 1</v>
+    </a>
+    <a xmlns="">
+      <k>DNAMorphsToReward</k>
+      <v>6</v>
+    </a>
+    <a xmlns="">
+      <k>GirlTopResName</k>
+      <v>RS_SHARED/PfMBAvTopFSash.unity3d/PfMBAvTopFSash</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">11</r>
+    <a xmlns="">
+      <k>Color</k>
+      <v>1, 1, 0</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">12</r>
+    <a xmlns="">
+      <k>Color</k>
+      <v>1, 0.483, 0</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">13</r>
+    <a xmlns="">
+      <k>Color</k>
+      <v>0, 1, 0</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">14</r>
+    <a xmlns="">
+      <k>Color</k>
+      <v>1, 0, 0</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">15</r>
+    <a xmlns="">
+      <k>AwardedAvatarRideItem</k>
+      <v>6991</v>
+    </a>
+    <a xmlns="">
+      <k>Color</k>
+      <v>0, 0, 1</v>
+    </a>
+    <a xmlns="">
+      <k>FeetResName</k>
+      <v>RS_SHARED/PfMbAvFootLBoot.unity3d/PfMbAvFootLBoot,RS_SHARED/PfMbAvFootRBoot.unity3d/PfMbAvFootRBoot</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">16</r>
+    <a xmlns="">
+      <k>Color</k>
+      <v>1, 1, 0</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">17</r>
+    <a xmlns="">
+      <k>Color</k>
+      <v>1, 0.483, 0</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">18</r>
+    <a xmlns="">
+      <k>Color</k>
+      <v>0, 1, 0</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">19</r>
+    <a xmlns="">
+      <k>Color</k>
+      <v>1, 0, 0</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">20</r>
+    <a xmlns="">
+      <k>AvatarSpeedFactor</k>
+      <v>1.5</v>
+    </a>
+    <a xmlns="">
+      <k>BoyBotResName</k>
+      <v>RS_SHARED/PfMBAvLegsMSash.unity3d/PfMBAvLegsMSash</v>
+    </a>
+    <a xmlns="">
+      <k>Color</k>
+      <v>0, 0, 1</v>
+    </a>
+    <a xmlns="">
+      <k>GirlBotResName</k>
+      <v>RS_SHARED/PfMBAvLegsFSash.unity3d/PfMBAvLegsFSash</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">21</r>
+    <a xmlns="">
+      <k>Color</k>
+      <v>1, 1, 0</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">22</r>
+    <a xmlns="">
+      <k>Color</k>
+      <v>1, 0.483, 0</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">23</r>
+    <a xmlns="">
+      <k>Color</k>
+      <v>0, 1, 0</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">24</r>
+    <a xmlns="">
+      <k>Color</k>
+      <v>1, 0, 0</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">25</r>
+    <a xmlns="">
+      <k>AvatarJumpFactor</k>
+      <v>1.5</v>
+    </a>
+    <a xmlns="">
+      <k>BoyTopResName</k>
+      <v>RS_SHARED/PfMBAvTopMShldBasic.unity3d/PfMBAvTopMShldBasic</v>
+    </a>
+    <a xmlns="">
+      <k>Color</k>
+      <v>0, 0, 1</v>
+    </a>
+    <a xmlns="">
+      <k>GirlTopResName</k>
+      <v>RS_SHARED/PfMBAvTopFShldBasic.unity3d/PfMBAvTopFShldBasic</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">26</r>
+    <a xmlns="">
+      <k>Color</k>
+      <v>1, 1, 0</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">27</r>
+    <a xmlns="">
+      <k>Color</k>
+      <v>1, 0.483, 0</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">28</r>
+    <a xmlns="">
+      <k>Color</k>
+      <v>0, 1, 0</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">29</r>
+    <a xmlns="">
+      <k>Color</k>
+      <v>1, 0, 0</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">30</r>
+    <a xmlns="">
+      <k>BoyBotResName</k>
+      <v>RS_SHARED/PfMBAvLegsMKneeBasic.unity3d/PfMBAvLegsMKneeBasic</v>
+    </a>
+    <a xmlns="">
+      <k>Color</k>
+      <v>0, 0, 1</v>
+    </a>
+    <a xmlns="">
+      <k>GirlBotResName</k>
+      <v>RS_SHARED/PfMBAvLegsFKneeBasic.unity3d/PfMBAvLegsFKneeBasic</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">31</r>
+    <a xmlns="">
+      <k>Color</k>
+      <v>1, 1, 0</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">32</r>
+    <a xmlns="">
+      <k>Color</k>
+      <v>1, 0.483, 0</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">33</r>
+    <a xmlns="">
+      <k>Color</k>
+      <v>0, 1, 0</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">34</r>
+    <a xmlns="">
+      <k>Color</k>
+      <v>1, 0, 0</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">35</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeter.unity3d/SocialRankMeter_001</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">36</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeter.unity3d/SocialRankMeter_002</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">37</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeter.unity3d/SocialRankMeter_003</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">38</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeter.unity3d/SocialRankMeter_004</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">39</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeter.unity3d/SocialRankMeter_005</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">40</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeter.unity3d/SocialRankMeter_006</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">41</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeter.unity3d/SocialRankMeter_007</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">42</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeter.unity3d/SocialRankMeter_008</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">43</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeter.unity3d/SocialRankMeter_009</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">44</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeter.unity3d/SocialRankMeter_010</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">45</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeter.unity3d/SocialRankMeter_011</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">46</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeter.unity3d/SocialRankMeter_012</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">47</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeter.unity3d/SocialRankMeter_013</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">48</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeter.unity3d/SocialRankMeter_014</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">49</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeter.unity3d/SocialRankMeter_015</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">50</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeter.unity3d/SocialRankMeter_016</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">51</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeter.unity3d/SocialRankMeter_017</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">52</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeter.unity3d/SocialRankMeter_018</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">53</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeter.unity3d/SocialRankMeter_019</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">54</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeter.unity3d/SocialRankMeter_020</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">55</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeterPegasus.unity3d/SocialRankMeter_Pegasus001</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">56</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeterPegasus.unity3d/SocialRankMeter_Pegasus002</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">57</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeterPegasus.unity3d/SocialRankMeter_Pegasus003</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">58</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeterPegasus.unity3d/SocialRankMeter_Pegasus004</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">59</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeterPegasus.unity3d/SocialRankMeter_Pegasus005</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">60</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeterPegasus.unity3d/SocialRankMeter_Pegasus006</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">61</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeterPegasus.unity3d/SocialRankMeter_Pegasus007</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">62</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeterPegasus.unity3d/SocialRankMeter_Pegasus008</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">63</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeterPegasus.unity3d/SocialRankMeter_Pegasus009</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">64</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeterPegasus.unity3d/SocialRankMeter_Pegasus010</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">65</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeterPegasus.unity3d/SocialRankMeter_Pegasus011</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">66</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeterPegasus.unity3d/SocialRankMeter_Pegasus012</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">67</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeterPegasus.unity3d/SocialRankMeter_Pegasus013</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">68</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeterPegasus.unity3d/SocialRankMeter_Pegasus014</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">69</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeterUrsaMajor.unity3d/SocialRankMeter_UrsaMajor001</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">70</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeterUrsaMajor.unity3d/SocialRankMeter_UrsaMajor002</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">71</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeterUrsaMajor.unity3d/SocialRankMeter_UrsaMajor003</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">72</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeterUrsaMajor.unity3d/SocialRankMeter_UrsaMajor004</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">73</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeterUrsaMajor.unity3d/SocialRankMeter_UrsaMajor005</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">74</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeterUrsaMajor.unity3d/SocialRankMeter_UrsaMajor006</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">75</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeterUrsaMajor.unity3d/SocialRankMeter_UrsaMajor007</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">76</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeterUrsaMajor.unity3d/SocialRankMeter_UrsaMajor008</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">77</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeterUrsaMajor.unity3d/SocialRankMeter_UrsaMajor009</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">78</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeterUrsaMajor.unity3d/SocialRankMeter_UrsaMajor010</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">79</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeterUrsaMajor.unity3d/SocialRankMeter_UrsaMajor011</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">80</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeterUrsaMajor.unity3d/SocialRankMeter_UrsaMajor012</v>
+    </a>
+  </RankAttributeData>
+  <RankAttributeData>
+    <r xmlns="">81</r>
+    <a xmlns="">
+      <k>StarChart</k>
+      <v>RS_DATA/SocialRankMeterUrsaMajor.unity3d/SocialRankMeter_UrsaMajor013</v>
+    </a>
+  </RankAttributeData>
+</ArrayOfRankAttributeData>
