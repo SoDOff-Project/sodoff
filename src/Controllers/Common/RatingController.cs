@@ -143,7 +143,7 @@ public class RatingController : Controller
             rank.RatingAverage += (float)((decimal)r.Value / (decimal)rank.Ratings.Count);
         }
 
-        if (eID != -1 || uID != null) {
+        if (eID != -1 || uID != null) { // do not sort "single item" (eID == -1 and no uID) category
             RatingRank[] ranks = ctx.RatingRanks
                 .Where(rr => rr != rank && rr.CategoryID == category) // Only rank by category.
                 .OrderBy(rr => rr.Rank)
@@ -160,9 +160,11 @@ public class RatingController : Controller
             }
             if (!resortOthers) rank.Rank = ranks.Length+1;
         }
+
         rating.Date = DateTime.UtcNow;
         rank.UpdateDate = rating.Date;
         ctx.SaveChanges();
+
         return new RatingInfo() {
             Id = rating.Id,
             OwnerUid = viking.Uid,
