@@ -25,13 +25,10 @@ public class DBContext : DbContext {
     public DbSet<Party> Parties { get; set; } = null!;
     public DbSet<Neighborhood> Neighborhoods { get; set; } = null!;
     // we had a brief debate on whether it's neighborhoods or neighborheed
-<<<<<<< HEAD
     public DbSet<UserBan> UserBans { get; set; } = null!;
-=======
     public DbSet<Group> Groups { get; set; } = null!;
     public DbSet<Rating> Ratings { get; set; } = null!;
     public DbSet<RatingRank> RatingRanks { get; set; } = null!;
->>>>>>> 13df822608c41690c6744ae8c594368ae1f684b5
 
     private readonly IOptions<ApiServerConfig> config;
 
