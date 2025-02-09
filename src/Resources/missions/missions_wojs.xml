@@ -1,0 +1,1130 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Missions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Mission>
+		<RPT>false</RPT>
+		<I>1509</I>
+		<N>1. Find an Eggling and hatch it into a Mythie!</N>
+		<PID>1</PID>
+		<G>1</G>
+		<P xsi:nil="true"/>
+		<S>&lt;Data&gt;&lt;Repeat&gt;0&lt;/Repeat&gt;&lt;Hidden&gt;0&lt;/Hidden&gt;&lt;End&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_DATA/JSDirectedS341.unity3d/DlgIvyDirectedM1509End&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Congratulations! Your egg has hatched into an amazing Mythie! Here are some JumpStars and Coins to help you raise and train it! &lt;/Text&gt;&lt;ID&gt;923369&lt;/ID&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Reward&gt;&lt;Asset&gt;RS_DATA/PfUiMissionRewardDB.unity3d/PfUiMissionRewardDB&lt;/Asset&gt;&lt;/Reward&gt;&lt;Title&gt;&lt;Text&gt;Adopt a Mythie&lt;/Text&gt;&lt;ID&gt;923367&lt;/ID&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Meet Ivy in Enchanted Sanctuary and adopt your very own Mythie!&lt;/Text&gt;&lt;ID&gt;923368&lt;/ID&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+		<A>false</A>
+		<C>0</C>
+		<MR>
+			<Prerequisites>
+				<Type>2</Type>
+				<Value>False</Value>
+				<ClientRule>false</ClientRule>
+			</Prerequisites>
+			<Prerequisites>
+				<Type>1</Type>
+				<Value>False</Value>
+				<ClientRule>false</ClientRule>
+			</Prerequisites>
+			<Criteria>
+				<Type>all</Type>
+				<Ordered>true</Ordered>
+				<Min>4</Min>
+				<Repeat>1</Repeat>
+				<RuleItems>
+					<Type>1</Type>
+					<MissionID>1509</MissionID>
+					<ID>1195</ID>
+					<Complete>0</Complete>
+				</RuleItems>
+				<RuleItems>
+					<Type>1</Type>
+					<MissionID>1509</MissionID>
+					<ID>1234</ID>
+					<Complete>0</Complete>
+				</RuleItems>
+				<RuleItems>
+					<Type>1</Type>
+					<MissionID>1509</MissionID>
+					<ID>1235</ID>
+					<Complete>0</Complete>
+				</RuleItems>
+				<RuleItems>
+					<Type>1</Type>
+					<MissionID>1509</MissionID>
+					<ID>1196</ID>
+					<Complete>0</Complete>
+				</RuleItems>
+				<RuleItems>
+					<Type>1</Type>
+					<MissionID>1509</MissionID>
+					<ID>1197</ID>
+					<Complete>0</Complete>
+				</RuleItems>
+				<RuleItems>
+					<Type>1</Type>
+					<MissionID>1509</MissionID>
+					<ID>1199</ID>
+					<Complete>0</Complete>
+				</RuleItems>
+			</Criteria>
+		</MR>
+		<V>1</V>
+		<AID>202676</AID>
+		<AAID>0</AAID>
+		<Task>
+			<I>1195</I>
+			<N>Get an Eggling</N>
+			<S>&lt;Data&gt;&lt;Offer&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_DATA/TutMissionBoardIntroJS.unity3d/DlgIvyDirectedTut01&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;ID&gt;934639&lt;/ID&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;I&apos;m Ivy and welcome to World of JumpStart. There is so much to do here I want to make sure you don’t miss a thing! Meet me in Enchanted Sanctuary to get started. &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;SanctuaryBaby&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;NPC&lt;/Key&gt;&lt;Value&gt;PfDyan&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Time&lt;/Key&gt;&lt;Value&gt;0&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;HideArrow&lt;/Key&gt;&lt;Value&gt;False&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Meet&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Meet Ivy in Enchanted Sanctuary and get your very own Mythie!&lt;/Text&gt;&lt;ID&gt;934637&lt;/ID&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Meet Ivy in Enchanted Sanctuary. Use the map or portal to get there.&lt;/Text&gt;&lt;ID&gt;934638&lt;/ID&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1196</I>
+			<N>Tickle Time</N>
+			<S>&lt;Data&gt;&lt;Offer&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PenReconM2T4.unity3d/DlgIvyReconM2T4Offer&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PenReconM2T4.unity3d/DlgIvyReconM2T4End&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;SanctuaryBaby&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Name&lt;/Key&gt;&lt;Value&gt;EgglingTickle&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Action&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Tickle Time&lt;/Text&gt;&lt;ID&gt;934640&lt;/ID&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Click on your Eggling and choose tickle!&lt;/Text&gt;&lt;ID&gt;934641&lt;/ID&gt;&lt;/Desc&gt;&lt;AutoComplete&gt;&lt;Pair&gt;&lt;Key&gt;RaisedPetStage&lt;/Key&gt;&lt;Value&gt;HATCHING&lt;/Value&gt;&lt;/Pair&gt;&lt;/AutoComplete&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1197</I>
+			<N>Dance</N>
+			<S>&lt;Data&gt;&lt;Offer&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PenReconM2T5.unity3d/DlgIvyReconM2T5Offer&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PenReconM2T5.unity3d/DlgIvyReconM2T5End&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Name&lt;/Key&gt;&lt;Value&gt;EgglingDance&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Action&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Dance&lt;/Text&gt;&lt;ID&gt;934642&lt;/ID&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Click on your Eggling and choose Dance.&lt;/Text&gt;&lt;ID&gt;934643&lt;/ID&gt;&lt;/Desc&gt;&lt;AutoComplete&gt;&lt;Pair&gt;&lt;Key&gt;RaisedPetStage&lt;/Key&gt;&lt;Value&gt;HATCHING&lt;/Value&gt;&lt;/Pair&gt;&lt;/AutoComplete&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1199</I>
+			<N>Take your Eggling to the Hatchery</N>
+			<S>&lt;Data&gt;&lt;Offer&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PenReconM2T6.unity3d/DlgIvyReconM2T6Offer&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;SanctuaryEggulator&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Time&lt;/Key&gt;&lt;Value&gt;0&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;HideArrow&lt;/Key&gt;&lt;Value&gt;False&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Visit&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Take your Eggling to the Hatchery&lt;/Text&gt;&lt;ID&gt;934644&lt;/ID&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Take your Eggling to the Hatchery in Enchanted Sanctuary.&lt;/Text&gt;&lt;/Desc&gt;&lt;AutoComplete&gt;&lt;Pair&gt;&lt;Key&gt;RaisedPetStage&lt;/Key&gt;&lt;Value&gt;HATCHING&lt;/Value&gt;&lt;/Pair&gt;&lt;/AutoComplete&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1234</I>
+			<N>Collect Hearts</N>
+			<S>&lt;Data&gt;&lt;Offer&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PenReconM2T2.unity3d/DlgIvyReconM2T2Offer&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PenReconM2T2.unity3d/DlgIvyReconM2T2End&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;SanctuaryBaby&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Name&lt;/Key&gt;&lt;Value&gt;ESHearts&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Quantity&lt;/Key&gt;&lt;Value&gt;1&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Collect&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Collect 5 hearts around Enchanted Sanctuary&lt;/Text&gt;&lt;ID&gt;934646&lt;/ID&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Collect some hearts to power up the eggulator. &lt;/Text&gt;&lt;ID&gt;934647&lt;/ID&gt;&lt;/Desc&gt;&lt;AutoComplete&gt;&lt;Pair&gt;&lt;Key&gt;RaisedPetStage&lt;/Key&gt;&lt;Value&gt;FIND&lt;/Value&gt;&lt;/Pair&gt;&lt;/AutoComplete&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1235</I>
+			<N>Meet Eggling</N>
+			<S>&lt;Data&gt;&lt;Offer&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PenReconM2T3.unity3d/DlgIvyReconM2T3Offer&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;SanctuaryBaby&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;NPC&lt;/Key&gt;&lt;Value&gt;PfMythieEggling&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Time&lt;/Key&gt;&lt;Value&gt;0&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;HideArrow&lt;/Key&gt;&lt;Value&gt;False&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Meet&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Go to the Egg Nest and get an eggling!&lt;/Text&gt;&lt;ID&gt;934648&lt;/ID&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Follow the magic fairy dust to the Egg Nest to get an Egg. &lt;/Text&gt;&lt;ID&gt;934649&lt;/ID&gt;&lt;/Desc&gt;&lt;AutoComplete&gt;&lt;Pair&gt;&lt;Key&gt;RaisedPetStage&lt;/Key&gt;&lt;Value&gt;EGGINHAND&lt;/Value&gt;&lt;/Pair&gt;&lt;/AutoComplete&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<AR>
+			<a>5</a>
+			<p>1</p>
+			<i xsi:nil="true"/>
+			<t>1</t>
+			<r>3</r>
+			<ii>0</ii>
+			<ai>202676</ai>
+			<amulti>true</amulti>
+			<mina>5</mina>
+			<maxa>5</maxa>
+			<d xsi:nil="true"/>
+			<cid>0</cid>
+			<ui xsi:nil="true"/>
+			<atinfoid>0</atinfoid>
+			<atid>0</atid>
+		</AR>
+		<AR>
+			<a>25</a>
+			<p>2</p>
+			<i xsi:nil="true"/>
+			<t>1</t>
+			<r>21</r>
+			<ii>0</ii>
+			<ai>202676</ai>
+			<amulti>true</amulti>
+			<mina>25</mina>
+			<maxa>25</maxa>
+			<d xsi:nil="true"/>
+			<cid>0</cid>
+			<ui xsi:nil="true"/>
+			<atinfoid>0</atinfoid>
+			<atid>0</atid>
+		</AR>
+	</Mission>
+	<Mission>
+		<RPT>false</RPT>
+		<I>1511</I>
+		<N>3. Ahoy! Land Lubber!</N>
+		<PID>1</PID>
+		<G>1</G>
+		<P xsi:nil="true"/>
+		<S>&lt;Data&gt;&lt;Repeat&gt;0&lt;/Repeat&gt;&lt;Hidden&gt;0&lt;/Hidden&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Shiver me timbers! You won&apos;t be walking the plank any time soon! Here are a few JumpStars and Coins to spend on some booty!&lt;/Text&gt;&lt;ID&gt;923376&lt;/ID&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;End&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;S_DATA/JSDirectedS340.unity3d/DlgIvyDirectedM1511End&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Reward&gt;&lt;Asset&gt;RS_DATA/PfUiMissionRewardDB.unity3d/PfUiMissionRewardDB&lt;/Asset&gt;&lt;/Reward&gt;&lt;Title&gt;&lt;Text&gt;Ahoy! Land Lubber!&lt;/Text&gt;&lt;ID&gt;923374&lt;/ID&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Play Shipwreck Lagoon&lt;/Text&gt;&lt;ID&gt;923375&lt;/ID&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+		<A>false</A>
+		<C>0</C>
+		<MR>
+			<Prerequisites>
+				<Type>2</Type>
+				<Value>true</Value>
+				<ClientRule>false</ClientRule>
+			</Prerequisites>
+			<Prerequisites>
+				<Type>3</Type>
+				<Value>1743</Value>
+				<ClientRule>false</ClientRule>
+			</Prerequisites>
+			<Prerequisites>
+				<Type>1</Type>
+				<Value>False</Value>
+				<ClientRule>false</ClientRule>
+			</Prerequisites>
+			<Criteria>
+				<Type>all</Type>
+				<Ordered>true</Ordered>
+				<Min>4</Min>
+				<Repeat>1</Repeat>
+				<RuleItems>
+					<Type>1</Type>
+					<MissionID>1511</MissionID>
+					<ID>1201</ID>
+					<Complete>0</Complete>
+				</RuleItems>
+			</Criteria>
+		</MR>
+		<V>3</V>
+		<AID>202649</AID>
+		<AAID>0</AAID>
+		<Task>
+			<I>1201</I>
+			<N>Play Shipwreck Lagoon</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;ShipWreckLagoon&lt;/Scene&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_DATA/JSDirectedS340.unity3d/DlgIvyS340Offer&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;ID&gt;934668&lt;/ID&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;It&apos;s time to set sail for Shipwreck Lagoon. A whale of a tale where the fastest ships race across the sea, and if you want to build your own track then this is the place to be! Click OK if you&apos;re ready to hoist the sails for Shipwreck Lagoon!&lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_DATA/JSDirectedS340.unity3d/DlgIvyS340End&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;ID&gt;934669&lt;/ID&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Avast me hearty! I&apos;ve seen some lily-livered Jumpeez before, but you&apos;re going straight to Captain! Great job!&lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;ShipWreckLagoon&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Name&lt;/Key&gt;&lt;Value&gt;ShipWreckLagoon&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Game&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Play Shipwreck Lagoon&lt;/Text&gt;&lt;ID&gt;934666&lt;/ID&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Play Shipwreck Lagoon&lt;/Text&gt;&lt;ID&gt;934667&lt;/ID&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<AR>
+			<a>5</a>
+			<p>1</p>
+			<i xsi:nil="true"/>
+			<t>1</t>
+			<r>3</r>
+			<ii>0</ii>
+			<ai>202649</ai>
+			<amulti>true</amulti>
+			<mina>5</mina>
+			<maxa>5</maxa>
+			<d xsi:nil="true"/>
+			<cid>0</cid>
+			<ui xsi:nil="true"/>
+			<atinfoid>0</atinfoid>
+			<atid>0</atid>
+		</AR>
+		<AR>
+			<a>25</a>
+			<p>2</p>
+			<i xsi:nil="true"/>
+			<t>1</t>
+			<r>21</r>
+			<ii>0</ii>
+			<ai>202649</ai>
+			<amulti>true</amulti>
+			<mina>25</mina>
+			<maxa>25</maxa>
+			<d xsi:nil="true"/>
+			<cid>0</cid>
+			<ui xsi:nil="true"/>
+			<atinfoid>0</atinfoid>
+			<atid>0</atid>
+		</AR>
+	</Mission>
+	<Mission>
+		<RPT>false</RPT>
+		<I>1512</I>
+		<N>5. Ready! Set! Go!</N>
+		<PID>1</PID>
+		<G>1</G>
+		<P xsi:nil="true"/>
+		<S>&lt;Data&gt;&lt;Repeat&gt;0&lt;/Repeat&gt;&lt;Hidden&gt;0&lt;/Hidden&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;1st place performance Jumpee! With your skills you&apos;re going to do well here! Here are some JumpStars and Coins for all your hard work!&lt;/Text&gt;&lt;ID&gt;923379&lt;/ID&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;End&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;S_DATA/JSDirectedS342.unity3d/DlgIvyDirectedM1512End&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Reward&gt;&lt;Asset&gt;RS_DATA/PfUiMissionRewardDB.unity3d/PfUiMissionRewardDB&lt;/Asset&gt;&lt;/Reward&gt;&lt;Title&gt;&lt;Text&gt;Ready! Set! Go!&lt;/Text&gt;&lt;ID&gt;923377&lt;/ID&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Visit the JS Stadium in DownTown.&lt;/Text&gt;&lt;ID&gt;923378&lt;/ID&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+		<A>false</A>
+		<C>0</C>
+		<MR>
+			<Prerequisites>
+				<Type>2</Type>
+				<Value>true</Value>
+				<ClientRule>false</ClientRule>
+			</Prerequisites>
+			<Prerequisites>
+				<Type>3</Type>
+				<Value>1743</Value>
+				<ClientRule>false</ClientRule>
+			</Prerequisites>
+			<Prerequisites>
+				<Type>1</Type>
+				<Value>False</Value>
+				<ClientRule>false</ClientRule>
+			</Prerequisites>
+			<Criteria>
+				<Type>all</Type>
+				<Ordered>true</Ordered>
+				<Min>4</Min>
+				<Repeat>1</Repeat>
+				<RuleItems>
+					<Type>1</Type>
+					<MissionID>1512</MissionID>
+					<ID>1202</ID>
+					<Complete>0</Complete>
+				</RuleItems>
+			</Criteria>
+		</MR>
+		<V>3</V>
+		<AID>202650</AID>
+		<AAID>0</AAID>
+		<Task>
+			<I>1202</I>
+			<N>Visit JS Stadium</N>
+			<S>&lt;Data&gt;&lt;Offer&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_DATA/JSDirectedS342.unity3d/DlgIvyS342Offer&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;ID&gt;934691&lt;/ID&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;It&apos;s game time! Ready to shoot some hoops, spike a volleyball on the beach or carry the football for a game winning touchdown. Click the OK button to go to the JumpStart Stadium! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_DATA/JSDirectedS342.unity3d/DlgIvyS342End&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;ID&gt;934692&lt;/ID&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;I know you&apos;ll give a 1st place performance Jumpee! Go ahead and head down a tunnel to start playing!&lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;JSStadiumInt&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Visit&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Visit JS Stadium&lt;/Text&gt;&lt;ID&gt;934689&lt;/ID&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Visit JS Stadium in DownTown.&lt;/Text&gt;&lt;ID&gt;934690&lt;/ID&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<AR>
+			<a>5</a>
+			<p>1</p>
+			<i xsi:nil="true"/>
+			<t>1</t>
+			<r>3</r>
+			<ii>0</ii>
+			<ai>202650</ai>
+			<amulti>true</amulti>
+			<mina>5</mina>
+			<maxa>5</maxa>
+			<d xsi:nil="true"/>
+			<cid>0</cid>
+			<ui xsi:nil="true"/>
+			<atinfoid>0</atinfoid>
+			<atid>0</atid>
+		</AR>
+		<AR>
+			<a>25</a>
+			<p>2</p>
+			<i xsi:nil="true"/>
+			<t>1</t>
+			<r>21</r>
+			<ii>0</ii>
+			<ai>202650</ai>
+			<amulti>true</amulti>
+			<mina>25</mina>
+			<maxa>25</maxa>
+			<d xsi:nil="true"/>
+			<cid>0</cid>
+			<ui xsi:nil="true"/>
+			<atinfoid>0</atinfoid>
+			<atid>0</atid>
+		</AR>
+	</Mission>
+	<Mission>
+		<RPT>false</RPT>
+		<I>1513</I>
+		<N>6. It's a Block Party!</N>
+		<PID>1</PID>
+		<G>1</G>
+		<P xsi:nil="true"/>
+		<S>&lt;Data&gt;&lt;Repeat&gt;0&lt;/Repeat&gt;&lt;Hidden&gt;0&lt;/Hidden&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Your house looks amazing! Party Time! Here are some Coins for you to buy a party or some furniture at the house hut! &lt;/Text&gt;&lt;ID&gt;923382&lt;/ID&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;End&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;S_DATA/JSDirectedS348.unity3d/DlgIvyDirectedM1513End&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Reward&gt;&lt;Asset&gt;RS_DATA/PfUiMissionRewardDB.unity3d/PfUiMissionRewardDB&lt;/Asset&gt;&lt;/Reward&gt;&lt;Title&gt;&lt;Text&gt;It&apos;s a Block Party!&lt;/Text&gt;&lt;ID&gt;923380&lt;/ID&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Visit your room in My Neighborhood&lt;/Text&gt;&lt;ID&gt;923381&lt;/ID&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+		<A>false</A>
+		<C>0</C>
+		<MR>
+			<Prerequisites>
+				<Type>2</Type>
+				<Value>true</Value>
+				<ClientRule>false</ClientRule>
+			</Prerequisites>
+			<Prerequisites>
+				<Type>3</Type>
+				<Value>1743</Value>
+				<ClientRule>false</ClientRule>
+			</Prerequisites>
+			<Prerequisites>
+				<Type>1</Type>
+				<Value>False</Value>
+				<ClientRule>false</ClientRule>
+			</Prerequisites>
+			<Criteria>
+				<Type>all</Type>
+				<Ordered>true</Ordered>
+				<Min>4</Min>
+				<Repeat>1</Repeat>
+				<RuleItems>
+					<Type>1</Type>
+					<MissionID>1513</MissionID>
+					<ID>1203</ID>
+					<Complete>0</Complete>
+				</RuleItems>
+			</Criteria>
+		</MR>
+		<V>3</V>
+		<AID>202660</AID>
+		<AAID>0</AAID>
+		<Task>
+			<I>1203</I>
+			<N>Visit Your Room</N>
+			<S>&lt;Data&gt;&lt;Offer&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_DATA/JSDirectedS343.unity3d/DlgIvyS343Offer&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;ID&gt;934695&lt;/ID&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;You have your very own house and neighborhood here at JumpStart! Just find your house inside the neighborhood and head inside to start decorating!&lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_DATA/JSDirectedS343.unity3d/DlgIvyS343End&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;ID&gt;934696&lt;/ID&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Block party time! Your house looks so good you have to show it off! You should use the coins you&apos;ve earned to throw a housewarming party!&lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;MyRoomsInt&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Visit&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Visit Your Room&lt;/Text&gt;&lt;ID&gt;934693&lt;/ID&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Visit Your Room in My Neighborhood.&lt;/Text&gt;&lt;ID&gt;934694&lt;/ID&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<AR>
+			<a>5</a>
+			<p>1</p>
+			<i xsi:nil="true"/>
+			<t>1</t>
+			<r>3</r>
+			<ii>0</ii>
+			<ai>202660</ai>
+			<amulti>true</amulti>
+			<mina>5</mina>
+			<maxa>5</maxa>
+			<d xsi:nil="true"/>
+			<cid>0</cid>
+			<ui xsi:nil="true"/>
+			<atinfoid>0</atinfoid>
+			<atid>0</atid>
+		</AR>
+		<AR>
+			<a>25</a>
+			<p>2</p>
+			<i xsi:nil="true"/>
+			<t>1</t>
+			<r>21</r>
+			<ii>0</ii>
+			<ai>202660</ai>
+			<amulti>true</amulti>
+			<mina>25</mina>
+			<maxa>25</maxa>
+			<d xsi:nil="true"/>
+			<cid>0</cid>
+			<ui xsi:nil="true"/>
+			<atinfoid>0</atinfoid>
+			<atid>0</atid>
+		</AR>
+	</Mission>
+	<Mission>
+		<RPT>false</RPT>
+		<I>1514</I>
+		<N>7. Want to Hangout with Poseidon?</N>
+		<PID>1</PID>
+		<G>1</G>
+		<P xsi:nil="true"/>
+		<S>&lt;Data&gt;&lt;Repeat&gt;0&lt;/Repeat&gt;&lt;Hidden&gt;0&lt;/Hidden&gt;&lt;End&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;S_DATA/JSDirectedS346.unity3d/DlgIvyDirectedM1514End&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Fantastic! You visited the most happening place in JumpStart! Here are some JumpStars and Coins to spend around!&lt;/Text&gt;&lt;ID&gt;923385&lt;/ID&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Reward&gt;&lt;Asset&gt;RS_DATA/PfUiMissionRewardDB.unity3d/PfUiMissionRewardDB&lt;/Asset&gt;&lt;/Reward&gt;&lt;Title&gt;&lt;Text&gt;Want to Hangout with Poseidon?&lt;/Text&gt;&lt;ID&gt;923383&lt;/ID&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Visit the Octolair in Poseidon&apos;s Hangout.&lt;/Text&gt;&lt;ID&gt;923384&lt;/ID&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+		<A>false</A>
+		<C>0</C>
+		<MR>
+			<Prerequisites>
+				<Type>2</Type>
+				<Value>true</Value>
+				<ClientRule>false</ClientRule>
+			</Prerequisites>
+			<Prerequisites>
+				<Type>3</Type>
+				<Value>1743</Value>
+				<ClientRule>false</ClientRule>
+			</Prerequisites>
+			<Prerequisites>
+				<Type>1</Type>
+				<Value>False</Value>
+				<ClientRule>false</ClientRule>
+			</Prerequisites>
+			<Criteria>
+				<Type>all</Type>
+				<Ordered>true</Ordered>
+				<Min>4</Min>
+				<Repeat>1</Repeat>
+				<RuleItems>
+					<Type>1</Type>
+					<MissionID>1514</MissionID>
+					<ID>1204</ID>
+					<Complete>0</Complete>
+				</RuleItems>
+			</Criteria>
+		</MR>
+		<V>3</V>
+		<AID>202659</AID>
+		<AAID>0</AAID>
+		<Task>
+			<I>1204</I>
+			<N>Visit the Octolair</N>
+			<S>&lt;Data&gt;&lt;Offer&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_DATA/JSDirectedS346.unity3d/DlgIvyS346Offer&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;ID&gt;934699&lt;/ID&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Want to watch a live band, dance on stage or compete in a Dance Off! It can all be done in the Octolair in Poseidon&apos;s Hangout! Ready to go? Click the OK button to be taken directly there now! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_DATA/JSDirectedS346.unity3d/DlgIvyS346End&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;ID&gt;934700&lt;/ID&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Poseidon&apos;s Hangout is the place to be! Make sure you show off your dance moves on the dance floor and visit your VIP Lounge before you leave!&lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;LoungeInt&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Visit&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Visit the Octolair&lt;/Text&gt;&lt;ID&gt;934697&lt;/ID&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Visit the Octolair in Poseidon&apos;s Hangout.&lt;/Text&gt;&lt;ID&gt;934698&lt;/ID&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<AR>
+			<a>5</a>
+			<p>1</p>
+			<i xsi:nil="true"/>
+			<t>1</t>
+			<r>3</r>
+			<ii>0</ii>
+			<ai>202659</ai>
+			<amulti>true</amulti>
+			<mina>5</mina>
+			<maxa>5</maxa>
+			<d xsi:nil="true"/>
+			<cid>0</cid>
+			<ui xsi:nil="true"/>
+			<atinfoid>0</atinfoid>
+			<atid>0</atid>
+		</AR>
+		<AR>
+			<a>25</a>
+			<p>2</p>
+			<i xsi:nil="true"/>
+			<t>1</t>
+			<r>21</r>
+			<ii>0</ii>
+			<ai>202659</ai>
+			<amulti>true</amulti>
+			<mina>25</mina>
+			<maxa>25</maxa>
+			<d xsi:nil="true"/>
+			<cid>0</cid>
+			<ui xsi:nil="true"/>
+			<atinfoid>0</atinfoid>
+			<atid>0</atid>
+		</AR>
+	</Mission>
+	<Mission>
+		<RPT>false</RPT>
+		<I>1577</I>
+		<N>4. Explore the training area</N>
+		<PID>241</PID>
+		<G>1</G>
+		<P xsi:nil="true"/>
+		<S>&lt;Data&gt;&lt;Repeat&gt;0&lt;/Repeat&gt;&lt;Hidden&gt;0&lt;/Hidden&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Your Mythie&apos;s going to love the new Enchanted Sanctuary. Here&apos;s some JumpStars and Coins for you and your Mythie! &lt;/Text&gt;&lt;ID&gt;923370&lt;/ID&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Reward&gt;&lt;Asset&gt;RS_DATA/PfUiMissionRewardDB.unity3d/PfUiMissionRewardDB&lt;/Asset&gt;&lt;/Reward&gt;&lt;Title&gt;&lt;Text&gt;Come explore Enchanted Sanctuary&lt;/Text&gt;&lt;ID&gt;924247&lt;/ID&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Walk around and see what&apos;s new. &lt;/Text&gt;&lt;ID&gt;924248&lt;/ID&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+		<A>false</A>
+		<C>0</C>
+		<MR>
+			<Prerequisites>
+				<Type>2</Type>
+				<Value>true</Value>
+				<ClientRule>false</ClientRule>
+			</Prerequisites>
+			<Prerequisites>
+				<Type>3</Type>
+				<Value>1743</Value>
+				<ClientRule>false</ClientRule>
+			</Prerequisites>
+			<Prerequisites>
+				<Type>1</Type>
+				<Value>False</Value>
+				<ClientRule>false</ClientRule>
+			</Prerequisites>
+			<Criteria>
+				<Type>all</Type>
+				<Ordered>true</Ordered>
+				<Min>4</Min>
+				<Repeat>1</Repeat>
+				<RuleItems>
+					<Type>1</Type>
+					<MissionID>1577</MissionID>
+					<ID>1313</ID>
+					<Complete>0</Complete>
+				</RuleItems>
+				<RuleItems>
+					<Type>1</Type>
+					<MissionID>1577</MissionID>
+					<ID>1314</ID>
+					<Complete>0</Complete>
+				</RuleItems>
+				<RuleItems>
+					<Type>1</Type>
+					<MissionID>1577</MissionID>
+					<ID>1315</ID>
+					<Complete>0</Complete>
+				</RuleItems>
+				<RuleItems>
+					<Type>1</Type>
+					<MissionID>1577</MissionID>
+					<ID>1319</ID>
+					<Complete>0</Complete>
+				</RuleItems>
+				<RuleItems>
+					<Type>1</Type>
+					<MissionID>1577</MissionID>
+					<ID>1320</ID>
+					<Complete>0</Complete>
+				</RuleItems>
+			</Criteria>
+		</MR>
+		<V>4</V>
+		<AID>202698</AID>
+		<AAID>0</AAID>
+		<Task>
+			<I>1313</I>
+			<N>Explore the training area</N>
+			<S>&lt;Data&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Your Mythie needs to learn things. Check out the new training area to find out what your Mythie might enjoy. &lt;/Text&gt;&lt;ID&gt;934688&lt;/ID&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;Offer&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PenReconM2T6.unity3d/DlgIvyReconM2T6Offer&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;EnchantedSanctuary&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Name&lt;/Key&gt;&lt;Value&gt;PfMarker_MythieTrainingExit&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Range&lt;/Key&gt;&lt;Value&gt;5&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Time&lt;/Key&gt;&lt;Value&gt;0&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;HideArrow&lt;/Key&gt;&lt;Value&gt;False&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Visit&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Explore the all new Enchanted Sanctuary&lt;/Text&gt;&lt;ID&gt;934686&lt;/ID&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Check out the Mythie Training area in Enchanted Sanctuary.&lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1314</I>
+			<N>Check out the dorms</N>
+			<S>&lt;Data&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;When you have a tired Mythie, Cozy Cove is the place to go for a snooze. Head to Cozy Cove now. &lt;/Text&gt;&lt;ID&gt;934672&lt;/ID&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Got more than one Mythie? Do remember - this is where you come to choose a different one to play with. &lt;/Text&gt;&lt;ID&gt;934673&lt;/ID&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;EnchantedSanctuary&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Name&lt;/Key&gt;&lt;Value&gt;PfMarker_BotleyCozyCove&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Range&lt;/Key&gt;&lt;Value&gt;5&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Time&lt;/Key&gt;&lt;Value&gt;0&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;HideArrow&lt;/Key&gt;&lt;Value&gt;False&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Visit&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Cozy Cove&lt;/Text&gt;&lt;ID&gt;934670&lt;/ID&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Walk upto Cozy Cove in the new Enchanted Sanctuary&lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1315</I>
+			<N>Check out Flight Deck</N>
+			<S>&lt;Data&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Got a hungry Mythie? The Kitchen is where you can get them a snack. Find your way there. &lt;/Text&gt;&lt;ID&gt;934676&lt;/ID&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Your Mythies will need food to be big and strong. Don&apos;t forget the way to where the food is.&lt;/Text&gt;&lt;ID&gt;934677&lt;/ID&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;EnchantedSanctuary&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Name&lt;/Key&gt;&lt;Value&gt;PfMarker_KitchenExit&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Range&lt;/Key&gt;&lt;Value&gt;5&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Time&lt;/Key&gt;&lt;Value&gt;0&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;HideArrow&lt;/Key&gt;&lt;Value&gt;False&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Visit&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Take a look at at the kitchen&lt;/Text&gt;&lt;ID&gt;934674&lt;/ID&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Familiarize yourself with where the Kitchen in the Enchanted Sanctuary is. &lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1319</I>
+			<N>Special Powers</N>
+			<S>&lt;Data&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;If you need to give your Mythie a nice scrub, the Bath is where you should go. Check it out right now. &lt;/Text&gt;&lt;ID&gt;934680&lt;/ID&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;This area looks likes fun, and your Mythie will love it when you spend some time here! &lt;/Text&gt;&lt;ID&gt;934681&lt;/ID&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;EnchantedSanctuary&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Name&lt;/Key&gt;&lt;Value&gt;PfMarker_BathExit&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Range&lt;/Key&gt;&lt;Value&gt;5&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Time&lt;/Key&gt;&lt;Value&gt;0&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;HideArrow&lt;/Key&gt;&lt;Value&gt;False&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Visit&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Visit Bath Area&lt;/Text&gt;&lt;ID&gt;934678&lt;/ID&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Visit the Bath if your Mythie needs a shower&lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1320</I>
+			<N>Flight School</N>
+			<S>&lt;Data&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Once your Mythie is grown enough both of you can fly around in Flight School. For now, find your way there to see where it is. &lt;/Text&gt;&lt;ID&gt;934684&lt;/ID&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;I&apos;m sure this will be very exciting. Come back to the Flight School when your Mythie is old enough to fly. &lt;/Text&gt;&lt;ID&gt;934685&lt;/ID&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;EnchantedSanctuary&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Name&lt;/Key&gt;&lt;Value&gt;PfMarker_FlightTrainingExit&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Range&lt;/Key&gt;&lt;Value&gt;5&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Time&lt;/Key&gt;&lt;Value&gt;0&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;HideArrow&lt;/Key&gt;&lt;Value&gt;False&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Visit&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Checkout the new Flight School&lt;/Text&gt;&lt;ID&gt;934682&lt;/ID&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Visit the Flight School in Enchanted Sanctuary.&lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<AR>
+			<a>5</a>
+			<p>1</p>
+			<i xsi:nil="true"/>
+			<t>1</t>
+			<r>3</r>
+			<ii>0</ii>
+			<ai>202698</ai>
+			<amulti>true</amulti>
+			<mina>5</mina>
+			<maxa>5</maxa>
+			<d xsi:nil="true"/>
+			<cid>0</cid>
+			<ui xsi:nil="true"/>
+			<atinfoid>0</atinfoid>
+			<atid>0</atid>
+		</AR>
+		<AR>
+			<a>25</a>
+			<p>2</p>
+			<i xsi:nil="true"/>
+			<t>1</t>
+			<r>21</r>
+			<ii>0</ii>
+			<ai>202698</ai>
+			<amulti>true</amulti>
+			<mina>25</mina>
+			<maxa>25</maxa>
+			<d xsi:nil="true"/>
+			<cid>0</cid>
+			<ui xsi:nil="true"/>
+			<atinfoid>0</atinfoid>
+			<atid>0</atid>
+		</AR>
+	</Mission>
+	<Mission>
+		<RPT>false</RPT>
+		<I>1651</I>
+		<N>Be My Valentine!</N>
+		<PID>1</PID>
+		<G>1</G>
+		<P xsi:nil="true"/>
+		<S>&lt;Data&gt;&lt;Repeat&gt;0&lt;/Repeat&gt;&lt;Hidden&gt;0&lt;/Hidden&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;ID&gt;934604&lt;/ID&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Valentines is a special day here at JumpStart! We celebrate it with a big heart!&lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Reward&gt;&lt;Asset&gt;RS_DATA/PfUiMissionRewardDB.unity3d/PfUiMissionRewardDB&lt;/Asset&gt;&lt;/Reward&gt;&lt;Title&gt;&lt;Text&gt;Be My Valentine!&lt;/Text&gt;&lt;ID&gt;934602&lt;/ID&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;The balloons have scattered around the world. Go find them all and deliver them to Eleanor the elephant.&lt;/Text&gt;&lt;ID&gt;934603&lt;/ID&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+		<A>false</A>
+		<C>0</C>
+		<MR>
+			<Prerequisites>
+				<Type>2</Type>
+				<Value>true</Value>
+				<ClientRule>false</ClientRule>
+			</Prerequisites>
+			<Prerequisites>
+				<Type>1</Type>
+				<Value>False</Value>
+				<ClientRule>false</ClientRule>
+			</Prerequisites>
+			<Criteria>
+				<Type>all</Type>
+				<Ordered>true</Ordered>
+				<Min>4</Min>
+				<Repeat>1</Repeat>
+				<RuleItems>
+					<Type>1</Type>
+					<MissionID>1651</MissionID>
+					<ID>1544</ID>
+					<Complete>0</Complete>
+				</RuleItems>
+				<RuleItems>
+					<Type>1</Type>
+					<MissionID>1651</MissionID>
+					<ID>1545</ID>
+					<Complete>0</Complete>
+				</RuleItems>
+				<RuleItems>
+					<Type>1</Type>
+					<MissionID>1651</MissionID>
+					<ID>1546</ID>
+					<Complete>0</Complete>
+				</RuleItems>
+				<RuleItems>
+					<Type>1</Type>
+					<MissionID>1651</MissionID>
+					<ID>1547</ID>
+					<Complete>0</Complete>
+				</RuleItems>
+				<RuleItems>
+					<Type>1</Type>
+					<MissionID>1651</MissionID>
+					<ID>1548</ID>
+					<Complete>0</Complete>
+				</RuleItems>
+			</Criteria>
+		</MR>
+		<V>1</V>
+		<AID>202793</AID>
+		<AAID>0</AAID>
+		<Task>
+			<I>1544</I>
+			<N>Balloon in MS</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;MainStreet&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfGrpMsValentineMission01.unity3d/PfGrpMsValentineMission01&lt;/Asset&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Frankie was decorating the world and we had a few balloons float away! Can you find them and give them to Eleanor? Your adventure will begin in MainStreet, it&apos;s the place to be! Find the balloons in front of the big tree!&lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;1&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Great job! You found those balloons so quickly! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;MainStreet&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Name&lt;/Key&gt;&lt;Value&gt;PfBalloonsVal&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Quantity&lt;/Key&gt;&lt;Value&gt;1&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Collect&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Find Balloon in MainStreet&lt;/Text&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Find the balloon by the Tree of Knowledge in MainStreet. &lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1544</I>
+			<N>Balloon in MS</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;MainStreet&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfGrpMsValentineMission01.unity3d/PfGrpMsValentineMission01&lt;/Asset&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Frankie was decorating the world and we had a few balloons float away! Can you find them and give them to Eleanor? Your adventure will begin in MainStreet, it&apos;s the place to be! Find the balloons in front of the big tree!&lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;1&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Great job! You found those balloons so quickly! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;MainStreet&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Name&lt;/Key&gt;&lt;Value&gt;PfBalloonsVal&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Quantity&lt;/Key&gt;&lt;Value&gt;1&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Collect&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Find Balloon in MainStreet&lt;/Text&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Find the balloon by the Tree of Knowledge in MainStreet. &lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1544</I>
+			<N>Balloon in MS</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;MainStreet&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfGrpMsValentineMission01.unity3d/PfGrpMsValentineMission01&lt;/Asset&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Frankie was decorating the world and we had a few balloons float away! Can you find them and give them to Eleanor? Your adventure will begin in MainStreet, it&apos;s the place to be! Find the balloons in front of the big tree!&lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;1&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Great job! You found those balloons so quickly! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;MainStreet&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Name&lt;/Key&gt;&lt;Value&gt;PfBalloonsVal&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Quantity&lt;/Key&gt;&lt;Value&gt;1&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Collect&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Find Balloon in MainStreet&lt;/Text&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Find the balloon by the Tree of Knowledge in MainStreet. &lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1544</I>
+			<N>Balloon in MS</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;MainStreet&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfGrpMsValentineMission01.unity3d/PfGrpMsValentineMission01&lt;/Asset&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Frankie was decorating the world and we had a few balloons float away! Can you find them and give them to Eleanor? Your adventure will begin in MainStreet, it&apos;s the place to be! Find the balloons in front of the big tree!&lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;1&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Great job! You found those balloons so quickly! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;MainStreet&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Name&lt;/Key&gt;&lt;Value&gt;PfBalloonsVal&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Quantity&lt;/Key&gt;&lt;Value&gt;1&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Collect&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Find Balloon in MainStreet&lt;/Text&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Find the balloon by the Tree of Knowledge in MainStreet. &lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1545</I>
+			<N>Balloon in Beach</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;Beach&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfGrpBEValentineMission01.unity3d/PfGrpBEValentineMission01&lt;/Asset&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;It is all about the sun and surf at the Beach! The balloons are waiting by the lighthouse within reach! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;You found them! You are O&apos;fish&apos;ly awesome! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;Beach&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Name&lt;/Key&gt;&lt;Value&gt;PfBalloonsVal&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Quantity&lt;/Key&gt;&lt;Value&gt;1&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Collect&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Find Balloon in Beach&lt;/Text&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Find the balloon by the Lighthouse in Beach.&lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1545</I>
+			<N>Balloon in Beach</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;Beach&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfGrpBEValentineMission01.unity3d/PfGrpBEValentineMission01&lt;/Asset&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;It is all about the sun and surf at the Beach! The balloons are waiting by the lighthouse within reach! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;You found them! You are O&apos;fish&apos;ly awesome! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;Beach&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Name&lt;/Key&gt;&lt;Value&gt;PfBalloonsVal&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Quantity&lt;/Key&gt;&lt;Value&gt;1&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Collect&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Find Balloon in Beach&lt;/Text&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Find the balloon by the Lighthouse in Beach.&lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1545</I>
+			<N>Balloon in Beach</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;Beach&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfGrpBEValentineMission01.unity3d/PfGrpBEValentineMission01&lt;/Asset&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;It is all about the sun and surf at the Beach! The balloons are waiting by the lighthouse within reach! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;You found them! You are O&apos;fish&apos;ly awesome! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;Beach&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Name&lt;/Key&gt;&lt;Value&gt;PfBalloonsVal&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Quantity&lt;/Key&gt;&lt;Value&gt;1&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Collect&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Find Balloon in Beach&lt;/Text&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Find the balloon by the Lighthouse in Beach.&lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1545</I>
+			<N>Balloon in Beach</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;Beach&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfGrpBEValentineMission01.unity3d/PfGrpBEValentineMission01&lt;/Asset&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;It is all about the sun and surf at the Beach! The balloons are waiting by the lighthouse within reach! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;You found them! You are O&apos;fish&apos;ly awesome! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;Beach&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Name&lt;/Key&gt;&lt;Value&gt;PfBalloonsVal&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Quantity&lt;/Key&gt;&lt;Value&gt;1&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Collect&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Find Balloon in Beach&lt;/Text&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Find the balloon by the Lighthouse in Beach.&lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1546</I>
+			<N>Balloon in SD</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;SpeedDrome&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfGrpSDValentineMission01.unity3d/PfGrpSDValentineMission01&lt;/Asset&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Make sure you keep your speed down when you drive around this place! Find the balloons where you wash your ride before the race! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;You are getting smarter by the minute, keep going! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;SpeedDrome&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Name&lt;/Key&gt;&lt;Value&gt;PfBalloonsVal&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Quantity&lt;/Key&gt;&lt;Value&gt;1&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Collect&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Find the Balloon in Speed Drome&lt;/Text&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Find the valentine balloons by the Ridez Wash in Speed Drome.&lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1546</I>
+			<N>Balloon in SD</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;SpeedDrome&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfGrpSDValentineMission01.unity3d/PfGrpSDValentineMission01&lt;/Asset&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Make sure you keep your speed down when you drive around this place! Find the balloons where you wash your ride before the race! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;You are getting smarter by the minute, keep going! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;SpeedDrome&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Name&lt;/Key&gt;&lt;Value&gt;PfBalloonsVal&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Quantity&lt;/Key&gt;&lt;Value&gt;1&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Collect&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Find the Balloon in Speed Drome&lt;/Text&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Find the valentine balloons by the Ridez Wash in Speed Drome.&lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1546</I>
+			<N>Balloon in SD</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;SpeedDrome&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfGrpSDValentineMission01.unity3d/PfGrpSDValentineMission01&lt;/Asset&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Make sure you keep your speed down when you drive around this place! Find the balloons where you wash your ride before the race! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;You are getting smarter by the minute, keep going! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;SpeedDrome&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Name&lt;/Key&gt;&lt;Value&gt;PfBalloonsVal&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Quantity&lt;/Key&gt;&lt;Value&gt;1&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Collect&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Find the Balloon in Speed Drome&lt;/Text&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Find the valentine balloons by the Ridez Wash in Speed Drome.&lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1546</I>
+			<N>Balloon in SD</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;SpeedDrome&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfGrpSDValentineMission01.unity3d/PfGrpSDValentineMission01&lt;/Asset&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Make sure you keep your speed down when you drive around this place! Find the balloons where you wash your ride before the race! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;You are getting smarter by the minute, keep going! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;SpeedDrome&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Name&lt;/Key&gt;&lt;Value&gt;PfBalloonsVal&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Quantity&lt;/Key&gt;&lt;Value&gt;1&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Collect&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Find the Balloon in Speed Drome&lt;/Text&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Find the valentine balloons by the Ridez Wash in Speed Drome.&lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1547</I>
+			<N>Balloon in AC</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;AdventureCanyon&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfGrpAcValentineMission01.unity3d/PfGrpAcValentineMission01&lt;/Asset&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;If an Adventure is what you want, don&apos;t wait! Head to this Canyon and find balloons in front of the ScienceLand gate! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;You are getting smarter by the minute, keep going! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;AdventureCanyon&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Name&lt;/Key&gt;&lt;Value&gt;PfBalloonsVal&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Quantity&lt;/Key&gt;&lt;Value&gt;1&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Collect&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Find the balloon in Adventure Canyon.&lt;/Text&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Find the balloon by the ScienceLand entrance in Adventure Canyon.&lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1547</I>
+			<N>Balloon in AC</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;AdventureCanyon&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfGrpAcValentineMission01.unity3d/PfGrpAcValentineMission01&lt;/Asset&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;If an Adventure is what you want, don&apos;t wait! Head to this Canyon and find balloons in front of the ScienceLand gate! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;You are getting smarter by the minute, keep going! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;AdventureCanyon&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Name&lt;/Key&gt;&lt;Value&gt;PfBalloonsVal&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Quantity&lt;/Key&gt;&lt;Value&gt;1&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Collect&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Find the balloon in Adventure Canyon.&lt;/Text&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Find the balloon by the ScienceLand entrance in Adventure Canyon.&lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1547</I>
+			<N>Balloon in AC</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;AdventureCanyon&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfGrpAcValentineMission01.unity3d/PfGrpAcValentineMission01&lt;/Asset&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;If an Adventure is what you want, don&apos;t wait! Head to this Canyon and find balloons in front of the ScienceLand gate! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;You are getting smarter by the minute, keep going! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;AdventureCanyon&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Name&lt;/Key&gt;&lt;Value&gt;PfBalloonsVal&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Quantity&lt;/Key&gt;&lt;Value&gt;1&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Collect&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Find the balloon in Adventure Canyon.&lt;/Text&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Find the balloon by the ScienceLand entrance in Adventure Canyon.&lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1547</I>
+			<N>Balloon in AC</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;AdventureCanyon&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfGrpAcValentineMission01.unity3d/PfGrpAcValentineMission01&lt;/Asset&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;If an Adventure is what you want, don&apos;t wait! Head to this Canyon and find balloons in front of the ScienceLand gate! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;You are getting smarter by the minute, keep going! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;AdventureCanyon&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Name&lt;/Key&gt;&lt;Value&gt;PfBalloonsVal&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Quantity&lt;/Key&gt;&lt;Value&gt;1&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Collect&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Find the balloon in Adventure Canyon.&lt;/Text&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Find the balloon by the ScienceLand entrance in Adventure Canyon.&lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1548</I>
+			<N>Meet Frankie</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;MainStreet&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfEleanor.unity3d/PfEleanor&lt;/Asset&gt;&lt;Location&gt;PfMarker_BoardwalkExit&lt;/Location&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Take the balloons to Eleanor so she can put them up for all other Jumpees to see. &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfEleanor&lt;/NPC&gt;&lt;Text&gt;Happy Valentine&apos;s Day Jumpee! We just LOVE having you around! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;MainStreet&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;NPC&lt;/Key&gt;&lt;Value&gt;PfEleanor&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Meet&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Meet Eleanor in MainStreet&lt;/Text&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Go see Eleanor the elephant in MainStreet&lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1548</I>
+			<N>Meet Frankie</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;MainStreet&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfEleanor.unity3d/PfEleanor&lt;/Asset&gt;&lt;Location&gt;PfMarker_BoardwalkExit&lt;/Location&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Take the balloons to Eleanor so she can put them up for all other Jumpees to see. &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfEleanor&lt;/NPC&gt;&lt;Text&gt;Happy Valentine&apos;s Day Jumpee! We just LOVE having you around! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;MainStreet&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;NPC&lt;/Key&gt;&lt;Value&gt;PfEleanor&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Meet&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Meet Eleanor in MainStreet&lt;/Text&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Go see Eleanor the elephant in MainStreet&lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1548</I>
+			<N>Meet Frankie</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;MainStreet&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfEleanor.unity3d/PfEleanor&lt;/Asset&gt;&lt;Location&gt;PfMarker_BoardwalkExit&lt;/Location&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Take the balloons to Eleanor so she can put them up for all other Jumpees to see. &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfEleanor&lt;/NPC&gt;&lt;Text&gt;Happy Valentine&apos;s Day Jumpee! We just LOVE having you around! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;MainStreet&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;NPC&lt;/Key&gt;&lt;Value&gt;PfEleanor&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Meet&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Meet Eleanor in MainStreet&lt;/Text&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Go see Eleanor the elephant in MainStreet&lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1548</I>
+			<N>Meet Frankie</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;MainStreet&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfEleanor.unity3d/PfEleanor&lt;/Asset&gt;&lt;Location&gt;PfMarker_BoardwalkExit&lt;/Location&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Take the balloons to Eleanor so she can put them up for all other Jumpees to see. &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfEleanor&lt;/NPC&gt;&lt;Text&gt;Happy Valentine&apos;s Day Jumpee! We just LOVE having you around! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;MainStreet&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;NPC&lt;/Key&gt;&lt;Value&gt;PfEleanor&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Meet&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Meet Eleanor in MainStreet&lt;/Text&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Go see Eleanor the elephant in MainStreet&lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<AR>
+			<a>5</a>
+			<p>1</p>
+			<i xsi:nil="true"/>
+			<t>1</t>
+			<r>3</r>
+			<ii>0</ii>
+			<ai>202793</ai>
+			<amulti>true</amulti>
+			<mina>5</mina>
+			<maxa>5</maxa>
+			<d xsi:nil="true"/>
+			<cid>0</cid>
+			<ui xsi:nil="true"/>
+			<atinfoid>0</atinfoid>
+			<atid>0</atid>
+		</AR>
+		<AR>
+			<a>25</a>
+			<p>2</p>
+			<i xsi:nil="true"/>
+			<t>1</t>
+			<r>21</r>
+			<ii>0</ii>
+			<ai>202793</ai>
+			<amulti>true</amulti>
+			<mina>25</mina>
+			<maxa>25</maxa>
+			<d xsi:nil="true"/>
+			<cid>0</cid>
+			<ui xsi:nil="true"/>
+			<atinfoid>0</atinfoid>
+			<atid>0</atid>
+		</AR>
+	</Mission>
+	<Mission>
+		<RPT>false</RPT>
+		<I>1653</I>
+		<N>The Sweetest Thing!</N>
+		<PID>1</PID>
+		<G>1</G>
+		<P xsi:nil="true"/>
+		<S>&lt;Data&gt;&lt;Repeat&gt;0&lt;/Repeat&gt;&lt;Hidden&gt;0&lt;/Hidden&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;ID&gt;934636&lt;/ID&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;You are awesome and made everyone feel so special on this day! Happy Valentine&apos;s to one of our favorite Jumpees! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Reward&gt;&lt;Asset&gt;RS_DATA/PfUiMissionRewardDB.unity3d/PfUiMissionRewardDB&lt;/Asset&gt;&lt;/Reward&gt;&lt;Title&gt;&lt;Text&gt;The Sweetest Thing!&lt;/Text&gt;&lt;ID&gt;934634&lt;/ID&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;It&apos;s Valentine time here in JumpStart and there are a few Jumpees that might not hear it to often. Go tell the following Jumpee&apos;s Happy Valentine&apos;s Day! &lt;/Text&gt;&lt;ID&gt;934635&lt;/ID&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+		<A>false</A>
+		<C>0</C>
+		<MR>
+			<Prerequisites>
+				<Type>2</Type>
+				<Value>true</Value>
+				<ClientRule>false</ClientRule>
+			</Prerequisites>
+			<Prerequisites>
+				<Type>3</Type>
+				<Value>1509</Value>
+				<ClientRule>false</ClientRule>
+			</Prerequisites>
+			<Prerequisites>
+				<Type>1</Type>
+				<Value>False</Value>
+				<ClientRule>false</ClientRule>
+			</Prerequisites>
+			<Criteria>
+				<Type>all</Type>
+				<Ordered>true</Ordered>
+				<Min>4</Min>
+				<Repeat>1</Repeat>
+				<RuleItems>
+					<Type>1</Type>
+					<MissionID>1653</MissionID>
+					<ID>1557</ID>
+					<Complete>0</Complete>
+				</RuleItems>
+				<RuleItems>
+					<Type>1</Type>
+					<MissionID>1653</MissionID>
+					<ID>1559</ID>
+					<Complete>0</Complete>
+				</RuleItems>
+				<RuleItems>
+					<Type>1</Type>
+					<MissionID>1653</MissionID>
+					<ID>1560</ID>
+					<Complete>0</Complete>
+				</RuleItems>
+				<RuleItems>
+					<Type>1</Type>
+					<MissionID>1653</MissionID>
+					<ID>1561</ID>
+					<Complete>0</Complete>
+				</RuleItems>
+			</Criteria>
+		</MR>
+		<V>1</V>
+		<AID>202794</AID>
+		<AAID>0</AAID>
+		<Task>
+			<I>1557</I>
+			<N>Meet CJ</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;IslandX&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfCJ.unity3d/PfCJ&lt;/Asset&gt;&lt;Location&gt;PfMarker_AmusementParkExit&lt;/Location&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;CJ the frog is always out on an adventure and doesn&apos;t hear how special he is all the time. Find CJ by The Screamer Roller Coaster in Poseidons Hangout! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_SOUND/DlgCJKGenValentine.unity3d/DlgCJKGenValentine&lt;/Asset&gt;&lt;NPC&gt;PfCJ&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfCJ&lt;/NPC&gt;&lt;Text&gt;Whew! Just finished another wild ride on the screamer! What an adventure! Happy Valentine&apos;s Day, Jumpee! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;IslandX&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Location&lt;/Key&gt;&lt;Value&gt;PfMarker_AmusementParkExit&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;NPC&lt;/Key&gt;&lt;Value&gt;PfCJ&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Meet&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Meet CJ in Poseidon&apos;s Hangout&lt;/Text&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Meet CJ by The Screamer Roller coaster in Poseidon&apos;s Hangout!&lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1557</I>
+			<N>Meet CJ</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;IslandX&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfCJ.unity3d/PfCJ&lt;/Asset&gt;&lt;Location&gt;PfMarker_AmusementParkExit&lt;/Location&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;CJ the frog is always out on an adventure and doesn&apos;t hear how special he is all the time. Find CJ by The Screamer Roller Coaster in Poseidons Hangout! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_SOUND/DlgCJKGenValentine.unity3d/DlgCJKGenValentine&lt;/Asset&gt;&lt;NPC&gt;PfCJ&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfCJ&lt;/NPC&gt;&lt;Text&gt;Whew! Just finished another wild ride on the screamer! What an adventure! Happy Valentine&apos;s Day, Jumpee! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;IslandX&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Location&lt;/Key&gt;&lt;Value&gt;PfMarker_AmusementParkExit&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;NPC&lt;/Key&gt;&lt;Value&gt;PfCJ&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Meet&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Meet CJ in Poseidon&apos;s Hangout&lt;/Text&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Meet CJ by The Screamer Roller coaster in Poseidon&apos;s Hangout!&lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1557</I>
+			<N>Meet CJ</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;IslandX&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfCJ.unity3d/PfCJ&lt;/Asset&gt;&lt;Location&gt;PfMarker_AmusementParkExit&lt;/Location&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;CJ the frog is always out on an adventure and doesn&apos;t hear how special he is all the time. Find CJ by The Screamer Roller Coaster in Poseidons Hangout! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_SOUND/DlgCJKGenValentine.unity3d/DlgCJKGenValentine&lt;/Asset&gt;&lt;NPC&gt;PfCJ&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfCJ&lt;/NPC&gt;&lt;Text&gt;Whew! Just finished another wild ride on the screamer! What an adventure! Happy Valentine&apos;s Day, Jumpee! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;IslandX&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Location&lt;/Key&gt;&lt;Value&gt;PfMarker_AmusementParkExit&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;NPC&lt;/Key&gt;&lt;Value&gt;PfCJ&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Meet&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Meet CJ in Poseidon&apos;s Hangout&lt;/Text&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Meet CJ by The Screamer Roller coaster in Poseidon&apos;s Hangout!&lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1557</I>
+			<N>Meet CJ</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;IslandX&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfCJ.unity3d/PfCJ&lt;/Asset&gt;&lt;Location&gt;PfMarker_AmusementParkExit&lt;/Location&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;CJ the frog is always out on an adventure and doesn&apos;t hear how special he is all the time. Find CJ by The Screamer Roller Coaster in Poseidons Hangout! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_SOUND/DlgCJKGenValentine.unity3d/DlgCJKGenValentine&lt;/Asset&gt;&lt;NPC&gt;PfCJ&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfCJ&lt;/NPC&gt;&lt;Text&gt;Whew! Just finished another wild ride on the screamer! What an adventure! Happy Valentine&apos;s Day, Jumpee! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;IslandX&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Location&lt;/Key&gt;&lt;Value&gt;PfMarker_AmusementParkExit&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;NPC&lt;/Key&gt;&lt;Value&gt;PfCJ&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Meet&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Meet CJ in Poseidon&apos;s Hangout&lt;/Text&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Meet CJ by The Screamer Roller coaster in Poseidon&apos;s Hangout!&lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1559</I>
+			<N>Meet Kisha</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;DownTown&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfKisha.unity3d/PfKisha&lt;/Asset&gt;&lt;Location&gt;PfMarker_JSStadiumIntExit&lt;/Location&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Kisha the tiger is so fast she is hard to catch to tell her how special she is! Sprint to Downtown to catch her and tell her Happy Valentine&apos;s Day!&lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_SOUND/DlgKishKGenValentine.unity3d/DlgKishKGenValentine&lt;/Asset&gt;&lt;NPC&gt;PfKisha&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfKisha&lt;/NPC&gt;&lt;Text&gt;Hey sports fan! I just finished another round of Football IQ and I am taking the JumpStart coins I won to buy some new clothes at JS Threadz! Thank you for the Valentine&apos;s Day wishes!&lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;DownTown&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Location&lt;/Key&gt;&lt;Value&gt;PfMarker_JSStadiumIntExit&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;NPC&lt;/Key&gt;&lt;Value&gt;PfKisha&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Meet&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Meet Kisha in DownTown&lt;/Text&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Meet Kisha the tiger by the JS Stadium in DownTown.&lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1559</I>
+			<N>Meet Kisha</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;DownTown&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfKisha.unity3d/PfKisha&lt;/Asset&gt;&lt;Location&gt;PfMarker_JSStadiumIntExit&lt;/Location&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Kisha the tiger is so fast she is hard to catch to tell her how special she is! Sprint to Downtown to catch her and tell her Happy Valentine&apos;s Day!&lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_SOUND/DlgKishKGenValentine.unity3d/DlgKishKGenValentine&lt;/Asset&gt;&lt;NPC&gt;PfKisha&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfKisha&lt;/NPC&gt;&lt;Text&gt;Hey sports fan! I just finished another round of Football IQ and I am taking the JumpStart coins I won to buy some new clothes at JS Threadz! Thank you for the Valentine&apos;s Day wishes!&lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;DownTown&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Location&lt;/Key&gt;&lt;Value&gt;PfMarker_JSStadiumIntExit&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;NPC&lt;/Key&gt;&lt;Value&gt;PfKisha&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Meet&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Meet Kisha in DownTown&lt;/Text&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Meet Kisha the tiger by the JS Stadium in DownTown.&lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1559</I>
+			<N>Meet Kisha</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;DownTown&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfKisha.unity3d/PfKisha&lt;/Asset&gt;&lt;Location&gt;PfMarker_JSStadiumIntExit&lt;/Location&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Kisha the tiger is so fast she is hard to catch to tell her how special she is! Sprint to Downtown to catch her and tell her Happy Valentine&apos;s Day!&lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_SOUND/DlgKishKGenValentine.unity3d/DlgKishKGenValentine&lt;/Asset&gt;&lt;NPC&gt;PfKisha&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfKisha&lt;/NPC&gt;&lt;Text&gt;Hey sports fan! I just finished another round of Football IQ and I am taking the JumpStart coins I won to buy some new clothes at JS Threadz! Thank you for the Valentine&apos;s Day wishes!&lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;DownTown&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Location&lt;/Key&gt;&lt;Value&gt;PfMarker_JSStadiumIntExit&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;NPC&lt;/Key&gt;&lt;Value&gt;PfKisha&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Meet&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Meet Kisha in DownTown&lt;/Text&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Meet Kisha the tiger by the JS Stadium in DownTown.&lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1559</I>
+			<N>Meet Kisha</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;DownTown&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfKisha.unity3d/PfKisha&lt;/Asset&gt;&lt;Location&gt;PfMarker_JSStadiumIntExit&lt;/Location&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Kisha the tiger is so fast she is hard to catch to tell her how special she is! Sprint to Downtown to catch her and tell her Happy Valentine&apos;s Day!&lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_SOUND/DlgKishKGenValentine.unity3d/DlgKishKGenValentine&lt;/Asset&gt;&lt;NPC&gt;PfKisha&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfKisha&lt;/NPC&gt;&lt;Text&gt;Hey sports fan! I just finished another round of Football IQ and I am taking the JumpStart coins I won to buy some new clothes at JS Threadz! Thank you for the Valentine&apos;s Day wishes!&lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;DownTown&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Location&lt;/Key&gt;&lt;Value&gt;PfMarker_JSStadiumIntExit&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;NPC&lt;/Key&gt;&lt;Value&gt;PfKisha&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Meet&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Meet Kisha in DownTown&lt;/Text&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Meet Kisha the tiger by the JS Stadium in DownTown.&lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1560</I>
+			<N>Meet Hops</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;Boardwalk&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfHops.unity3d/PfHops&lt;/Asset&gt;&lt;Location&gt;PfMarker_PrizeCannonExit&lt;/Location&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Hops our resident inventor! He normally has his head down tinkering with his new inventions. Go see him at one of his favorite inventions the Prize Cannon in Board Walk.&lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_SOUND/DlgHopsKGenValentine.unity3d/DlgHopsKGenValentine&lt;/Asset&gt;&lt;NPC&gt;PfHops&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfHops&lt;/NPC&gt;&lt;Text&gt;I love this prize cannon, it shoots you out like a rocket! Valentine&apos;s is a little mushy to me, but I love hearing it! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;Boardwalk&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Location&lt;/Key&gt;&lt;Value&gt;PfMarker_PrizeCannonExit&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;NPC&lt;/Key&gt;&lt;Value&gt;PfHops&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Time&lt;/Key&gt;&lt;Value&gt;0&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;HideArrow&lt;/Key&gt;&lt;Value&gt;False&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Meet&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Meet Hops in Boardwalk! &lt;/Text&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Meet Hops by the Prize Cannon in Boardwalk! &lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1560</I>
+			<N>Meet Hops</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;Boardwalk&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfHops.unity3d/PfHops&lt;/Asset&gt;&lt;Location&gt;PfMarker_PrizeCannonExit&lt;/Location&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Hops our resident inventor! He normally has his head down tinkering with his new inventions. Go see him at one of his favorite inventions the Prize Cannon in Board Walk.&lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_SOUND/DlgHopsKGenValentine.unity3d/DlgHopsKGenValentine&lt;/Asset&gt;&lt;NPC&gt;PfHops&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfHops&lt;/NPC&gt;&lt;Text&gt;I love this prize cannon, it shoots you out like a rocket! Valentine&apos;s is a little mushy to me, but I love hearing it! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;Boardwalk&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Location&lt;/Key&gt;&lt;Value&gt;PfMarker_PrizeCannonExit&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;NPC&lt;/Key&gt;&lt;Value&gt;PfHops&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Time&lt;/Key&gt;&lt;Value&gt;0&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;HideArrow&lt;/Key&gt;&lt;Value&gt;False&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Meet&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Meet Hops in Boardwalk! &lt;/Text&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Meet Hops by the Prize Cannon in Boardwalk! &lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1560</I>
+			<N>Meet Hops</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;Boardwalk&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfHops.unity3d/PfHops&lt;/Asset&gt;&lt;Location&gt;PfMarker_PrizeCannonExit&lt;/Location&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Hops our resident inventor! He normally has his head down tinkering with his new inventions. Go see him at one of his favorite inventions the Prize Cannon in Board Walk.&lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_SOUND/DlgHopsKGenValentine.unity3d/DlgHopsKGenValentine&lt;/Asset&gt;&lt;NPC&gt;PfHops&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfHops&lt;/NPC&gt;&lt;Text&gt;I love this prize cannon, it shoots you out like a rocket! Valentine&apos;s is a little mushy to me, but I love hearing it! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;Boardwalk&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Location&lt;/Key&gt;&lt;Value&gt;PfMarker_PrizeCannonExit&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;NPC&lt;/Key&gt;&lt;Value&gt;PfHops&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Time&lt;/Key&gt;&lt;Value&gt;0&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;HideArrow&lt;/Key&gt;&lt;Value&gt;False&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Meet&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Meet Hops in Boardwalk! &lt;/Text&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Meet Hops by the Prize Cannon in Boardwalk! &lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1560</I>
+			<N>Meet Hops</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;Boardwalk&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfHops.unity3d/PfHops&lt;/Asset&gt;&lt;Location&gt;PfMarker_PrizeCannonExit&lt;/Location&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Hops our resident inventor! He normally has his head down tinkering with his new inventions. Go see him at one of his favorite inventions the Prize Cannon in Board Walk.&lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_SOUND/DlgHopsKGenValentine.unity3d/DlgHopsKGenValentine&lt;/Asset&gt;&lt;NPC&gt;PfHops&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfHops&lt;/NPC&gt;&lt;Text&gt;I love this prize cannon, it shoots you out like a rocket! Valentine&apos;s is a little mushy to me, but I love hearing it! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;Boardwalk&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Location&lt;/Key&gt;&lt;Value&gt;PfMarker_PrizeCannonExit&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;NPC&lt;/Key&gt;&lt;Value&gt;PfHops&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Time&lt;/Key&gt;&lt;Value&gt;0&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;HideArrow&lt;/Key&gt;&lt;Value&gt;False&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Meet&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Meet Hops in Boardwalk! &lt;/Text&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Meet Hops by the Prize Cannon in Boardwalk! &lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1561</I>
+			<N>Meet Eleanor</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;Hollows&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfEleanor.unity3d/PfEleanor&lt;/Asset&gt;&lt;Location&gt;PfMarker_BookStoreExit&lt;/Location&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Eleanor just loves books, so there is only one place to find her! Go to Comic Book Shop in Windy Hollows to give her a Valentines surprise!&lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_SOUND/DlgElenKGenValentine.unity3d/DlgElenKGenValentine&lt;/Asset&gt;&lt;NPC&gt;PfEleanor&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfEleanor&lt;/NPC&gt;&lt;Text&gt;I&apos;m just here reading all the wonderful comic books that you Jumpees have created! They are so special, just like you! Thank you bear-y much for the Valentine&apos;s Day love! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;Hollows&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Location&lt;/Key&gt;&lt;Value&gt;PfMarker_BookStoreExit&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;NPC&lt;/Key&gt;&lt;Value&gt;PfEleanor&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Meet&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Meet Eleanor in Windy Hollows&lt;/Text&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Meet Eleanor by the Comic Book Shop in Windy Hollows.&lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1561</I>
+			<N>Meet Eleanor</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;Hollows&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfEleanor.unity3d/PfEleanor&lt;/Asset&gt;&lt;Location&gt;PfMarker_BookStoreExit&lt;/Location&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Eleanor just loves books, so there is only one place to find her! Go to Comic Book Shop in Windy Hollows to give her a Valentines surprise!&lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_SOUND/DlgElenKGenValentine.unity3d/DlgElenKGenValentine&lt;/Asset&gt;&lt;NPC&gt;PfEleanor&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfEleanor&lt;/NPC&gt;&lt;Text&gt;I&apos;m just here reading all the wonderful comic books that you Jumpees have created! They are so special, just like you! Thank you bear-y much for the Valentine&apos;s Day love! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;Hollows&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Location&lt;/Key&gt;&lt;Value&gt;PfMarker_BookStoreExit&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;NPC&lt;/Key&gt;&lt;Value&gt;PfEleanor&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Meet&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Meet Eleanor in Windy Hollows&lt;/Text&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Meet Eleanor by the Comic Book Shop in Windy Hollows.&lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1561</I>
+			<N>Meet Eleanor</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;Hollows&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfEleanor.unity3d/PfEleanor&lt;/Asset&gt;&lt;Location&gt;PfMarker_BookStoreExit&lt;/Location&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Eleanor just loves books, so there is only one place to find her! Go to Comic Book Shop in Windy Hollows to give her a Valentines surprise!&lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_SOUND/DlgElenKGenValentine.unity3d/DlgElenKGenValentine&lt;/Asset&gt;&lt;NPC&gt;PfEleanor&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfEleanor&lt;/NPC&gt;&lt;Text&gt;I&apos;m just here reading all the wonderful comic books that you Jumpees have created! They are so special, just like you! Thank you bear-y much for the Valentine&apos;s Day love! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;Hollows&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Location&lt;/Key&gt;&lt;Value&gt;PfMarker_BookStoreExit&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;NPC&lt;/Key&gt;&lt;Value&gt;PfEleanor&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Meet&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Meet Eleanor in Windy Hollows&lt;/Text&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Meet Eleanor by the Comic Book Shop in Windy Hollows.&lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1561</I>
+			<N>Meet Eleanor</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;Hollows&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfEleanor.unity3d/PfEleanor&lt;/Asset&gt;&lt;Location&gt;PfMarker_BookStoreExit&lt;/Location&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Eleanor just loves books, so there is only one place to find her! Go to Comic Book Shop in Windy Hollows to give her a Valentines surprise!&lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_SOUND/DlgElenKGenValentine.unity3d/DlgElenKGenValentine&lt;/Asset&gt;&lt;NPC&gt;PfEleanor&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfEleanor&lt;/NPC&gt;&lt;Text&gt;I&apos;m just here reading all the wonderful comic books that you Jumpees have created! They are so special, just like you! Thank you bear-y much for the Valentine&apos;s Day love! &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;Hollows&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Location&lt;/Key&gt;&lt;Value&gt;PfMarker_BookStoreExit&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;NPC&lt;/Key&gt;&lt;Value&gt;PfEleanor&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Meet&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Meet Eleanor in Windy Hollows&lt;/Text&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Meet Eleanor by the Comic Book Shop in Windy Hollows.&lt;/Text&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<AR>
+			<a>5</a>
+			<p>1</p>
+			<i xsi:nil="true"/>
+			<t>1</t>
+			<r>3</r>
+			<ii>0</ii>
+			<ai>202794</ai>
+			<amulti>true</amulti>
+			<mina>5</mina>
+			<maxa>5</maxa>
+			<d xsi:nil="true"/>
+			<cid>0</cid>
+			<ui xsi:nil="true"/>
+			<atinfoid>0</atinfoid>
+			<atid>0</atid>
+		</AR>
+		<AR>
+			<a>25</a>
+			<p>2</p>
+			<i xsi:nil="true"/>
+			<t>1</t>
+			<r>21</r>
+			<ii>0</ii>
+			<ai>202794</ai>
+			<amulti>true</amulti>
+			<mina>25</mina>
+			<maxa>25</maxa>
+			<d xsi:nil="true"/>
+			<cid>0</cid>
+			<ui xsi:nil="true"/>
+			<atinfoid>0</atinfoid>
+			<atid>0</atid>
+		</AR>
+	</Mission>
+	<Mission>
+		<RPT>false</RPT>
+		<I>1743</I>
+		<N>2. Jumpstart Tour</N>
+		<PID>3</PID>
+		<G>1</G>
+		<P xsi:nil="true"/>
+		<S>&lt;Data&gt;&lt;Repeat&gt;0&lt;/Repeat&gt;&lt;Hidden&gt;0&lt;/Hidden&gt;&lt;Reward&gt;&lt;Asset&gt;RS_DATA/PfUiMissionRewardDB.unity3d/PfUiMissionRewardDB&lt;/Asset&gt;&lt;/Reward&gt;&lt;Title&gt;&lt;Text&gt;Jumpstart Tour&lt;/Text&gt;&lt;ID&gt;934600&lt;/ID&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Take a tour around Jumpstart and meet new friends!&lt;/Text&gt;&lt;ID&gt;934601&lt;/ID&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+		<A>false</A>
+		<C>0</C>
+		<MR>
+			<Prerequisites>
+				<Type>2</Type>
+				<Value>true</Value>
+				<ClientRule>false</ClientRule>
+			</Prerequisites>
+			<Prerequisites>
+				<Type>3</Type>
+				<Value>1509</Value>
+				<ClientRule>false</ClientRule>
+			</Prerequisites>
+			<Prerequisites>
+				<Type>1</Type>
+				<Value>False</Value>
+				<ClientRule>false</ClientRule>
+			</Prerequisites>
+			<Criteria>
+				<Type>all</Type>
+				<Ordered>true</Ordered>
+				<Min>4</Min>
+				<Repeat>1</Repeat>
+				<RuleItems>
+					<Type>1</Type>
+					<MissionID>1743</MissionID>
+					<ID>1781</ID>
+					<Complete>0</Complete>
+				</RuleItems>
+				<RuleItems>
+					<Type>1</Type>
+					<MissionID>1743</MissionID>
+					<ID>1782</ID>
+					<Complete>0</Complete>
+				</RuleItems>
+				<RuleItems>
+					<Type>1</Type>
+					<MissionID>1743</MissionID>
+					<ID>1783</ID>
+					<Complete>0</Complete>
+				</RuleItems>
+				<RuleItems>
+					<Type>1</Type>
+					<MissionID>1743</MissionID>
+					<ID>1784</ID>
+					<Complete>0</Complete>
+				</RuleItems>
+			</Criteria>
+		</MR>
+		<V>2</V>
+		<AID>203011</AID>
+		<AAID>0</AAID>
+		<Task>
+			<I>1781</I>
+			<N>Windy Hollows Visit</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;Hollows&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfEleanor.unity3d/PfEleanor&lt;/Asset&gt;&lt;Location&gt;PfMarker_BroomStickExit&lt;/Location&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;ID&gt;934652&lt;/ID&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Windy Hollows is the most magical place here. You can charm your friends into crazy things, play a game of broom ball or fly a broom around the Magic Marsh! Go Meet Eleanor there!&lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;Offer&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_SOUND/DlgIvyWindyHollows.unity3d/DlgIvyWindyHollows&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;ID&gt;934653&lt;/ID&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfEleanor&lt;/NPC&gt;&lt;Text&gt;I&apos;ve been waiting for you to get here. I&apos;m Eleanor and I&apos;m a new explorer just like you. I can&apos;t wait to start the adventures. While you&apos;re here, you should play a game or two.&lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;End&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_SOUND/DlgEleanorWelcome.unity3d/DlgEleanorWelcome&lt;/Asset&gt;&lt;NPC&gt;PfEleanor&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;Hollows&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;NPC&lt;/Key&gt;&lt;Value&gt;PfEleanor&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Time&lt;/Key&gt;&lt;Value&gt;0&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;HideArrow&lt;/Key&gt;&lt;Value&gt;False&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Meet&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Meet Eleanor in Windy Hollows to play a game&lt;/Text&gt;&lt;ID&gt;934650&lt;/ID&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Meet Eleanor in Windy Hollows. Use your map or the portals to get there.&lt;/Text&gt;&lt;ID&gt;934651&lt;/ID&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1782</I>
+			<N>Adventure Canyon Visit</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;AdventureCanyon&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfCJ.unity3d/PfCJ&lt;/Asset&gt;&lt;Location&gt;PfMarker_CJMeet&lt;/Location&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;ID&gt;934656&lt;/ID&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfEleanor&lt;/NPC&gt;&lt;Text&gt;You&apos;re doing such great work! Everyone is talking about your natural explorer skills. You should find CJ now. I hope there will be dancing! CJ is in Adventure Canyon, go meet him now!&lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;Offer&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_SOUND/DlgEleanorTourEnd.unity3d/DlgEleanorTourEnd&lt;/Asset&gt;&lt;NPC&gt;PfEleanor&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;ID&gt;934657&lt;/ID&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfCJ&lt;/NPC&gt;&lt;Text&gt;Woo-eee, I&apos;m CJ and I just might be the most adventurous amphibian you&apos;ll ever meet. Since you&apos;re new, let me show you around. &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;End&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_SOUND/DlgCJWelcome.unity3d/DlgCJWelcome&lt;/Asset&gt;&lt;NPC&gt;PfCJ&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;AdventureCanyon&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;NPC&lt;/Key&gt;&lt;Value&gt;PfCJ&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Time&lt;/Key&gt;&lt;Value&gt;0&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;HideArrow&lt;/Key&gt;&lt;Value&gt;False&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Meet&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Meet CJ in Adventure Canyon to play Dune Buggy!&lt;/Text&gt;&lt;ID&gt;934654&lt;/ID&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;CJ wants to meet you in Adventure Canyon so he can show you Dune Buggy!&lt;/Text&gt;&lt;ID&gt;934655&lt;/ID&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1783</I>
+			<N>Downtown Visit</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;DownTown&lt;/Scene&gt;&lt;Asset&gt;RS_DATA/PfKisha.unity3d/PfKisha&lt;/Asset&gt;&lt;Location&gt;PfMarker_MeetKisha&lt;/Location&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;ID&gt;934660&lt;/ID&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfCJ&lt;/NPC&gt;&lt;Text&gt;Lucky you! Kisha wants to show you something. She&apos;s in Downtown! Go meet her there now.&lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;Offer&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_SOUND/DlgCJTourEnd.unity3d/DlgCJTourEnd&lt;/Asset&gt;&lt;NPC&gt;PfCJ&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;ID&gt;934661&lt;/ID&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfKisha&lt;/NPC&gt;&lt;Text&gt;Hey there new explorer, it&apos;s me Kisha. Let me show you around. &lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;End&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_SOUND/DlgKishaWelcome.unity3d/DlgKishaWelcome&lt;/Asset&gt;&lt;NPC&gt;PfKisha&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;DownTown&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;NPC&lt;/Key&gt;&lt;Value&gt;PfKisha&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Time&lt;/Key&gt;&lt;Value&gt;0&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;HideArrow&lt;/Key&gt;&lt;Value&gt;False&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Meet&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Kisha is waiting for you in Downtown&lt;/Text&gt;&lt;ID&gt;934658&lt;/ID&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Find Kisha in Dowtown, she would like to meet your mythie.&lt;/Text&gt;&lt;ID&gt;934659&lt;/ID&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<Task>
+			<I>1784</I>
+			<N>Enchanted Revisit</N>
+			<S>&lt;Data&gt;&lt;Setup&gt;&lt;Scene&gt;SanctuaryBaby&lt;/Scene&gt;&lt;Recursive&gt;false&lt;/Recursive&gt;&lt;Persistent&gt;false&lt;/Persistent&gt;&lt;/Setup&gt;&lt;Offer&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;ID&gt;934664&lt;/ID&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Come back to the Enchanted Sanctuary and talk to me.&lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;Offer&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_SOUND/DlgIvyTourEnd.unity3d/DlgIvyTourEnd&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/Offer&gt;&lt;End&gt;&lt;Type&gt;Popup&lt;/Type&gt;&lt;ID&gt;934665&lt;/ID&gt;&lt;Asset&gt;RS_DATA/PfUiMissionActionDB.unity3d/PfUiMissionActionDB&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;Text&gt;Welcome back Jumpee! You&apos;ve earned a prize!&lt;/Text&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;End&gt;&lt;Type&gt;VO&lt;/Type&gt;&lt;Asset&gt;RS_SOUND/DlgIvyWelcome.unity3d/DlgIvyWelcome&lt;/Asset&gt;&lt;NPC&gt;PfDyan&lt;/NPC&gt;&lt;ItemID&gt;0&lt;/ItemID&gt;&lt;Priority&gt;0&lt;/Priority&gt;&lt;/End&gt;&lt;Objective&gt;&lt;Pair&gt;&lt;Key&gt;Scene&lt;/Key&gt;&lt;Value&gt;SanctuaryBaby&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;NPC&lt;/Key&gt;&lt;Value&gt;PfDyan&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Asset&lt;/Key&gt;&lt;Value&gt;RS_DATA/PfDyan.unity3d/PfDyan&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;Time&lt;/Key&gt;&lt;Value&gt;0&lt;/Value&gt;&lt;/Pair&gt;&lt;Pair&gt;&lt;Key&gt;HideArrow&lt;/Key&gt;&lt;Value&gt;False&lt;/Value&gt;&lt;/Pair&gt;&lt;/Objective&gt;&lt;Type&gt;Meet&lt;/Type&gt;&lt;Title&gt;&lt;Text&gt;Return to Enchanted Sanctuary to talk with Ivy, she has a reward for you.&lt;/Text&gt;&lt;ID&gt;934662&lt;/ID&gt;&lt;/Title&gt;&lt;Desc&gt;&lt;Text&gt;Ivy wants to give you a gift for meeting all her friends, return to Enchanted Sanctuary to collect it!&lt;/Text&gt;&lt;ID&gt;934663&lt;/ID&gt;&lt;/Desc&gt;&lt;/Data&gt;</S>
+			<C>0</C>
+		</Task>
+		<AR>
+			<a>5</a>
+			<p>1</p>
+			<i xsi:nil="true"/>
+			<t>1</t>
+			<r>3</r>
+			<ii>0</ii>
+			<ai>203011</ai>
+			<amulti>true</amulti>
+			<mina>5</mina>
+			<maxa>5</maxa>
+			<d xsi:nil="true"/>
+			<cid>0</cid>
+			<ui xsi:nil="true"/>
+			<atinfoid>0</atinfoid>
+			<atid>0</atid>
+		</AR>
+		<AR>
+			<a>25</a>
+			<p>2</p>
+			<i xsi:nil="true"/>
+			<t>1</t>
+			<r>21</r>
+			<ii>0</ii>
+			<ai>203011</ai>
+			<amulti>true</amulti>
+			<mina>25</mina>
+			<maxa>25</maxa>
+			<d xsi:nil="true"/>
+			<cid>0</cid>
+			<ui xsi:nil="true"/>
+			<atinfoid>0</atinfoid>
+			<atid>0</atid>
+		</AR>
+	</Mission>
+</Missions>

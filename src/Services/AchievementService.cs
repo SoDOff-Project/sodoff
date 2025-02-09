@@ -82,7 +82,7 @@ namespace sodoff.Services {
                     viking.AchievementPoints.Add(xpPoints);
                 }
                 
-		int initialPoints = xpPoints.Value;
+                int initialPoints = xpPoints.Value;
                 xpPoints.Value += value ?? 0;
                 
                 if (value > 0 && initialPoints > xpPoints.Value) {
@@ -154,17 +154,43 @@ namespace sodoff.Services {
             }
         }
 
-        public AchievementReward[] ApplyAchievementRewardsByTask(Viking viking, AchievementTask task) {
-            var rewards = achievementStore.GetAchievementRewardsByTask(task.TaskID);
-            if (rewards != null) {
-                return ApplyAchievementRewards(viking, rewards);
-            } else {
-                return new AchievementReward[0];
+        public AchievementTaskSetResponse ApplyAchievementRewardsByTask(Viking viking, int taskID, uint gameVersion) {
+            AchievementTaskState? achievementTaskState = viking.AchievementTaskStates.FirstOrDefault(x => x.TaskId == taskID);
+            int pointValue = (achievementTaskState?.Points ?? 0);
+            var achievementInfo = achievementStore.GetAchievementTaskInfo(taskID, gameVersion, pointValue);
+            var lastLevelCompleted = false;
+
+            if (achievementInfo == null) return new AchievementTaskSetResponse();
+
+            if (pointValue < achievementInfo.PointValue) { // limit points stored value to max points value in achievement tasks
+                pointValue += 1;
+                lastLevelCompleted = true;
             }
+
+            var rewards = (achievementInfo.Reproducible || pointValue == achievementInfo.PointValue)
+                ? ApplyAchievementRewards(viking, achievementInfo.Rewards)
+                : Array.Empty<AchievementReward>();
+
+            if (achievementTaskState == null)
+                viking.AchievementTaskStates.Add(new AchievementTaskState { TaskId = taskID, Points = pointValue });
+            else
+                achievementTaskState.Points = pointValue;
+
+            ctx.SaveChanges();
+
+            return new AchievementTaskSetResponse {
+                Success = true,
+                UserMessage = true, // TODO: placeholder
+                AchievementName = achievementInfo.Name,
+                Level = achievementInfo.Level,
+                AchievementTaskGroupID = achievementInfo.TaskGroupID,
+                LastLevelCompleted = lastLevelCompleted,
+                AchievementInfoID = achievementInfo.InfoID,
+                AchievementRewards = rewards
+            };
         }
-        
+
         public UserGameCurrency GetUserCurrency(Viking viking) {
-            // TODO: return real values (after implement currency collecting methods)
             int? coins = viking.AchievementPoints.FirstOrDefault(x => x.Type == (int)AchievementPointTypes.GameCurrency)?.Value;
             int? gems = viking.AchievementPoints.FirstOrDefault(x => x.Type == (int)AchievementPointTypes.CashCurrency)?.Value;
             if (coins is null) {
@@ -206,6 +232,7 @@ namespace sodoff.Services {
                 DateRange = new DateRange()
             };
         }
+
         public ArrayOfUserAchievementInfo GetTopAchievementBuddies(UserAchievementInfoRequest request) {
             // TODO: Type and mode are currently ignored
             List<UserAchievementInfo> achievementInfo = new();
@@ -234,6 +261,48 @@ namespace sodoff.Services {
             return new ArrayOfUserAchievementInfo {
                 UserAchievementInfo = achievementInfo.ToArray()
             };
+        }
+
+        public UserAchievementTask[] GetUserAchievementTask(Viking viking, uint gameVersion) {
+            List <UserAchievementTask> userAchievementTasks = new();
+
+            foreach (var achievementsGroup in achievementStore.GetAchievementsGroupIdToTaskId(gameVersion)) {
+                List<AchievementTaskReward> rewards = new();
+                int nextLevel = 0;
+                int points = viking.AchievementTaskStates.FirstOrDefault(x => x.TaskId == achievementsGroup.Value)?.Points ?? 0;
+                var achievementInfo = achievementStore.GetAchievementTaskInfoForNextLevel(
+                    achievementsGroup.Value, gameVersion, points, achievementsGroup.Key
+                );
+
+                if (achievementInfo != null) {
+                    nextLevel = achievementInfo.Level;
+                    if (achievementInfo.Rewards != null) {
+                        foreach (var r in achievementInfo.Rewards) {
+                            rewards.Add(new AchievementTaskReward {
+                                RewardQuantity = r.Amount ?? 0,
+                                PointTypeID = (int)(r.PointTypeID),
+                                ItemID = r.ItemID,
+                                RewardID = r.RewardID,
+                                AchievementInfoID = achievementInfo.InfoID
+                            });
+                        }
+                    }
+                } else {
+                    achievementInfo = achievementStore.GetAchievementTaskInfoForCurrentLevel(
+                        achievementsGroup.Value, gameVersion, points, achievementsGroup.Key
+                    );
+                    nextLevel = achievementInfo.Level + 1;
+                }
+
+                userAchievementTasks.Add(new UserAchievementTask {
+                    AchievementTaskGroupID = achievementsGroup.Key,
+                    AchievedQuantity = Math.Min(points, achievementInfo.PointValue),
+                    NextLevel = nextLevel,
+                    QuantityRequired = Math.Max(0, achievementInfo.PointValue - points),
+                    NextLevelAchievementRewards = rewards.ToArray()
+                });
+            }
+            return userAchievementTasks.ToArray();
         }
     }
 }

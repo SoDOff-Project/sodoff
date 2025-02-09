@@ -1037,7 +1037,7 @@ public class ContentController : Controller {
 
         uint gameVersion = ClientVersion.GetVersion(apiKey);
         UserMissionStateResult result = new UserMissionStateResult { Missions = new List<Mission>()  };
-        foreach (var mission in viking.MissionStates.Where(x => x.MissionStatus != MissionStatus.Completed)) {
+        foreach (var mission in viking.MissionStates) {
             Mission updatedMission = missionService.GetMissionWithProgress(mission.MissionId, viking.Id, gameVersion);
 
             if (mission.MissionStatus == MissionStatus.Upcoming) {

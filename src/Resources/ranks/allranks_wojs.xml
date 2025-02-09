@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ArrayOfUserRank xmlns="http://api.jumpstart.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<UserRank>
+		<RankID xmlns="">1</RankID>
+		<Name xmlns="">JumpStar Level 1</Name>
+		<Description xmlns="">JumpStar Level 1</Description>
+		<Image xmlns="">RS_DATA/Content/Ranks/AniJumpStarRank01.png</Image>
+		<Audio xmlns="" />
+		<Value xmlns="">0</Value>
+		<IsMember xmlns="">false</IsMember>
+		<PointTypeID xmlns="">1</PointTypeID>
+		<GlobalRankID xmlns="">1</GlobalRankID>
+	</UserRank>
+	<UserRank>
+		<RankID xmlns="">2</RankID>
+		<Name xmlns="">JumpStar Level 2</Name>
+		<Description xmlns="">JumpStar Level 2</Description>
+		<Image xmlns="">RS_DATA/Content/Ranks/AniJumpStarRank02.png</Image>
+		<Audio xmlns="" />
+		<Value xmlns="">5</Value>
+		<IsMember xmlns="">false</IsMember>
+		<PointTypeID xmlns="">1</PointTypeID>
+		<GlobalRankID xmlns="">2</GlobalRankID>
+	</UserRank>
+	<UserRank>
+		<RankID xmlns="">3</RankID>
+		<Name xmlns="">JumpStar Level 3</Name>
+		<Description xmlns="">JumpStar Level 3</Description>
+		<Image xmlns="">RS_DATA/Content/Ranks/AniJumpStarRank03.png</Image>
+		<Audio xmlns="" />
+		<Value xmlns="">20</Value>
+		<IsMember xmlns="">true</IsMember>
+		<PointTypeID xmlns="">1</PointTypeID>
+		<GlobalRankID xmlns="">3</GlobalRankID>
+	</UserRank>
+	<UserRank>
+		<RankID xmlns="">4</RankID>
+		<Name xmlns="">JumpStar Level 4</Name>
+		<Description xmlns="">JumpStar Level 4</Description>
+		<Image xmlns="">RS_DATA/Content/Ranks/AniJumpStarRank04.png</Image>
+		<Audio xmlns="" />
+		<Value xmlns="">40</Value>
+		<IsMember xmlns="">true</IsMember>
+		<PointTypeID xmlns="">1</PointTypeID>
+		<GlobalRankID xmlns="">4</GlobalRankID>
+	</UserRank>
+	<UserRank>
+		<RankID xmlns="">5</RankID>
+		<Name xmlns="">JumpStar Level 5</Name>
+		<Description xmlns="">JumpStar Level 5</Description>
+		<Image xmlns="">RS_DATA/Content/Ranks/AniJumpStarRank05.png</Image>
+		<Audio xmlns="" />
+		<Value xmlns="">80</Value>
+		<IsMember xmlns="">true</IsMember>
+		<PointTypeID xmlns="">1</PointTypeID>
+		<GlobalRankID xmlns="">5</GlobalRankID>
+	</UserRank>
+	<UserRank>
+		<RankID xmlns="">6</RankID>
+		<Name xmlns="">JumpStar Level 6</Name>
+		<Description xmlns="">JumpStar Level 6</Description>
+		<Image xmlns="">RS_DATA/Content/Ranks/AniJumpStarRank06.png</Image>
+		<Audio xmlns="" />
+		<Value xmlns="">150</Value>
+		<IsMember xmlns="">true</IsMember>
+		<PointTypeID xmlns="">1</PointTypeID>
+		<GlobalRankID xmlns="">6</GlobalRankID>
+	</UserRank>
+	<UserRank>
+		<RankID xmlns="">7</RankID>
+		<Name xmlns="">JumpStar Level 7</Name>
+		<Description xmlns="">JumpStar Level 7</Description>
+		<Image xmlns="">RS_DATA/Content/Ranks/AniJumpStarRank07.png</Image>
+		<Audio xmlns="" />
+		<Value xmlns="">300</Value>
+		<IsMember xmlns="">true</IsMember>
+		<PointTypeID xmlns="">1</PointTypeID>
+		<GlobalRankID xmlns="">7</GlobalRankID>
+	</UserRank>
+	<UserRank>
+		<RankID xmlns="">8</RankID>
+		<Name xmlns="">JumpStar Level 8</Name>
+		<Description xmlns="">JumpStar Level 8</Description>
+		<Image xmlns="">RS_DATA/Content/Ranks/AniJumpStarRank08.png</Image>
+		<Audio xmlns="" />
+		<Value xmlns="">600</Value>
+		<IsMember xmlns="">true</IsMember>
+		<PointTypeID xmlns="">1</PointTypeID>
+		<GlobalRankID xmlns="">8</GlobalRankID>
+	</UserRank>
+	<UserRank>
+		<RankID xmlns="">9</RankID>
+		<Name xmlns="">JumpStar Level 9</Name>
+		<Description xmlns="">JumpStar Level 9</Description>
+		<Image xmlns="">RS_DATA/Content/Ranks/AniJumpStarRank09.png</Image>
+		<Audio xmlns="" />
+		<Value xmlns="">1200</Value>
+		<IsMember xmlns="">true</IsMember>
+		<PointTypeID xmlns="">1</PointTypeID>
+		<GlobalRankID xmlns="">9</GlobalRankID>
+	</UserRank>
+	<UserRank>
+		<RankID xmlns="">10</RankID>
+		<Name xmlns="">JumpStar Level 10</Name>
+		<Description xmlns="">JumpStar Level 10</Description>
+		<Image xmlns="">RS_DATA/Content/Ranks/AniJumpStarRank10.png</Image>
+		<Audio xmlns="" />
+		<Value xmlns="">1600</Value>
+		<IsMember xmlns="">true</IsMember>
+		<PointTypeID xmlns="">1</PointTypeID>
+		<GlobalRankID xmlns="">10</GlobalRankID>
+	</UserRank>
+	<UserRank>
+		<RankID xmlns="">12</RankID>
+		<Name xmlns="">JumpStar Level 11</Name>
+		<Description xmlns="">JumpStar Level 11</Description>
+		<Image xmlns="">RS_DATA/Content/Ranks/AniJumpStarRank11.png</Image>
+		<Audio xmlns="" />
+		<Value xmlns="">1800</Value>
+		<IsMember xmlns="">true</IsMember>
+		<PointTypeID xmlns="">1</PointTypeID>
+		<GlobalRankID xmlns="">244</GlobalRankID>
+	</UserRank>
+	<UserRank>
+		<RankID xmlns="">13</RankID>
+		<Name xmlns="">JumpStar Level 12</Name>
+		<Description xmlns="">JumpStar Level 12</Description>
+		<Image xmlns="">RS_DATA/Content/Ranks/AniJumpStarRank12.png</Image>
+		<Audio xmlns="" />
+		<Value xmlns="">2000</Value>
+		<IsMember xmlns="">true</IsMember>
+		<PointTypeID xmlns="">1</PointTypeID>
+		<GlobalRankID xmlns="">245</GlobalRankID>
+	</UserRank>
+	<UserRank>
+		<RankID xmlns="">14</RankID>
+		<Name xmlns="">JumpStar Level 13</Name>
+		<Description xmlns="">JumpStar Level 13</Description>
+		<Image xmlns="">RS_DATA/Content/Ranks/AniJumpStarRank13.png</Image>
+		<Audio xmlns="" />
+		<Value xmlns="">2200</Value>
+		<IsMember xmlns="">true</IsMember>
+		<PointTypeID xmlns="">1</PointTypeID>
+		<GlobalRankID xmlns="">246</GlobalRankID>
+	</UserRank>
+	<UserRank>
+		<RankID xmlns="">15</RankID>
+		<Name xmlns="">JumpStar Level 14</Name>
+		<Description xmlns="">JumpStar Level 14</Description>
+		<Image xmlns="">RS_DATA/Content/Ranks/AniJumpStarRank14.png</Image>
+		<Audio xmlns="" />
+		<Value xmlns="">2400</Value>
+		<IsMember xmlns="">true</IsMember>
+		<PointTypeID xmlns="">1</PointTypeID>
+		<GlobalRankID xmlns="">247</GlobalRankID>
+	</UserRank>
+	<UserRank>
+		<RankID xmlns="">16</RankID>
+		<Name xmlns="">JumpStar Level 15</Name>
+		<Description xmlns="">JumpStar Level 15</Description>
+		<Image xmlns="">RS_DATA/Content/Ranks/AniJumpStarRank15.png</Image>
+		<Audio xmlns="" />
+		<Value xmlns="">2600</Value>
+		<IsMember xmlns="">true</IsMember>
+		<PointTypeID xmlns="">1</PointTypeID>
+		<GlobalRankID xmlns="">248</GlobalRankID>
+	</UserRank>
+	<UserRank>
+		<RankID xmlns="">17</RankID>
+		<Name xmlns="">JumpStar Level 16</Name>
+		<Description xmlns="">JumpStar Level 16</Description>
+		<Image xmlns="">RS_DATA/Content/Ranks/AniJumpStarRank16.png</Image>
+		<Audio xmlns="" />
+		<Value xmlns="">2800</Value>
+		<IsMember xmlns="">true</IsMember>
+		<PointTypeID xmlns="">1</PointTypeID>
+		<GlobalRankID xmlns="">249</GlobalRankID>
+	</UserRank>
+	<UserRank>
+		<RankID xmlns="">18</RankID>
+		<Name xmlns="">JumpStar Level 17</Name>
+		<Description xmlns="">JumpStar Level 17</Description>
+		<Image xmlns="">RS_DATA/Content/Ranks/AniJumpStarRank17.png</Image>
+		<Audio xmlns="" />
+		<Value xmlns="">3000</Value>
+		<IsMember xmlns="">true</IsMember>
+		<PointTypeID xmlns="">1</PointTypeID>
+		<GlobalRankID xmlns="">250</GlobalRankID>
+	</UserRank>
+	<UserRank>
+		<RankID xmlns="">19</RankID>
+		<Name xmlns="">JumpStar Level 18</Name>
+		<Description xmlns="">JumpStar Level 18</Description>
+		<Image xmlns="">RS_DATA/Content/Ranks/AniJumpStarRank18.png</Image>
+		<Audio xmlns="" />
+		<Value xmlns="">3200</Value>
+		<IsMember xmlns="">true</IsMember>
+		<PointTypeID xmlns="">1</PointTypeID>
+		<GlobalRankID xmlns="">251</GlobalRankID>
+	</UserRank>
+	<UserRank>
+		<RankID xmlns="">20</RankID>
+		<Name xmlns="">JumpStar Level 19</Name>
+		<Description xmlns="">JumpStar Level 19</Description>
+		<Image xmlns="">RS_DATA/Content/Ranks/AniJumpStarRank19.png</Image>
+		<Audio xmlns="" />
+		<Value xmlns="">3400</Value>
+		<IsMember xmlns="">true</IsMember>
+		<PointTypeID xmlns="">1</PointTypeID>
+		<GlobalRankID xmlns="">252</GlobalRankID>
+	</UserRank>
+	<UserRank>
+		<RankID xmlns="">21</RankID>
+		<Name xmlns="">JumpStar Level 20</Name>
+		<Description xmlns="">JumpStar Level 20</Description>
+		<Image xmlns="">RS_DATA/Content/Ranks/AniJumpStarRank20.png</Image>
+		<Audio xmlns="" />
+		<Value xmlns="">3600</Value>
+		<IsMember xmlns="">true</IsMember>
+		<PointTypeID xmlns="">1</PointTypeID>
+		<GlobalRankID xmlns="">253</GlobalRankID>
+	</UserRank>
+	<UserRank>
+		<RankID xmlns="">11</RankID>
+		<Name xmlns="">Just Starting</Name>
+		<Description xmlns="">Pet Point</Description>
+		<Image xmlns="" />
+		<Audio xmlns="" />
+		<Value xmlns="">0</Value>
+		<IsMember xmlns="">true</IsMember>
+		<PointTypeID xmlns="">4</PointTypeID>
+		<GlobalRankID xmlns="">166</GlobalRankID>
+	</UserRank>
+</ArrayOfUserRank>
