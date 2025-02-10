@@ -3,8 +3,7 @@ using Microsoft.Extensions.Options;
 using sodoff.Configuration;
 
 namespace sodoff.Model;
-public class DBContext : DbContext
-{
+public class DBContext : DbContext {
     public DbSet<User> Users { get; set; } = null!;
     public DbSet<Viking> Vikings { get; set; } = null!;
     public DbSet<Dragon> Dragons { get; set; } = null!;
@@ -34,26 +33,24 @@ public class DBContext : DbContext
 
     private readonly IOptions<ApiServerConfig> config;
 
-    public DBContext(IOptions<ApiServerConfig> config)
-    {
+    public DBContext(IOptions<ApiServerConfig> config) {
         this.config = config;
     }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-#if USE_POSTGRESQL
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
+        #if USE_POSTGRESQL
             if (config.Value.DbProvider == DbProviders.PostgreSQL) {
                 optionsBuilder.UseNpgsql(config.Value.DbConnection).UseLazyLoadingProxies();
                 return;
             }
-#endif
-#if USE_MYSQL
+        #endif
+        #if USE_MYSQL
             if (config.Value.DbProvider == DbProviders.MySQL) {
                 optionsBuilder.UseMySQL(config.Value.DbConnection).UseLazyLoadingProxies();
                 return;
             }
-#endif
-#if USE_SQLITE
+        #endif
+        #if USE_SQLITE
             if (config.Value.DbProvider == DbProviders.SQLite) {
                 string DbPath;
                 if (String.IsNullOrEmpty(config.Value.DbPath)) {
@@ -64,12 +61,11 @@ public class DBContext : DbContext
                 optionsBuilder.UseSqlite($"Data Source={DbPath}").UseLazyLoadingProxies();
                 return;
             }
-#endif
+        #endif
         throw new Exception($"Unsupported DbProvider {config.Value.DbProvider}");
     }
 
-    protected override void OnModelCreating(ModelBuilder builder)
-    {
+    protected override void OnModelCreating(ModelBuilder builder) {
         // Sessions
         builder.Entity<Session>().HasOne(s => s.User)
             .WithMany(e => e.Sessions)
@@ -152,6 +148,12 @@ public class DBContext : DbContext
             .WithMany(e => e.Vikings);
 
         builder.Entity<Viking>().HasMany(v => v.Ratings)
+            .WithOne(r => r.Viking);
+
+        builder.Entity<Viking>().HasMany(v => v.UserMissions)
+            .WithOne(r => r.Viking);
+
+        builder.Entity<Viking>().HasMany(v => v.UserBadgesCompleted)
             .WithOne(r => r.Viking);
 
         // Dragons
@@ -290,5 +292,14 @@ public class DBContext : DbContext
 
         builder.Entity<RatingRank>().HasMany(rr => rr.Ratings)
             .WithOne(r => r.Rank);
+
+        // old ("step") missions
+        builder.Entity<UserMissionData>().HasOne(r => r.Viking)
+            .WithMany(v => v.UserMissions)
+            .HasForeignKey(r => r.VikingId);
+
+        builder.Entity<UserBadgeCompleteData>().HasOne(r => r.Viking)
+            .WithMany(v => v.UserBadgesCompleted)
+            .HasForeignKey(r => r.VikingId);
     }
 }

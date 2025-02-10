@@ -54,26 +54,6 @@ public class MissionService {
         return mission;
     }
 
-    public MissionData GetMissionDataFromFile(uint gameVersion, int gameId, int type)
-    {
-        //if (gameVersion <= ClientVersion.WoJS_AdvLand)
-        //{
-            return XmlUtil.DeserializeXml<MissionData>(File.ReadAllText($"./Resources/missions/stepsmissions_{gameId}_{type}.xml"));
-        //}
-
-        return new MissionData();
-    }
-
-    public Step GetMissionStepFromFile(uint gameVersion, int id)
-    {
-        //if (gameVersion <= ClientVersion.WoJS_AdvLand)
-        //{
-            return XmlUtil.DeserializeXml<Step>(File.ReadAllText($"./Resources/missions/steps/{id}.xml"));
-        //}
-
-        return new Step();
-    }
-
     public Schema.UserMissionData GetUserMissionData(Viking viking, int worldId)
     {
         Schema.UserMissionData umdRes = new Schema.UserMissionData();

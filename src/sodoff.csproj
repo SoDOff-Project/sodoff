@@ -139,10 +139,16 @@
     <EmbeddedResource Include="Resources\profiletags.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-	<EmbeddedResource Include="Resources\defaulthouse.xml">
+    <EmbeddedResource Include="Resources\defaulthouse.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-	<EmbeddedResource Include="Resources\worlds.xml">
+    <EmbeddedResource Include="Resources\worlds.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\missions\step_missions_wojs_al.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\missions\badge_wojs_al.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>

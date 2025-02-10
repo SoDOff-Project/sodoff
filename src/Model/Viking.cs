@@ -5,8 +5,7 @@ using sodoff.Schema;
 namespace sodoff.Model;
 
 [Index(nameof(Uid))]
-public class Viking
-{
+public class Viking {
     [Key]
     public int Id { get; set; }
 

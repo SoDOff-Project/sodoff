@@ -2122,103 +2122,75 @@ public class ContentController : Controller {
         return Ok(new TreasureChestData());
     }
 
-    //Oh boy it's the AL code stuff you guys ready for p a i n
-
     [HttpPost]
     [Produces("application/xml")]
     [Route("MissionWebService.asmx/GetWorldId")] // used by Math Blaster and WoJS Adventureland
-    public IActionResult GetWorldId([FromForm] int gameId, [FromForm] string sceneName, [FromForm] string apiKey)
-    {
-        var result = worldIdService.GetWorldID(sceneName);
-        return Ok(result);
+    public IActionResult GetWorldId([FromForm] int gameId, [FromForm] string sceneName) {
+        return Ok(worldIdService.GetWorldID(sceneName));
+    }
+
+    [HttpPost]
+    // [Produces("application/xml")]
+    [Route("MissionWebService.asmx/GetMission")] // old ("step") missions - used by MB and WoJS lands
+    public IActionResult GetMission([FromForm] int gameId, [FromForm] int type) {
+        if (gameId == 1) return Ok(XmlUtil.ReadResourceXmlString("missions.step_missions_wojs_al"));
+        return Ok();
+    }
+
+    [HttpPost]
+    // [Produces("application/xml")]
+    [Route("MissionWebService.asmx/GetStep")] // old ("step") missions - used by MB and WoJS lands
+    public IActionResult GetMissionStep([FromForm] int stepId) {
+        return Ok(System.IO.File.ReadAllText($"./Resources/missions/steps/{stepId}.xml"));
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetUserMission")] // old ("step") missions - used by MB and WoJS lands
+    [VikingSession]
+    public IActionResult GetUserMission(Viking viking, [FromForm] int worldId) {
+        return Ok(missionService.GetUserMissionData(viking, worldId));
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/SetUserMission")] // old ("step") missions - used by MB and WoJS lands
+    [VikingSession]
+    public IActionResult SetUserMission(Viking viking, [FromForm] int worldId, [FromForm] int missionId, [FromForm] int stepId, [FromForm] int taskId) {
+        missionService.SetOrUpdateUserMissionData(viking, worldId, missionId, stepId, taskId);
+        return Ok(true);
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/SetUserMissionComplete")] // old ("step") missions - used by MB and WoJS lands
+    [VikingSession]
+    public IActionResult SetUserMissionComplete(Viking viking, [FromForm] int worldId, [FromForm] int missionId) {
+        return Ok(missionService.SetUserMissionCompleted(viking, worldId, missionId, true));
     }
 
     [HttpPost]
     //[Produces("application/xml")]
-    [Route("MissionWebService.asmx/GetBadge")]
-    public IActionResult GetBadge([FromForm] int gameId)
-    {
-        if (gameId == 1) return Ok(System.IO.File.ReadAllText("./Resources/missions/badge_wojs_al.xml"));
-        return Ok(); // if it doesn't work/causes errors then: return Ok(XmlUtil.SerializeXml(new BadgeData()));
+    [Route("MissionWebService.asmx/GetBadge")] // old ("step") missions - used by MB and WoJS lands
+    public IActionResult GetBadge([FromForm] int gameId) {
+        if (gameId == 1) return Ok(XmlUtil.ReadResourceXmlString("missions.badge_wojs_al.xml"));
+        return Ok();
     }
 
     [HttpPost]
     [Produces("application/xml")]
-    [Route("MissionWebService.asmx/GetMission")]
-    public IActionResult GetMission([FromForm] int gameId, [FromForm] int type, [FromForm] string apiKey)
-    {
-        MissionData mission = missionService.GetMissionDataFromFile(ClientVersion.GetVersion(apiKey), gameId, type);
-        if (mission != null) return Ok(mission);
-        else return Ok(new MissionData());
-    }
-
-    [HttpPost]
-    [Produces("application/xml")]
-    [Route("ContentWebService.asmx/GetUserMission")]
+    [Route("ContentWebService.asmx/SetUserBadgeComplete")] // old ("step") missions - used by MB and WoJS lands
     [VikingSession]
-    public IActionResult GetUserMission(Viking viking, [FromForm] int worldId, [FromForm] string apiKey)
-    {
-        //if (ClientVersion.GetVersion(apiKey) <= ClientVersion.WoJS_AdvLand)
-        //{
-            return Ok(missionService.GetUserMissionData(viking, worldId));
-        //}
-
-        return Ok(new Schema.UserMissionData());
-    }
-
-    [HttpPost]
-    [Produces("application/xml")]
-    [Route("ContentWebService.asmx/SetUserMission")]
-    [VikingSession]
-    public IActionResult SetUserMission(Viking viking, [FromForm] int worldId, [FromForm] int missionId, [FromForm] int stepId, [FromForm] int taskId, [FromForm] string apiKey)
-    {
-        //if (ClientVersion.GetVersion(apiKey) <= ClientVersion.WoJS_AdvLand)
-        //{
-            missionService.SetOrUpdateUserMissionData(viking, worldId, missionId, stepId, taskId);
-            return Ok(true); // assuming true or false response here
-        //}
-
-        return Ok(false);
-    }
-
-    [HttpPost]
-    [Produces("application/xml")]
-    [Route("ContentWebService.asmx/SetUserMissionComplete")]
-    [VikingSession]
-    public IActionResult SetUserMissionComplete(Viking viking, [FromForm] int worldId, [FromForm] int missionId, [FromForm] string apiKey)
-    {
-        //if (ClientVersion.GetVersion(apiKey) <= ClientVersion.WoJS_AdvLand)
-        //{
-            return Ok(missionService.SetUserMissionCompleted(viking, worldId, missionId, true));
-        //}
-
-        return Ok(false);
-    }
-
-    [HttpPost]
-    [Produces("application/xml")]
-    [Route("ContentWebService.asmx/SetUserBadgeComplete")]
-    [VikingSession]
-    public IActionResult SetUserBadgeComplete(Viking viking, [FromForm] int badgeId)
-    {
+    public IActionResult SetUserBadgeComplete(Viking viking, [FromForm] int badgeId) {
         return Ok(missionService.SetUserBadgeComplete(viking, badgeId));
     }
 
     [HttpPost]
     [Produces("application/xml")]
-    [Route("ContentWebService.asmx/GetUserBadgeComplete")]
+    [Route("ContentWebService.asmx/GetUserBadgeComplete")] // old ("step") missions - used by MB and WoJS lands
     [VikingSession]
-    public IActionResult GetUserBadgeComplete(Viking viking)
-    {
+    public IActionResult GetUserBadgeComplete(Viking viking) {
         return Ok(missionService.GetUserBadgesCompleted(viking));
-    }
-
-    [HttpPost]
-    [Produces("application/xml")]
-    [Route("MissionWebService.asmx/GetStep")]
-    public IActionResult GetMissionStep([FromForm] int stepId, [FromForm] string apiKey)
-    {
-        return Ok(missionService.GetMissionStepFromFile(ClientVersion.GetVersion(apiKey), stepId));
     }
 
     [HttpPost]
