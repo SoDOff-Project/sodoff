@@ -2173,7 +2173,7 @@ public class ContentController : Controller {
     //[Produces("application/xml")]
     [Route("MissionWebService.asmx/GetBadge")] // old ("step") missions - used by MB and WoJS lands
     public IActionResult GetBadge([FromForm] int gameId) {
-        if (gameId == 1) return Ok(XmlUtil.ReadResourceXmlString("missions.badge_wojs_al.xml"));
+        if (gameId == 1) return Ok(XmlUtil.ReadResourceXmlString("missions.badge_wojs_al"));
         return Ok();
     }
 
