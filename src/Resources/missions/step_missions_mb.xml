@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MissionData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Mission>
+    <MissionID>189</MissionID>
+    <Name>Rescue a Larva</Name>
+    <DisplayName>ADOPT A PET TO RAISE AND TRAIN.</DisplayName>
+    <IconName xsi:nil="true" />
+    <Description>ADOPT A PET TO RAISE AND TRAIN.</Description>
+    <Experience>-1</Experience>
+    <RewardDialog xsi:nil="true" />
+    <Step>
+      <StepID>326</StepID>
+      <TaskID>505</TaskID>
+    </Step>
+  </Mission>
+  <Mission>
+    <MissionID>213</MissionID>
+    <Name>Larva Attachment</Name>
+    <DisplayName>Play and Feed your larva</DisplayName>
+    <IconName xsi:nil="true" />
+    <Description>Lets get emotionally attached to the larva</Description>
+    <Experience>-1</Experience>
+    <RewardDialog>
+      <FileName>DlgGCM213End</FileName>
+      <NPC>GC</NPC>
+      <Bundle>RS_DATA/MBDirectedM213.unity3d</Bundle>
+    </RewardDialog>
+    <Step>
+      <StepID>350</StepID>
+      <TaskID>529</TaskID>
+    </Step>
+    <Step>
+      <StepID>351</StepID>
+      <TaskID>530</TaskID>
+    </Step>
+    <Step>
+      <StepID>354</StepID>
+      <TaskID>533</TaskID>
+      <TaskID>534</TaskID>
+    </Step>
+  </Mission>
+  <Mission>
+    <MissionID>215</MissionID>
+    <Name>MB Boy Visit Mutt Pod</Name>
+    <DisplayName>Go to your Mutt Pod</DisplayName>
+    <IconName xsi:nil="true" />
+    <Description>Visit Mutt Pod Boy</Description>
+    <Experience>-1</Experience>
+    <RewardDialog>
+      <FileName>DlgGCM215End</FileName>
+      <NPC>GC</NPC>
+      <Bundle>RS_DATA/MBDirectedM215.unity3d</Bundle>
+    </RewardDialog>
+    <Step>
+      <StepID>358</StepID>
+      <TaskID>539</TaskID>
+    </Step>
+    <Step>
+      <StepID>360</StepID>
+      <TaskID>541</TaskID>
+    </Step>
+  </Mission>
+  <Mission>
+    <MissionID>217</MissionID>
+    <Name>MB Boy Visit Pod</Name>
+    <DisplayName>Go to your Pod</DisplayName>
+    <IconName xsi:nil="true" />
+    <Description>Visit Pod Boy</Description>
+    <Experience>-1</Experience>
+    <RewardDialog>
+      <FileName>DlgGCM217End</FileName>
+      <NPC>GC</NPC>
+      <Bundle>RS_DATA/MBDirectedM217.unity3d</Bundle>
+    </RewardDialog>
+    <Step>
+      <StepID>366</StepID>
+      <TaskID>547</TaskID>
+    </Step>
+    <Step>
+      <StepID>368</StepID>
+      <TaskID>549</TaskID>
+    </Step>
+    <Step>
+      <StepID>370</StepID>
+      <TaskID>551</TaskID>
+    </Step>
+  </Mission>
+  <Mission>
+    <MissionID>220</MissionID>
+    <Name>MB Boy Play Hyperblast</Name>
+    <DisplayName>Play Hyperblast</DisplayName>
+    <IconName xsi:nil="true" />
+    <Description>Play Hyperblast Boy</Description>
+    <Experience>-1</Experience>
+    <RewardDialog xsi:nil="true" />
+    <Step>
+      <StepID>373</StepID>
+      <TaskID>554</TaskID>
+    </Step>
+  </Mission>
+</MissionData>

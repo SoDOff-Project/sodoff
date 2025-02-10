@@ -15,6 +15,7 @@ public class ContentController : Controller {
     private readonly DBContext ctx;
     private KeyValueService keyValueService;
     private ItemService itemService;
+    private MissionStoreSingleton missionStore;
     private MissionService missionService;
     private RoomService roomService;
     private AchievementService achievementService;
@@ -30,6 +31,7 @@ public class ContentController : Controller {
         DBContext ctx,
         KeyValueService keyValueService,
         ItemService itemService,
+        MissionStoreSingleton missionStore,
         MissionService missionService,
         RoomService roomService,
         AchievementService achievementService,
@@ -43,6 +45,7 @@ public class ContentController : Controller {
         this.ctx = ctx;
         this.keyValueService = keyValueService;
         this.itemService = itemService;
+        this.missionStore = missionStore;
         this.missionService = missionService;
         this.roomService = roomService;
         this.achievementService = achievementService;
@@ -2134,14 +2137,15 @@ public class ContentController : Controller {
     [Route("MissionWebService.asmx/GetMission")] // old ("step") missions - used by MB and WoJS lands
     public IActionResult GetMission([FromForm] int gameId, [FromForm] int type) {
         if (gameId == 1) return Ok(XmlUtil.ReadResourceXmlString("missions.step_missions_wojs_al"));
+        if (gameId == 5) return Ok(XmlUtil.ReadResourceXmlString("missions.step_missions_mb"));
         return Ok();
     }
 
     [HttpPost]
-    // [Produces("application/xml")]
+    [Produces("application/xml")]
     [Route("MissionWebService.asmx/GetStep")] // old ("step") missions - used by MB and WoJS lands
     public IActionResult GetMissionStep([FromForm] int stepId) {
-        return Ok(System.IO.File.ReadAllText($"./Resources/missions/steps/{stepId}.xml"));
+        return Ok(missionStore.GetStep(stepId));
     }
 
     [HttpPost]

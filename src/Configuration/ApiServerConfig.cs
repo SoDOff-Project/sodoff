@@ -5,6 +5,8 @@ public class ApiServerConfig {
     public string MMOAdress { get; set; } = "127.0.0.1";
     public int MMOPort { get; set; } = 9933;
     public uint MMOSupportMinVersion { get; set; } = 0;
+    
+    public bool LoadNonSoDData  { get; set; } = false;
 
     public DbProviders DbProvider { get; set; } = DbProviders.SQLite;
     public string DbPath { get; set; } = string.Empty;
