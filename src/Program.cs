@@ -30,6 +30,7 @@ builder.Services.AddSingleton<ItemService>();
 builder.Services.AddSingleton<StoreService>();
 builder.Services.AddSingleton<DisplayNamesService>();
 builder.Services.AddSingleton<MMOConfigService>();
+builder.Services.AddSingleton<WorldIdService>();
 
 builder.Services.AddScoped<KeyValueService>();
 builder.Services.AddScoped<MissionService>();
@@ -39,6 +40,7 @@ builder.Services.AddScoped<AchievementService>();
 builder.Services.AddScoped<GameDataService>();
 builder.Services.AddScoped<ProfileService>();
 builder.Services.AddScoped<NeighborhoodService>();
+
 
 bool assetServer = builder.Configuration.GetSection("AssetServer").GetValue<bool>("Enabled");
 string assetIP = builder.Configuration.GetSection("AssetServer").GetValue<string>("ListenIP");

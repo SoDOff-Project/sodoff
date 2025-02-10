@@ -22,6 +22,7 @@ public class ContentController : Controller {
     private GameDataService gameDataService;
     private DisplayNamesService displayNamesService;
     private NeighborhoodService neighborhoodService;
+    private WorldIdService worldIdService;
     private Random random = new Random();
     private readonly IOptions<ApiServerConfig> config;
     
@@ -36,6 +37,7 @@ public class ContentController : Controller {
         GameDataService gameDataService,
         DisplayNamesService displayNamesService,
         NeighborhoodService neighborhoodService,
+        WorldIdService worldIdService,
         IOptions<ApiServerConfig> config
     ) {
         this.ctx = ctx;
@@ -48,6 +50,7 @@ public class ContentController : Controller {
         this.gameDataService = gameDataService;
         this.displayNamesService = displayNamesService;
         this.neighborhoodService = neighborhoodService;
+        this.worldIdService = worldIdService;
         this.config = config;
     }
 
@@ -2119,12 +2122,103 @@ public class ContentController : Controller {
         return Ok(new TreasureChestData());
     }
 
+    //Oh boy it's the AL code stuff you guys ready for p a i n
+
     [HttpPost]
     [Produces("application/xml")]
-    [Route("MissionWebService.asmx/GetWorldId")] // used by Math Blaster
-    public IActionResult GetWorldId() {
-        // TODO: This is a placeholder
-        return Ok(0);
+    [Route("MissionWebService.asmx/GetWorldId")] // used by Math Blaster and WoJS Adventureland
+    public IActionResult GetWorldId([FromForm] int gameId, [FromForm] string sceneName, [FromForm] string apiKey)
+    {
+        var result = worldIdService.GetWorldID(sceneName);
+        return Ok(result);
+    }
+
+    [HttpPost]
+    //[Produces("application/xml")]
+    [Route("MissionWebService.asmx/GetBadge")]
+    public IActionResult GetBadge([FromForm] int gameId)
+    {
+        if (gameId == 1) return Ok(System.IO.File.ReadAllText("./Resources/missions/badge_wojs_al.xml"));
+        return Ok(); // if it doesn't work/causes errors then: return Ok(XmlUtil.SerializeXml(new BadgeData()));
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("MissionWebService.asmx/GetMission")]
+    public IActionResult GetMission([FromForm] int gameId, [FromForm] int type, [FromForm] string apiKey)
+    {
+        MissionData mission = missionService.GetMissionDataFromFile(ClientVersion.GetVersion(apiKey), gameId, type);
+        if (mission != null) return Ok(mission);
+        else return Ok(new MissionData());
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetUserMission")]
+    [VikingSession]
+    public IActionResult GetUserMission(Viking viking, [FromForm] int worldId, [FromForm] string apiKey)
+    {
+        //if (ClientVersion.GetVersion(apiKey) <= ClientVersion.WoJS_AdvLand)
+        //{
+            return Ok(missionService.GetUserMissionData(viking, worldId));
+        //}
+
+        return Ok(new Schema.UserMissionData());
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/SetUserMission")]
+    [VikingSession]
+    public IActionResult SetUserMission(Viking viking, [FromForm] int worldId, [FromForm] int missionId, [FromForm] int stepId, [FromForm] int taskId, [FromForm] string apiKey)
+    {
+        //if (ClientVersion.GetVersion(apiKey) <= ClientVersion.WoJS_AdvLand)
+        //{
+            missionService.SetOrUpdateUserMissionData(viking, worldId, missionId, stepId, taskId);
+            return Ok(true); // assuming true or false response here
+        //}
+
+        return Ok(false);
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/SetUserMissionComplete")]
+    [VikingSession]
+    public IActionResult SetUserMissionComplete(Viking viking, [FromForm] int worldId, [FromForm] int missionId, [FromForm] string apiKey)
+    {
+        //if (ClientVersion.GetVersion(apiKey) <= ClientVersion.WoJS_AdvLand)
+        //{
+            return Ok(missionService.SetUserMissionCompleted(viking, worldId, missionId, true));
+        //}
+
+        return Ok(false);
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/SetUserBadgeComplete")]
+    [VikingSession]
+    public IActionResult SetUserBadgeComplete(Viking viking, [FromForm] int badgeId)
+    {
+        return Ok(missionService.SetUserBadgeComplete(viking, badgeId));
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetUserBadgeComplete")]
+    [VikingSession]
+    public IActionResult GetUserBadgeComplete(Viking viking)
+    {
+        return Ok(missionService.GetUserBadgesCompleted(viking));
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("MissionWebService.asmx/GetStep")]
+    public IActionResult GetMissionStep([FromForm] int stepId, [FromForm] string apiKey)
+    {
+        return Ok(missionService.GetMissionStepFromFile(ClientVersion.GetVersion(apiKey), stepId));
     }
 
     [HttpPost]

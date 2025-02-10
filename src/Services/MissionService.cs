@@ -54,6 +54,141 @@ public class MissionService {
         return mission;
     }
 
+    public MissionData GetMissionDataFromFile(uint gameVersion, int gameId, int type)
+    {
+        //if (gameVersion <= ClientVersion.WoJS_AdvLand)
+        //{
+            return XmlUtil.DeserializeXml<MissionData>(File.ReadAllText($"./Resources/missions/stepsmissions_{gameId}_{type}.xml"));
+        //}
+
+        return new MissionData();
+    }
+
+    public Step GetMissionStepFromFile(uint gameVersion, int id)
+    {
+        //if (gameVersion <= ClientVersion.WoJS_AdvLand)
+        //{
+            return XmlUtil.DeserializeXml<Step>(File.ReadAllText($"./Resources/missions/steps/{id}.xml"));
+        //}
+
+        return new Step();
+    }
+
+    public Schema.UserMissionData GetUserMissionData(Viking viking, int worldId)
+    {
+        Schema.UserMissionData umdRes = new Schema.UserMissionData();
+
+        // instantiate schema lists and int lists
+        List<int> userMissionsCompletedIds = new List<int>();
+        List<UserMissionDataMission> missions = new List<UserMissionDataMission>();
+        List<UserMissionDataMissionStep> steps = new List<UserMissionDataMissionStep>();
+        List<int> tasks = new List<int>();
+
+        // get all initiated missions
+        List<Model.UserMissionData> vikingUmds = viking.UserMissions.Where(e => e.WorldId == worldId).ToList();
+
+        foreach (Model.UserMissionData mission in vikingUmds)
+        {
+            tasks.Add(mission.TaskId);
+            steps.Add(new UserMissionDataMissionStep { StepId = mission.StepId, TaskId = tasks.ToArray() });
+            missions.Add(new UserMissionDataMission { MissionId = mission.MissionId, Step = steps.ToArray() });
+        }
+
+        // add completed mission id's to usermissionscompletedids
+        List<Model.UserMissionData> vikingCompletedUmds = vikingUmds.Where(e => e.IsCompleted == true).ToList();
+
+        foreach (Model.UserMissionData mission in vikingCompletedUmds)
+        {
+            userMissionsCompletedIds.Add(mission.MissionId);
+        }
+
+        // construct response
+        umdRes.Mission = missions.ToArray();
+        umdRes.MissionComplete = userMissionsCompletedIds.ToArray();
+
+        // return
+        return umdRes;
+    }
+
+    public UserBadge GetUserBadgesCompleted(Viking viking)
+    {
+        // get badges
+        List<UserBadgeCompleteData> userBadgesCompleted = viking.UserBadgesCompleted.ToList();
+        List<int> completedBadgeIds = new List<int>();
+
+        foreach (var userBadge in userBadgesCompleted)
+        {
+            completedBadgeIds.Add(userBadge.BadgeId);
+        }
+
+        return new UserBadge { BadgeId = completedBadgeIds.ToArray() };
+    }
+
+    public Model.UserMissionData SetOrUpdateUserMissionData(Viking viking, int worldId, int missionId, int stepId, int taskId)
+    {
+        // find any existing records of this mission
+        Model.UserMissionData? existingMission = viking.UserMissions.Where(e => e.WorldId == worldId)
+            .Where(e => e.MissionId == missionId)
+            .FirstOrDefault();
+
+        if (existingMission != null)
+        {
+            // update taskid and stepid
+            existingMission.StepId = stepId;
+            existingMission.TaskId = taskId;
+            ctx.SaveChanges();
+
+            return existingMission;
+        }
+
+        // add mission data to db
+
+        Model.UserMissionData missionData = new Model.UserMissionData()
+        {
+            WorldId = worldId,
+            MissionId = missionId,
+            StepId = stepId,
+            TaskId = taskId
+        };
+
+        viking.UserMissions.Add(missionData);
+        ctx.SaveChanges();
+
+        return missionData;
+    }
+
+    public bool SetUserMissionCompleted(Viking viking, int worldId, int missionId, bool isCompleted)
+    {
+        Model.UserMissionData? mission = viking.UserMissions.Where(e => e.WorldId == worldId)
+            .Where(e => e.MissionId == missionId)
+            .FirstOrDefault();
+
+        if (mission != null)
+        {
+            // set mission complete
+            mission.IsCompleted = isCompleted;
+
+            // add jumpstars for completing the mission
+            if (isCompleted) achievementService.AddAchievementPoints(viking, AchievementPointTypes.PlayerXP, 25); // hardcoding earning 25 for now
+
+            ctx.SaveChanges();
+            return true;
+        }
+
+        return false;
+    }
+
+    public bool SetUserBadgeComplete(Viking viking, int gameId)
+    {
+        // add completed badge to database
+        UserBadgeCompleteData userBadgeCompleteData = new() { BadgeId = gameId };
+
+        viking.UserBadgesCompleted.Add(userBadgeCompleteData);
+        ctx.SaveChanges();
+
+        return true;
+    }
+
     public List<MissionCompletedResult> UpdateTaskProgress(int missionId, int taskId, int userId, bool completed, string xmlPayload, uint gameVersion) {
         SetTaskProgressDB(missionId, taskId, userId, completed, xmlPayload);
 

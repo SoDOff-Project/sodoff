@@ -5,7 +5,8 @@ using sodoff.Schema;
 namespace sodoff.Model;
 
 [Index(nameof(Uid))]
-public class Viking {
+public class Viking
+{
     [Key]
     public int Id { get; set; }
 
@@ -42,6 +43,8 @@ public class Viking {
     public virtual ICollection<Group> Groups { get; set; } = null!;
     public virtual ICollection<Rating> Ratings { get; set; } = null!;
     public virtual Dragon? SelectedDragon { get; set; }
+    public virtual ICollection<UserMissionData> UserMissions { get; set; } = null!;
+    public virtual ICollection<UserBadgeCompleteData> UserBadgesCompleted { get; set; } = null!;
 
     public DateTime? CreationDate { get; set; }
     public DateTime? BirthDate { get; set; }

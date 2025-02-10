@@ -142,5 +142,8 @@
 	<EmbeddedResource Include="Resources\defaulthouse.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
+	<EmbeddedResource Include="Resources\worlds.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
