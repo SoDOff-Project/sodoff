@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Step xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <StepID>44</StepID>
+  <OfferSpeech>
+    <FileName>DlgKishaS44Offer</FileName>
+    <NPC>NPCs.unity3d/PfKisha</NPC>
+    <Bundle>RS_DATA/DlgsAdventureM04S04.unity3d</Bundle>
+  </OfferSpeech>
+  <EndSpeech>
+    <FileName>DlgKishaS44End</FileName>
+    <NPC>NPCs.unity3d/PfKisha</NPC>
+    <Bundle>RS_DATA/DlgsAdventureM04S04.unity3d</Bundle>
+  </EndSpeech>
+  <TasksNeeded>-1</TasksNeeded>
+  <Task>
+    <TaskID>268</TaskID>
+    <Type>GameModule</Type>
+    <Dialog xsi:nil="true" />
+    <SetupGroup xsi:nil="true" />
+    <SetupScene>TownCenter</SetupScene>
+    <Help>
+      <FileName>DlgCJT268Help</FileName>
+      <NPC>NPCs.unity3d/PfCJ</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM04S04.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgHopsT268Help</FileName>
+      <NPC>NPCs.unity3d/PfHops</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM04S04.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgEleanorT268Help</FileName>
+      <NPC>NPCs.unity3d/PfEleanor</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM04S04.unity3d</Bundle>
+    </Help>
+    <Experience>0</Experience>
+    <Time xsi:nil="true" />
+    <Objective>
+      <Beacon xsi:nil="true" />
+      <NPC xsi:nil="true" />
+      <Marker xsi:nil="true" />
+      <Scene xsi:nil="true" />
+      <Range xsi:nil="true" />
+      <Module>Calendar</Module>
+      <Group xsi:nil="true" />
+      <Object xsi:nil="true" />
+      <StoreID xsi:nil="true" />
+      <ItemID xsi:nil="true" />
+      <ItemName xsi:nil="true" />
+      <CategoryID xsi:nil="true" />
+      <Quantity xsi:nil="true" />
+      <Photo xsi:nil="true" />
+      <Creative xsi:nil="true" />
+    </Objective>
+  </Task>
+  <Message>
+    <Text>Go to the Bell Tower in Lost Shores, click on Frankie's calendar, and orgranize it for him.</Text>
+    <ItemID xsi:nil="true" />
+    <Scale xsi:nil="true" />
+  </Message>
+  <NPCData>
+    <NPC>NPCs.unity3d/PfFrankie</NPC>
+    <Marker>REMOVE</Marker>
+    <Scene>TrekAncient01</Scene>
+    <Animation xsi:nil="true" />
+  </NPCData>
+  <NPCData>
+    <NPC>NPCs.unity3d/PfKisha</NPC>
+    <Marker>PfMarker_TcClckTwrNPC</Marker>
+    <Scene>TownCenter</Scene>
+    <Animation xsi:nil="true" />
+  </NPCData>
+</Step>

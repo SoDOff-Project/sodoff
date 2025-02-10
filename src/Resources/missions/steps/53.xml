@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Step xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <StepID>53</StepID>
+  <OfferSpeech>
+    <FileName>DlgKishaS53Offer</FileName>
+    <NPC>NPCs.unity3d/PfKisha</NPC>
+    <Bundle>RS_DATA/DlgsAdventureM06S02.unity3d</Bundle>
+  </OfferSpeech>
+  <EndSpeech>
+    <FileName>DlgKishaS53End</FileName>
+    <NPC>NPCs.unity3d/PfKisha</NPC>
+    <Bundle>RS_DATA/DlgsAdventureM06S02.unity3d</Bundle>
+  </EndSpeech>
+  <TasksNeeded>-1</TasksNeeded>
+  <Task>
+    <TaskID>277</TaskID>
+    <Type>Collect</Type>
+    <Dialog xsi:nil="true" />
+    <SetupGroup xsi:nil="true" />
+    <SetupScene>TownCenter</SetupScene>
+    <Help>
+      <FileName>DlgHopsT277Help</FileName>
+      <NPC>NPCs.unity3d/PfHops</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM06S02.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgFrankieT277Help</FileName>
+      <NPC>NPCs.unity3d/PfFrankie</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM06S02.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgCJT277Help</FileName>
+      <NPC>NPCs.unity3d/PfCJ</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM06S02.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgEleanorT277Help</FileName>
+      <NPC>NPCs.unity3d/PfEleanor</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM06S02.unity3d</Bundle>
+    </Help>
+    <Experience>0</Experience>
+    <Time xsi:nil="true" />
+    <Objective>
+      <Beacon xsi:nil="true" />
+      <NPC>PfPunk</NPC>
+      <Marker xsi:nil="true" />
+      <Scene>TownCenter</Scene>
+      <Range xsi:nil="true" />
+      <Module xsi:nil="true" />
+      <Group>GrpTcMis06St02</Group>
+      <Object xsi:nil="true" />
+      <StoreID xsi:nil="true" />
+      <ItemID xsi:nil="true" />
+      <ItemName xsi:nil="true" />
+      <CategoryID xsi:nil="true" />
+      <Quantity>11</Quantity>
+      <Photo xsi:nil="true" />
+      <Creative xsi:nil="true" />
+    </Objective>
+  </Task>
+  <Message>
+    <Text>Help Kisha get rid of the Punk-Punks!  Press the spacebar one time to jump and press it another time in the air to land on the Punk-Punks and send them away.</Text>
+    <ItemID xsi:nil="true" />
+    <Scale xsi:nil="true" />
+  </Message>
+  <NPCData>
+    <NPC>NPCs.unity3d/PfFrankie</NPC>
+    <Marker>PfMarker_HbHouseNPC</Marker>
+    <Scene>HomeBase</Scene>
+    <Animation xsi:nil="true" />
+  </NPCData>
+  <NPCData>
+    <NPC>NPCs.unity3d/PfHops</NPC>
+    <Marker>PfMarker_TcMidMtnNPC</Marker>
+    <Scene>TownCenter</Scene>
+    <Animation xsi:nil="true" />
+  </NPCData>
+  <NPCData>
+    <NPC>NPCs.unity3d/PfKisha</NPC>
+    <Marker>PfMarker_TcTownEntNPC</Marker>
+    <Scene>TownCenter</Scene>
+    <Animation xsi:nil="true" />
+  </NPCData>
+  <NPCData>
+    <NPC>NPCs.unity3d/PfEleanor</NPC>
+    <Marker>PfMarker_HbNPCEleanorDefault</Marker>
+    <Scene>HomeBase</Scene>
+    <Animation xsi:nil="true" />
+  </NPCData>
+  <NPCData>
+    <NPC>NPCs.unity3d/PfCJ</NPC>
+    <Marker>PfMarker_TcBeachNPC</Marker>
+    <Scene>TownCenter</Scene>
+    <Animation xsi:nil="true" />
+  </NPCData>
+  <NPCData>
+    <NPC>NPCs.unity3d/PfPierre</NPC>
+    <Marker>PfMarker_HbPierNPC</Marker>
+    <Scene>HomeBase</Scene>
+    <Animation xsi:nil="true" />
+  </NPCData>
+</Step>

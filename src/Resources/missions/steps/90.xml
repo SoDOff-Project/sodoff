@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Step xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <StepID>90</StepID>
+  <OfferSpeech>
+    <FileName>DlgHopsS90Offer</FileName>
+    <NPC>NPCs.unity3d/PfHops</NPC>
+    <Bundle>RS_DATA/DlgsAdventureM10S05.unity3d</Bundle>
+  </OfferSpeech>
+  <EndSpeech>
+    <FileName>DlgHopsS90End</FileName>
+    <NPC>NPCs.unity3d/PfHops</NPC>
+    <Bundle>RS_DATA/DlgsAdventureM10S05.unity3d</Bundle>
+  </EndSpeech>
+  <TasksNeeded>-1</TasksNeeded>
+  <Task>
+    <TaskID>322</TaskID>
+    <Type>Collect</Type>
+    <Dialog xsi:nil="true" />
+    <SetupGroup>GrpEvMis10St05</SetupGroup>
+    <SetupScene xsi:nil="true" />
+    <Help>
+      <FileName>DlgCJT322Help</FileName>
+      <NPC>NPCs.unity3d/PfCJ</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM10S05.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgFrankieT322Help</FileName>
+      <NPC>NPCs.unity3d/PfFrankie</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM10S05.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgKishaT322Help</FileName>
+      <NPC>NPCs.unity3d/PfKisha</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM10S05.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgPierreT322Help</FileName>
+      <NPC>NPCs.unity3d/PfPierre</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM10S05.unity3d</Bundle>
+    </Help>
+    <RewardPlayerItem>
+      <ItemID>853</ItemID>
+      <Quantity>1</Quantity>
+    </RewardPlayerItem>
+    <Experience>0</Experience>
+    <Time xsi:nil="true" />
+    <Objective>
+      <Beacon xsi:nil="true" />
+      <NPC xsi:nil="true" />
+      <Marker xsi:nil="true" />
+      <Scene>EnemyValley</Scene>
+      <Range xsi:nil="true" />
+      <Module xsi:nil="true" />
+      <Group>GrpEvMis10St05</Group>
+      <Object xsi:nil="true" />
+      <StoreID xsi:nil="true" />
+      <ItemID>18</ItemID>
+      <ItemName>PfCollectCMStatueOrange</ItemName>
+      <CategoryID xsi:nil="true" />
+      <Quantity>1</Quantity>
+      <Photo xsi:nil="true" />
+      <Creative xsi:nil="true" />
+    </Objective>
+  </Task>
+  <Message>
+    <Text>When you find the Punk-Punk statue in their hideout, run over it to collect it.  </Text>
+    <ItemID xsi:nil="true" />
+    <Scale xsi:nil="true" />
+  </Message>
+</Step>

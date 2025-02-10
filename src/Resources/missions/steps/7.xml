@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Step xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <StepID>7</StepID>
+  <OfferSpeech>
+    <FileName>DlgFrankieS7Offer</FileName>
+    <NPC>NPCs.unity3d/PfFrankie</NPC>
+    <Bundle>RS_DATA/DlgsAdventureM01S08.unity3d</Bundle>
+  </OfferSpeech>
+  <EndSpeech>
+    <FileName>DlgFrankieS7End</FileName>
+    <NPC>NPCs.unity3d/PfFrankie</NPC>
+    <Bundle>RS_DATA/DlgsAdventureM01S08.unity3d</Bundle>
+  </EndSpeech>
+  <TasksNeeded>-1</TasksNeeded>
+  <Task>
+    <TaskID>7</TaskID>
+    <Type>Build</Type>
+    <Dialog xsi:nil="true" />
+    <SetupGroup>GrpTiMis01St07</SetupGroup>
+    <SetupScene>TrainingIsland</SetupScene>
+    <Help>
+      <FileName>DlgEleanorT7Help</FileName>
+      <NPC>NPCs.unity3d/PfEleanor</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM01S07.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgPierreT7Help</FileName>
+      <NPC>NPCs.unity3d/PfPierre</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM01S07.unity3d</Bundle>
+    </Help>
+    <Experience>0</Experience>
+    <Time xsi:nil="true" />
+    <Objective>
+      <Beacon xsi:nil="true" />
+      <NPC xsi:nil="true" />
+      <Marker xsi:nil="true" />
+      <Scene>TrainingIsland</Scene>
+      <Range xsi:nil="true" />
+      <Module xsi:nil="true" />
+      <Group xsi:nil="true" />
+      <Object>PfDecorBox_TiGlider01</Object>
+      <StoreID xsi:nil="true" />
+      <ItemID>849</ItemID>
+      <ItemName>RS_SHARED/zzItems.unity3d/PfItemCheckeredFlag</ItemName>
+      <CategoryID xsi:nil="true" />
+      <Quantity>1</Quantity>
+      <Photo xsi:nil="true" />
+      <Creative xsi:nil="true" />
+    </Objective>
+  </Task>
+  <Message>
+    <Text>Follow the trail of lanterns to the top of the course.  Click on the yellow spot to place the flag.</Text>
+    <ItemID xsi:nil="true" />
+    <Scale xsi:nil="true" />
+  </Message>
+</Step>

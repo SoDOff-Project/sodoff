@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Step xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <StepID>99</StepID>
+  <OfferSpeech>
+    <FileName>DlgHopsS99Offer</FileName>
+    <NPC>NPCs.unity3d/PfHops</NPC>
+    <Bundle>RS_DATA/DlgsAdventureM11S06.unity3d</Bundle>
+  </OfferSpeech>
+  <EndSpeech>
+    <FileName>DlgHopsS99End</FileName>
+    <NPC>NPCs.unity3d/PfHops</NPC>
+    <Bundle>RS_DATA/DlgsAdventureM11S06.unity3d</Bundle>
+  </EndSpeech>
+  <TasksNeeded>-1</TasksNeeded>
+  <Task>
+    <TaskID>332</TaskID>
+    <Type>Collect</Type>
+    <Dialog xsi:nil="true" />
+    <SetupGroup xsi:nil="true" />
+    <SetupScene xsi:nil="true" />
+    <Help>
+      <FileName>DlgFrankieT332Help</FileName>
+      <NPC>NPCs.unity3d/PfFrankie</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM11S06.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgCJT332Help</FileName>
+      <NPC>NPCs.unity3d/PfCJ</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM11S06.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgPierreT332Help</FileName>
+      <NPC>NPCs.unity3d/PfPierre</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM11S06.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgEleanorT332Help</FileName>
+      <NPC>NPCs.unity3d/PfEleanor</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM11S06.unity3d</Bundle>
+    </Help>
+    <RewardPlayerItem>
+      <ItemID>854</ItemID>
+      <Quantity>1</Quantity>
+    </RewardPlayerItem>
+    <Experience>0</Experience>
+    <Time xsi:nil="true" />
+    <Objective>
+      <Beacon xsi:nil="true" />
+      <NPC xsi:nil="true" />
+      <Marker xsi:nil="true" />
+      <Scene>HomeBase</Scene>
+      <Range xsi:nil="true" />
+      <Module xsi:nil="true" />
+      <Group>GrpHbMis11St06</Group>
+      <Object xsi:nil="true" />
+      <StoreID xsi:nil="true" />
+      <ItemID>20</ItemID>
+      <ItemName>PfCollectFloatFlag</ItemName>
+      <CategoryID xsi:nil="true" />
+      <Quantity>1</Quantity>
+      <Photo xsi:nil="true" />
+      <Creative xsi:nil="true" />
+    </Objective>
+  </Task>
+  <Message>
+    <Text>Swim in the water near the tiny island near your house to collect the floating red triangle.</Text>
+    <ItemID xsi:nil="true" />
+    <Scale xsi:nil="true" />
+  </Message>
+</Step>

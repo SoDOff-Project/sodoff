@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Step xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <StepID>93</StepID>
+  <OfferSpeech>
+    <FileName>DlgHopsS93Offer</FileName>
+    <NPC>NPCs.unity3d/PfHops</NPC>
+    <Bundle>RS_DATA/DlgsAdventureM10S08.unity3d</Bundle>
+  </OfferSpeech>
+  <EndSpeech>
+    <FileName>DlgHopsS93End</FileName>
+    <NPC>NPCs.unity3d/PfHops</NPC>
+    <Bundle>RS_DATA/DlgsAdventureM10S08.unity3d</Bundle>
+  </EndSpeech>
+  <TasksNeeded>-1</TasksNeeded>
+  <Task>
+    <TaskID>326</TaskID>
+    <Type>GameModule</Type>
+    <Dialog xsi:nil="true" />
+    <SetupGroup xsi:nil="true" />
+    <SetupScene xsi:nil="true" />
+    <Help>
+      <FileName>DlgKishaT326Help</FileName>
+      <NPC>NPCs.unity3d/PfKisha</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM10S08.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgCJT326Help</FileName>
+      <NPC>NPCs.unity3d/PfCJ</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM10S08.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgFrankieT326Help</FileName>
+      <NPC>NPCs.unity3d/PfFrankie</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM10S08.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgPierreT326Help</FileName>
+      <NPC>NPCs.unity3d/PfPierre</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM10S08.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgEleanorT326Help</FileName>
+      <NPC>NPCs.unity3d/PfEleanor</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM10S08.unity3d</Bundle>
+    </Help>
+    <Experience>0</Experience>
+    <Time xsi:nil="true" />
+    <Objective>
+      <Beacon xsi:nil="true" />
+      <NPC xsi:nil="true" />
+      <Marker xsi:nil="true" />
+      <Scene xsi:nil="true" />
+      <Range xsi:nil="true" />
+      <Module>HopsJetPack</Module>
+      <Group xsi:nil="true" />
+      <Object xsi:nil="true" />
+      <StoreID xsi:nil="true" />
+      <ItemID xsi:nil="true" />
+      <ItemName xsi:nil="true" />
+      <CategoryID xsi:nil="true" />
+      <Quantity xsi:nil="true" />
+      <Photo xsi:nil="true" />
+      <Creative xsi:nil="true" />
+    </Objective>
+  </Task>
+  <Message>
+    <Text>Play Hops' Jet Pack game to get your brain in motion.</Text>
+    <ItemID xsi:nil="true" />
+    <Scale xsi:nil="true" />
+  </Message>
+</Step>

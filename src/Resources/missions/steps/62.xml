@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Step xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <StepID>62</StepID>
+  <OfferSpeech>
+    <FileName>DlgFrankieS62Offer</FileName>
+    <NPC>NPCs.unity3d/PfFrankie</NPC>
+    <Bundle>RS_DATA/DlgsAdventureM07S04.unity3d</Bundle>
+  </OfferSpeech>
+  <EndSpeech>
+    <FileName>DlgFrankieS62End</FileName>
+    <NPC>NPCs.unity3d/PfFrankie</NPC>
+    <Bundle>RS_DATA/DlgsAdventureM07S04.unity3d</Bundle>
+  </EndSpeech>
+  <TasksNeeded>-1</TasksNeeded>
+  <Task>
+    <TaskID>293</TaskID>
+    <Type>Build</Type>
+    <Dialog xsi:nil="true" />
+    <Message>
+      <Text>The Diva Daisy in the pink planter by the Bell Tower.</Text>
+      <ItemID xsi:nil="true" />
+      <Scale xsi:nil="true" />
+    </Message>
+    <SetupGroup xsi:nil="true" />
+    <SetupScene>TownCenter</SetupScene>
+    <Experience>0</Experience>
+    <Time xsi:nil="true" />
+    <Objective>
+      <Beacon xsi:nil="true" />
+      <NPC xsi:nil="true" />
+      <Marker xsi:nil="true" />
+      <Scene>TownCenter</Scene>
+      <Range xsi:nil="true" />
+      <Module xsi:nil="true" />
+      <Group xsi:nil="true" />
+      <Object>PfPot_TcClkTwr02</Object>
+      <StoreID xsi:nil="true" />
+      <ItemID xsi:nil="true" />
+      <ItemName xsi:nil="true" />
+      <CategoryID>5</CategoryID>
+      <Quantity>1</Quantity>
+      <Photo xsi:nil="true" />
+      <Creative xsi:nil="true" />
+    </Objective>
+  </Task>
+  <Task>
+    <TaskID>292</TaskID>
+    <Type>Build</Type>
+    <Dialog xsi:nil="true" />
+    <Message>
+      <Text>The Lovely Lily in the blue planter by the Bell Tower.</Text>
+      <ItemID xsi:nil="true" />
+      <Scale xsi:nil="true" />
+    </Message>
+    <SetupGroup xsi:nil="true" />
+    <SetupScene xsi:nil="true" />
+    <Help>
+      <FileName>DlgCJT292Help</FileName>
+      <NPC>NPCs.unity3d/PfCJ</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM07S04.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgKishaT292Help</FileName>
+      <NPC>NPCs.unity3d/PfKisha</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM07S04.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgEleanorT293Help</FileName>
+      <NPC>NPCs.unity3d/PfEleanor</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM07S04.unity3d</Bundle>
+    </Help>
+    <Experience>0</Experience>
+    <Time xsi:nil="true" />
+    <Objective>
+      <Beacon xsi:nil="true" />
+      <NPC xsi:nil="true" />
+      <Marker xsi:nil="true" />
+      <Scene>TownCenter</Scene>
+      <Range xsi:nil="true" />
+      <Module xsi:nil="true" />
+      <Group xsi:nil="true" />
+      <Object>PfPot_TcClkTwr03</Object>
+      <StoreID xsi:nil="true" />
+      <ItemID xsi:nil="true" />
+      <ItemName xsi:nil="true" />
+      <CategoryID>7</CategoryID>
+      <Quantity>1</Quantity>
+      <Photo xsi:nil="true" />
+      <Creative xsi:nil="true" />
+    </Objective>
+  </Task>
+  <Task>
+    <TaskID>294</TaskID>
+    <Type>Build</Type>
+    <Dialog xsi:nil="true" />
+    <Message>
+      <Text>The Cactus Cool in the green planter by the Art Studio.</Text>
+      <ItemID xsi:nil="true" />
+      <Scale xsi:nil="true" />
+    </Message>
+    <SetupGroup xsi:nil="true" />
+    <SetupScene>TownCenter</SetupScene>
+    <Experience>0</Experience>
+    <Time xsi:nil="true" />
+    <Objective>
+      <Beacon xsi:nil="true" />
+      <NPC xsi:nil="true" />
+      <Marker xsi:nil="true" />
+      <Scene>TownCenter</Scene>
+      <Range xsi:nil="true" />
+      <Module xsi:nil="true" />
+      <Group xsi:nil="true" />
+      <Object>PfPot_TcArtHse01</Object>
+      <StoreID xsi:nil="true" />
+      <ItemID xsi:nil="true" />
+      <ItemName xsi:nil="true" />
+      <CategoryID>6</CategoryID>
+      <Quantity>1</Quantity>
+      <Photo xsi:nil="true" />
+      <Creative xsi:nil="true" />
+    </Objective>
+  </Task>
+  <Message>
+    <Text>Put all the plants in the correct planters: </Text>
+    <ItemID xsi:nil="true" />
+    <Scale xsi:nil="true" />
+  </Message>
+</Step>

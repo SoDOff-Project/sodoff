@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Step xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <StepID>52</StepID>
+  <OfferSpeech>
+    <FileName>DlgKishaS52Offer</FileName>
+    <NPC>NPCs.unity3d/PfKisha</NPC>
+    <Bundle>RS_DATA/DlgsAdventureM06S01.unity3d</Bundle>
+  </OfferSpeech>
+  <EndSpeech>
+    <FileName>DlgKishaS52End</FileName>
+    <NPC>NPCs.unity3d/PfKisha</NPC>
+    <Bundle>RS_DATA/DlgsAdventureM06S01.unity3d</Bundle>
+  </EndSpeech>
+  <TasksNeeded>-1</TasksNeeded>
+  <Task>
+    <TaskID>276</TaskID>
+    <Type>Meet</Type>
+    <Dialog xsi:nil="true" />
+    <SetupGroup xsi:nil="true" />
+    <SetupScene xsi:nil="true" />
+    <Help>
+      <FileName>DlgFrankieT276Help</FileName>
+      <NPC>NPCs.unity3d/PfFrankie</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM06S01.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgCJT276Help</FileName>
+      <NPC>NPCs.unity3d/PfCJ</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM06S01.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgHopsT276Help</FileName>
+      <NPC>NPCs.unity3d/PfHops</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM06S01.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgEleanorT276Help</FileName>
+      <NPC>NPCs.unity3d/PfEleanor</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM06S01.unity3d</Bundle>
+    </Help>
+    <Experience>0</Experience>
+    <Time xsi:nil="true" />
+    <Objective>
+      <Beacon>false</Beacon>
+      <NPC>NPCs.unity3d/PfKisha</NPC>
+      <Marker xsi:nil="true" />
+      <Scene xsi:nil="true" />
+      <Range xsi:nil="true" />
+      <Module xsi:nil="true" />
+      <Group xsi:nil="true" />
+      <Object xsi:nil="true" />
+      <StoreID xsi:nil="true" />
+      <ItemID xsi:nil="true" />
+      <ItemName xsi:nil="true" />
+      <CategoryID xsi:nil="true" />
+      <Quantity xsi:nil="true" />
+      <Photo xsi:nil="true" />
+      <Creative xsi:nil="true" />
+    </Objective>
+  </Task>
+  <Message>
+    <Text>Find Kisha in the town of Lost Shores to help her get rid of the Punk-Punks in Lost Shores.</Text>
+    <ItemID xsi:nil="true" />
+    <Scale xsi:nil="true" />
+  </Message>
+  <NPCData>
+    <NPC>NPCs.unity3d/PfKisha</NPC>
+    <Marker>PfMarker_TcTownEntNPC</Marker>
+    <Scene>TownCenter</Scene>
+    <Animation xsi:nil="true" />
+  </NPCData>
+  <NPCData>
+    <NPC>NPCs.unity3d/PfKisha</NPC>
+    <Marker>PfMarker_TcTownEntNPC</Marker>
+    <Scene>TownCenter</Scene>
+    <Animation xsi:nil="true" />
+  </NPCData>
+  <NPCData>
+    <NPC>NPCs.unity3d/PfFrankie</NPC>
+    <Marker>PfMarker_HbHouseNPC</Marker>
+    <Scene>HomeBase</Scene>
+    <Animation xsi:nil="true" />
+  </NPCData>
+  <NPCData>
+    <NPC>NPCs.unity3d/PfKisha</NPC>
+    <Marker>PfMarker_TcTownEntNPC</Marker>
+    <Scene>TownCenter</Scene>
+    <Animation xsi:nil="true" />
+  </NPCData>
+</Step>

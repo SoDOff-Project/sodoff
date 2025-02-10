@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Step xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <StepID>83</StepID>
+  <OfferSpeech>
+    <FileName>DlgHopsS83Offer</FileName>
+    <NPC>NPCs.unity3d/PfHops</NPC>
+    <Bundle>RS_DATA/DlgsAdventureM09S05.unity3d</Bundle>
+  </OfferSpeech>
+  <EndSpeech>
+    <FileName>DlgHopsS83End</FileName>
+    <NPC>NPCs.unity3d/PfHops</NPC>
+    <Bundle>RS_DATA/DlgsAdventureM09S05.unity3d</Bundle>
+  </EndSpeech>
+  <TasksNeeded>-1</TasksNeeded>
+  <Task>
+    <TaskID>315</TaskID>
+    <Type>Visit</Type>
+    <Dialog xsi:nil="true" />
+    <SetupGroup xsi:nil="true" />
+    <SetupScene xsi:nil="true" />
+    <Help>
+      <FileName>DlgCJT315Help</FileName>
+      <NPC>NPCs.unity3d/PfCJ</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM09S05.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgFrankieT315Help</FileName>
+      <NPC>NPCs.unity3d/PfFrankie</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM09S05.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgPierreT315Help</FileName>
+      <NPC>NPCs.unity3d/PfPierre</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM09S05.unity3d</Bundle>
+    </Help>
+    <Experience>0</Experience>
+    <Time xsi:nil="true" />
+    <Objective>
+      <Beacon>false</Beacon>
+      <NPC xsi:nil="true" />
+      <Marker>PfMarker_EvAvatarStart</Marker>
+      <Scene>EnemyValley</Scene>
+      <Range xsi:nil="true" />
+      <Module xsi:nil="true" />
+      <Group xsi:nil="true" />
+      <Object xsi:nil="true" />
+      <StoreID xsi:nil="true" />
+      <ItemID xsi:nil="true" />
+      <ItemName xsi:nil="true" />
+      <CategoryID xsi:nil="true" />
+      <Quantity xsi:nil="true" />
+      <Photo xsi:nil="true" />
+      <Creative xsi:nil="true" />
+    </Objective>
+  </Task>
+  <Message>
+    <Text>Take the blue and yellow jump pad and go through the green opening.</Text>
+    <ItemID xsi:nil="true" />
+    <Scale xsi:nil="true" />
+  </Message>
+  <NPCData>
+    <NPC>NPCs.unity3d/PfPierre</NPC>
+    <Marker>PfMarker_MjMtnExitNPC</Marker>
+    <Scene>MountainJetpack</Scene>
+    <Animation xsi:nil="true" />
+  </NPCData>
+</Step>

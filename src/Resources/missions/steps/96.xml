@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Step xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <StepID>96</StepID>
+  <OfferSpeech>
+    <FileName>DlgHopsS96Offer</FileName>
+    <NPC>NPCs.unity3d/PfHops</NPC>
+    <Bundle>RS_DATA/DlgsAdventureM11S03.unity3d</Bundle>
+  </OfferSpeech>
+  <EndSpeech>
+    <FileName>DlgHopsS96End</FileName>
+    <NPC>NPCs.unity3d/PfHops</NPC>
+    <Bundle>RS_DATA/DlgsAdventureM11S03.unity3d</Bundle>
+  </EndSpeech>
+  <TasksNeeded>-1</TasksNeeded>
+  <Task>
+    <TaskID>329</TaskID>
+    <Type>Build</Type>
+    <Dialog xsi:nil="true" />
+    <SetupGroup xsi:nil="true" />
+    <SetupScene xsi:nil="true" />
+    <Help>
+      <FileName>DlgFrankieT329Help</FileName>
+      <NPC>NPCs.unity3d/PfFrankie</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM11S03.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgKishaT329Help</FileName>
+      <NPC>NPCs.unity3d/PfKisha</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM11S03.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgCJT329Help</FileName>
+      <NPC>NPCs.unity3d/PfCJ</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM11S03.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgEleanorT329Help</FileName>
+      <NPC>NPCs.unity3d/PfEleanor</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM11S03.unity3d</Bundle>
+    </Help>
+    <Experience>0</Experience>
+    <Time xsi:nil="true" />
+    <Objective>
+      <Beacon xsi:nil="true" />
+      <NPC xsi:nil="true" />
+      <Marker xsi:nil="true" />
+      <Scene>TrekAncient01</Scene>
+      <Range xsi:nil="true" />
+      <Module xsi:nil="true" />
+      <Group xsi:nil="true" />
+      <Object>PfBillboard_TcGarden</Object>
+      <StoreID xsi:nil="true" />
+      <ItemID xsi:nil="true" />
+      <ItemName xsi:nil="true" />
+      <CategoryID xsi:nil="true" />
+      <Quantity>1</Quantity>
+      <Photo xsi:nil="true" />
+      <Creative>
+        <Type>1</Type>
+      </Creative>
+    </Objective>
+  </Task>
+  <Message>
+    <Text>Click on the billboard by the garden to post your picture.  </Text>
+    <ItemID xsi:nil="true" />
+    <Scale xsi:nil="true" />
+  </Message>
+</Step>

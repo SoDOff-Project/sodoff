@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Step xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <StepID>50</StepID>
+  <OfferSpeech>
+    <FileName>DlgHopsS50Offer</FileName>
+    <NPC>NPCs.unity3d/PfHops</NPC>
+    <Bundle>RS_DATA/DlgsAdventureM05S05.unity3d</Bundle>
+  </OfferSpeech>
+  <EndSpeech>
+    <FileName>DlgHopsS50End</FileName>
+    <NPC>NPCs.unity3d/PfHops</NPC>
+    <Bundle>RS_DATA/DlgsAdventureM05S05.unity3d</Bundle>
+  </EndSpeech>
+  <TasksNeeded>-1</TasksNeeded>
+  <Task>
+    <TaskID>274</TaskID>
+    <Type>Photo</Type>
+    <Dialog xsi:nil="true" />
+    <SetupGroup>GrpTcMis05St05</SetupGroup>
+    <SetupScene>TownCenter</SetupScene>
+    <Help>
+      <FileName>DlgCJT274Help</FileName>
+      <NPC>NPCs.unity3d/PfCJ</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM05S05.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgKishaT274Help</FileName>
+      <NPC>NPCs.unity3d/PfKisha</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM05S05.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgPierreT274Help</FileName>
+      <NPC>NPCs.unity3d/PfPierre</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM05S05.unity3d</Bundle>
+    </Help>
+    <Experience>0</Experience>
+    <Time xsi:nil="true" />
+    <Objective>
+      <Beacon xsi:nil="true" />
+      <NPC xsi:nil="true" />
+      <Marker xsi:nil="true" />
+      <Scene xsi:nil="true" />
+      <Range xsi:nil="true" />
+      <Module xsi:nil="true" />
+      <Group xsi:nil="true" />
+      <Object xsi:nil="true" />
+      <StoreID xsi:nil="true" />
+      <ItemID xsi:nil="true" />
+      <ItemName xsi:nil="true" />
+      <CategoryID xsi:nil="true" />
+      <Quantity xsi:nil="true" />
+      <Photo>
+        <ItemName>PfItemRedGeode</ItemName>
+        <Quantity>1</Quantity>
+      </Photo>
+      <Creative>
+        <Type>0</Type>
+      </Creative>
+    </Objective>
+  </Task>
+  <Message>
+    <Text>Use the super jumping ability to hunt for the red crystal rock Hops hid.  When you find it, click on your camera to take a picture of it.</Text>
+    <ItemID xsi:nil="true" />
+    <Scale xsi:nil="true" />
+  </Message>
+</Step>

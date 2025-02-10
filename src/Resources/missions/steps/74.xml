@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Step xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <StepID>74</StepID>
+  <OfferSpeech>
+    <FileName>DlgCJS74Offer</FileName>
+    <NPC>NPCs.unity3d/PfCJ</NPC>
+    <Bundle>RS_DATA/DlgsAdventureM08S07.unity3d</Bundle>
+  </OfferSpeech>
+  <EndSpeech>
+    <FileName>DlgCJS74End</FileName>
+    <NPC>NPCs.unity3d/PfCJ</NPC>
+    <Bundle>RS_DATA/DlgsAdventureM08S07.unity3d</Bundle>
+  </EndSpeech>
+  <TasksNeeded>-1</TasksNeeded>
+  <Task>
+    <TaskID>306</TaskID>
+    <Type>Photo</Type>
+    <Dialog xsi:nil="true" />
+    <SetupGroup xsi:nil="true" />
+    <SetupScene xsi:nil="true" />
+    <Help>
+      <FileName>DlgFrankieT306Help</FileName>
+      <NPC>NPCs.unity3d/PfFrankie</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM08S07.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgKishaT306Help</FileName>
+      <NPC>NPCs.unity3d/PfKisha</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM08S07.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgHopsT306Help</FileName>
+      <NPC>NPCs.unity3d/PfHops</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM08S07.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgPierreT306Help</FileName>
+      <NPC>NPCs.unity3d/PfPierre</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM08S07.unity3d</Bundle>
+    </Help>
+    <Experience>0</Experience>
+    <Time xsi:nil="true" />
+    <Objective>
+      <Beacon xsi:nil="true" />
+      <NPC xsi:nil="true" />
+      <Marker xsi:nil="true" />
+      <Scene xsi:nil="true" />
+      <Range xsi:nil="true" />
+      <Module xsi:nil="true" />
+      <Group xsi:nil="true" />
+      <Object xsi:nil="true" />
+      <StoreID xsi:nil="true" />
+      <ItemID xsi:nil="true" />
+      <ItemName xsi:nil="true" />
+      <CategoryID xsi:nil="true" />
+      <Quantity xsi:nil="true" />
+      <Photo>
+        <NPC>NPCs.unity3d/PfCJ</NPC>
+        <Quantity>1</Quantity>
+      </Photo>
+      <Creative>
+        <Type>0</Type>
+      </Creative>
+    </Objective>
+  </Task>
+  <Message>
+    <Text>Click on the camera to take a photo of CJ for his Big Book of Adventures.  </Text>
+    <ItemID xsi:nil="true" />
+    <Scale xsi:nil="true" />
+  </Message>
+  <NPCData>
+    <NPC>NPCs.unity3d/PfCJ</NPC>
+    <Marker>PfMarker_TcStoreNPC</Marker>
+    <Scene>TownCenter</Scene>
+    <Animation xsi:nil="true" />
+  </NPCData>
+</Step>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Step xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <StepID>56</StepID>
+  <OfferSpeech>
+    <FileName>DlgFrankieS56Offer</FileName>
+    <NPC>NPCs.unity3d/PfFrankie</NPC>
+    <Bundle>RS_DATA/DlgsAdventureM06S05.unity3d</Bundle>
+  </OfferSpeech>
+  <EndSpeech>
+    <FileName>DlgFrankieS56End</FileName>
+    <NPC>NPCs.unity3d/PfFrankie</NPC>
+    <Bundle>RS_DATA/DlgsAdventureM06S05.unity3d</Bundle>
+  </EndSpeech>
+  <TasksNeeded>-1</TasksNeeded>
+  <Task>
+    <TaskID>284</TaskID>
+    <Type>GameModule</Type>
+    <Dialog xsi:nil="true" />
+    <SetupGroup xsi:nil="true" />
+    <SetupScene xsi:nil="true" />
+    <Help>
+      <FileName>DlgKishaT284Help</FileName>
+      <NPC>NPCs.unity3d/PfKisha</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM06S05.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgCJT284Help</FileName>
+      <NPC>NPCs.unity3d/PfCJ</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM06S05.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgEleanorT284Help</FileName>
+      <NPC>NPCs.unity3d/PfEleanor</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM06S05.unity3d</Bundle>
+    </Help>
+    <Experience>0</Experience>
+    <Time xsi:nil="true" />
+    <Objective>
+      <Beacon xsi:nil="true" />
+      <NPC xsi:nil="true" />
+      <Marker xsi:nil="true" />
+      <Scene xsi:nil="true" />
+      <Range xsi:nil="true" />
+      <Module>Calendar</Module>
+      <Group xsi:nil="true" />
+      <Object xsi:nil="true" />
+      <StoreID xsi:nil="true" />
+      <ItemID xsi:nil="true" />
+      <ItemName xsi:nil="true" />
+      <CategoryID xsi:nil="true" />
+      <Quantity xsi:nil="true" />
+      <Photo xsi:nil="true" />
+      <Creative xsi:nil="true" />
+    </Objective>
+  </Task>
+  <Message>
+    <Text>Click on the calendar on the Lost Shores Bell Tower to check Frankie's schedule for the party.  </Text>
+    <ItemID xsi:nil="true" />
+    <Scale xsi:nil="true" />
+  </Message>
+  <NPCData>
+    <NPC>NPCs.unity3d/PfFrankie</NPC>
+    <Marker>REMOVE</Marker>
+    <Scene>TrekAncient01</Scene>
+    <Animation xsi:nil="true" />
+  </NPCData>
+</Step>

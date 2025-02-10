@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Step xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <StepID>77</StepID>
+  <OfferSpeech>
+    <FileName>DlgFrankieS77Offer</FileName>
+    <NPC>NPCs.unity3d/PfFrankie</NPC>
+    <Bundle>RS_DATA/DlgsAdventureM08S10.unity3d</Bundle>
+  </OfferSpeech>
+  <EndSpeech>
+    <FileName>DlgFrankieS77End</FileName>
+    <NPC>NPCs.unity3d/PfFrankie</NPC>
+    <Bundle>RS_DATA/DlgsAdventureM08S10.unity3d</Bundle>
+  </EndSpeech>
+  <TasksNeeded>-1</TasksNeeded>
+  <Task>
+    <TaskID>309</TaskID>
+    <Type>Creative</Type>
+    <Dialog xsi:nil="true" />
+    <SetupGroup xsi:nil="true" />
+    <SetupScene xsi:nil="true" />
+    <Help>
+      <FileName>DlgKishaT309Help</FileName>
+      <NPC>NPCs.unity3d/PfKisha</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM08S10.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgPierreT309Help</FileName>
+      <NPC>NPCs.unity3d/PfPierre</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM08S10.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgEleanorT309Help</FileName>
+      <NPC>NPCs.unity3d/PfEleanor</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM08S10.unity3d</Bundle>
+    </Help>
+    <Experience>0</Experience>
+    <Time xsi:nil="true" />
+    <Objective>
+      <Beacon xsi:nil="true" />
+      <NPC xsi:nil="true" />
+      <Marker xsi:nil="true" />
+      <Scene xsi:nil="true" />
+      <Range xsi:nil="true" />
+      <Module xsi:nil="true" />
+      <Group xsi:nil="true" />
+      <Object xsi:nil="true" />
+      <StoreID xsi:nil="true" />
+      <ItemID xsi:nil="true" />
+      <ItemName xsi:nil="true" />
+      <CategoryID xsi:nil="true" />
+      <Quantity xsi:nil="true" />
+      <Photo xsi:nil="true" />
+      <Creative>
+        <Type>3</Type>
+      </Creative>
+    </Objective>
+  </Task>
+  <Message>
+    <Text>Go to the art studio and create a framed photo with all the photos from the party.  Click on the picture of the photo frame to get started.</Text>
+    <ItemID xsi:nil="true" />
+    <Scale xsi:nil="true" />
+  </Message>
+  <NPCData>
+    <NPC>NPCs.unity3d/PfPierre</NPC>
+    <Marker>PfMarker_TcTownEntNPC</Marker>
+    <Scene>TownCenter</Scene>
+    <Animation xsi:nil="true" />
+  </NPCData>
+  <NPCData>
+    <NPC>NPCs.unity3d/PfKisha</NPC>
+    <Marker>PfMarker_TcKishaArtHse</Marker>
+    <Scene>TownCenter</Scene>
+    <Animation xsi:nil="true" />
+  </NPCData>
+</Step>

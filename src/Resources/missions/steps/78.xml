@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Step xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <StepID>78</StepID>
+  <OfferSpeech>
+    <FileName>DlgFrankieS78Offer</FileName>
+    <NPC>NPCs.unity3d/PfFrankie</NPC>
+    <Bundle>RS_DATA/DlgsAdventureM08S11.unity3d</Bundle>
+  </OfferSpeech>
+  <EndSpeech>
+    <FileName>DlgFrankieS78End</FileName>
+    <NPC>NPCs.unity3d/PfFrankie</NPC>
+    <Bundle>RS_DATA/DlgsAdventureM08S11.unity3d</Bundle>
+  </EndSpeech>
+  <TasksNeeded>-1</TasksNeeded>
+  <Task>
+    <TaskID>310</TaskID>
+    <Type>Build</Type>
+    <Dialog xsi:nil="true" />
+    <SetupGroup xsi:nil="true" />
+    <SetupScene xsi:nil="true" />
+    <Help>
+      <FileName>DlgKishaT310Help</FileName>
+      <NPC>NPCs.unity3d/PfKisha</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM08S11.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgCJT310Help</FileName>
+      <NPC>NPCs.unity3d/PfCJ</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM08S11.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgHopsT310Help</FileName>
+      <NPC>NPCs.unity3d/PfHops</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM08S11.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgPierreT310Help</FileName>
+      <NPC>NPCs.unity3d/PfPierre</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM08S11.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgEleanorT310Help</FileName>
+      <NPC>NPCs.unity3d/PfEleanor</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM08S11.unity3d</Bundle>
+    </Help>
+    <Experience>0</Experience>
+    <Time xsi:nil="true" />
+    <Objective>
+      <Beacon xsi:nil="true" />
+      <NPC xsi:nil="true" />
+      <Marker xsi:nil="true" />
+      <Scene>TownCenter</Scene>
+      <Range xsi:nil="true" />
+      <Module xsi:nil="true" />
+      <Group xsi:nil="true" />
+      <Object>PfBillboard_TcGarden</Object>
+      <StoreID xsi:nil="true" />
+      <ItemID xsi:nil="true" />
+      <ItemName xsi:nil="true" />
+      <CategoryID xsi:nil="true" />
+      <Quantity>1</Quantity>
+      <Photo xsi:nil="true" />
+      <Creative xsi:nil="true" />
+    </Objective>
+  </Task>
+  <Message>
+    <Text>Click on the billboard next to the garden and post your picture.</Text>
+    <ItemID xsi:nil="true" />
+    <Scale xsi:nil="true" />
+  </Message>
+  <NPCData>
+    <NPC>NPCs.unity3d/PfPierre</NPC>
+    <Marker>PfMarker_TcKishaArtHse</Marker>
+    <Scene>TownCenter</Scene>
+    <Animation xsi:nil="true" />
+  </NPCData>
+  <NPCData>
+    <NPC>NPCs.unity3d/PfKisha</NPC>
+    <Marker>PfMarker_TcTownEntNPC</Marker>
+    <Scene>TownCenter</Scene>
+    <Animation xsi:nil="true" />
+  </NPCData>
+</Step>

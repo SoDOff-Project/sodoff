@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Step xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <StepID>79</StepID>
+  <OfferSpeech>
+    <FileName>DlgCJS79Offer</FileName>
+    <NPC>NPCs.unity3d/PfCJ</NPC>
+    <Bundle>RS_DATA/DlgsAdventureM09S01.unity3d</Bundle>
+  </OfferSpeech>
+  <EndSpeech>
+    <FileName>DlgCJS79End</FileName>
+    <NPC>NPCs.unity3d/PfCJ</NPC>
+    <Bundle>RS_DATA/DlgsAdventureM09S01.unity3d</Bundle>
+  </EndSpeech>
+  <TasksNeeded>-1</TasksNeeded>
+  <Task>
+    <TaskID>311</TaskID>
+    <Type>Collect</Type>
+    <Dialog xsi:nil="true" />
+    <SetupGroup>GrpTcMis09St01</SetupGroup>
+    <SetupScene xsi:nil="true" />
+    <Help>
+      <FileName>DlgKishaT311Help</FileName>
+      <NPC>NPCs.unity3d/PfKisha</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM09S01.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgHopsT311Help</FileName>
+      <NPC>NPCs.unity3d/PfHops</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM09S01.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgFrankieT311Help</FileName>
+      <NPC>NPCs.unity3d/PfFrankie</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM09S01.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgPierreT311Help</FileName>
+      <NPC>NPCs.unity3d/PfPierre</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM09S01.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgEleanorT311Help</FileName>
+      <NPC>NPCs.unity3d/PfEleanor</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM09S01.unity3d</Bundle>
+    </Help>
+    <RewardPlayerItem>
+      <ItemID>850</ItemID>
+      <Quantity>1</Quantity>
+    </RewardPlayerItem>
+    <Experience>0</Experience>
+    <Time xsi:nil="true" />
+    <Objective>
+      <Beacon xsi:nil="true" />
+      <NPC xsi:nil="true" />
+      <Marker xsi:nil="true" />
+      <Scene>TownCenter</Scene>
+      <Range xsi:nil="true" />
+      <Module xsi:nil="true" />
+      <Group>GrpTcMis09St01</Group>
+      <Object xsi:nil="true" />
+      <StoreID xsi:nil="true" />
+      <ItemID>5</ItemID>
+      <ItemName>PfCollectBookCJ</ItemName>
+      <CategoryID xsi:nil="true" />
+      <Quantity>1</Quantity>
+      <Photo xsi:nil="true" />
+      <Creative xsi:nil="true" />
+    </Objective>
+  </Task>
+  <Message>
+    <Text>Ask the other explorers for hints to help find CJ's book.</Text>
+    <ItemID xsi:nil="true" />
+    <Scale xsi:nil="true" />
+  </Message>
+  <NPCData>
+    <NPC>NPCs.unity3d/PfCJ</NPC>
+    <Marker>PfMarker_TcGardenNPC</Marker>
+    <Scene>TownCenter</Scene>
+    <Animation xsi:nil="true" />
+  </NPCData>
+  <NPCData>
+    <NPC>NPCs.unity3d/PfHops</NPC>
+    <Marker>PfMarker_TcMidMtnNPC</Marker>
+    <Scene>TownCenter</Scene>
+    <Animation xsi:nil="true" />
+  </NPCData>
+  <NPCData>
+    <NPC>NPCs.unity3d/PfFrankie</NPC>
+    <Marker>PfMarker_TcStoreNPC</Marker>
+    <Scene>TownCenter</Scene>
+    <Animation xsi:nil="true" />
+  </NPCData>
+  <NPCData>
+    <NPC>NPCs.unity3d/PfEleanor</NPC>
+    <Marker>PfMarker_TcBeachNPC</Marker>
+    <Scene>TownCenter</Scene>
+    <Animation xsi:nil="true" />
+  </NPCData>
+  <NPCData>
+    <NPC>NPCs.unity3d/PfKisha</NPC>
+    <Marker>PfMarker_TcWaterfallNPC</Marker>
+    <Scene>TownCenter</Scene>
+    <Animation xsi:nil="true" />
+  </NPCData>
+</Step>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Step xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <StepID>9</StepID>
+  <OfferSpeech>
+    <FileName>DlgFrankieS9Offer</FileName>
+    <NPC>NPCs.unity3d/PfFrankie</NPC>
+    <Bundle>RS_DATA/DlgsAdventureM01S10.unity3d</Bundle>
+  </OfferSpeech>
+  <EndSpeech>
+    <FileName>DlgFrankieS9End</FileName>
+    <NPC>NPCs.unity3d/PfFrankie</NPC>
+    <Bundle>RS_DATA/DlgsAdventureM01S10.unity3d</Bundle>
+  </EndSpeech>
+  <TasksNeeded>-1</TasksNeeded>
+  <Task>
+    <TaskID>9</TaskID>
+    <Type>Visit</Type>
+    <Dialog xsi:nil="true" />
+    <SetupGroup>GrpTiMis01St09</SetupGroup>
+    <SetupScene>TrainingIsland</SetupScene>
+    <Help>
+      <FileName>DlgEleanorT9Help</FileName>
+      <NPC>NPCs.unity3d/PfEleanor</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM01S09.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgPierreT9Help</FileName>
+      <NPC>NPCs.unity3d/PfPierre</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM01S09.unity3d</Bundle>
+    </Help>
+    <Experience>0</Experience>
+    <Time xsi:nil="true" />
+    <Objective>
+      <Beacon>false</Beacon>
+      <NPC xsi:nil="true" />
+      <Marker>PfMarker_TiMeetPunk</Marker>
+      <Scene>TrainingIsland</Scene>
+      <Range>6</Range>
+      <Module xsi:nil="true" />
+      <Group xsi:nil="true" />
+      <Object xsi:nil="true" />
+      <StoreID xsi:nil="true" />
+      <ItemID xsi:nil="true" />
+      <ItemName xsi:nil="true" />
+      <CategoryID xsi:nil="true" />
+      <Quantity xsi:nil="true" />
+      <Photo xsi:nil="true" />
+      <Creative xsi:nil="true" />
+    </Objective>
+  </Task>
+  <Message>
+    <Text>Follow the trail of maps to the Punk-Punk Training Area.</Text>
+    <ItemID xsi:nil="true" />
+    <Scale xsi:nil="true" />
+  </Message>
+  <NPCData>
+    <NPC>NPCs.unity3d/PfFrankie</NPC>
+    <Marker>PfMarker_TiFrankBeach</Marker>
+    <Scene>TrainingIsland</Scene>
+    <Animation xsi:nil="true" />
+  </NPCData>
+</Step>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Step xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <StepID>45</StepID>
+  <OfferSpeech>
+    <FileName>DlgKishaS45Offer</FileName>
+    <NPC>NPCs.unity3d/PfKisha</NPC>
+    <Bundle>RS_DATA/DlgsAdventureM04S05.unity3d</Bundle>
+  </OfferSpeech>
+  <EndSpeech>
+    <FileName>DlgKishaS45End</FileName>
+    <NPC>NPCs.unity3d/PfKisha</NPC>
+    <Bundle>RS_DATA/DlgsAdventureM04S05.unity3d</Bundle>
+  </EndSpeech>
+  <TasksNeeded>-1</TasksNeeded>
+  <Task>
+    <TaskID>269</TaskID>
+    <Type>Collect</Type>
+    <Dialog xsi:nil="true" />
+    <SetupGroup>GrpTcMis04St05</SetupGroup>
+    <SetupScene xsi:nil="true" />
+    <Help>
+      <FileName>DlgCJT269Help</FileName>
+      <NPC>NPCs.unity3d/PfCJ</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM04S05.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgHopsT269Help</FileName>
+      <NPC>NPCs.unity3d/PfHops</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM04S05.unity3d</Bundle>
+    </Help>
+    <Help>
+      <FileName>DlgEleanorT269Help</FileName>
+      <NPC>NPCs.unity3d/PfEleanor</NPC>
+      <Bundle>RS_DATA/DlgsAdventureM04S05.unity3d</Bundle>
+    </Help>
+    <RewardPlayerItem>
+      <ItemID>852</ItemID>
+      <Quantity>1</Quantity>
+    </RewardPlayerItem>
+    <Experience>0</Experience>
+    <Time xsi:nil="true" />
+    <Objective>
+      <Beacon xsi:nil="true" />
+      <NPC xsi:nil="true" />
+      <Marker xsi:nil="true" />
+      <Scene>TownCenter</Scene>
+      <Range xsi:nil="true" />
+      <Module xsi:nil="true" />
+      <Group>GrpTcMis04St05</Group>
+      <Object xsi:nil="true" />
+      <StoreID xsi:nil="true" />
+      <ItemID>9</ItemID>
+      <ItemName>PfCollectKey</ItemName>
+      <CategoryID xsi:nil="true" />
+      <Quantity>1</Quantity>
+      <Photo xsi:nil="true" />
+      <Creative xsi:nil="true" />
+    </Objective>
+  </Task>
+  <Message>
+    <Text>Find Hops's lost key in the town of Lost Shores.</Text>
+    <ItemID xsi:nil="true" />
+    <Scale xsi:nil="true" />
+  </Message>
+  <NPCData>
+    <NPC>NPCs.unity3d/PfKisha</NPC>
+    <Marker>PfMarker_TcClckTwrNPC</Marker>
+    <Scene>TownCenter</Scene>
+    <Animation xsi:nil="true" />
+  </NPCData>
+</Step>
