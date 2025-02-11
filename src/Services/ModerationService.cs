@@ -70,6 +70,26 @@ public class ModerationService
 
     // Reporting
 
+    public List<Report> GetAllReportsReceivedFromViking(Viking viking, int typeFilter = 0)
+    {
+        // get all reports the viking has received by 'CreatedAt' descending
+        List<Report> reports = new List<Report>();
+        if (typeFilter != 0) reports = viking.ReportsReceived.Where(e => e.ReportType == typeFilter).OrderByDescending(e => e.CreatedAt).ToList();
+        else reports = viking.ReportsReceived.OrderByDescending(e => e.CreatedAt).ToList();
+
+        return reports;
+    }
+
+    public List<Report> GetAllReportsMadeFromViking(Viking viking, int typeFilter = 0)
+    {
+        // get all reports the viking has made by 'CreatedAt' descending
+        List<Report> reports = new List<Report>();
+        if (typeFilter != 0) reports = viking.ReportsMade.Where(e => e.ReportType == typeFilter).OrderByDescending(e => e.CreatedAt).ToList();
+        else reports = viking.ReportsMade.OrderByDescending(e => e.CreatedAt).ToList();
+
+        return reports;
+    }
+
     public Report AddReportToViking(string apiToken, Viking viking, Viking vikingToReport, ReportType reportReason)
     {
         // check if the report already exists with the viking creating the report
@@ -95,5 +115,16 @@ public class ModerationService
         mmoCommService.SendPacketToPlayer(apiToken, vikingToReport.Uid.ToString(), "SMM", new string[] { "SMM", "-1", "REPORT_FILED", "Oops! Looks like you may have done something wrong! Repeated offences will result in an account ban." });
 
         return report;
+    }
+
+    public bool RemoveReportFromViking(Viking viking, ReportType reportType)
+    {
+        // find the report of that type on that viking
+        Report? report = viking.ReportsReceived.FirstOrDefault(e => e.ReportType == (int)reportType);
+        if (report != null)
+        {
+            // remove it
+            return viking.ReportsReceived.Remove(report); // this should also remove it from the 'ReportsMade' list on the owner
+        } else return false;
     }
 }
