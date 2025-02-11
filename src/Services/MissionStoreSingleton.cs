@@ -8,6 +8,7 @@ namespace sodoff.Services;
 public class MissionStoreSingleton {
 
     private Dictionary<int, Mission> missions = new();
+    private Dictionary<(int, string), MissionData> stepsMissions = new();
     private Dictionary<int, Step> steps = new();
     private int[] activeMissions;
     private int[] upcomingMissions;
@@ -47,6 +48,11 @@ public class MissionStoreSingleton {
             }
             activeMissionsWoJS = defaultMissions.Active;
             upcomingMissionsWoJS = defaultMissions.Upcoming;
+
+            var stepsMissionsArray = XmlUtil.DeserializeXml<StepsMissionsGroup[]>(XmlUtil.ReadResourceXmlString("missions.step_missions"));
+            foreach (var missionGroup in stepsMissionsArray) {
+                stepsMissions.Add((missionGroup.GameId, missionGroup.WorldName), missionGroup.MissionData);
+            }
 
             var stepArray = XmlUtil.DeserializeXml<Step[]>(XmlUtil.ReadResourceXmlString("missions.step_missions_steps"));
             foreach (var step in stepArray) {
@@ -89,6 +95,17 @@ public class MissionStoreSingleton {
             return upcomingMissionsWoJS;
         }
         return new int[0];
+    }
+
+    public MissionData GetStepsMissions(int gameId, string worldName) {
+        if (stepsMissions.ContainsKey((gameId, worldName))) {
+            return stepsMissions[(gameId, worldName)];
+        } else if (stepsMissions.ContainsKey((gameId, "_default_"))) {
+            return stepsMissions[(gameId, "_default_")];
+        } else {
+            Console.WriteLine($"Can't find missions for gameId={gameId} worldName={worldName}");
+            return new MissionData();
+        }
     }
 
     public Step GetStep(int stepID) {

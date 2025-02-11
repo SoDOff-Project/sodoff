@@ -148,10 +148,7 @@
     <EmbeddedResource Include="Resources\missions\step_missions_steps.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\missions\step_missions_wojs_al.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\missions\step_missions_mb.xml">
+    <EmbeddedResource Include="Resources\missions\step_missions.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\missions\badge_wojs_al.xml">

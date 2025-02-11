@@ -7,8 +7,11 @@ public class ClientVersion {
     public const uint EMD       = 0x04000000;
     public const uint SS        = 0x02000000;
     public const uint WoJS      = 0x01000000;
-    public const uint WoJS_AdvLand   = 0x01000100; // World of JumpStart -- Adventureland
-    public const uint WoJS_NewAvatar = 0x01010000; // World of JumpStart with new avatars (e.g. 1.21)
+    public const uint WoJS_AdvLand    = 0x01000100; // World of JumpStart -- Adventureland
+    public const uint WoJS_FutureLand = 0x01000200; // World of JumpStart -- Futureland
+    public const uint WoJS_MarineLand = 0x01000300; // World of JumpStart -- Marineland
+    public const uint WoJS_StoryLand  = 0x01000400; // World of JumpStart -- Storyland
+    public const uint WoJS_NewAvatar  = 0x01010000; // World of JumpStart with new avatars (e.g. 1.21)
 
     public static uint GetVersion(string apiKey) {
         if (
@@ -49,6 +52,18 @@ public class ClientVersion {
             apiKey == "b4e0f71a-1cda-462a-97b3-0b355e87e0c8"
         ) {
             return WoJS_AdvLand;
+        } else if (
+            apiKey == "4fb5e29f-64e7-4cbb-8554-6f6c54b57597"
+        ) {
+            return WoJS_FutureLand;
+        } else if (
+            apiKey == "dc37ef0d-e1f8-4718-8239-73e68424e384"
+        ) {
+            return WoJS_MarineLand;
+        } else if (
+            apiKey == "bd69b6b9-a921-4741-a2a0-92fc40cc2e58"
+        ) {
+            return WoJS_StoryLand;
         }
         Console.WriteLine($"Unknown apiKey value: {apiKey}");
         return 0;

@@ -2133,12 +2133,10 @@ public class ContentController : Controller {
     }
 
     [HttpPost]
-    // [Produces("application/xml")]
+    [Produces("application/xml")]
     [Route("MissionWebService.asmx/GetMission")] // old ("step") missions - used by MB and WoJS lands
     public IActionResult GetMission([FromForm] int gameId, [FromForm] string name) {
-        if (gameId == 1) return Ok(XmlUtil.ReadResourceXmlString("missions.step_missions_wojs_al"));
-        if (gameId == 5) return Ok(XmlUtil.ReadResourceXmlString("missions.step_missions_mb"));
-        return Ok();
+        return Ok(missionStore.GetStepsMissions(gameId, name));
     }
 
     [HttpPost]
