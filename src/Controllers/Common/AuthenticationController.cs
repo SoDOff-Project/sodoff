@@ -7,6 +7,7 @@ using sodoff.Schema;
 using sodoff.Util;
 using sodoff.Configuration;
 using sodoff.Services;
+using System.Linq.Expressions;
 
 namespace sodoff.Controllers.Common;
 
@@ -212,6 +213,41 @@ public class AuthenticationController : Controller {
 
         // Check if user is viking parent
         if (user != viking.User) {
+            return Unauthorized();
+        }
+
+        // check report amount, if more than 3 of the same report type are found and they are less than a week old, add ban
+        // TODO - this is complete dogshit, find a better way to do this
+        List<Report> reportsType1 = moderationService.GetAllReportsReceivedFromViking(viking, 1);
+        List<Report> reportsType2 = moderationService.GetAllReportsReceivedFromViking(viking, 2);
+        List<Report> reportsType3 = moderationService.GetAllReportsReceivedFromViking(viking, 3);
+
+        var i1 = 0;
+        var i2 = 0;
+        var i3 = 0;
+
+        foreach(var report in reportsType1)
+        {
+            if (DateTime.Compare(report.CreatedAt, DateTime.UtcNow) < 0) i1++;
+        }
+
+        foreach(var report in reportsType2)
+        {
+            if (DateTime.Compare(report.CreatedAt, DateTime.UtcNow) < 0) i2++;
+        }
+
+        foreach(var report in reportsType3)
+        {
+            if (DateTime.Compare(report.CreatedAt, DateTime.UtcNow) < 0) i3++;
+        }
+
+        if (i1 > 3 || i2 > 3 || i3 > 3)
+        {
+            // add a one week ban to the user, clear report history, and disallow login
+            moderationService.AddBanToUser(viking.User, UserBanType.TemporarySuspension, DateTime.UtcNow.AddDays(7));
+            viking.ReportsReceived.Clear();
+            ctx.SaveChanges();
+
             return Unauthorized();
         }
 
