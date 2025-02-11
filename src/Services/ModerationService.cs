@@ -7,12 +7,15 @@ namespace sodoff.Services;
 public class ModerationService
 {
     private readonly DBContext ctx;
+    private readonly MMOCommunicationService mmoCommService;
 
-    public ModerationService(DBContext ctx)
+    public ModerationService(DBContext ctx, MMOCommunicationService mmoCommService)
     {
         this.ctx = ctx;
+        this.mmoCommService = mmoCommService;
     }
 
+    // Banning
     public UserBan AddBanToUser(User user, UserBanType banType, DateTime dateEnd = new DateTime())
     {
         // create a ban in relation to the specified user
@@ -63,5 +66,34 @@ public class ModerationService
     {
         if(descendingOrder) return user.Bans.OrderByDescending(e => e.CreatedAt).ToList();
         else return user.Bans.OrderBy(e => e.CreatedAt).ToList(); // return sorted list by created date
+    }
+
+    // Reporting
+
+    public Report AddReportToViking(string apiToken, Viking viking, Viking vikingToReport, ReportType reportReason)
+    {
+        // check if the report already exists with the viking creating the report
+        Report? existingReport = viking.ReportsMade.FirstOrDefault(e => e.ReportedVikingId == vikingToReport.Id);
+        if (existingReport != null && existingReport.ReportType == (int)reportReason)
+        {
+            return null!;
+        }
+
+        // make report on offending user
+        Report report = new Report
+        {
+            ReportType = (int)reportReason,
+            CreatedAt = DateTime.UtcNow
+        };
+
+        // add report to "ReportsMade" on owner and "ReportsReceived" on offender, EF should do the rest
+        viking.ReportsMade.Add(report);
+        vikingToReport.ReportsReceived.Add(report);
+        ctx.SaveChanges();
+
+        // send a moderation message to the offender (they will receive it if they are online, later on a message will be added to their message board instead)
+        mmoCommService.SendPacketToPlayer(apiToken, vikingToReport.Uid.ToString(), "SMM", new string[] { "SMM", "-1", "REPORT_FILED", "Oops! Looks like you may have done something wrong! Repeated offences will result in an account ban." });
+
+        return report;
     }
 }

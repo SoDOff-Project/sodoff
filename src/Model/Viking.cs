@@ -41,6 +41,8 @@ public class Viking {
     public virtual Neighborhood? Neighborhood { get; set; } = null!;
     public virtual ICollection<Group> Groups { get; set; } = null!;
     public virtual ICollection<Rating> Ratings { get; set; } = null!;
+    public virtual ICollection<Report> ReportsMade { get; set; } = null!;
+    public virtual ICollection<Report> ReportsReceived { get; set; } = null!;
     public virtual Dragon? SelectedDragon { get; set; }
 
     public DateTime? CreationDate { get; set; }

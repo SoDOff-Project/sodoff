@@ -26,6 +26,7 @@ public class DBContext : DbContext {
     public DbSet<Neighborhood> Neighborhoods { get; set; } = null!;
     // we had a brief debate on whether it's neighborhoods or neighborheed
     public DbSet<UserBan> UserBans { get; set; } = null!;
+    public DbSet<Report> UserReports { get; set; } = null!;
     public DbSet<Group> Groups { get; set; } = null!;
     public DbSet<Rating> Ratings { get; set; } = null!;
     public DbSet<RatingRank> RatingRanks { get; set; } = null!;
@@ -149,6 +150,12 @@ public class DBContext : DbContext {
         builder.Entity<Viking>().HasMany(v => v.Ratings)
             .WithOne(r => r.Viking);
 
+        builder.Entity<Viking>().HasMany(v => v.ReportsMade)
+            .WithOne(r => r.Viking);
+
+        builder.Entity<Viking>().HasMany(v => v.ReportsReceived)
+            .WithOne(r => r.ReportedViking);
+
         // Dragons
         builder.Entity<Dragon>().HasOne(d => d.Viking)
             .WithMany(e => e.Dragons)
@@ -270,9 +277,18 @@ public class DBContext : DbContext {
             .WithOne(e => e.Neighborhood)
             .HasForeignKey<Neighborhood>(e => e.VikingId);
         
+        // Moderation
         builder.Entity<UserBan>().HasOne(r => r.User)
             .WithMany(e => e.Bans)
             .HasForeignKey(e => e.UserId);
+
+        builder.Entity<Report>().HasOne(r => r.Viking)
+            .WithMany(e => e.ReportsMade)
+            .HasForeignKey(e => e.VikingId);
+
+        builder.Entity<Report>().HasOne(r => r.ReportedViking)
+            .WithMany(e => e.ReportsReceived)
+            .HasForeignKey(e => e.ReportedVikingId);
 
         // Groups
         builder.Entity<Group>().HasMany(r => r.Vikings)
