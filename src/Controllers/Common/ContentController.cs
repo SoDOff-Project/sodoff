@@ -2157,7 +2157,7 @@ public class ContentController : Controller {
     [HttpPost]
     [Produces("application/xml")]
     [Route("ContentWebService.asmx/SetUserMission")] // old ("step") missions - used by MB and WoJS lands
-    [VikingSession]
+    [VikingSession(UseLock=true)]
     public IActionResult SetUserMission(Viking viking, [FromForm] int worldId, [FromForm] int missionId, [FromForm] int stepId, [FromForm] int taskId) {
         missionService.SetOrUpdateUserMissionData(viking, worldId, missionId, stepId, taskId);
         return Ok(true);
