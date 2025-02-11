@@ -54,24 +54,25 @@ public class MissionService {
         return mission;
     }
 
-    public Schema.UserMissionData GetUserMissionData(Viking viking, int worldId)
-    {
-        Schema.UserMissionData umdRes = new Schema.UserMissionData();
+    public Schema.UserMissionData GetUserMissionData(Viking viking, int worldId) {
+        Schema.UserMissionData umdRes = new();
 
         // instantiate schema lists and int lists
-        List<int> userMissionsCompletedIds = new List<int>();
-        List<UserMissionDataMission> missions = new List<UserMissionDataMission>();
-        List<UserMissionDataMissionStep> steps = new List<UserMissionDataMissionStep>();
-        List<int> tasks = new List<int>();
+        List<int> userMissionsCompletedIds = new();
+        List<UserMissionDataMission> missions = new();
 
         // get all initiated missions
         List<Model.UserMissionData> vikingUmds = viking.UserMissions.Where(e => e.WorldId == worldId).ToList();
 
-        foreach (Model.UserMissionData mission in vikingUmds)
-        {
-            tasks.Add(mission.TaskId);
-            steps.Add(new UserMissionDataMissionStep { StepId = mission.StepId, TaskId = tasks.ToArray() });
-            missions.Add(new UserMissionDataMission { MissionId = mission.MissionId, Step = steps.ToArray() });
+        foreach (Model.UserMissionData mission in vikingUmds) {
+            missions.Add(new UserMissionDataMission {
+                MissionId = mission.MissionId,
+                Step = new UserMissionDataMissionStep[] { new UserMissionDataMissionStep {
+                    // NOTE: we store in database only last StepId and TaskId – this is different behavior than og
+                    StepId = mission.StepId,
+                    TaskId = new int[] {mission.TaskId}
+                }}
+            });
         }
 
         // add completed mission id's to usermissionscompletedids
@@ -104,37 +105,24 @@ public class MissionService {
         return new UserBadge { BadgeId = completedBadgeIds.ToArray() };
     }
 
-    public Model.UserMissionData SetOrUpdateUserMissionData(Viking viking, int worldId, int missionId, int stepId, int taskId)
-    {
+    public void SetOrUpdateUserMissionData(Viking viking, int worldId, int missionId, int stepId, int taskId) {
         // find any existing records of this mission
-        Model.UserMissionData? existingMission = viking.UserMissions.Where(e => e.WorldId == worldId)
+        Model.UserMissionData? missionData = viking.UserMissions.Where(e => e.WorldId == worldId)
             .Where(e => e.MissionId == missionId)
             .FirstOrDefault();
 
-        if (existingMission != null)
-        {
-            // update taskid and stepid
-            existingMission.StepId = stepId;
-            existingMission.TaskId = taskId;
-            ctx.SaveChanges();
-
-            return existingMission;
+        if (missionData != null) {
+            missionData.StepId = stepId;
+            missionData.TaskId = taskId;
+        } else {
+            viking.UserMissions.Add(new Model.UserMissionData() {
+                WorldId = worldId,
+                MissionId = missionId,
+                StepId = stepId,
+                TaskId = taskId
+            });
         }
-
-        // add mission data to db
-
-        Model.UserMissionData missionData = new Model.UserMissionData()
-        {
-            WorldId = worldId,
-            MissionId = missionId,
-            StepId = stepId,
-            TaskId = taskId
-        };
-
-        viking.UserMissions.Add(missionData);
         ctx.SaveChanges();
-
-        return missionData;
     }
 
     public bool SetUserMissionCompleted(Viking viking, int worldId, int missionId, bool isCompleted)
