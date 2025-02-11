@@ -228,20 +228,20 @@ public class AuthenticationController : Controller {
 
         foreach(var report in reportsType1)
         {
-            if (DateTime.Compare(report.CreatedAt, DateTime.UtcNow) < 0) i1++;
+            if (DateTime.Compare(DateTime.UtcNow, report.CreatedAt) > 0) i1++;
         }
 
         foreach(var report in reportsType2)
         {
-            if (DateTime.Compare(report.CreatedAt, DateTime.UtcNow) < 0) i2++;
+            if (DateTime.Compare(DateTime.UtcNow, report.CreatedAt) > 0) i2++;
         }
 
         foreach(var report in reportsType3)
         {
-            if (DateTime.Compare(report.CreatedAt, DateTime.UtcNow) < 0) i3++;
+            if (DateTime.Compare(DateTime.UtcNow, report.CreatedAt) > 0) i3++;
         }
 
-        if (i1 > 3 || i2 > 3 || i3 > 3)
+        if (i1 >= 3 || i2 >= 3 || i3 >= 3)
         {
             // add a one week ban to the user, clear report history, and disallow login
             moderationService.AddBanToUser(viking.User, UserBanType.TemporarySuspension, DateTime.UtcNow.AddDays(7));
