@@ -140,5 +140,13 @@
 		<Scene>PearlPush</Scene>
 		<ID>18</ID>
 	</World>
+	<World>
+		<Scene>MB Girls</Scene>
+		<ID>99</ID><!-- sodoff placeholder value -->
+	</World>
+	<World>
+		<Scene>MB Boys</Scene>
+		<ID>99</ID><!-- sodoff placeholder value -->
+	</World>
 </ArrayOfWorld>
 
