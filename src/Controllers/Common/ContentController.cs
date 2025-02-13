@@ -1679,8 +1679,15 @@ public class ContentController : Controller {
     [Route("ContentWebService.asmx/GetUserGameCurrency")]
     [VikingSession]
     public IActionResult GetUserGameCurrency(Viking viking) {
-        // TODO: This is a placeholder
         return Ok(achievementService.GetUserCurrency(viking));
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetGameCurrency")]
+    [VikingSession]
+    public IActionResult GetGameCurrency(Viking viking) {
+        return Ok(achievementService.GetUserCurrency(viking).GameCurrency);
     }
 
     [HttpPost]

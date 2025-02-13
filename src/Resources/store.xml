@@ -1950,6 +1950,11 @@ SoD 3.31 main store section and subsection filtering:
 		<ii>1627</ii>
 	</StoreData>
 	<StoreData>
+		<i>8</i>
+		<s>FL Avatar Default</s>
+		<d>The default avatar parts for Adventure Land -- empty</d>
+	</StoreData>
+	<StoreData>
 		<i>9</i>
 		<s>Main Street_Threadz</s>
 		<d>Jumpee clothing store in Main Street</d>
