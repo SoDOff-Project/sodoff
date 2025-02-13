@@ -44,6 +44,8 @@ By default (modifiable in appsettings.json), files for version 2.5.0 and newer w
 A sample file is provided for `{PLATFORM} = WIN`, `{VERSION} = 3.31.0`.
 It assumes that the server address are `localhost:5000` (API) and `localhost:5001` (assets).
 
+To use this server with games other than School of Dragons you need to change the `LoadNonSoDData` value in `appsettings.json` to `true`.
+
 #### Asset Server
 
 Various settings for the asset server are customizable, with the key one being `ProviderURL`, which specifies the source for downloading assets in `partial` mode. By default, it's configured to use archive.org

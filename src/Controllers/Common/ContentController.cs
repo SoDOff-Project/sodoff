@@ -15,6 +15,7 @@ public class ContentController : Controller {
     private readonly DBContext ctx;
     private KeyValueService keyValueService;
     private ItemService itemService;
+    private MissionStoreSingleton missionStore;
     private MissionService missionService;
     private RoomService roomService;
     private AchievementService achievementService;
@@ -22,6 +23,7 @@ public class ContentController : Controller {
     private GameDataService gameDataService;
     private DisplayNamesService displayNamesService;
     private NeighborhoodService neighborhoodService;
+    private WorldIdService worldIdService;
     private Random random = new Random();
     private readonly IOptions<ApiServerConfig> config;
     
@@ -29,6 +31,7 @@ public class ContentController : Controller {
         DBContext ctx,
         KeyValueService keyValueService,
         ItemService itemService,
+        MissionStoreSingleton missionStore,
         MissionService missionService,
         RoomService roomService,
         AchievementService achievementService,
@@ -36,11 +39,13 @@ public class ContentController : Controller {
         GameDataService gameDataService,
         DisplayNamesService displayNamesService,
         NeighborhoodService neighborhoodService,
+        WorldIdService worldIdService,
         IOptions<ApiServerConfig> config
     ) {
         this.ctx = ctx;
         this.keyValueService = keyValueService;
         this.itemService = itemService;
+        this.missionStore = missionStore;
         this.missionService = missionService;
         this.roomService = roomService;
         this.achievementService = achievementService;
@@ -48,6 +53,7 @@ public class ContentController : Controller {
         this.gameDataService = gameDataService;
         this.displayNamesService = displayNamesService;
         this.neighborhoodService = neighborhoodService;
+        this.worldIdService = worldIdService;
         this.config = config;
     }
 
@@ -1673,8 +1679,15 @@ public class ContentController : Controller {
     [Route("ContentWebService.asmx/GetUserGameCurrency")]
     [VikingSession]
     public IActionResult GetUserGameCurrency(Viking viking) {
-        // TODO: This is a placeholder
         return Ok(achievementService.GetUserCurrency(viking));
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetGameCurrency")]
+    [VikingSession]
+    public IActionResult GetGameCurrency(Viking viking) {
+        return Ok(achievementService.GetUserCurrency(viking).GameCurrency);
     }
 
     [HttpPost]
@@ -2121,10 +2134,72 @@ public class ContentController : Controller {
 
     [HttpPost]
     [Produces("application/xml")]
-    [Route("MissionWebService.asmx/GetWorldId")] // used by Math Blaster
-    public IActionResult GetWorldId() {
-        // TODO: This is a placeholder
-        return Ok(0);
+    [Route("MissionWebService.asmx/GetWorldId")] // used by Math Blaster and WoJS Adventureland
+    public IActionResult GetWorldId([FromForm] int gameId, [FromForm] string sceneName) {
+        return Ok(worldIdService.GetWorldID(sceneName));
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("MissionWebService.asmx/GetMission")] // old ("step") missions - used by MB and WoJS lands
+    public IActionResult GetMission([FromForm] int gameId, [FromForm] string name) {
+        return Ok(missionStore.GetStepsMissions(gameId, name));
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("MissionWebService.asmx/GetStep")] // old ("step") missions - used by MB and WoJS lands
+    public IActionResult GetMissionStep([FromForm] int stepId) {
+        return Ok(missionStore.GetStep(stepId));
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetUserMission")] // old ("step") missions - used by MB and WoJS lands
+    [VikingSession]
+    public IActionResult GetUserMission(Viking viking, [FromForm] int worldId) {
+        return Ok(missionService.GetUserMissionData(viking, worldId));
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/SetUserMission")] // old ("step") missions - used by MB and WoJS lands
+    [VikingSession(UseLock=true)]
+    public IActionResult SetUserMission(Viking viking, [FromForm] int worldId, [FromForm] int missionId, [FromForm] int stepId, [FromForm] int taskId) {
+        missionService.SetOrUpdateUserMissionData(viking, worldId, missionId, stepId, taskId);
+        return Ok(true);
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/SetUserMissionComplete")] // old ("step") missions - used by MB and WoJS lands
+    [VikingSession]
+    public IActionResult SetUserMissionComplete(Viking viking, [FromForm] int worldId, [FromForm] int missionId) {
+        return Ok(missionService.SetUserMissionCompleted(viking, worldId, missionId, true));
+    }
+
+    [HttpPost]
+    //[Produces("application/xml")]
+    [Route("MissionWebService.asmx/GetBadge")] // old ("step") missions - used by MB and WoJS lands
+    public IActionResult GetBadge([FromForm] int gameId) {
+        if (gameId == 1) return Ok(XmlUtil.ReadResourceXmlString("missions.badge_wojs_al"));
+        return Ok();
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/SetUserBadgeComplete")] // old ("step") missions - used by MB and WoJS lands
+    [VikingSession]
+    public IActionResult SetUserBadgeComplete(Viking viking, [FromForm] int badgeId) {
+        return Ok(missionService.SetUserBadgeComplete(viking, badgeId));
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("ContentWebService.asmx/GetUserBadgeComplete")] // old ("step") missions - used by MB and WoJS lands
+    [VikingSession]
+    public IActionResult GetUserBadgeComplete(Viking viking) {
+        return Ok(missionService.GetUserBadgesCompleted(viking));
     }
 
     [HttpPost]

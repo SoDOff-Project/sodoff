@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BadgeData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Badge>
+    <BadgeId>1</BadgeId>
+    <Name>Explorer Badge</Name>
+    <Description>Adventure Land Badge 01</Description>
+    <Experience>1</Experience>
+    <Pieces>10</Pieces>
+    <Mask>Badges01.unity3d/MskBadge10</Mask>
+    <Color>Badges01.unity3d/BadgeK07Color</Color>
+    <Grey>Badges01.unity3d/BadgeK07Grey</Grey>
+    <PieceDialog>
+      <FileName>DlgFrankieB1Piece</FileName>
+      <NPC>NPCs.unity3d/PfFrankie</NPC>
+      <Bundle>RS_DATA/Badges01.unity3d</Bundle>
+    </PieceDialog>
+    <CompleteDialog>
+      <FileName>DlgFrankieB1Complete</FileName>
+      <NPC>NPCs.unity3d/PfFrankie</NPC>
+      <Bundle>RS_DATA/Badges01.unity3d</Bundle>
+    </CompleteDialog>
+  </Badge>
+</BadgeData>

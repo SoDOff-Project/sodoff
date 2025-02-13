@@ -28,6 +28,8 @@ public class DBContext : DbContext {
     public DbSet<Group> Groups { get; set; } = null!;
     public DbSet<Rating> Ratings { get; set; } = null!;
     public DbSet<RatingRank> RatingRanks { get; set; } = null!;
+    public DbSet<UserMissionData> UserMissionData { get; set; } = null!;
+    public DbSet<UserBadgeCompleteData> UserBadgesCompleted { get; set; } = null!;
 
     private readonly IOptions<ApiServerConfig> config;
 
@@ -146,6 +148,12 @@ public class DBContext : DbContext {
             .WithMany(e => e.Vikings);
 
         builder.Entity<Viking>().HasMany(v => v.Ratings)
+            .WithOne(r => r.Viking);
+
+        builder.Entity<Viking>().HasMany(v => v.UserMissions)
+            .WithOne(r => r.Viking);
+
+        builder.Entity<Viking>().HasMany(v => v.UserBadgesCompleted)
             .WithOne(r => r.Viking);
 
         // Dragons
@@ -284,5 +292,14 @@ public class DBContext : DbContext {
 
         builder.Entity<RatingRank>().HasMany(rr => rr.Ratings)
             .WithOne(r => r.Rank);
+
+        // old ("step") missions
+        builder.Entity<UserMissionData>().HasOne(r => r.Viking)
+            .WithMany(v => v.UserMissions)
+            .HasForeignKey(r => r.VikingId);
+
+        builder.Entity<UserBadgeCompleteData>().HasOne(r => r.Viking)
+            .WithMany(v => v.UserBadgesCompleted)
+            .HasForeignKey(r => r.VikingId);
     }
 }

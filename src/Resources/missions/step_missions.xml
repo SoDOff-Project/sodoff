@@ -1,0 +1,3834 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfStepsMissionsGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <StepsMissionsGroup>
+    <!-- World of JumpStart - Adventureland -->
+    <GameId>1</GameId>
+    <WorldName>_default_</WorldName>
+    <MissionData>
+      <Mission>
+        <MissionID>4</MissionID>
+        <Name>Lost Island Mission 1</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Welcome to Training Island</Description>
+        <Experience>1</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>1</StepID>
+          <TaskID>1</TaskID>
+        </Step>
+        <Step>
+          <StepID>2</StepID>
+          <TaskID>2</TaskID>
+        </Step>
+        <Step>
+          <StepID>3</StepID>
+          <TaskID>3</TaskID>
+        </Step>
+        <Step>
+          <StepID>4</StepID>
+          <TaskID>4</TaskID>
+        </Step>
+        <Step>
+          <StepID>5</StepID>
+          <TaskID>5</TaskID>
+        </Step>
+        <Step>
+          <StepID>179</StepID>
+          <TaskID>349</TaskID>
+        </Step>
+        <Step>
+          <StepID>6</StepID>
+          <TaskID>6</TaskID>
+        </Step>
+        <Step>
+          <StepID>7</StepID>
+          <TaskID>7</TaskID>
+        </Step>
+        <Step>
+          <StepID>8</StepID>
+          <TaskID>8</TaskID>
+        </Step>
+        <Step>
+          <StepID>9</StepID>
+          <TaskID>9</TaskID>
+        </Step>
+        <Step>
+          <StepID>10</StepID>
+          <TaskID>10</TaskID>
+        </Step>
+        <Step>
+          <StepID>23</StepID>
+          <TaskID>18</TaskID>
+        </Step>
+        <Step>
+          <StepID>24</StepID>
+          <TaskID>19</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>18</MissionID>
+        <Name>Lost Island Mission 2</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Mission 2-  Congrats! Take the ship to Lost Island and get familar with home base.</Description>
+        <Experience>1</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>26</StepID>
+          <TaskID>250</TaskID>
+        </Step>
+        <Step>
+          <StepID>27</StepID>
+          <TaskID>251</TaskID>
+        </Step>
+        <Step>
+          <StepID>28</StepID>
+          <TaskID>252</TaskID>
+        </Step>
+        <Step>
+          <StepID>106</StepID>
+          <TaskID>348</TaskID>
+        </Step>
+        <Step>
+          <StepID>29</StepID>
+          <TaskID>253</TaskID>
+        </Step>
+        <Step>
+          <StepID>30</StepID>
+          <TaskID>254</TaskID>
+        </Step>
+        <Step>
+          <StepID>31</StepID>
+          <TaskID>255</TaskID>
+        </Step>
+        <Step>
+          <StepID>32</StepID>
+          <TaskID>256</TaskID>
+        </Step>
+        <Step>
+          <StepID>33</StepID>
+          <TaskID>257</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>19</MissionID>
+        <Name>Lost Island Mission 3</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Mission 3- Introduction to Lost Shores</Description>
+        <Experience>1</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>34</StepID>
+          <TaskID>258</TaskID>
+        </Step>
+        <Step>
+          <StepID>35</StepID>
+          <TaskID>259</TaskID>
+        </Step>
+        <Step>
+          <StepID>36</StepID>
+          <TaskID>260</TaskID>
+        </Step>
+        <Step>
+          <StepID>37</StepID>
+          <TaskID>261</TaskID>
+        </Step>
+        <Step>
+          <StepID>38</StepID>
+          <TaskID>262</TaskID>
+        </Step>
+        <Step>
+          <StepID>39</StepID>
+          <TaskID>263</TaskID>
+        </Step>
+        <Step>
+          <StepID>40</StepID>
+          <TaskID>264</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>20</MissionID>
+        <Name>Lost Island Mission 4</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Mission 4- Explore Lost Island and intro to the store</Description>
+        <Experience>1</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>41</StepID>
+          <TaskID>265</TaskID>
+        </Step>
+        <Step>
+          <StepID>42</StepID>
+          <TaskID>266</TaskID>
+        </Step>
+        <Step>
+          <StepID>43</StepID>
+          <TaskID>267</TaskID>
+        </Step>
+        <Step>
+          <StepID>44</StepID>
+          <TaskID>268</TaskID>
+        </Step>
+        <Step>
+          <StepID>45</StepID>
+          <TaskID>269</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>21</MissionID>
+        <Name>Lost Island Mission 5</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Mission 5- Explore the mountain with Hops</Description>
+        <Experience>1</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>46</StepID>
+          <TaskID>270</TaskID>
+        </Step>
+        <Step>
+          <StepID>47</StepID>
+          <TaskID>271</TaskID>
+        </Step>
+        <Step>
+          <StepID>48</StepID>
+          <TaskID>272</TaskID>
+        </Step>
+        <Step>
+          <StepID>49</StepID>
+          <TaskID>273</TaskID>
+        </Step>
+        <Step>
+          <StepID>50</StepID>
+          <TaskID>274</TaskID>
+        </Step>
+        <Step>
+          <StepID>51</StepID>
+          <TaskID>275</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>22</MissionID>
+        <Name>Lost Island Mission 6</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Mission 6- Punk Punk invade- Time to clean house</Description>
+        <Experience>1</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>52</StepID>
+          <TaskID>276</TaskID>
+        </Step>
+        <Step>
+          <StepID>53</StepID>
+          <TaskID>277</TaskID>
+        </Step>
+        <Step>
+          <StepID>54</StepID>
+          <TaskID>278</TaskID>
+        </Step>
+        <Step>
+          <StepID>55</StepID>
+          <TaskID>279</TaskID>
+          <TaskID>280</TaskID>
+          <TaskID>281</TaskID>
+          <TaskID>282</TaskID>
+          <TaskID>283</TaskID>
+        </Step>
+        <Step>
+          <StepID>56</StepID>
+          <TaskID>284</TaskID>
+        </Step>
+        <Step>
+          <StepID>57</StepID>
+          <TaskID>285</TaskID>
+        </Step>
+        <Step>
+          <StepID>58</StepID>
+          <TaskID>286</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>23</MissionID>
+        <Name>Lost Island Mission 7</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Mission 7- Get the Lost Shores ready for the celebration</Description>
+        <Experience>1</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>59</StepID>
+          <TaskID>287</TaskID>
+        </Step>
+        <Step>
+          <StepID>60</StepID>
+          <TaskID>288</TaskID>
+        </Step>
+        <Step>
+          <StepID>61</StepID>
+          <TaskID>289</TaskID>
+          <TaskID>290</TaskID>
+          <TaskID>291</TaskID>
+        </Step>
+        <Step>
+          <StepID>62</StepID>
+          <TaskID>292</TaskID>
+          <TaskID>293</TaskID>
+          <TaskID>294</TaskID>
+        </Step>
+        <Step>
+          <StepID>63</StepID>
+          <TaskID>295</TaskID>
+        </Step>
+        <Step>
+          <StepID>64</StepID>
+          <TaskID>296</TaskID>
+        </Step>
+        <Step>
+          <StepID>65</StepID>
+          <TaskID>297</TaskID>
+        </Step>
+        <Step>
+          <StepID>66</StepID>
+          <TaskID>298</TaskID>
+        </Step>
+        <Step>
+          <StepID>67</StepID>
+          <TaskID>299</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>24</MissionID>
+        <Name>Lost Island Mission 8</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Mission 8- Lets Party</Description>
+        <Experience>1</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>68</StepID>
+          <TaskID>300</TaskID>
+        </Step>
+        <Step>
+          <StepID>69</StepID>
+          <TaskID>301</TaskID>
+        </Step>
+        <Step>
+          <StepID>70</StepID>
+          <TaskID>302</TaskID>
+        </Step>
+        <Step>
+          <StepID>71</StepID>
+          <TaskID>303</TaskID>
+        </Step>
+        <Step>
+          <StepID>72</StepID>
+          <TaskID>304</TaskID>
+        </Step>
+        <Step>
+          <StepID>73</StepID>
+          <TaskID>305</TaskID>
+        </Step>
+        <Step>
+          <StepID>74</StepID>
+          <TaskID>306</TaskID>
+        </Step>
+        <Step>
+          <StepID>75</StepID>
+          <TaskID>307</TaskID>
+        </Step>
+        <Step>
+          <StepID>76</StepID>
+          <TaskID>308</TaskID>
+        </Step>
+        <Step>
+          <StepID>77</StepID>
+          <TaskID>309</TaskID>
+        </Step>
+        <Step>
+          <StepID>78</StepID>
+          <TaskID>310</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>25</MissionID>
+        <Name>Lost Island Mission 9</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Mission 9- Find where Punk Punks are coming from.</Description>
+        <Experience>1</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>79</StepID>
+          <TaskID>311</TaskID>
+        </Step>
+        <Step>
+          <StepID>80</StepID>
+          <TaskID>312</TaskID>
+        </Step>
+        <Step>
+          <StepID>81</StepID>
+          <TaskID>313</TaskID>
+        </Step>
+        <Step>
+          <StepID>82</StepID>
+          <TaskID>314</TaskID>
+        </Step>
+        <Step>
+          <StepID>83</StepID>
+          <TaskID>315</TaskID>
+        </Step>
+        <Step>
+          <StepID>84</StepID>
+          <TaskID>316</TaskID>
+        </Step>
+        <Step>
+          <StepID>85</StepID>
+          <TaskID>317</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>26</MissionID>
+        <Name>Lost Island Mission 10</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Mission 10- Introduce Rabbit holes and get statue</Description>
+        <Experience>1</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>86</StepID>
+          <TaskID>318</TaskID>
+        </Step>
+        <Step>
+          <StepID>87</StepID>
+          <TaskID>319</TaskID>
+        </Step>
+        <Step>
+          <StepID>88</StepID>
+          <TaskID>320</TaskID>
+        </Step>
+        <Step>
+          <StepID>89</StepID>
+          <TaskID>321</TaskID>
+        </Step>
+        <Step>
+          <StepID>90</StepID>
+          <TaskID>322</TaskID>
+        </Step>
+        <Step>
+          <StepID>91</StepID>
+          <TaskID>323</TaskID>
+        </Step>
+        <Step>
+          <StepID>92</StepID>
+          <TaskID>324</TaskID>
+          <TaskID>325</TaskID>
+        </Step>
+        <Step>
+          <StepID>93</StepID>
+          <TaskID>326</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>27</MissionID>
+        <Name>Lost Island Mission 11</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Mission 11- Protect Lost Island from the Punk Punks</Description>
+        <Experience>1</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>94</StepID>
+          <TaskID>327</TaskID>
+        </Step>
+        <Step>
+          <StepID>95</StepID>
+          <TaskID>328</TaskID>
+        </Step>
+        <Step>
+          <StepID>96</StepID>
+          <TaskID>329</TaskID>
+        </Step>
+        <Step>
+          <StepID>97</StepID>
+          <TaskID>330</TaskID>
+        </Step>
+        <Step>
+          <StepID>98</StepID>
+          <TaskID>331</TaskID>
+        </Step>
+        <Step>
+          <StepID>99</StepID>
+          <TaskID>332</TaskID>
+        </Step>
+        <Step>
+          <StepID>100</StepID>
+          <TaskID>333</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>28</MissionID>
+        <Name>Lost Island Mission 12</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Mission 12- Need to take the statue back to the valley</Description>
+        <Experience>1</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>101</StepID>
+          <TaskID>334</TaskID>
+        </Step>
+        <Step>
+          <StepID>102</StepID>
+          <TaskID>335</TaskID>
+        </Step>
+        <Step>
+          <StepID>103</StepID>
+          <TaskID>336</TaskID>
+        </Step>
+        <Step>
+          <StepID>104</StepID>
+          <TaskID>338</TaskID>
+        </Step>
+        <Step>
+          <StepID>105</StepID>
+          <TaskID>339</TaskID>
+        </Step>
+      </Mission>
+    </MissionData>
+  </StepsMissionsGroup>
+  <StepsMissionsGroup>
+    <!-- World of JumpStart - Futureland -->
+    <GameId>2</GameId>
+    <WorldName>Ancient01Zone01</WorldName>
+    <MissionData>
+      <Mission>
+        <MissionID>12</MissionID>
+        <Name>Ancient01Zone01SP</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoSpeedPathTex</IconName>
+        <Description>10.200   entry:   Greetings!  My name is Dr. Brain and I have chosen you to be part of my secret society.  The Secret Society of Dr. Brain is dedicated to exploration, adventure, and learning through time travel! You may even encounter a Goo Gord or two! However, you must first prove that you have the right stuff by completing all of these missions.  Good luck time traveler!</Description>
+        <Experience>0</Experience>
+        <RewardDialog>
+          <FileName>DlgDrBrainM12End</FileName>
+          <NPC>DrBrain</NPC>
+          <Bundle>RS_DATA/DrBrainJournalIntro.unity3d</Bundle>
+        </RewardDialog>
+        <Step>
+          <StepID>17</StepID>
+          <TaskID>108</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>1</MissionID>
+        <Name>Ancient01Zone01Collect</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoCollectMissionsTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>12</UnlockMission>
+        <Step>
+          <StepID>11</StepID>
+          <TaskID>11</TaskID>
+          <TaskID>12</TaskID>
+          <TaskID>13</TaskID>
+          <TaskID>21</TaskID>
+          <TaskID>22</TaskID>
+          <TaskID>23</TaskID>
+          <TaskID>24</TaskID>
+          <TaskID>25</TaskID>
+          <TaskID>26</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>2</MissionID>
+        <Name>Ancient01Zone01Battle</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoBattleMissionsTex</IconName>
+        <Description>10.100   entry:  
+ I have built a small time machine in my lab for testing, I call it the Time Slicer.  So far, I have only tried to send inanimate objects through time.  They end up as exploding globs of primordial ooze.  Will continue experiments after cleaning up ...I am starting to smell.</Description>
+        <Experience>0</Experience>
+        <RewardDialog>
+          <FileName>DlgDrBrainM2End</FileName>
+          <NPC>DrBrain</NPC>
+          <Bundle>RS_DATA/DrBrainJournal01.unity3d</Bundle>
+        </RewardDialog>
+        <UnlockMission>12</UnlockMission>
+        <Step>
+          <StepID>14</StepID>
+          <TaskID>27</TaskID>
+          <TaskID>28</TaskID>
+          <TaskID>29</TaskID>
+          <TaskID>30</TaskID>
+          <TaskID>31</TaskID>
+          <TaskID>32</TaskID>
+          <TaskID>33</TaskID>
+          <TaskID>34</TaskID>
+          <TaskID>35</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>13</MissionID>
+        <Name>Ancient01Zone01Nav01</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoNavRoomTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>12</UnlockMission>
+        <Step>
+          <StepID>18</StepID>
+          <TaskID>113</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>14</MissionID>
+        <Name>Ancient01Zone01Nav02</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoNavRoomTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>12</UnlockMission>
+        <Step>
+          <StepID>19</StepID>
+          <TaskID>118</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>15</MissionID>
+        <Name>Ancient01Zone01Roller01</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoRollerSquashTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>12</UnlockMission>
+        <Step>
+          <StepID>20</StepID>
+          <TaskID>123</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>16</MissionID>
+        <Name>Ancient01Zone01Roller02</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoRollerSquashTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>12</UnlockMission>
+        <Step>
+          <StepID>21</StepID>
+          <TaskID>128</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>17</MissionID>
+        <Name>Ancient01Zone01Boss01</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoHenchmanTex</IconName>
+        <Description>10.111  entry:   The time slicer has been working with great success!  Tomorrow I will try sending my goat Rudolph back in time.  I have set up safety precautions to make sure nothing happens to her. She looks quite fearless in her flight helmet and goggles.</Description>
+        <Experience>0</Experience>
+        <RewardDialog>
+          <FileName>DlgDrBrainM17End</FileName>
+          <NPC>DrBrain</NPC>
+          <Bundle>RS_DATA/DrBrainJournal02.unity3d</Bundle>
+        </RewardDialog>
+        <UnlockMission>1</UnlockMission>
+        <UnlockMission>2</UnlockMission>
+        <UnlockMission>13</UnlockMission>
+        <UnlockMission>14</UnlockMission>
+        <UnlockMission>15</UnlockMission>
+        <UnlockMission>16</UnlockMission>
+        <Step>
+          <StepID>22</StepID>
+          <TaskID>340</TaskID>
+        </Step>
+      </Mission>
+    </MissionData>
+  </StepsMissionsGroup>
+  <StepsMissionsGroup>
+    <!-- World of JumpStart - Futureland -->
+    <GameId>2</GameId>
+    <WorldName>Ancient01Zone02</WorldName>
+    <MissionData>
+      <Mission>
+        <MissionID>29</MissionID>
+        <Name>Anc01Zone02SP</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoSpeedPathTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>109</StepID>
+          <TaskID>109</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>3</MissionID>
+        <Name>Ancient01Zone02Collect</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoCollectMissionsTex</IconName>
+        <Description>10.112  entry:   
+Rudolph successfully time travelled today!   Unfortunately she ended up in a tree...when I found her, she was happily grazing up there.  She is home now, asleep on my bed. Time travelling gave her a bad case of goat gas! I will be sleeping in the Lab tonight.</Description>
+        <Experience>0</Experience>
+        <RewardDialog>
+          <FileName>DlgDrBrainM3End</FileName>
+          <NPC>DrBrain</NPC>
+          <Bundle>RS_DATA/DrBrainJournal03.unity3d</Bundle>
+        </RewardDialog>
+        <UnlockMission>29</UnlockMission>
+        <Step>
+          <StepID>107</StepID>
+          <TaskID>36</TaskID>
+          <TaskID>37</TaskID>
+          <TaskID>38</TaskID>
+          <TaskID>39</TaskID>
+          <TaskID>40</TaskID>
+          <TaskID>41</TaskID>
+          <TaskID>42</TaskID>
+          <TaskID>43</TaskID>
+          <TaskID>44</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>5</MissionID>
+        <Name>Ancient01Zone02Battle</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoBattleMissionsTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>29</UnlockMission>
+        <Step>
+          <StepID>108</StepID>
+          <TaskID>45</TaskID>
+          <TaskID>46</TaskID>
+          <TaskID>47</TaskID>
+          <TaskID>48</TaskID>
+          <TaskID>49</TaskID>
+          <TaskID>50</TaskID>
+          <TaskID>51</TaskID>
+          <TaskID>52</TaskID>
+          <TaskID>53</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>30</MissionID>
+        <Name>Anc01Zone02Nav01</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoNavRoomTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>29</UnlockMission>
+        <Step>
+          <StepID>110</StepID>
+          <TaskID>114</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>31</MissionID>
+        <Name>Anc01Zone02Nav02</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoNavRoomTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>29</UnlockMission>
+        <Step>
+          <StepID>111</StepID>
+          <TaskID>119</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>32</MissionID>
+        <Name>Anc01Zone02Roller01</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoRollerSquashTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>29</UnlockMission>
+        <Step>
+          <StepID>112</StepID>
+          <TaskID>124</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>33</MissionID>
+        <Name>Anc01Zone02Roller02</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoRollerSquashTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>29</UnlockMission>
+        <Step>
+          <StepID>113</StepID>
+          <TaskID>129</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>34</MissionID>
+        <Name>Anc01Zone02Boss01</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoHenchmanTex</IconName>
+        <Description>10.116   entry:   
+I am ready to time travel myself.  So excited I can barely tpye.  If Rudolph can do it, I certainly can!</Description>
+        <Experience>0</Experience>
+        <RewardDialog>
+          <FileName>DlgDrBrainM34End</FileName>
+          <NPC>DrBrain</NPC>
+          <Bundle>RS_DATA/DrBrainJournal04.unity3d</Bundle>
+        </RewardDialog>
+        <UnlockMission>3</UnlockMission>
+        <UnlockMission>5</UnlockMission>
+        <UnlockMission>30</UnlockMission>
+        <UnlockMission>31</UnlockMission>
+        <UnlockMission>32</UnlockMission>
+        <UnlockMission>33</UnlockMission>
+        <Step>
+          <StepID>114</StepID>
+          <TaskID>341</TaskID>
+        </Step>
+      </Mission>
+    </MissionData>
+  </StepsMissionsGroup>
+  <StepsMissionsGroup>
+    <!-- World of JumpStart - Futureland -->
+    <GameId>2</GameId>
+    <WorldName>Ancient01Zone03</WorldName>
+    <MissionData>
+      <Mission>
+        <MissionID>35</MissionID>
+        <Name>Anc01Zone03SP</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoSpeedPathTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>117</StepID>
+          <TaskID>110</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>6</MissionID>
+        <Name>Ancient01Zone03Collect</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoCollectMissionsTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>35</UnlockMission>
+        <Step>
+          <StepID>115</StepID>
+          <TaskID>54</TaskID>
+          <TaskID>55</TaskID>
+          <TaskID>56</TaskID>
+          <TaskID>57</TaskID>
+          <TaskID>58</TaskID>
+          <TaskID>59</TaskID>
+          <TaskID>60</TaskID>
+          <TaskID>61</TaskID>
+          <TaskID>62</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>7</MissionID>
+        <Name>Ancient01Zone03Battle</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoBattleMissionsTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>35</UnlockMission>
+        <Step>
+          <StepID>116</StepID>
+          <TaskID>63</TaskID>
+          <TaskID>64</TaskID>
+          <TaskID>65</TaskID>
+          <TaskID>66</TaskID>
+          <TaskID>67</TaskID>
+          <TaskID>68</TaskID>
+          <TaskID>69</TaskID>
+          <TaskID>70</TaskID>
+          <TaskID>71</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>36</MissionID>
+        <Name>Anc01Zone03Nav01</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoNavRoomTex</IconName>
+        <Description>10.120   entry:   Just returned from a time trek back to the Ancient Era.  Fascinating Egyptian hieroglyphics and statues!  Saw a Gord...that means the Hench.... Will write more later…</Description>
+        <Experience>0</Experience>
+        <RewardDialog>
+          <FileName>DlgDrBrainM36End</FileName>
+          <NPC>DrBrain</NPC>
+          <Bundle>RS_DATA/DrBrainJournal05.unity3d</Bundle>
+        </RewardDialog>
+        <UnlockMission>35</UnlockMission>
+        <Step>
+          <StepID>118</StepID>
+          <TaskID>115</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>37</MissionID>
+        <Name>Anc01Zone03Nav02</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoNavRoomTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>35</UnlockMission>
+        <Step>
+          <StepID>119</StepID>
+          <TaskID>120</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>38</MissionID>
+        <Name>Anc01Zone03Roller01</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoRollerSquashTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>35</UnlockMission>
+        <Step>
+          <StepID>120</StepID>
+          <TaskID>125</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>39</MissionID>
+        <Name>Anc01Zone03Roller02</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoRollerSquashTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>35</UnlockMission>
+        <Step>
+          <StepID>121</StepID>
+          <TaskID>130</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>40</MissionID>
+        <Name>Anc01Zone03Boss01</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoHenchmanTex</IconName>
+        <Description>10.127   entry:   Success on another Time Trek!  However,  I just barely made it back...need to build a more powerful time machine -- The Super Time Slicer! The Hench's Henchmen and their Gords all over the universe.  I must hurry…</Description>
+        <Experience>0</Experience>
+        <RewardDialog>
+          <FileName>DlgDrBrainM40End</FileName>
+          <NPC>DrBrain</NPC>
+          <Bundle>RS_DATA/DrBrainJournal06.unity3d</Bundle>
+        </RewardDialog>
+        <UnlockMission>6</UnlockMission>
+        <UnlockMission>7</UnlockMission>
+        <UnlockMission>36</UnlockMission>
+        <UnlockMission>37</UnlockMission>
+        <UnlockMission>38</UnlockMission>
+        <UnlockMission>39</UnlockMission>
+        <Step>
+          <StepID>122</StepID>
+          <TaskID>342</TaskID>
+        </Step>
+      </Mission>
+    </MissionData>
+  </StepsMissionsGroup>
+  <StepsMissionsGroup>
+    <!-- World of JumpStart - Futureland -->
+    <GameId>2</GameId>
+    <WorldName>Ancient01Zone04</WorldName>
+    <MissionData>
+      <Mission>
+        <MissionID>41</MissionID>
+        <Name>Anc01Zone04SP</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoSpeedPathTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>125</StepID>
+          <TaskID>111</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>8</MissionID>
+        <Name>Ancient01Zone04Collect</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoCollectMissionsTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>41</UnlockMission>
+        <Step>
+          <StepID>123</StepID>
+          <TaskID>72</TaskID>
+          <TaskID>73</TaskID>
+          <TaskID>74</TaskID>
+          <TaskID>75</TaskID>
+          <TaskID>76</TaskID>
+          <TaskID>77</TaskID>
+          <TaskID>78</TaskID>
+          <TaskID>79</TaskID>
+          <TaskID>80</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>9</MissionID>
+        <Name>Ancient01Zone04Battle</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoBattleMissionsTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>41</UnlockMission>
+        <Step>
+          <StepID>124</StepID>
+          <TaskID>81</TaskID>
+          <TaskID>82</TaskID>
+          <TaskID>83</TaskID>
+          <TaskID>84</TaskID>
+          <TaskID>85</TaskID>
+          <TaskID>86</TaskID>
+          <TaskID>87</TaskID>
+          <TaskID>88</TaskID>
+          <TaskID>89</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>42</MissionID>
+        <Name>Anc01Zone04Nav01</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoNavRoomTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>41</UnlockMission>
+        <Step>
+          <StepID>126</StepID>
+          <TaskID>116</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>43</MissionID>
+        <Name>Anc01Zone04Nav02</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoNavRoomTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>41</UnlockMission>
+        <Step>
+          <StepID>127</StepID>
+          <TaskID>121</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>44</MissionID>
+        <Name>Anc01Zone04Roller01</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoRollerSquashTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>41</UnlockMission>
+        <Step>
+          <StepID>128</StepID>
+          <TaskID>126</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>45</MissionID>
+        <Name>Anc01Zone04Roller02</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoRollerSquashTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>41</UnlockMission>
+        <Step>
+          <StepID>129</StepID>
+          <TaskID>131</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>46</MissionID>
+        <Name>Anc01Zone04Boss01</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoHenchmanTex</IconName>
+        <Description>10.133   entry:   
+Yet another time trek!  This time I was able to procure a blob of Globulus Utonium from the Hench!  Although a bit gooey, it should power the Super Time Slicer for years to come.</Description>
+        <Experience>0</Experience>
+        <RewardDialog>
+          <FileName>DlgDrBrainM46End</FileName>
+          <NPC>DrBrain</NPC>
+          <Bundle>RS_DATA/DrBrainJournal07.unity3d</Bundle>
+        </RewardDialog>
+        <UnlockMission>8</UnlockMission>
+        <UnlockMission>9</UnlockMission>
+        <UnlockMission>42</UnlockMission>
+        <UnlockMission>43</UnlockMission>
+        <UnlockMission>44</UnlockMission>
+        <UnlockMission>45</UnlockMission>
+        <Step>
+          <StepID>130</StepID>
+          <TaskID>343</TaskID>
+        </Step>
+      </Mission>
+    </MissionData>
+  </StepsMissionsGroup>
+  <StepsMissionsGroup>
+    <!-- World of JumpStart - Futureland -->
+    <GameId>2</GameId>
+    <WorldName>Ancient01Zone05</WorldName>
+    <MissionData>
+      <Mission>
+        <MissionID>47</MissionID>
+        <Name>Anc01Zone05SP</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoSpeedPathTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>133</StepID>
+          <TaskID>112</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>10</MissionID>
+        <Name>Ancient01Zone05Collect</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoCollectMissionsTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>47</UnlockMission>
+        <Step>
+          <StepID>131</StepID>
+          <TaskID>90</TaskID>
+          <TaskID>91</TaskID>
+          <TaskID>92</TaskID>
+          <TaskID>93</TaskID>
+          <TaskID>94</TaskID>
+          <TaskID>95</TaskID>
+          <TaskID>96</TaskID>
+          <TaskID>97</TaskID>
+          <TaskID>98</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>11</MissionID>
+        <Name>Ancient01Zone05Battle</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoBattleMissionsTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>47</UnlockMission>
+        <Step>
+          <StepID>132</StepID>
+          <TaskID>99</TaskID>
+          <TaskID>100</TaskID>
+          <TaskID>101</TaskID>
+          <TaskID>102</TaskID>
+          <TaskID>103</TaskID>
+          <TaskID>104</TaskID>
+          <TaskID>105</TaskID>
+          <TaskID>106</TaskID>
+          <TaskID>107</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>48</MissionID>
+        <Name>Anc01Zone05Nav01</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoNavRoomTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>47</UnlockMission>
+        <Step>
+          <StepID>134</StepID>
+          <TaskID>117</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>49</MissionID>
+        <Name>Anc01Zone05Nav02</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoNavRoomTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>47</UnlockMission>
+        <Step>
+          <StepID>135</StepID>
+          <TaskID>122</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>50</MissionID>
+        <Name>Anc01Zone05Roller01</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoRollerSquashTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>47</UnlockMission>
+        <Step>
+          <StepID>136</StepID>
+          <TaskID>127</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>51</MissionID>
+        <Name>Anc01Zone05Roller02</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoRollerSquashTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>47</UnlockMission>
+        <Step>
+          <StepID>137</StepID>
+          <TaskID>132</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>52</MissionID>
+        <Name>Anc01Zone05Boss01</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoHenchmanTex</IconName>
+        <Description>10.150   entry:  The Super Time Slicer is fully operational!  If Henchs' spies find out about it, he will surely try to steal it! I know, I need to build a secret lab to keep it hidden!  But Where?  Where do you hide a time machine?</Description>
+        <Experience>0</Experience>
+        <RewardDialog>
+          <FileName>DlgDrBrainM52End</FileName>
+          <NPC>DrBrain</NPC>
+          <Bundle>RS_DATA/DrBrainJournal08.unity3d</Bundle>
+        </RewardDialog>
+        <UnlockMission>10</UnlockMission>
+        <UnlockMission>11</UnlockMission>
+        <UnlockMission>48</UnlockMission>
+        <UnlockMission>49</UnlockMission>
+        <UnlockMission>50</UnlockMission>
+        <UnlockMission>51</UnlockMission>
+        <Step>
+          <StepID>138</StepID>
+          <TaskID>133</TaskID>
+        </Step>
+      </Mission>
+    </MissionData>
+  </StepsMissionsGroup>
+  <StepsMissionsGroup>
+    <!-- World of JumpStart - Futureland -->
+    <GameId>2</GameId>
+    <WorldName>Industrial01Zone01</WorldName>
+    <MissionData>
+      <Mission>
+        <MissionID>63</MissionID>
+        <Name>Ind01Zone01SP</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoSpeedPathTex</IconName>
+        <Description>10.163   entry:   
+In my last Time Trek I had an encounter with a Gord. Gords are robotic creatures invented by the Hench.    He has sent out his Henchmen with armies of Gords,  planting farms of Goopods everywhere they go!</Description>
+        <Experience>0</Experience>
+        <RewardDialog>
+          <FileName>DlgDrBrainM63End</FileName>
+          <NPC>DrBrain</NPC>
+          <Bundle>RS_DATA/DrBrainJournal09.unity3d</Bundle>
+        </RewardDialog>
+        <Step>
+          <StepID>141</StepID>
+          <TaskID>224</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>53</MissionID>
+        <Name>Ind01Zone01Collect</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoCollectMissionsTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>63</UnlockMission>
+        <Step>
+          <StepID>139</StepID>
+          <TaskID>134</TaskID>
+          <TaskID>135</TaskID>
+          <TaskID>136</TaskID>
+          <TaskID>137</TaskID>
+          <TaskID>138</TaskID>
+          <TaskID>139</TaskID>
+          <TaskID>140</TaskID>
+          <TaskID>141</TaskID>
+          <TaskID>142</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>54</MissionID>
+        <Name>Ind01Zone01Battle</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoBattleMissionsTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>63</UnlockMission>
+        <Step>
+          <StepID>140</StepID>
+          <TaskID>143</TaskID>
+          <TaskID>144</TaskID>
+          <TaskID>145</TaskID>
+          <TaskID>146</TaskID>
+          <TaskID>147</TaskID>
+          <TaskID>148</TaskID>
+          <TaskID>149</TaskID>
+          <TaskID>150</TaskID>
+          <TaskID>151</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>64</MissionID>
+        <Name>Ind01Zone01Nav01</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoNavRoomTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>63</UnlockMission>
+        <Step>
+          <StepID>142</StepID>
+          <TaskID>229</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>65</MissionID>
+        <Name>Ind01Zone01Nav02</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoNavRoomTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>63</UnlockMission>
+        <Step>
+          <StepID>143</StepID>
+          <TaskID>234</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>66</MissionID>
+        <Name>Ind01Zone01Roller01</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoRollerSquashTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>63</UnlockMission>
+        <Step>
+          <StepID>144</StepID>
+          <TaskID>239</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>67</MissionID>
+        <Name>Ind01Zone01Roller02</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoRollerSquashTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>63</UnlockMission>
+        <Step>
+          <StepID>145</StepID>
+          <TaskID>244</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>68</MissionID>
+        <Name>Ind01Zone01Boss01</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoHenchmanTex</IconName>
+        <Description>10.172  entry:  That Slobbering slugworm the Hench has infected time with his Goopods.  I need help to stop him or else the universe will turn into a giant gelatinous glop of goo!</Description>
+        <Experience>0</Experience>
+        <RewardDialog>
+          <FileName>DlgDrBrainM68End</FileName>
+          <NPC>DrBrain</NPC>
+          <Bundle>RS_DATA/DrBrainJournal15.unity3d</Bundle>
+        </RewardDialog>
+        <UnlockMission>53</UnlockMission>
+        <UnlockMission>54</UnlockMission>
+        <UnlockMission>64</UnlockMission>
+        <UnlockMission>65</UnlockMission>
+        <UnlockMission>66</UnlockMission>
+        <UnlockMission>67</UnlockMission>
+        <Step>
+          <StepID>146</StepID>
+          <TaskID>344</TaskID>
+        </Step>
+      </Mission>
+    </MissionData>
+  </StepsMissionsGroup>
+  <StepsMissionsGroup>
+    <!-- World of JumpStart - Futureland -->
+    <GameId>2</GameId>
+    <WorldName>Industrial01Zone02</WorldName>
+    <MissionData>
+      <Mission>
+        <MissionID>69</MissionID>
+        <Name>Ind01Zone02SP</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoSpeedPathTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>149</StepID>
+          <TaskID>225</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>55</MissionID>
+        <Name>Ind01Zone02Collect</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoCollectMissionsTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>69</UnlockMission>
+        <Step>
+          <StepID>147</StepID>
+          <TaskID>152</TaskID>
+          <TaskID>153</TaskID>
+          <TaskID>154</TaskID>
+          <TaskID>155</TaskID>
+          <TaskID>156</TaskID>
+          <TaskID>157</TaskID>
+          <TaskID>158</TaskID>
+          <TaskID>159</TaskID>
+          <TaskID>160</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>56</MissionID>
+        <Name>Ind01Zone02Battle</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoBattleMissionsTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>69</UnlockMission>
+        <Step>
+          <StepID>148</StepID>
+          <TaskID>161</TaskID>
+          <TaskID>162</TaskID>
+          <TaskID>163</TaskID>
+          <TaskID>164</TaskID>
+          <TaskID>165</TaskID>
+          <TaskID>166</TaskID>
+          <TaskID>167</TaskID>
+          <TaskID>168</TaskID>
+          <TaskID>169</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>70</MissionID>
+        <Name>Ind01Zone02Nav01</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoNavRoomTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>69</UnlockMission>
+        <Step>
+          <StepID>150</StepID>
+          <TaskID>230</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>71</MissionID>
+        <Name>Ind01Zone02Nav02</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoNavRoomTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>69</UnlockMission>
+        <Step>
+          <StepID>151</StepID>
+          <TaskID>235</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>72</MissionID>
+        <Name>Ind01Zone02Roller01</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoRollerSquashTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>69</UnlockMission>
+        <Step>
+          <StepID>152</StepID>
+          <TaskID>240</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>73</MissionID>
+        <Name>Ind01Zone02Roller02</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoRollerSquashTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>69</UnlockMission>
+        <Step>
+          <StepID>153</StepID>
+          <TaskID>245</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>74</MissionID>
+        <Name>Ind01Zone02Boss01</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoHenchmanTex</IconName>
+        <Description>10.179  entry:   Peter Piper Picked a Peck of Pickled Peppers.  Goo Gords Grab Green Goo Globs of Globulus Goo.  All work and no play, makes Dr. Brain a boring thinker, unable to tinker…</Description>
+        <Experience>0</Experience>
+        <RewardDialog>
+          <FileName>DlgDrBrainM74End</FileName>
+          <NPC>DrBrain</NPC>
+          <Bundle>RS_DATA/DrBrainJournal14.unity3d</Bundle>
+        </RewardDialog>
+        <UnlockMission>55</UnlockMission>
+        <UnlockMission>56</UnlockMission>
+        <UnlockMission>70</UnlockMission>
+        <UnlockMission>71</UnlockMission>
+        <UnlockMission>72</UnlockMission>
+        <UnlockMission>73</UnlockMission>
+        <Step>
+          <StepID>154</StepID>
+          <TaskID>345</TaskID>
+        </Step>
+      </Mission>
+    </MissionData>
+  </StepsMissionsGroup>
+  <StepsMissionsGroup>
+    <!-- World of JumpStart - Futureland -->
+    <GameId>2</GameId>
+    <WorldName>Industrial01Zone03</WorldName>
+    <MissionData>
+      <Mission>
+        <MissionID>75</MissionID>
+        <Name>Ind01Zone03SP</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoSpeedPathTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>157</StepID>
+          <TaskID>226</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>57</MissionID>
+        <Name>Ind01Zone03Collect</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoCollectMissionsTex</IconName>
+        <Description>10.189  entry:  
+
+!can you "think" you if things amazing do can You !muscles other your like just regularly out worked be to needs It .body your in muscle strongest the is It !brain your of power the underestimate Never--myself to Note</Description>
+        <Experience>0</Experience>
+        <RewardDialog>
+          <FileName>DlgDrBrainM57End</FileName>
+          <NPC>DrBrain</NPC>
+          <Bundle>RS_DATA/DrBrainJournal16.unity3d</Bundle>
+        </RewardDialog>
+        <UnlockMission>75</UnlockMission>
+        <Step>
+          <StepID>155</StepID>
+          <TaskID>170</TaskID>
+          <TaskID>171</TaskID>
+          <TaskID>172</TaskID>
+          <TaskID>173</TaskID>
+          <TaskID>174</TaskID>
+          <TaskID>175</TaskID>
+          <TaskID>176</TaskID>
+          <TaskID>177</TaskID>
+          <TaskID>178</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>58</MissionID>
+        <Name>Ind01Zone03Battle</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoBattleMissionsTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>75</UnlockMission>
+        <Step>
+          <StepID>156</StepID>
+          <TaskID>179</TaskID>
+          <TaskID>180</TaskID>
+          <TaskID>181</TaskID>
+          <TaskID>182</TaskID>
+          <TaskID>183</TaskID>
+          <TaskID>184</TaskID>
+          <TaskID>185</TaskID>
+          <TaskID>186</TaskID>
+          <TaskID>187</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>76</MissionID>
+        <Name>Ind01Zone03Nav01</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoNavRoomTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>75</UnlockMission>
+        <Step>
+          <StepID>158</StepID>
+          <TaskID>231</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>77</MissionID>
+        <Name>Ind01Zone03Nav02</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoNavRoomTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>75</UnlockMission>
+        <Step>
+          <StepID>159</StepID>
+          <TaskID>236</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>78</MissionID>
+        <Name>Ind01Zone03Roller01</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoRollerSquashTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>75</UnlockMission>
+        <Step>
+          <StepID>160</StepID>
+          <TaskID>241</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>79</MissionID>
+        <Name>Ind01Zone03Roller02</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoRollerSquashTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>75</UnlockMission>
+        <Step>
+          <StepID>161</StepID>
+          <TaskID>246</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>80</MissionID>
+        <Name>Ind01Zone03Boss01</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoHenchmanTex</IconName>
+        <Description>10.170   entry:   Tired of fighting the Hench's Gord armies.  No time to do my experiments and inventions,   Need help...Jumpeez…</Description>
+        <Experience>0</Experience>
+        <RewardDialog>
+          <FileName>DlgDrBrainM80End</FileName>
+          <NPC>DrBrain</NPC>
+          <Bundle>RS_DATA/DrBrainJournal12.unity3d</Bundle>
+        </RewardDialog>
+        <UnlockMission>57</UnlockMission>
+        <UnlockMission>58</UnlockMission>
+        <UnlockMission>76</UnlockMission>
+        <UnlockMission>77</UnlockMission>
+        <UnlockMission>78</UnlockMission>
+        <UnlockMission>79</UnlockMission>
+        <Step>
+          <StepID>162</StepID>
+          <TaskID>346</TaskID>
+        </Step>
+      </Mission>
+    </MissionData>
+  </StepsMissionsGroup>
+  <StepsMissionsGroup>
+    <!-- World of JumpStart - Futureland -->
+    <GameId>2</GameId>
+    <WorldName>Industrial01Zone04</WorldName>
+    <MissionData>
+      <Mission>
+        <MissionID>81</MissionID>
+        <Name>Ind01Zone04SP</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoSpeedPathTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>165</StepID>
+          <TaskID>227</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>59</MissionID>
+        <Name>Ind01Zone04Collect</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoCollectMissionsTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>81</UnlockMission>
+        <Step>
+          <StepID>163</StepID>
+          <TaskID>188</TaskID>
+          <TaskID>189</TaskID>
+          <TaskID>190</TaskID>
+          <TaskID>191</TaskID>
+          <TaskID>192</TaskID>
+          <TaskID>193</TaskID>
+          <TaskID>194</TaskID>
+          <TaskID>195</TaskID>
+          <TaskID>196</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>60</MissionID>
+        <Name>Ind01Zone04Battle</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoBattleMissionsTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>81</UnlockMission>
+        <Step>
+          <StepID>164</StepID>
+          <TaskID>197</TaskID>
+          <TaskID>198</TaskID>
+          <TaskID>199</TaskID>
+          <TaskID>200</TaskID>
+          <TaskID>201</TaskID>
+          <TaskID>202</TaskID>
+          <TaskID>203</TaskID>
+          <TaskID>204</TaskID>
+          <TaskID>205</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>82</MissionID>
+        <Name>Ind01Zone04Nav01</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoNavRoomTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>81</UnlockMission>
+        <Step>
+          <StepID>166</StepID>
+          <TaskID>232</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>83</MissionID>
+        <Name>Ind01Zone04Nav02</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoNavRoomTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>81</UnlockMission>
+        <Step>
+          <StepID>167</StepID>
+          <TaskID>237</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>84</MissionID>
+        <Name>Ind01Zone04Roller01</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoRollerSquashTex</IconName>
+        <Description>10.141   entry:   Goats are intelligent and amazing creatures! They are great companions as far as Bovids go.</Description>
+        <Experience>0</Experience>
+        <RewardDialog>
+          <FileName>DlgDrBrainM84End</FileName>
+          <NPC>DrBrain</NPC>
+          <Bundle>RS_DATA/DrBrainJournal13.unity3d</Bundle>
+        </RewardDialog>
+        <UnlockMission>81</UnlockMission>
+        <Step>
+          <StepID>168</StepID>
+          <TaskID>242</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>85</MissionID>
+        <Name>Ind01Zone04Roller02</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoRollerSquashTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>81</UnlockMission>
+        <Step>
+          <StepID>169</StepID>
+          <TaskID>247</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>86</MissionID>
+        <Name>Ind01Zone04Boss01</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoHenchmanTex</IconName>
+        <Description>10.183  entry:  
+I have scattered Holomorphic treasure chests throughout the worlds I've visited. They are linked to the Master Database so that I can change what treasures are inside and I know when they are activated. I hope the Jumpeez can find them and put them to good use!</Description>
+        <Experience>0</Experience>
+        <RewardDialog>
+          <FileName>DlgDrBrainM86End</FileName>
+          <NPC>DrBrain</NPC>
+          <Bundle>RS_DATA/DrBrainJournal17.unity3d</Bundle>
+        </RewardDialog>
+        <UnlockMission>59</UnlockMission>
+        <UnlockMission>60</UnlockMission>
+        <UnlockMission>82</UnlockMission>
+        <UnlockMission>83</UnlockMission>
+        <UnlockMission>84</UnlockMission>
+        <UnlockMission>85</UnlockMission>
+        <Step>
+          <StepID>170</StepID>
+          <TaskID>347</TaskID>
+        </Step>
+      </Mission>
+    </MissionData>
+  </StepsMissionsGroup>
+  <StepsMissionsGroup>
+    <!-- World of JumpStart - Futureland -->
+    <GameId>2</GameId>
+    <WorldName>Industrial01Zone05</WorldName>
+    <MissionData>
+      <Mission>
+        <MissionID>87</MissionID>
+        <Name>Ind01Zone05SP</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoSpeedPathTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>173</StepID>
+          <TaskID>228</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>61</MissionID>
+        <Name>Ind01Zone05Collect</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoCollectMissionsTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>87</UnlockMission>
+        <Step>
+          <StepID>171</StepID>
+          <TaskID>206</TaskID>
+          <TaskID>207</TaskID>
+          <TaskID>208</TaskID>
+          <TaskID>209</TaskID>
+          <TaskID>210</TaskID>
+          <TaskID>211</TaskID>
+          <TaskID>212</TaskID>
+          <TaskID>213</TaskID>
+          <TaskID>214</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>62</MissionID>
+        <Name>Ind01Zone05Battle</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoBattleMissionsTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>87</UnlockMission>
+        <Step>
+          <StepID>172</StepID>
+          <TaskID>215</TaskID>
+          <TaskID>216</TaskID>
+          <TaskID>217</TaskID>
+          <TaskID>218</TaskID>
+          <TaskID>219</TaskID>
+          <TaskID>220</TaskID>
+          <TaskID>221</TaskID>
+          <TaskID>222</TaskID>
+          <TaskID>223</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>88</MissionID>
+        <Name>Ind01Zone05Nav01</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoNavRoomTex</IconName>
+        <Description>10.167   entry:  
+Ichthyoids or fish... come in so many colors, shapes, and sizes. And they breathe in water!   I will build a home for these incredible creatures.  I will create an underwater refuge where sea creatures of all types can frolic and thrive.</Description>
+        <Experience>0</Experience>
+        <RewardDialog>
+          <FileName>DlgDrBrainM88End</FileName>
+          <NPC>DrBrain</NPC>
+          <Bundle>RS_DATA/DrBrainJournal10.unity3d</Bundle>
+        </RewardDialog>
+        <UnlockMission>87</UnlockMission>
+        <Step>
+          <StepID>174</StepID>
+          <TaskID>233</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>89</MissionID>
+        <Name>Ind01Zone05Nav02</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoNavRoomTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>87</UnlockMission>
+        <Step>
+          <StepID>175</StepID>
+          <TaskID>238</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>90</MissionID>
+        <Name>Ind01Zone05Roller01</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoRollerSquashTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>87</UnlockMission>
+        <Step>
+          <StepID>176</StepID>
+          <TaskID>243</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>91</MissionID>
+        <Name>Ind01Zone05Roller02</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoRollerSquashTex</IconName>
+        <Description/>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <UnlockMission>87</UnlockMission>
+        <Step>
+          <StepID>177</StepID>
+          <TaskID>248</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>92</MissionID>
+        <Name>Ind01Zone05Boss01</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName>IcoHenchmanTex</IconName>
+        <Description>10.196   entry:   I am wrtniig tihs in a knid of Cdoe.  I beileve the Hench has cretaed a goo-lkie wlrod kwonn as Goolag.  I do not konw wrehe it is so I can tmie treval trehe.  I msut fnid it and sotp him berofe he teaks oevr the entrie unevirse wtih Goo!</Description>
+        <Experience>0</Experience>
+        <RewardDialog>
+          <FileName>DlgDrBrainM92End</FileName>
+          <NPC>DrBrain</NPC>
+          <Bundle>RS_DATA/DrBrainJournal11.unity3d</Bundle>
+        </RewardDialog>
+        <UnlockMission>61</UnlockMission>
+        <UnlockMission>62</UnlockMission>
+        <UnlockMission>88</UnlockMission>
+        <UnlockMission>89</UnlockMission>
+        <UnlockMission>90</UnlockMission>
+        <UnlockMission>91</UnlockMission>
+        <Step>
+          <StepID>178</StepID>
+          <TaskID>249</TaskID>
+        </Step>
+      </Mission>
+    </MissionData>
+  </StepsMissionsGroup>
+  <StepsMissionsGroup>
+    <!-- World of JumpStart - Marineland - Scuba (MerKelp, MerRuins, MerWreck) -->
+    <GameId>4</GameId>
+    <WorldName>_default_</WorldName>
+    <MissionData>
+      <Mission>
+        <MissionID>93</MissionID>
+        <Name>ScubaWreckCollect01</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Crystal Rock Cleanup</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>180</StepID>
+          <TaskID>350</TaskID>
+        </Step>
+        <Step>
+          <StepID>181</StepID>
+          <TaskID>351</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>94</MissionID>
+        <Name>ScubaPhotoCrab</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Cranky Crab Capture</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>182</StepID>
+          <TaskID>352</TaskID>
+        </Step>
+        <Step>
+          <StepID>183</StepID>
+          <TaskID>353</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>98</MissionID>
+        <Name>ScubaPhotoStatue</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Riddle Me This</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>189</StepID>
+          <TaskID>366</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>96</MissionID>
+        <Name>ScubaPearl01</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Pearl Rescue</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>186</StepID>
+          <TaskID>356</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>97</MissionID>
+        <Name>ScubaPhotoCappy</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Cappy Snap</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>187</StepID>
+          <TaskID>364</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>95</MissionID>
+        <Name>ScubaBuyJCFlower</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Diva Daisy Delivery</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>184</StepID>
+          <TaskID>354</TaskID>
+        </Step>
+        <Step>
+          <StepID>185</StepID>
+          <TaskID>355</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>99</MissionID>
+        <Name>ScubaRuinsCollect02</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Lighten up! </Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>190</StepID>
+          <TaskID>367</TaskID>
+        </Step>
+        <Step>
+          <StepID>191</StepID>
+          <TaskID>368</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>100</MissionID>
+        <Name>ScubaKelpCollect3</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Kelp Forest Cleanup</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>192</StepID>
+          <TaskID>369</TaskID>
+        </Step>
+        <Step>
+          <StepID>193</StepID>
+          <TaskID>370</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>101</MissionID>
+        <Name>ScubaRuinsPhoto</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Photo Art for Sale</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>194</StepID>
+          <TaskID>371</TaskID>
+        </Step>
+        <Step>
+          <StepID>195</StepID>
+          <TaskID>372</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>102</MissionID>
+        <Name>ScubaPhotoJC</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Riddle Me Who? Here's a Clue</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>196</StepID>
+          <TaskID>373</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>103</MissionID>
+        <Name>ScubaRuinsCollect04</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Pearl Hunt</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>197</StepID>
+          <TaskID>374</TaskID>
+        </Step>
+        <Step>
+          <StepID>198</StepID>
+          <TaskID>375</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>104</MissionID>
+        <Name>ScubaPhotoIsabella</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Unravel This Riddle</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>199</StepID>
+          <TaskID>376</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>105</MissionID>
+        <Name>ScubaBuyJCRainbow</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Happy Birthday Jean Claude!</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>200</StepID>
+          <TaskID>377</TaskID>
+        </Step>
+        <Step>
+          <StepID>201</StepID>
+          <TaskID>378</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>106</MissionID>
+        <Name>ScubaPhotoSeaHorse</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Portrait of a Sea Horse</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>202</StepID>
+          <TaskID>379</TaskID>
+        </Step>
+        <Step>
+          <StepID>203</StepID>
+          <TaskID>380</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>107</MissionID>
+        <Name>ScubaPearl02</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Pearl Roll &amp; Rescue</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>204</StepID>
+          <TaskID>381</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>108</MissionID>
+        <Name>ScubaKelpCollect05</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Cart Away</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>205</StepID>
+          <TaskID>382</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>109</MissionID>
+        <Name>ScubaKelpVisitSC</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Riddle Me What? </Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>206</StepID>
+          <TaskID>383</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>110</MissionID>
+        <Name>ScubaRuinsVisitSC</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Castle in the Sand</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>207</StepID>
+          <TaskID>384</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>111</MissionID>
+        <Name>ScubaWreckVisitSC</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>ShipWreck Castle</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>208</StepID>
+          <TaskID>385</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>112</MissionID>
+        <Name>ScubaWreckCollect06</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Crab Corral</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>209</StepID>
+          <TaskID>386</TaskID>
+        </Step>
+        <Step>
+          <StepID>210</StepID>
+          <TaskID>387</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>113</MissionID>
+        <Name>ScubaWreckCollect07</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Shell Sell</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>211</StepID>
+          <TaskID>388</TaskID>
+        </Step>
+        <Step>
+          <StepID>212</StepID>
+          <TaskID>389</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>114</MissionID>
+        <Name>ScubaPhotoHead</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>StoneHead Photo Opp</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>213</StepID>
+          <TaskID>390</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>115</MissionID>
+        <Name>ScubaBuyOceanCD</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Ocean Breeze Tunes</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>214</StepID>
+          <TaskID>391</TaskID>
+        </Step>
+        <Step>
+          <StepID>215</StepID>
+          <TaskID>392</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>116</MissionID>
+        <Name>ScubaPhotoPearlStatue</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Precious Pearl Pedestal</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>216</StepID>
+          <TaskID>393</TaskID>
+        </Step>
+        <Step>
+          <StepID>217</StepID>
+          <TaskID>394</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>117</MissionID>
+        <Name>ScubaRuinsCollect08</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Flashlight Flood</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>218</StepID>
+          <TaskID>395</TaskID>
+        </Step>
+        <Step>
+          <StepID>219</StepID>
+          <TaskID>396</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>118</MissionID>
+        <Name>ScubaBuyButterfly</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Butterfly Suprise</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>220</StepID>
+          <TaskID>397</TaskID>
+        </Step>
+        <Step>
+          <StepID>221</StepID>
+          <TaskID>398</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>119</MissionID>
+        <Name>ScubaVisitCave</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Cave Encounter</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>222</StepID>
+          <TaskID>399</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>120</MissionID>
+        <Name>ScubaRuinCollect09</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Rollin with the tides
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>223</StepID>
+          <TaskID>400</TaskID>
+        </Step>
+        <Step>
+          <StepID>224</StepID>
+          <TaskID>401</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>121</MissionID>
+        <Name>ScubaBuySunnyCD</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Tune-a fish Music </Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>225</StepID>
+          <TaskID>402</TaskID>
+        </Step>
+        <Step>
+          <StepID>226</StepID>
+          <TaskID>403</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>122</MissionID>
+        <Name>ScubaPhotoAnchor</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Photo Riddle Opp</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>227</StepID>
+          <TaskID>404</TaskID>
+        </Step>
+      </Mission>
+    </MissionData>
+    <!-- TODO maybe 183 184 and 185 should go to other or all worlds in Marineland, also older is unknown -->
+    <Mission>
+      <MissionID>183</MissionID>
+      <Name>Pearl Push Levels</Name>
+      <DisplayName xsi:nil="true"/>
+      <IconName xsi:nil="true"/>
+      <Description>Complete all 30 pearl push levels</Description>
+      <Experience>-1</Experience>
+      <RewardDialog xsi:nil="true"/>
+    </Mission>
+    <Mission>
+      <MissionID>184</MissionID>
+      <Name>Bubble Trouble math</Name>
+      <DisplayName xsi:nil="true"/>
+      <IconName xsi:nil="true"/>
+      <Description>Complete all the bubble trouble math lessons</Description>
+      <Experience>-1</Experience>
+      <RewardDialog xsi:nil="true"/>
+    </Mission>
+    <Mission>
+      <MissionID>185</MissionID>
+      <Name>Bubble Trouble reading</Name>
+      <DisplayName xsi:nil="true"/>
+      <IconName xsi:nil="true"/>
+      <Description>Complete all the reading lessons</Description>
+      <Experience>-1</Experience>
+      <RewardDialog xsi:nil="true"/>
+    </Mission>
+  </StepsMissionsGroup>
+  <StepsMissionsGroup>
+    <!-- World of JumpStart - Marineland -->
+    <GameId>4</GameId>
+    <WorldName>MerCaverns</WorldName>
+    <MissionData>
+      <Mission>
+        <MissionID>123</MissionID>
+        <Name>CavePunkTutorial</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Punk-Punk Pounce</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>228</StepID>
+          <TaskID>405</TaskID>
+        </Step>
+        <Step>
+          <StepID>229</StepID>
+          <TaskID>406</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>124</MissionID>
+        <Name>CaveVisitFishFount</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Find the Fishy Fountain</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>230</StepID>
+          <TaskID>407</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>125</MissionID>
+        <Name>CaveCollectFlag</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Capture the Flag</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>231</StepID>
+          <TaskID>408</TaskID>
+        </Step>
+        <Step>
+          <StepID>232</StepID>
+          <TaskID>409</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>126</MissionID>
+        <Name>CaveCollect10Punks</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Punk-Punk Be Gone</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>233</StepID>
+          <TaskID>410</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>127</MissionID>
+        <Name>CavePhotoDrawings</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Cave Creations</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>234</StepID>
+          <TaskID>411</TaskID>
+        </Step>
+        <Step>
+          <StepID>235</StepID>
+          <TaskID>412</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>128</MissionID>
+        <Name>CaveCollectRocks</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Crystal Rock Collect</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>236</StepID>
+          <TaskID>413</TaskID>
+        </Step>
+        <Step>
+          <StepID>237</StepID>
+          <TaskID>414</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>129</MissionID>
+        <Name>CavePhotoYellowPunk</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Punk-Punks Say "Cheese!"</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>238</StepID>
+          <TaskID>415</TaskID>
+        </Step>
+        <Step>
+          <StepID>239</StepID>
+          <TaskID>416</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>130</MissionID>
+        <Name>CaveCollectPurplePunk</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Purple Punk-Punk Pounding</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>240</StepID>
+          <TaskID>417</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>131</MissionID>
+        <Name>CaveCollectAnchors</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Anchors Away</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>241</StepID>
+          <TaskID>418</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>132</MissionID>
+        <Name>CaveVisitSlide</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Water Slide Wild Ride</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>242</StepID>
+          <TaskID>419</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>133</MissionID>
+        <Name>CollecthidingPunks</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Five Fishy Fiends</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>243</StepID>
+          <TaskID>420</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>134</MissionID>
+        <Name>CaveCollectFlashlight</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Cappy's Flashlight
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>244</StepID>
+          <TaskID>421</TaskID>
+        </Step>
+        <Step>
+          <StepID>245</StepID>
+          <TaskID>422</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>135</MissionID>
+        <Name>CaveCollectTimer01</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Sea Floor Sweep Up
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>246</StepID>
+          <TaskID>423</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>136</MissionID>
+        <Name>CaveCollectlanterns</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Lantern Lookout
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>247</StepID>
+          <TaskID>424</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>137</MissionID>
+        <Name>CavePhotoStatue</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Portrait of General Shellback</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>248</StepID>
+          <TaskID>425</TaskID>
+        </Step>
+        <Step>
+          <StepID>249</StepID>
+          <TaskID>426</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>138</MissionID>
+        <Name>CaveCollectPaintCans</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Punked out Paint Cans
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>250</StepID>
+          <TaskID>427</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>139</MissionID>
+        <Name>CaveVisitMushrooms</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Pink and Purple Plants
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>251</StepID>
+          <TaskID>428</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>140</MissionID>
+        <Name>CavePhotoPPStatue</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Sir Punk-A-Lot
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>252</StepID>
+          <TaskID>429</TaskID>
+        </Step>
+        <Step>
+          <StepID>253</StepID>
+          <TaskID>430</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>141</MissionID>
+        <Name>CaveCollectShoes</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Running Shoes Rundown
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>254</StepID>
+          <TaskID>431</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>142</MissionID>
+        <Name>CaveCollectKey</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Cappy's Key Hunt
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>255</StepID>
+          <TaskID>432</TaskID>
+        </Step>
+        <Step>
+          <StepID>256</StepID>
+          <TaskID>433</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>143</MissionID>
+        <Name>CavePhotoCrab</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Crab Shot
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>257</StepID>
+          <TaskID>434</TaskID>
+        </Step>
+        <Step>
+          <StepID>258</StepID>
+          <TaskID>435</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>144</MissionID>
+        <Name>CaveCollectPearl</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>It's a Surprise!
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>259</StepID>
+          <TaskID>436</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>145</MissionID>
+        <Name>CaveCollectPunks02</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Cavern Clean Up
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>260</StepID>
+          <TaskID>437</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>146</MissionID>
+        <Name>CavePhotoOutofplace</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>The UnPunk-Punk 
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>261</StepID>
+          <TaskID>438</TaskID>
+        </Step>
+        <Step>
+          <StepID>262</StepID>
+          <TaskID>439</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>147</MissionID>
+        <Name>CaveCollectTimer02</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Here Comes Trouble
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>263</StepID>
+          <TaskID>440</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>148</MissionID>
+        <Name>CaveCollectWhistle</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Whistle Thief
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>264</StepID>
+          <TaskID>441</TaskID>
+        </Step>
+        <Step>
+          <StepID>265</StepID>
+          <TaskID>442</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>149</MissionID>
+        <Name>CaveCollectWhistle</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Statue of a Sea Horse 
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>266</StepID>
+          <TaskID>443</TaskID>
+        </Step>
+        <Step>
+          <StepID>267</StepID>
+          <TaskID>444</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>150</MissionID>
+        <Name>CaveCollectTreasChest</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Treasures of the Fishy Fountain
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>268</StepID>
+          <TaskID>445</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>151</MissionID>
+        <Name>CavePhotoFishStatue</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Fish Statue Frame-up
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>269</StepID>
+          <TaskID>446</TaskID>
+        </Step>
+        <Step>
+          <StepID>270</StepID>
+          <TaskID>447</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>152</MissionID>
+        <Name>CavePhotoCrabStatue</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Stone Crab Snapshot
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>271</StepID>
+          <TaskID>448</TaskID>
+        </Step>
+        <Step>
+          <StepID>272</StepID>
+          <TaskID>449</TaskID>
+        </Step>
+      </Mission>
+    </MissionData>
+  </StepsMissionsGroup>
+  <StepsMissionsGroup>
+    <!-- World of JumpStart - Marineland -->
+    <GameId>4</GameId>
+    <WorldName>MerTown</WorldName>
+    <MissionData>
+      <Mission>
+        <MissionID>153</MissionID>
+        <Name>TownVisit Areas</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Merllywood Tour</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>273</StepID>
+          <TaskID>450</TaskID>
+        </Step>
+        <Step>
+          <StepID>274</StepID>
+          <TaskID>451</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>154</MissionID>
+        <Name>TownPunkTutorial</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Punk-Punk Pouncing 101
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>275</StepID>
+          <TaskID>452</TaskID>
+        </Step>
+        <Step>
+          <StepID>276</StepID>
+          <TaskID>453</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>155</MissionID>
+        <Name>TownFSGameplay01</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Runway Away </Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>277</StepID>
+          <TaskID>454</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>156</MissionID>
+        <Name>TownCollectDDCD</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Disco Dreams</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>278</StepID>
+          <TaskID>455</TaskID>
+        </Step>
+        <Step>
+          <StepID>279</StepID>
+          <TaskID>456</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>157</MissionID>
+        <Name>TownPhotoMerStatue</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Photo Finish
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>280</StepID>
+          <TaskID>457</TaskID>
+        </Step>
+        <Step>
+          <StepID>281</StepID>
+          <TaskID>458</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>158</MissionID>
+        <Name>TownCollectPearls</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Pearly Finds
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>282</StepID>
+          <TaskID>459</TaskID>
+        </Step>
+        <Step>
+          <StepID>283</StepID>
+          <TaskID>460</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>159</MissionID>
+        <Name>TownFSGameplay02</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Called in Sick
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>284</StepID>
+          <TaskID>461</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>160</MissionID>
+        <Name>TownVisitBigHand</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Lucky Charm
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>285</StepID>
+          <TaskID>462</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>161</MissionID>
+        <Name>TownPhotoGoldPunk</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Golden Imposter
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>286</StepID>
+          <TaskID>463</TaskID>
+        </Step>
+        <Step>
+          <StepID>287</StepID>
+          <TaskID>464</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>162</MissionID>
+        <Name>TownCollectPunk01</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Disguised Guests
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>288</StepID>
+          <TaskID>465</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>163</MissionID>
+        <Name>TownPhotoSpiralShell</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Spiral Shell Snapshot
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>289</StepID>
+          <TaskID>466</TaskID>
+        </Step>
+        <Step>
+          <StepID>290</StepID>
+          <TaskID>467</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>164</MissionID>
+        <Name>TownCollectTrash</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Trendy Tides De-trashing
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>291</StepID>
+          <TaskID>468</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>165</MissionID>
+        <Name>TownPhotoRedRock</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Red Ruby Rock of Runway Grace
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>292</StepID>
+          <TaskID>469</TaskID>
+        </Step>
+        <Step>
+          <StepID>293</StepID>
+          <TaskID>470</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>166</MissionID>
+        <Name>TownVisitStatue</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>De-Punk Statue
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>294</StepID>
+          <TaskID>471</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>167</MissionID>
+        <Name>TownFSGameplay03</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Strut Your Stuff
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>295</StepID>
+          <TaskID>472</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>168</MissionID>
+        <Name>TownCollectLanterns</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Lantern Collection
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>296</StepID>
+          <TaskID>473</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>169</MissionID>
+        <Name>TownArtBillboard01</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Masterpiece Minute
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>297</StepID>
+          <TaskID>474</TaskID>
+        </Step>
+        <Step>
+          <StepID>298</StepID>
+          <TaskID>475</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>170</MissionID>
+        <Name>TownCollectClothes</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Spring Line Sprucing
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>299</StepID>
+          <TaskID>476</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>171</MissionID>
+        <Name>TownPhotoPinkShell</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Prized Shell Photo
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>300</StepID>
+          <TaskID>477</TaskID>
+        </Step>
+        <Step>
+          <StepID>301</StepID>
+          <TaskID>478</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>172</MissionID>
+        <Name>TownArtBillboard02</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Poster Props
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>302</StepID>
+          <TaskID>479</TaskID>
+        </Step>
+        <Step>
+          <StepID>303</StepID>
+          <TaskID>480</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>173</MissionID>
+        <Name>TownMakeCard</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Making of a Mer-card
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>304</StepID>
+          <TaskID>481</TaskID>
+        </Step>
+        <Step>
+          <StepID>305</StepID>
+          <TaskID>482</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>174</MissionID>
+        <Name>TownBuyFunkyCD</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Funky Fever 
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>306</StepID>
+          <TaskID>483</TaskID>
+        </Step>
+        <Step>
+          <StepID>307</StepID>
+          <TaskID>484</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>175</MissionID>
+        <Name>TownCollectPPTimer</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Punk-Punk Pounce</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>308</StepID>
+          <TaskID>485</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>176</MissionID>
+        <Name>TownBuyFlowers</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Flower Flourish
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>309</StepID>
+          <TaskID>486</TaskID>
+          <TaskID>497</TaskID>
+        </Step>
+        <Step>
+          <StepID>310</StepID>
+          <TaskID>487</TaskID>
+          <TaskID>498</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>177</MissionID>
+        <Name>TownFSGameplay04</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Fashionable Fins
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>311</StepID>
+          <TaskID>488</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>178</MissionID>
+        <Name>TownCollectPaint</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>The Brush Off
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>312</StepID>
+          <TaskID>489</TaskID>
+        </Step>
+        <Step>
+          <StepID>313</StepID>
+          <TaskID>490</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>179</MissionID>
+        <Name>TownPhotoMovie</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Movie Magic
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>314</StepID>
+          <TaskID>491</TaskID>
+        </Step>
+        <Step>
+          <StepID>315</StepID>
+          <TaskID>492</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>180</MissionID>
+        <Name>TownBuyItem</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Shopping Spree
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>316</StepID>
+          <TaskID>493</TaskID>
+        </Step>
+        <Step>
+          <StepID>317</StepID>
+          <TaskID>494</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>181</MissionID>
+        <Name>TownCollectPunkOld</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>Showdown Before the Show</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>318</StepID>
+          <TaskID>495</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>182</MissionID>
+        <Name>TownTreasureChest</Name>
+        <DisplayName xsi:nil="true"/>
+        <IconName xsi:nil="true"/>
+        <Description>There's Treasure in Them Hills
+</Description>
+        <Experience>0</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>319</StepID>
+          <TaskID>496</TaskID>
+        </Step>
+      </Mission>
+    </MissionData>
+  </StepsMissionsGroup>
+  <StepsMissionsGroup>
+    <!-- MathBlaster - male -->
+    <GameId>5</GameId>
+    <WorldName>MB Boys</WorldName>
+    <MissionData>
+      <Mission>
+        <MissionID>189</MissionID>
+        <Name>Rescue a Larva</Name>
+        <DisplayName>ADOPT A PET TO RAISE AND TRAIN.</DisplayName>
+        <IconName xsi:nil="true"/>
+        <Description>ADOPT A PET TO RAISE AND TRAIN.</Description>
+        <Experience>-1</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>326</StepID>
+          <TaskID>505</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>213</MissionID>
+        <Name>Larva Attachment</Name>
+        <DisplayName>Play and Feed your larva</DisplayName>
+        <IconName xsi:nil="true"/>
+        <Description>Lets get emotionally attached to the larva</Description>
+        <Experience>-1</Experience>
+        <RewardDialog>
+          <FileName>DlgGCM213End</FileName>
+          <NPC>GC</NPC>
+          <Bundle>RS_DATA/MBDirectedM213.unity3d</Bundle>
+        </RewardDialog>
+        <Step>
+          <StepID>350</StepID>
+          <TaskID>529</TaskID>
+        </Step>
+        <Step>
+          <StepID>351</StepID>
+          <TaskID>530</TaskID>
+        </Step>
+        <Step>
+          <StepID>354</StepID>
+          <TaskID>533</TaskID>
+          <TaskID>534</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>215</MissionID>
+        <Name>MB Boy Visit Mutt Pod</Name>
+        <DisplayName>Go to your Mutt Pod</DisplayName>
+        <IconName xsi:nil="true"/>
+        <Description>Visit Mutt Pod Boy</Description>
+        <Experience>-1</Experience>
+        <RewardDialog>
+          <FileName>DlgGCM215End</FileName>
+          <NPC>GC</NPC>
+          <Bundle>RS_DATA/MBDirectedM215.unity3d</Bundle>
+        </RewardDialog>
+        <Step>
+          <StepID>358</StepID>
+          <TaskID>539</TaskID>
+        </Step>
+        <Step>
+          <StepID>360</StepID>
+          <TaskID>541</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>217</MissionID>
+        <Name>MB Boy Visit Pod</Name>
+        <DisplayName>Go to your Pod</DisplayName>
+        <IconName xsi:nil="true"/>
+        <Description>Visit Pod Boy</Description>
+        <Experience>-1</Experience>
+        <RewardDialog>
+          <FileName>DlgGCM217End</FileName>
+          <NPC>GC</NPC>
+          <Bundle>RS_DATA/MBDirectedM217.unity3d</Bundle>
+        </RewardDialog>
+        <Step>
+          <StepID>366</StepID>
+          <TaskID>547</TaskID>
+        </Step>
+        <Step>
+          <StepID>368</StepID>
+          <TaskID>549</TaskID>
+        </Step>
+        <Step>
+          <StepID>370</StepID>
+          <TaskID>551</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>220</MissionID>
+        <Name>MB Boy Play Hyperblast</Name>
+        <DisplayName>Play Hyperblast</DisplayName>
+        <IconName xsi:nil="true"/>
+        <Description>Play Hyperblast Boy</Description>
+        <Experience>-1</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>373</StepID>
+          <TaskID>554</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>187</MissionID>
+        <Name>Play HyperBlast</Name>
+        <DisplayName>Pilot Skills Challenge</DisplayName>
+        <IconName xsi:nil="true"/>
+        <Description>Pilot Skills Challenge</Description>
+        <Experience>-1</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>324</StepID>
+          <TaskID>503</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>188</MissionID>
+        <Name>Play Galaxy Grand Prix</Name>
+        <DisplayName>Skill and Bravery Challenge</DisplayName>
+        <IconName xsi:nil="true"/>
+        <Description>Skill and Bravery Challenge</Description>
+        <Experience>-1</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>325</StepID>
+          <TaskID>504</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>190</MissionID>
+        <Name>Master Morph Madness</Name>
+        <DisplayName>IQ Challenge</DisplayName>
+        <IconName xsi:nil="true"/>
+        <Description>IQ Challenge</Description>
+        <Experience>-1</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>327</StepID>
+          <TaskID>506</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>191</MissionID>
+        <Name>Home Sweet Home</Name>
+        <DisplayName>FIND YOUR ROOM AND SETTLE IN.</DisplayName>
+        <IconName xsi:nil="true"/>
+        <Description>Navigational Challenge</Description>
+        <Experience>-1</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>328</StepID>
+          <TaskID>507</TaskID>
+        </Step>
+      </Mission>
+    </MissionData>
+  </StepsMissionsGroup>
+  <StepsMissionsGroup>
+    <!-- MathBlaster - female -->
+    <GameId>5</GameId>
+    <WorldName>MB Girls</WorldName>
+    <MissionData>
+      <Mission>
+        <MissionID>192</MissionID>
+        <Name>Rescue a larva Girl</Name>
+        <DisplayName>ADOPT A PET TO RAISE AND TRAIN.</DisplayName>
+        <IconName xsi:nil="true"/>
+        <Description>Adopt a pet to raise and train.</Description>
+        <Experience>-1</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>329</StepID>
+          <TaskID>508</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>214</MissionID>
+        <Name>Larva Attachment Girl</Name>
+        <DisplayName>Love and attachment </DisplayName>
+        <IconName xsi:nil="true"/>
+        <Description>Love and attachment </Description>
+        <Experience>-1</Experience>
+        <RewardDialog>
+          <FileName>DlgGCM214End</FileName>
+          <NPC>GC</NPC>
+          <Bundle>RS_DATA/MBDirectedM214.unity3d</Bundle>
+        </RewardDialog>
+        <Step>
+          <StepID>352</StepID>
+          <TaskID>531</TaskID>
+        </Step>
+        <Step>
+          <StepID>353</StepID>
+          <TaskID>532</TaskID>
+        </Step>
+        <Step>
+          <StepID>355</StepID>
+          <TaskID>535</TaskID>
+          <TaskID>536</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>216</MissionID>
+        <Name>MB Girl Visit Mutt Pod</Name>
+        <DisplayName>Go to your Mutt Pod</DisplayName>
+        <IconName xsi:nil="true"/>
+        <Description>Visit Mutt Pod Girl</Description>
+        <Experience>-1</Experience>
+        <RewardDialog>
+          <FileName>DlgGCM216End</FileName>
+          <NPC>GC</NPC>
+          <Bundle>RS_DATA/MBDirectedM216.unity3d</Bundle>
+        </RewardDialog>
+        <Step>
+          <StepID>359</StepID>
+          <TaskID>540</TaskID>
+        </Step>
+        <Step>
+          <StepID>361</StepID>
+          <TaskID>542</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>218</MissionID>
+        <Name>MB Girl Visit Pod</Name>
+        <DisplayName>Go to your Pod</DisplayName>
+        <IconName xsi:nil="true"/>
+        <Description>Visit Pod Girl</Description>
+        <Experience>-1</Experience>
+        <RewardDialog>
+          <FileName>DlgGCM218End</FileName>
+          <NPC>GC</NPC>
+          <Bundle>RS_DATA/MBDirectedM218.unity3d</Bundle>
+        </RewardDialog>
+        <Step>
+          <StepID>367</StepID>
+          <TaskID>548</TaskID>
+        </Step>
+        <Step>
+          <StepID>369</StepID>
+          <TaskID>550</TaskID>
+        </Step>
+        <Step>
+          <StepID>371</StepID>
+          <TaskID>552</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>219</MissionID>
+        <Name>MB Girl Play Hyperblast</Name>
+        <DisplayName>Play Hyperblast</DisplayName>
+        <IconName xsi:nil="true"/>
+        <Description>Play Hyperblast Girl</Description>
+        <Experience>-1</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>372</StepID>
+          <TaskID>553</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>193</MissionID>
+        <Name>Master Morph Madness Girl</Name>
+        <DisplayName>IQ Challenge</DisplayName>
+        <IconName xsi:nil="true"/>
+        <Description>IQ Challenge</Description>
+        <Experience>-1</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>330</StepID>
+          <TaskID>509</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>194</MissionID>
+        <Name>PLay Alien Wrangler Girl</Name>
+        <DisplayName>Bravery and Stamina Challenge</DisplayName>
+        <IconName xsi:nil="true"/>
+        <Description>Bravery and Stamina Challenge</Description>
+        <Experience>-1</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>331</StepID>
+          <TaskID>510</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>195</MissionID>
+        <Name>Play Zapper Girl</Name>
+        <DisplayName>Skill and Agility Challenge</DisplayName>
+        <IconName xsi:nil="true"/>
+        <Description>Skill and Agility Challenge</Description>
+        <Experience>-1</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>332</StepID>
+          <TaskID>511</TaskID>
+        </Step>
+      </Mission>
+      <Mission>
+        <MissionID>196</MissionID>
+        <Name>Home Sweet Home Girl</Name>
+        <DisplayName>FIND YOUR ROOM AND SETTLE IN.</DisplayName>
+        <IconName xsi:nil="true"/>
+        <Description>Navigational Challenge</Description>
+        <Experience>-1</Experience>
+        <RewardDialog xsi:nil="true"/>
+        <Step>
+          <StepID>333</StepID>
+          <TaskID>512</TaskID>
+        </Step>
+      </Mission>
+    </MissionData>
+    <StepsMissionsGroup>
+      <!-- Eat My Dust -->
+      <GameId>6</GameId>
+      <WorldName>_default_</WorldName>
+      <MissionData>
+        <Mission>
+          <MissionID>197</MissionID>
+          <Name>Check out your garage!</Name>
+          <DisplayName>Check out your garage!</DisplayName>
+          <IconName xsi:nil="true"/>
+          <Description>Every racer needs a GARAGE. A place where you can mod your ride. Check it out!</Description>
+          <Experience>-1</Experience>
+          <RewardDialog xsi:nil="true"/>
+          <Step>
+            <StepID>334</StepID>
+            <TaskID>513</TaskID>
+          </Step>
+        </Mission>
+        <Mission>
+          <MissionID>198</MissionID>
+          <Name>Make it through the Big Chomper!</Name>
+          <DisplayName>Survive the Big Chomper.</DisplayName>
+          <IconName xsi:nil="true"/>
+          <Description>Feeling brave and reckless? Looking for speed and glory? I know exactly where to send you. Go check out the Big Chomper Race Track!</Description>
+          <Experience>-1</Experience>
+          <RewardDialog xsi:nil="true"/>
+          <Step>
+            <StepID>335</StepID>
+            <TaskID>514</TaskID>
+          </Step>
+        </Mission>
+        <Mission>
+          <MissionID>199</MissionID>
+          <Name>Buy some new wheels for your ride.</Name>
+          <DisplayName>Buy some new wheels for your ride.</DisplayName>
+          <IconName xsi:nil="true"/>
+          <Description>Are you ready to move ahead of the pack? Speed on over to the MECHANIC SHOP and cruise out with some new wheels.</Description>
+          <Experience>-1</Experience>
+          <RewardDialog xsi:nil="true"/>
+          <Step>
+            <StepID>336</StepID>
+            <TaskID>515</TaskID>
+          </Step>
+        </Mission>
+        <Mission>
+          <MissionID>200</MissionID>
+          <Name>Buy a weapon for the front of your car.</Name>
+          <DisplayName>Buy a weapon for the front of your car.</DisplayName>
+          <IconName xsi:nil="true"/>
+          <Description>Are you ready to DESTROY your competition?! We've got WEAPONS and lots of them at the ARMORY! Why don't you buy that massive one for the front of your car.</Description>
+          <Experience>-1</Experience>
+          <RewardDialog xsi:nil="true"/>
+          <Step>
+            <StepID>337</StepID>
+            <TaskID>516</TaskID>
+          </Step>
+        </Mission>
+        <Mission>
+          <MissionID>201</MissionID>
+          <Name>Create a race.</Name>
+          <DisplayName>Create a race.</DisplayName>
+          <IconName xsi:nil="true"/>
+          <Description>Be the BOSS! Create a Race in the RACING CIRCUIT and pick your favorite style and track.</Description>
+          <Experience>-1</Experience>
+          <RewardDialog xsi:nil="true"/>
+          <Step>
+            <StepID>338</StepID>
+            <TaskID>517</TaskID>
+          </Step>
+        </Mission>
+        <Mission>
+          <MissionID>212</MissionID>
+          <Name>Kill 10 Zombies in the Combat Zone!</Name>
+          <DisplayName>Kill 10 Zombies in the Combat Zone!</DisplayName>
+          <IconName xsi:nil="true"/>
+          <Description>Zombies are trying to take over the Combat Zone, go help out and kill 10 of them!</Description>
+          <Experience>-1</Experience>
+          <RewardDialog xsi:nil="true"/>
+          <Step>
+            <StepID>349</StepID>
+            <TaskID>528</TaskID>
+          </Step>
+        </Mission>
+      </MissionData>
+    </StepsMissionsGroup>
+  </StepsMissionsGroup>
+</ArrayOfStepsMissionsGroup>

@@ -19,11 +19,13 @@ public class StoreService {
             List<ItemData> itemsList = new();
             IEnumerable<ItemsInStoreDataSale>? memberSales = s.SalesAtStore?.Where(x => x.ForMembers == true);
             IEnumerable<ItemsInStoreDataSale>? normalSales = s.SalesAtStore?.Where(x => x.ForMembers == false || x.ForMembers == null);
-            for (int i = 0; i < s.ItemId.Length; ++i) {
-                ItemData item = itemService.GetItem(s.ItemId[i]);
-                if (item is null) continue; // skip removed items
-                itemsList.Add(item);
-                UpdateItemSaleModifier(item, memberSales, normalSales);
+            if (s.ItemId != null) {
+                for (int i = 0; i < s.ItemId.Length; ++i) {
+                    ItemData item = itemService.GetItem(s.ItemId[i]);
+                    if (item is null) continue; // skip removed items
+                    itemsList.Add(item);
+                    UpdateItemSaleModifier(item, memberSales, normalSales);
+                }
             }
             foreach (int itemID in moddingService.GetStoreItem(s.Id)) {
                 ItemData item = itemService.GetItem(itemID);

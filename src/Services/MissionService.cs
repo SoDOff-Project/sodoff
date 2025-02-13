@@ -54,6 +54,109 @@ public class MissionService {
         return mission;
     }
 
+    public Schema.UserMissionData GetUserMissionData(Viking viking, int worldId) {
+        Schema.UserMissionData umdRes = new();
+
+        // instantiate schema lists and int lists
+        List<int> userMissionsCompletedIds = new();
+        List<UserMissionDataMission> missions = new();
+
+        // get all initiated missions
+        List<Model.UserMissionData> vikingUmds = viking.UserMissions.Where(e => e.WorldId == worldId).ToList();
+
+        foreach (Model.UserMissionData mission in vikingUmds) {
+            missions.Add(new UserMissionDataMission {
+                MissionId = mission.MissionId,
+                Step = new UserMissionDataMissionStep[] { new UserMissionDataMissionStep {
+                    // NOTE: we store in database only last StepId and TaskId – this is different behavior than og
+                    StepId = mission.StepId,
+                    TaskId = new int[] {mission.TaskId}
+                }}
+            });
+        }
+
+        // add completed mission id's to usermissionscompletedids
+        List<Model.UserMissionData> vikingCompletedUmds = vikingUmds.Where(e => e.IsCompleted == true).ToList();
+
+        foreach (Model.UserMissionData mission in vikingCompletedUmds)
+        {
+            userMissionsCompletedIds.Add(mission.MissionId);
+        }
+
+        // construct response
+        umdRes.Mission = missions.ToArray();
+        umdRes.MissionComplete = userMissionsCompletedIds.ToArray();
+
+        // return
+        return umdRes;
+    }
+
+    public UserBadge GetUserBadgesCompleted(Viking viking)
+    {
+        // get badges
+        List<UserBadgeCompleteData> userBadgesCompleted = viking.UserBadgesCompleted.ToList();
+        List<int> completedBadgeIds = new List<int>();
+
+        foreach (var userBadge in userBadgesCompleted)
+        {
+            completedBadgeIds.Add(userBadge.BadgeId);
+        }
+
+        return new UserBadge { BadgeId = completedBadgeIds.ToArray() };
+    }
+
+    public void SetOrUpdateUserMissionData(Viking viking, int worldId, int missionId, int stepId, int taskId) {
+        // find any existing records of this mission
+        Model.UserMissionData? missionData = viking.UserMissions.Where(e => e.WorldId == worldId)
+            .Where(e => e.MissionId == missionId)
+            .FirstOrDefault();
+
+        if (missionData != null) {
+            missionData.StepId = stepId;
+            missionData.TaskId = taskId;
+        } else {
+            viking.UserMissions.Add(new Model.UserMissionData() {
+                WorldId = worldId,
+                MissionId = missionId,
+                StepId = stepId,
+                TaskId = taskId
+            });
+        }
+        ctx.SaveChanges();
+    }
+
+    public bool SetUserMissionCompleted(Viking viking, int worldId, int missionId, bool isCompleted)
+    {
+        Model.UserMissionData? mission = viking.UserMissions.Where(e => e.WorldId == worldId)
+            .Where(e => e.MissionId == missionId)
+            .FirstOrDefault();
+
+        if (mission != null)
+        {
+            // set mission complete
+            mission.IsCompleted = isCompleted;
+
+            // add jumpstars for completing the mission
+            if (isCompleted) achievementService.AddAchievementPoints(viking, AchievementPointTypes.PlayerXP, 25); // hardcoding earning 25 for now
+
+            ctx.SaveChanges();
+            return true;
+        }
+
+        return false;
+    }
+
+    public bool SetUserBadgeComplete(Viking viking, int gameId)
+    {
+        // add completed badge to database
+        UserBadgeCompleteData userBadgeCompleteData = new() { BadgeId = gameId };
+
+        viking.UserBadgesCompleted.Add(userBadgeCompleteData);
+        ctx.SaveChanges();
+
+        return true;
+    }
+
     public List<MissionCompletedResult> UpdateTaskProgress(int missionId, int taskId, int userId, bool completed, string xmlPayload, uint gameVersion) {
         SetTaskProgressDB(missionId, taskId, userId, completed, xmlPayload);
 

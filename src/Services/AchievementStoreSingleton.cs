@@ -1,10 +1,12 @@
 ﻿using sodoff.Schema;
 using sodoff.Model;
 using sodoff.Util;
+using sodoff.Configuration;
 using System.Reflection;
 using System.Xml;
 using System.Xml.Linq;
 using System.Collections.ObjectModel;
+using Microsoft.Extensions.Options;
 
 namespace sodoff.Services {
     public class AchievementStoreSingleton {
@@ -34,7 +36,7 @@ namespace sodoff.Services {
         int dragonAdultMinXP;
         int dragonTitanMinXP;
 
-        public AchievementStoreSingleton() {
+        public AchievementStoreSingleton(IOptions<ApiServerConfig> config) {
             ArrayOfUserRank allranks = XmlUtil.DeserializeXml<ArrayOfUserRank>(XmlUtil.ReadResourceXmlString("ranks.allranks_sod"));
             foreach (var pointType in Enum.GetValues<AchievementPointTypes>()) {
                 ranks[pointType] = allranks.UserRank.Where(r => r.PointTypeID == pointType).ToArray();
@@ -46,11 +48,13 @@ namespace sodoff.Services {
             }
 
             achievementsTasks[ClientVersion.Min_SoD] = new AchievementTasks("achievements.achievementtaskinfo_sod");
-            achievementsTasks[ClientVersion.MaM] = new AchievementTasks("achievements.achievementtaskinfo_mam");
-            achievementsTasks[ClientVersion.MB] = new AchievementTasks("achievements.achievementtaskinfo_mb");
-            achievementsTasks[ClientVersion.EMD] = new AchievementTasks("achievements.achievementtaskinfo_emd");
-            achievementsTasks[ClientVersion.SS] = new AchievementTasks("achievements.achievementtaskinfo_ss");
-            achievementsTasks[ClientVersion.WoJS] = new AchievementTasks("achievements.achievementtaskinfo_wojs");
+            if (config.Value.LoadNonSoDData) {
+                achievementsTasks[ClientVersion.MaM] = new AchievementTasks("achievements.achievementtaskinfo_mam");
+                achievementsTasks[ClientVersion.MB] = new AchievementTasks("achievements.achievementtaskinfo_mb");
+                achievementsTasks[ClientVersion.EMD] = new AchievementTasks("achievements.achievementtaskinfo_emd");
+                achievementsTasks[ClientVersion.SS] = new AchievementTasks("achievements.achievementtaskinfo_ss");
+                achievementsTasks[ClientVersion.WoJS] = new AchievementTasks("achievements.achievementtaskinfo_wojs");
+            }
 
             dragonAdultMinXP = ranks[AchievementPointTypes.DragonXP][10].Value;
             dragonTitanMinXP = ranks[AchievementPointTypes.DragonXP][20].Value;

@@ -87,12 +87,14 @@ public class AuthenticationController : Controller {
     [Route("v3/AuthenticationWebService.asmx/AuthenticateUser")]
     [DecryptRequest("username")]
     [DecryptRequest("password")]
-    public bool AuthenticateUser() {
+    public bool AuthenticateUser([FromForm] string apiKey) {
         String username = Request.Form["username"];
         String password = Request.Form["password"];
 
         // Authenticate the user
-        User? user = ctx.Users.FirstOrDefault(e => e.Username == username);
+        User? user = (ClientVersion.GetVersion(apiKey) <= ClientVersion.Max_OldJS)
+            ? ctx.Users.FirstOrDefault(e => e.Email == username)
+            : ctx.Users.FirstOrDefault(e => e.Username == username);
         if (user is null || new PasswordHasher<object>().VerifyHashedPassword(null, user.Password, password) != PasswordVerificationResult.Success) {
             return false;
         }
