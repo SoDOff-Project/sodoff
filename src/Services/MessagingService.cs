@@ -1,4 +1,5 @@
 using System;
+using System.Net.Mime;
 using sodoff.Model;
 using sodoff.Schema;
 using sodoff.Util;
@@ -18,18 +19,24 @@ public class MessagingService
     {
         Random rnd = new Random(); // 'ConversationId' and 'QueueId'
 
+        // get current DateTime
+        DateTime now = DateTime.UtcNow;
+
         // create a new message
         Model.Message message = new Model.Message
         {
             ConversationID = rnd.Next(1000, 9999),
             QueueID = rnd.Next(1000, 9999),
-            CreatedAt = DateTime.UtcNow,
-            LastUpdatedAt = DateTime.UtcNow,
+            CreatedAt = now,
+            LastUpdatedAt = now,
             MessageType = type,
             MessageLevel = level,
             MessageTypeID = typeID,
             Data = content,
-            IsNew = true // immediately mark as new
+            MemberMessage = content,
+            NonMemberMessage = content,
+            IsNew = true,
+            IsDeleted = false
         };
 
         if (isReply == true && replyMessageID != 0)
@@ -47,10 +54,7 @@ public class MessagingService
                 if(messageToReplyTo.Replies == null) messageToReplyTo.Replies = new List<Model.Message>();
 
                 // add to list of replies
-                messageToReplyTo.Replies.Add(messageToReplyTo); // EF Core should do the rest (hopefully)
-
-                // return message here, do not add another parent message to message board
-                return message;
+                messageToReplyTo.Replies.Add(messageToReplyTo);
             }
         }
 
@@ -105,7 +109,7 @@ public class MessagingService
                     MessageID = message.Id,
                     ConversationID = message.ConversationID ?? 0,
                     ReplyToMessageID = message.ParentMessageId,
-                    Creator = message.FromViking!.Uid.ToString() ?? "NotFound",
+                    Creator = message.Viking!.Uid.ToString() ?? "NotFound",
                     CreateTime = message.CreatedAt,
                     UpdateDate = message.LastUpdatedAt,
                     MessageType = message.MessageType,

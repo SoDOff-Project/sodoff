@@ -304,11 +304,12 @@ public class DBContext : DbContext {
 
         builder.Entity<Message>().HasOne(r => r.FromViking)
             .WithMany(e => e.MessageBoard)
-            .HasForeignKey(e => e.FromVikingId);
+            .HasForeignKey(e => e.ToVikingId);
 
         builder.Entity<Message>().HasOne(r => r.ParentMessage)
             .WithMany(e => e.Replies)
-            .HasForeignKey(e => e.ParentMessageId);
+            .HasForeignKey(e => e.ParentMessageId)
+            .OnDelete(DeleteBehavior.SetNull);
 
         // Groups
         builder.Entity<Group>().HasMany(r => r.Vikings)

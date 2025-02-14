@@ -8,20 +8,22 @@ namespace sodoff.Controllers.Common;
 public class MessagingController : Controller {
 
     public readonly ModerationService moderationService;
+    public readonly MessagingService messagingService;
     public readonly DBContext ctx;
 
-    public MessagingController(ModerationService moderationService, DBContext ctx)
+    public MessagingController(ModerationService moderationService, MessagingService messagingService, DBContext ctx)
     {
         this.moderationService = moderationService;
+        this.messagingService = messagingService;
         this.ctx = ctx;
     }
 
     [HttpPost]
     [Produces("application/xml")]
     [Route("MessagingWebService.asmx/GetUserMessageQueue")]
-    public ArrayOfMessageInfo? GetUserMessageQueue() {
-        // TODO: this is a placeholder
-        return null;
+    [VikingSession]
+    public ArrayOfMessageInfo? GetUserMessageQueue(Viking viking) {
+        return new ArrayOfMessageInfo { MessageInfo = messagingService.ConstructUserMessageInfoArray(viking, false, false) };
     }
 
     [HttpPost]
@@ -43,10 +45,13 @@ public class MessagingController : Controller {
     [HttpPost]
     [Produces("application/xml")]
     [Route("MessageWebService.asmx/GetCombinedListMessage")]
-    public IActionResult GetCombinedListMessage()
+    public ArrayOfCombinedListMessage? GetCombinedListMessage([FromForm] Guid userId)
     {
-        // TODO - placeholder
-        return Ok(new ArrayOfMessageInfo());
+        Viking? viking = ctx.Vikings.FirstOrDefault(e => e.Uid == userId);
+
+        if (viking == null) return new ArrayOfCombinedListMessage();
+
+        return new ArrayOfCombinedListMessage { CombinedListMessage = messagingService.ConstructCombinedMessageArray(viking) };
     }
 
     [HttpPost]
