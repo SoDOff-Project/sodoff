@@ -43,6 +43,8 @@ public class Viking {
     public virtual ICollection<Rating> Ratings { get; set; } = null!;
     public virtual ICollection<Report> ReportsMade { get; set; } = null!;
     public virtual ICollection<Report> ReportsReceived { get; set; } = null!;
+    public virtual ICollection<Message> MessageBoard { get; set; } = null!;
+    public virtual ICollection<Message> MessagesMade { get; set; } = null!;
     public virtual Dragon? SelectedDragon { get; set; }
 
     public DateTime? CreationDate { get; set; }
