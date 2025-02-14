@@ -12,12 +12,13 @@ public class Message
     public int VikingId { get; set; }
     public int FromVikingId { get; set; }
 
+    public int? ParentMessageId { get; set; }
+
     public int QueueID { get; set; }
     public int? ConversationID { get; set; }
-    public int? ReplyToMessageID { get; set; }
 
-    public MessageType? MessageType { get; set; }
-    public MessageTypeID? MessageTypeID { get; set; }
+    public MessageType MessageType { get; set; }
+    public MessageTypeID MessageTypeID { get; set; }
     public MessageLevel MessageLevel { get; set; }
 
     public string? Data { get; set; }
@@ -32,4 +33,6 @@ public class Message
 
     public virtual Viking? Viking { get; set; }
     public virtual Viking? FromViking { get; set; }
+    public virtual Message? ParentMessage { get; set; }
+    public virtual ICollection<Message>? Replies { get; set; }
 }

@@ -27,6 +27,7 @@ public class DBContext : DbContext {
     // we had a brief debate on whether it's neighborhoods or neighborheed
     public DbSet<UserBan> UserBans { get; set; } = null!;
     public DbSet<Report> UserReports { get; set; } = null!;
+    public DbSet<Message> Messages { get; set; } = null!;
     public DbSet<Group> Groups { get; set; } = null!;
     public DbSet<Rating> Ratings { get; set; } = null!;
     public DbSet<RatingRank> RatingRanks { get; set; } = null!;
@@ -304,6 +305,10 @@ public class DBContext : DbContext {
         builder.Entity<Message>().HasOne(r => r.FromViking)
             .WithMany(e => e.MessageBoard)
             .HasForeignKey(e => e.FromVikingId);
+
+        builder.Entity<Message>().HasOne(r => r.ParentMessage)
+            .WithMany(e => e.Replies)
+            .HasForeignKey(e => e.ParentMessageId);
 
         // Groups
         builder.Entity<Group>().HasMany(r => r.Vikings)
