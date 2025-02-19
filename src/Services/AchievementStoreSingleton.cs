@@ -114,7 +114,10 @@ namespace sodoff.Services {
                 dragonXP += dragonAdultMinXP;
             } else if  (growthState == 5 && dragonXP < dragonTitanMinXP) {
                 // adult to titan via ticket -> add XP
-                dragonXP += dragonTitanMinXP - dragonAdultMinXP;
+                if (dragonXP < dragonAdultMinXP)
+                    dragonXP += dragonTitanMinXP;
+                else
+                    dragonXP += dragonTitanMinXP - dragonAdultMinXP;
             }
             return dragonXP;
         }
