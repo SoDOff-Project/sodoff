@@ -29,6 +29,7 @@ public class StoreService {
             }
             foreach (int itemID in moddingService.GetStoreItem(s.Id)) {
                 ItemData item = itemService.GetItem(itemID);
+                if (itemsList.Contains(item)) continue;
                 itemsList.Add(item);
                 UpdateItemSaleModifier(item, memberSales, normalSales);
             }

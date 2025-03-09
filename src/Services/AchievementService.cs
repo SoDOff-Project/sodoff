@@ -158,13 +158,13 @@ namespace sodoff.Services {
             AchievementTaskState? achievementTaskState = viking.AchievementTaskStates.FirstOrDefault(x => x.TaskId == taskID);
             int pointValue = (achievementTaskState?.Points ?? 0);
             var achievementInfo = achievementStore.GetAchievementTaskInfo(taskID, gameVersion, pointValue);
-            var lastLevelCompleted = false;
+            var lastLevelCompleted = true;
 
             if (achievementInfo == null) return new AchievementTaskSetResponse();
 
             if (pointValue < achievementInfo.PointValue) { // limit points stored value to max points value in achievement tasks
                 pointValue += 1;
-                lastLevelCompleted = true;
+                lastLevelCompleted = false;
             }
 
             var rewards = (achievementInfo.Reproducible || pointValue == achievementInfo.PointValue)

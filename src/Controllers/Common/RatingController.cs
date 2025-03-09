@@ -240,6 +240,7 @@ public class RatingController : Controller
         return ctx.RatingRanks
             .Where(rr => categoryID == rr.CategoryID)
             .Take(numberOfRecord)
+            .ToList()
             .Select(rr => new RatingRankInfo(rr))
             .ToArray();
     }
@@ -255,6 +256,7 @@ public class RatingController : Controller
                 ))
                 .OrderBy(rr => rr.Rank)
                 .Take(numberOfRecord)
+                .ToList()
                 .Select(rr => new UserRatingRankInfo { RankInfo = new RatingRankInfo(rr), RatedUserID = new Guid(rr.RatedUserID) })
                 .ToArray()
         });

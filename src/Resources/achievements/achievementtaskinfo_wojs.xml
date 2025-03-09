@@ -14080,6 +14080,7 @@
       <atid xmlns="">36</atid>
     </AchieventTaskReward>
   </AchievementTaskInfo>
+  <!-- this caused issue with "collect the spark berries" task on WoJS 1.1
   <AchievementTaskInfo>
     <AchievementInfoID>265</AchievementInfoID>
     <AchievementTaskID>37</AchievementTaskID>
@@ -14300,6 +14301,7 @@
       <atid xmlns="">37</atid>
     </AchieventTaskReward>
   </AchievementTaskInfo>
+  -->
   <AchievementTaskInfo>
     <AchievementInfoID>269</AchievementInfoID>
     <AchievementTaskID>38</AchievementTaskID>

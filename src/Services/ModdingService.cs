@@ -38,7 +38,7 @@ public class ModdingService {
                         
                         try {
                             itemsToUpdate.Add((int)itemID, item);
-                            if (item.stores != null && (item.action == ModAction.Add || item.action == ModAction.Default)) {
+                            if (item.stores != null && (item.action != ModAction.Remove)) {
                                 foreach (int storeID in item.stores) {
                                     try {
                                         itemsInStore[storeID].Add((int)itemID);
