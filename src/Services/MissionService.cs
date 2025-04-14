@@ -219,8 +219,12 @@ public class MissionService {
 
             Schema.Task? t = mission.Tasks.Find(x => x.TaskID == task.Id);
             if (t != null) {
-                if (task.Completed) t.Completed = 1;
-                t.Payload = task.Payload;
+                if (task.Completed) {
+                    t.Completed = 1;
+                    t.Payload = task.Payload ?? "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<Data>\r\n  <S>true</S>\r\n</Data>";
+                } else {
+                    t.Payload = task.Payload;
+                }
             }
         }
 
@@ -249,8 +253,13 @@ public class MissionService {
         }
     }
 
-    private void SetTaskProgressDB(int missionId, int taskId, int userId, bool completed, string xmlPayload) {
+    private void SetTaskProgressDB(int missionId, int taskId, int userId, bool completed, string? xmlPayload) {
         Model.TaskStatus? status = ctx.TaskStatuses.FirstOrDefault(task => task.Id == taskId && task.MissionId == missionId && task.VikingId == userId);
+
+        // Based on the observation that no payloads on completed missions are null
+        // This is the most common task payload, so if the mission is completed with this payload we can set the payload to null and let the server autofill
+        if (completed && xmlPayload == "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<Data>\r\n  <S>true</S>\r\n</Data>")
+            xmlPayload = null;
 
         if (status is null) {
             status = new Model.TaskStatus {
