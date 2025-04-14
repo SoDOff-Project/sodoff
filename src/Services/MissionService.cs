@@ -247,13 +247,6 @@ public class MissionService {
                 MissionStatus = MissionStatus.Active
             });
         }
-        
-        foreach (int m in missionStore.GetUpcomingMissions(gameVersion)) {
-            viking.MissionStates.Add(new MissionState {
-                MissionId = m,
-                MissionStatus = MissionStatus.Upcoming
-            });
-        }
     }
 
     private void SetTaskProgressDB(int missionId, int taskId, int userId, bool completed, string xmlPayload) {

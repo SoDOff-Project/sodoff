@@ -967,8 +967,26 @@ public class ContentController : Controller {
         
         uint gameVersion = ClientVersion.GetVersion(apiKey);
         UserMissionStateResult result = new UserMissionStateResult { Missions = new List<Mission>() };
-        foreach (var mission in viking.MissionStates.Where(x => x.MissionStatus == MissionStatus.Upcoming))
-            result.Missions.Add(missionService.GetMissionWithProgress(mission.MissionId, viking.Id, gameVersion));
+
+        HashSet<int> upcomingMissionsSet = new(missionStore.GetUpcomingMissions(gameVersion));
+        var toDiscardIds = new HashSet<int>(
+            viking.MissionStates
+                  .Where(x => x.MissionStatus == MissionStatus.Active ||
+                              x.MissionStatus == MissionStatus.Completed)
+                  .Select(x => x.MissionId)
+        );
+        upcomingMissionsSet.ExceptWith(toDiscardIds);
+
+        var toAddIds = new HashSet<int>(
+            viking.MissionStates
+                  .Where(x => x.MissionStatus == MissionStatus.Upcoming)
+                  .Select(x => x.MissionId)
+        );
+        toAddIds.ExceptWith(upcomingMissionsSet);
+        upcomingMissionsSet.UnionWith(toAddIds);
+
+        foreach (var missionId in upcomingMissionsSet)
+            result.Missions.Add(missionService.GetMissionWithProgress(missionId, viking.Id, gameVersion));
 
         result.UserID = viking.Uid;
         return Ok(result);
@@ -1016,16 +1034,27 @@ public class ContentController : Controller {
     [Produces("application/xml")]
     [Route("ContentWebService.asmx/AcceptMission")]
     [VikingSession]
-    public IActionResult AcceptMission(Viking viking, [FromForm] Guid userId, [FromForm] int missionId) {
+    public IActionResult AcceptMission(Viking viking, [FromForm] Guid userId, [FromForm] int missionId, [FromForm] string apiKey) {
         if (viking.Uid != userId)
             return Unauthorized("Can't accept not owned mission");
 
+        uint gameVersion = ClientVersion.GetVersion(apiKey);
+        int[] upcomingMissions = missionStore.GetUpcomingMissions(gameVersion);
+
         MissionState? missionState = viking.MissionStates.FirstOrDefault(x => x.MissionId == missionId);
-        if (missionState is null || missionState.MissionStatus != MissionStatus.Upcoming)
+        if (!upcomingMissions.Contains(missionId) || (missionState is not null && missionState.MissionStatus != MissionStatus.Upcoming))
             return Ok(false);
 
-        missionState.MissionStatus = MissionStatus.Active;
-        missionState.UserAccepted = true;
+        if (missionState is null) {
+            viking.MissionStates.Add(new MissionState {
+                MissionId = missionId,
+                MissionStatus = MissionStatus.Active,
+                UserAccepted = true
+            });
+        } else {
+            missionState.MissionStatus = MissionStatus.Active;
+            missionState.UserAccepted = true;
+        }
         ctx.SaveChanges();
         return Ok(true);
     }
@@ -1040,10 +1069,19 @@ public class ContentController : Controller {
 
         uint gameVersion = ClientVersion.GetVersion(apiKey);
         UserMissionStateResult result = new UserMissionStateResult { Missions = new List<Mission>()  };
-        foreach (var mission in viking.MissionStates) {
-            Mission updatedMission = missionService.GetMissionWithProgress(mission.MissionId, viking.Id, gameVersion);
 
-            if (mission.MissionStatus == MissionStatus.Upcoming) {
+        var missionStatesById = viking.MissionStates.ToDictionary(ms => ms.MissionId);
+        HashSet<int> upcomingMissionIds = new(missionStore.GetUpcomingMissions(gameVersion));
+        var combinedMissionIds = new HashSet<int>(missionStatesById.Keys);
+        combinedMissionIds.UnionWith(upcomingMissionIds);
+
+        foreach (var missionId in combinedMissionIds) {
+            MissionState? missionState = missionStatesById.TryGetValue(missionId, out var ms) ? ms : null;
+            Mission updatedMission = missionService.GetMissionWithProgress(missionId, viking.Id, gameVersion);
+
+            // Only upcoming missions are missing in the database, so if db is null, mission must be upcoming
+            MissionStatus status = missionState != null ? missionState.MissionStatus : MissionStatus.Upcoming;
+            if (status == MissionStatus.Upcoming) {
                 // NOTE: in old SoD job board mission must be send as non active and required accept
                 //       (to avoid show all job board in journal and quest arrow pointing to job board)
                 //       do this in this place (instead of update missions.xml) to avoid conflict with newer versions of SoD
@@ -1052,8 +1090,8 @@ public class ContentController : Controller {
                     prerequisite.Value = "true";
             }
 
-            if (mission.UserAccepted != null)
-                updatedMission.Accepted = (bool)mission.UserAccepted;
+            if (missionState != null && missionState.UserAccepted != null)
+                updatedMission.Accepted = (bool)missionState.UserAccepted;
             result.Missions.Add(updatedMission);
         }
 
