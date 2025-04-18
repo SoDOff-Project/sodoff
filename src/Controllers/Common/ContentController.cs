@@ -971,19 +971,18 @@ public class ContentController : Controller {
         HashSet<int> upcomingMissionsSet = new(missionStore.GetUpcomingMissions(gameVersion));
         var toDiscardIds = new HashSet<int>(
             viking.MissionStates
-                  .Where(x => x.MissionStatus == MissionStatus.Active ||
-                              x.MissionStatus == MissionStatus.Completed)
+                  .Where(x => x.MissionStatus != MissionStatus.Upcoming)
                   .Select(x => x.MissionId)
         );
-        upcomingMissionsSet.ExceptWith(toDiscardIds);
 
         var toAddIds = new HashSet<int>(
             viking.MissionStates
                   .Where(x => x.MissionStatus == MissionStatus.Upcoming)
                   .Select(x => x.MissionId)
         );
-        toAddIds.ExceptWith(upcomingMissionsSet);
+
         upcomingMissionsSet.UnionWith(toAddIds);
+        upcomingMissionsSet.ExceptWith(toDiscardIds);
 
         foreach (var missionId in upcomingMissionsSet)
             result.Missions.Add(missionService.GetMissionWithProgress(missionId, viking.Id, gameVersion));
