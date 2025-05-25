@@ -11,6 +11,9 @@ public class AuthenticationInfo {
 
     [XmlElement]
     public Role Role { get; set; } = Role.User;
+
+    [XmlElement]
+    public int Id { get; set; }
 }
 
 [Serializable]
