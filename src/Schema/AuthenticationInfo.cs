@@ -14,6 +14,9 @@ public class AuthenticationInfo {
 
     [XmlElement]
     public int Id { get; set; }
+
+    [XmlElement]
+    public uint Version { get; set; }
 }
 
 [Serializable]
