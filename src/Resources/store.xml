@@ -12759,7 +12759,6 @@ SoD 3.31 main store section and subsection filtering:
 		<ii>20742</ii>
 		<ii>20785</ii>
 		<ii>20432</ii>
-		<ii>20833</ii>
 		<ii>8894</ii>
 		<ii>10892</ii>
 		<ii>8231</ii>
@@ -13229,6 +13228,18 @@ SoD 3.31 main store section and subsection filtering:
 			<id>8378</id>
 			<c>10</c>
 		</pitem>
+		<ii>9522</ii>
+		<ii>9523</ii>
+		<ii>14905</ii>
+		<ii>14906</ii>
+		<ii>16657</ii>
+		<ii>16658</ii>
+		<ii>18291</ii>
+		<ii>19003</ii>
+		<ii>20304</ii>
+		<ii>20885</ii>
+		<ii>20833</ii>
+		<ii>12013</ii>
 		<ii>17904</ii>
 		<ii>17905</ii>
 		<ii>17906</ii>
@@ -13263,8 +13274,6 @@ SoD 3.31 main store section and subsection filtering:
 		<ii>12198</ii>
 		<ii>12201</ii>
 		<ii>12286</ii>
-		<ii>9523</ii>
-		<ii>9522</ii>
 		<ii>12287</ii>
 		<ii>12363</ii>
 		<ii>12364</ii>
@@ -17312,10 +17321,6 @@ SoD 3.31 main store section and subsection filtering:
 			<ed>2023-06-01T11:59:00</ed>
 		</ss>
 		<pitem>
-			<id>8661</id>
-			<c>1047515</c>
-		</pitem>
-		<pitem>
 			<id>9429</id>
 			<c>114184</c>
 		</pitem>
@@ -17535,18 +17540,18 @@ SoD 3.31 main store section and subsection filtering:
 		<ii>20899</ii>
 		<ii>20900</ii>
 		<ii>20901</ii>
+		<ii>20912</ii>
 		<ii>20902</ii>
 		<ii>20903</ii>
 		<ii>20904</ii>
+		<ii>20913</ii>
+		<ii>20911</ii>
 		<ii>20905</ii>
 		<ii>20906</ii>
 		<ii>20907</ii>
 		<ii>20908</ii>
-		<ii>20909</ii>
-		<ii>20911</ii>
-		<ii>20912</ii>
-		<ii>20913</ii>
 		<ii>20914</ii>
+		<ii>20909</ii>
 		<ii>18003</ii>
 		<ii>13026</ii>
 		<ii>19118</ii>
