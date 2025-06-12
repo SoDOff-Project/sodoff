@@ -19,6 +19,8 @@ public class DBContext : DbContext {
     public DbSet<RoomItem> RoomItems { get; set; } = null!;
     public DbSet<GameData> GameData { get; set; } = null!;
     public DbSet<GameDataPair> GameDataPairs { get; set; } = null!;
+    public DbSet<DailyHighscore> DailyHighscores { get; set; } = null!;
+    public DbSet<DailyHighscorePair> DailyHighscorePairs { get; set; } = null!;
     public DbSet<AchievementPoints> AchievementPoints { get; set; } = null!;
     public DbSet<ProfileAnswer> ProfileAnswers { get; set; } = null!;
     public DbSet<MMORole> MMORoles { get; set; } = null!;
@@ -129,6 +131,9 @@ public class DBContext : DbContext {
         builder.Entity<Viking>().HasMany(v => v.GameData)
             .WithOne(e => e.Viking);
 
+        builder.Entity<Viking>().HasMany(v => v.DailyHighscores)
+            .WithOne(e => e.Viking);
+
         builder.Entity<Viking>().HasMany(v => v.SavedData)
             .WithOne(e => e.Viking);
 
@@ -221,6 +226,15 @@ public class DBContext : DbContext {
 
         builder.Entity<GameDataPair>().HasOne(e => e.GameData)
             .WithMany(e => e.GameDataPairs);
+
+        builder.Entity<DailyHighscore>().HasOne(e => e.Viking)
+            .WithMany(e => e.DailyHighscores);
+
+        builder.Entity<DailyHighscore>().HasMany(e => e.ScorePairs)
+            .WithOne(e => e.DailyScore);
+
+        builder.Entity<DailyHighscorePair>().HasOne(e => e.DailyScore)
+            .WithMany(e => e.ScorePairs);
 
         // Others ..
         builder.Entity<Image>().HasOne(s => s.Viking)
