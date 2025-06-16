@@ -31,20 +31,9 @@ public class GameDataService {
             viking.GameData.Add(gameData);
 
         }
-        gameData.DatePlayed = DateTime.UtcNow;
         
-        DailyHighscore? daily = viking.DailyHighscores.FirstOrDefault(x => x.GameId == gameId && x.IsMultiplayer == isMultiplayer && x.Difficulty == difficulty && x.GameLevel == gameLevel);
-        if (daily == null) {
-            daily = new DailyHighscore {
-                GameId = gameId,
-                Difficulty = difficulty,
-                GameLevel = gameLevel,
-                IsMultiplayer = isMultiplayer,
-                ScorePairs = new List<DailyHighscorePair>()
-            };
-            viking.DailyHighscores.Add(daily);
-        }
-        SavePairs(gameData, daily, xmlDocumentData);
+        SavePairs(gameData, xmlDocumentData);
+        gameData.DatePlayed = DateTime.UtcNow;
         ctx.SaveChanges();
         
         return true;
@@ -85,9 +74,12 @@ public class GameDataService {
     }
 
     public GameDataSummary GetDailyGameData(Viking viking, int gameId, bool isMultiplayer, int difficulty, int gameLevel, string key, int count, bool AscendingOrder, bool buddyFilter, string apiKey) {
-        IQueryable<DailyHighscorePair> query = ctx.DailyHighscores
-            .Where(x => x.GameId == gameId && x.IsMultiplayer == false && x.Difficulty == difficulty && x.GameLevel == gameLevel)
-            .SelectMany(e => e.ScorePairs).Where(x => x.DatePlayed == DateTime.Today && x.Name == key);
+        IQueryable<GameDataPair> query = ctx.GameData
+            .Where(x =>
+                x.GameId == gameId && x.IsMultiplayer == false &&
+                x.Difficulty == difficulty && x.GameLevel == gameLevel &&
+                x.DatePlayed.Date == DateTime.UtcNow.Date
+            ).SelectMany(e => e.GameDataPairs).Where(x => x.Name == key);
 
         // TODO: Buddy filter
 
@@ -98,11 +90,11 @@ public class GameDataService {
         if (ClientVersion.GetVersion(apiKey) <= ClientVersion.Max_OldJS)
             // use DisplayName instead of Name
             selectedData = query.Select(e => new GameDataResponse(
-                XmlUtil.DeserializeXml<AvatarData>(e.DailyScore.Viking.AvatarSerialized).DisplayName, e.DailyScore.Viking.Uid, e.DatePlayed, false, false, e.Value)
+                XmlUtil.DeserializeXml<AvatarData>(e.GameData.Viking.AvatarSerialized).DisplayName, e.GameData.Viking.Uid, e.GameData.DatePlayed, false, false, e.DailyValue)
             ).Take(count).ToList();
         else
             selectedData = query.Select(e => new GameDataResponse(
-                e.DailyScore.Viking.Name, e.DailyScore.Viking.Uid, e.DatePlayed, false, false, e.Value)
+                e.GameData.Viking.Name, e.GameData.Viking.Uid, e.GameData.DatePlayed, false, false, e.DailyValue)
             ).Take(count).ToList();
 
         return GetSummaryFromResponse(viking, isMultiplayer, difficulty, gameLevel, key, selectedData);
@@ -175,36 +167,23 @@ public class GameDataService {
         return gameData;
     }
 
-    private void SavePairs(Model.GameData gameData, DailyHighscore daily, string xmlDocumentData) {
+    private void SavePairs(Model.GameData gameData, string xmlDocumentData) {
         foreach (var pair in GetGameDataPairs(xmlDocumentData)) {
             GameDataPair? dbPair = gameData.GameDataPairs.FirstOrDefault(x => x.Name == pair.Name);
-            if (dbPair == null)
-                gameData.GameDataPairs.Add(pair);
-            else if (pair.Name == "time" && dbPair.Value > pair.Value)
-                dbPair.Value = pair.Value;
-            else if (pair.Name != "time" && dbPair.Value <= pair.Value)
-                dbPair.Value = pair.Value;
 
-            DailyHighscorePair? dailyPair = daily.ScorePairs.FirstOrDefault(x => x.Name == pair.Name);
-            if (dailyPair == null) {
-                daily.Difficulty = gameData.Difficulty;
-                daily.GameLevel = gameData.GameLevel;
-                dailyPair = new DailyHighscorePair {
-                    Name = pair.Name,
-                    Value = pair.Value,
-                    DatePlayed = DateTime.Today
-                };
-                daily.ScorePairs.Add(dailyPair);
-            } else if (
-                (pair.Name == "time" && dailyPair.Value > pair.Value) ||  // Better Time
-                (pair.Name != "time" && dailyPair.Value <= pair.Value) || // Better Score
-                dailyPair.DatePlayed != DateTime.Today                    // Another Day
-            ) {
-                daily.Difficulty = gameData.Difficulty;
-                daily.GameLevel = gameData.GameLevel;
-                dailyPair.DatePlayed = DateTime.Today;
-                dailyPair.Value = pair.Value;
-            }
+            // If Name == "time" then (existing <= incoming) needs to be false (effectively (existing > incoming), as time should function).
+            // if Name is anything else, then second condition as normal.
+            bool newBest = (dbPair == null) || ((pair.Name == "time") != (dbPair.Value <= pair.Value));
+
+            if (dbPair == null) {
+                gameData.GameDataPairs.Add(pair);
+                dbPair = pair;
+            } else if (newBest) dbPair.Value = pair.Value;
+            
+            if (
+                newBest || // Surpassed Score (or Unset)
+                gameData.DatePlayed.Date != DateTime.UtcNow.Date // Another Day
+            ) dbPair.DailyValue = pair.Value;
         }
     }
 
