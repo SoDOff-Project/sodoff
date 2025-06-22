@@ -13,6 +13,17 @@ public class ClientVersion {
     public const uint WoJS_StoryLand  = 0x01000400; // World of JumpStart -- Storyland
     public const uint WoJS_NewAvatar  = 0x01010000; // World of JumpStart with new avatars (e.g. 1.21)
 
+    public static uint GetGameID(uint gameVersion) {
+        if (gameVersion > ClientVersion.Max_OldJS)
+            return gameVersion & 0xf0000000;
+        else
+            return gameVersion & 0x0f000000;
+    }
+
+    public static uint GetGameID(string apiKey) {
+        return GetGameID(GetVersion(apiKey));
+    }
+
     public static uint GetVersion(string apiKey) {
         if (
             apiKey == "b99f695c-7c6e-4e9b-b0f7-22034d799013" || // PC / Windows

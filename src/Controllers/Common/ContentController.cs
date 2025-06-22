@@ -529,8 +529,7 @@ public class ContentController : Controller {
         raisedPetData.PetTypeID = petTypeID;
         raisedPetData.RaisedPetID = 0; // Initially make zero, so the db auto-fills
         raisedPetData.EntityID = Guid.Parse(dragonId);
-        uint gameVersion = ClientVersion.GetVersion(apiKey);
-        if (gameVersion > ClientVersion.Max_OldJS || (gameVersion & ClientVersion.WoJS) == 0)
+        if (ClientVersion.GetGameID(apiKey) != ClientVersion.WoJS)
             raisedPetData.Name = string.Concat("Dragon-", dragonId.AsSpan(0, 8)); // Start off with a random name (if game isn't WoJS)
         raisedPetData.IsSelected = false; // The api returns false, not sure why
         raisedPetData.CreateDate = new DateTime(DateTime.Now.Ticks);
@@ -1428,14 +1427,14 @@ public class ContentController : Controller {
                 }
             }
 
-            uint gameVersion = ClientVersion.GetVersion(apiKey);
+            uint gameID = ClientVersion.GetGameID(apiKey);
             // Send only JumpStart parties to JumpStart
-            if (gameVersion <= ClientVersion.Max_OldJS && (gameVersion & ClientVersion.WoJS) != 0
+            if (gameID == ClientVersion.WoJS
                 && (party.Location == "MyNeighborhood"
                 || party.Location == "MyVIPRoomInt")) {
                 userParties.Add(userParty);
             // Send only Math Blaster parties to Math Blaster
-            } else if (gameVersion == ClientVersion.MB
+            } else if (gameID == ClientVersion.MB
                 && party.Location == "MyPodInt") {
                 userParties.Add(userParty);
             }
