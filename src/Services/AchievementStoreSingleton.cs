@@ -73,14 +73,14 @@ namespace sodoff.Services {
         }
 
         public ReadOnlyDictionary<int, int> GetAchievementsGroupIdToTaskId(uint gameVersion) {
-            gameVersion = GameVersionForTasks(gameVersion);
+            gameVersion = ClientVersion.GetGameID(gameVersion);
             if (achievementsTasks.ContainsKey(gameVersion))
                 return achievementsTasks[gameVersion].achievementsGroupIdToTaskId;
             return new ReadOnlyDictionary<int, int>(new Dictionary<int, int>());
         }
 
         public List<AchievementTaskInfo>? GetAllAchievementTaskInfo(int taskID, uint gameVersion) {
-            gameVersion = GameVersionForTasks(gameVersion);
+            gameVersion = ClientVersion.GetGameID(gameVersion);
             if (achievementsTasks.ContainsKey(gameVersion) && achievementsTasks[gameVersion].achievementsRewardByTask.ContainsKey(taskID)) {
                 return achievementsTasks[gameVersion].achievementsRewardByTask[taskID];
             }
@@ -120,14 +120,6 @@ namespace sodoff.Services {
                     dragonXP += dragonTitanMinXP - dragonAdultMinXP;
             }
             return dragonXP;
-        }
-
-        private uint GameVersionForTasks(uint gameVersion) {
-            // all SoD version of SoD using the same Tasks database
-            if ((gameVersion & ClientVersion.Min_SoD) == 0xa0000000) return ClientVersion.Min_SoD;
-            // all version of WoJS (including lands) using the same Tasks database
-            if (gameVersion <= ClientVersion.Max_OldJS && (gameVersion & ClientVersion.WoJS) != 0) return ClientVersion.WoJS;
-            return gameVersion;
         }
     }
 }
