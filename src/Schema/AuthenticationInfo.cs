@@ -7,7 +7,10 @@ public class AuthenticationInfo {
     public bool Authenticated { get; set; }
 
     [XmlElement]
-    public string DisplayName { get; set; } = string.Empty;
+    public int Id { get; set; } = 0;
+
+    [XmlElement]
+    public string VikingName { get; set; } = string.Empty;
 
     [XmlElement]
     public Role Role { get; set; } = Role.User;

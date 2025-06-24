@@ -237,7 +237,8 @@ public class AuthenticationController : Controller {
         var session = ctx.Sessions.FirstOrDefault(x => x.ApiToken == token);
         if (session != null) {
             info.Authenticated = true;
-            info.DisplayName = session.Viking.Name;
+            info.Id = session.Viking.Id;
+            info.VikingName = session.Viking.Name;
             Role? role = session.Viking.MMORoles.FirstOrDefault()?.Role;
             if (role != null)
                 info.Role = (Role)role;
