@@ -48,9 +48,13 @@ public class AuthenticationController : Controller {
         } else {
             user = ctx.Users.FirstOrDefault(e => e.Username == data.UserName);
         }
-
-        if (user is null || new PasswordHasher<object>().VerifyHashedPassword(null, user.Password, data.Password) != PasswordVerificationResult.Success) {
+        PasswordVerificationResult result = new PasswordHasher<object>().VerifyHashedPassword(null, user.Password, data.Password);
+        if (user is null || result == PasswordVerificationResult.Failed) {
             return Ok(new ParentLoginInfo { Status = MembershipUserStatus.InvalidPassword });
+        }
+
+        if (result == PasswordVerificationResult.SuccessRehashNeeded) {
+            user.Password = new PasswordHasher<object>().HashPassword(null, data.Password);
         }
 
         // Create session
