@@ -4,9 +4,17 @@ namespace sodoff.Schema;
 
 [XmlRoot(ElementName = "BPDC", Namespace = "", IsNullable = true)]
 [Serializable]
-public class BluePrintDeductibleConfig
-{
-	[XmlElement(ElementName = "BPIID", IsNullable = false)]
+public class BluePrintDeductibleConfig {
+    public BluePrintDeductibleConfig() {}
+
+    public BluePrintDeductibleConfig(BluePrintDeductibleConfig other) {
+        BluePrintItemID = other.BluePrintItemID;
+        DeductibleType = other.DeductibleType;
+        ItemID = other.ItemID;
+        Quantity = other.Quantity;
+    }
+
+    [XmlElement(ElementName = "BPIID", IsNullable = false)]
 	public int BluePrintItemID { get; set; }
 
 	[XmlElement(ElementName = "DT", IsNullable = false)]

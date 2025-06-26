@@ -5,6 +5,16 @@ namespace sodoff.Schema;
 [XmlRoot(ElementName = "MissionCriteria", Namespace = "")]
 [Serializable]
 public class MissionCriteria {
+    public MissionCriteria() {}
+
+    public MissionCriteria(MissionCriteria other) {
+        Type = other.Type;
+        Ordered = other.Ordered;
+        Min = other.Min;
+        Repeat = other.Repeat;
+        RuleItems = other.RuleItems.Select(r => new RuleItem(r)).ToList();
+    }
+
     [XmlElement(ElementName = "Type")]
     public string Type;
 

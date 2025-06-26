@@ -4,9 +4,18 @@ namespace sodoff.Schema;
 
 [XmlRoot(ElementName = "STAT", Namespace = "", IsNullable = false)]
 [Serializable]
-public class Stat
-{
-	[XmlElement(ElementName = "IID", IsNullable = false)]
+public class Stat {
+    public Stat() {}
+
+    public Stat(Stat other) {
+        ItemID = other.ItemID;
+        ItemStatsID = other.ItemStatsID;
+        SetID = other.SetID;
+        Probability = other.Probability;
+        ItemStatsRangeMaps = other.ItemStatsRangeMaps.Select(s => new StatRangeMap(s)).ToList();
+    }
+
+    [XmlElement(ElementName = "IID", IsNullable = false)]
 	public int ItemID { get; set; }
 
 	[XmlElement(ElementName = "ISID", IsNullable = false)]

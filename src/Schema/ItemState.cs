@@ -4,9 +4,19 @@ namespace sodoff.Schema;
 
 [XmlRoot(ElementName = "ItemState", Namespace = "")]
 [Serializable]
-public class ItemState
-{
-	[XmlElement(ElementName = "ItemStateID")]
+public class ItemState {
+    public ItemState() { }
+
+    public ItemState(ItemState other) {
+        ItemStateID = other.ItemStateID;
+        Name = other.Name;
+        Rule = new ItemStateRule(other.Rule);
+        Order = other.Order;
+        AchievementID = other.AchievementID;
+        Rewards = other.Rewards.Select(r => new AchievementReward(r)).ToArray();
+    }
+
+    [XmlElement(ElementName = "ItemStateID")]
 	public int ItemStateID;
 
 	[XmlElement(ElementName = "Name")]

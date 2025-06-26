@@ -4,9 +4,18 @@ namespace sodoff.Schema;
 
 [XmlRoot(ElementName = "ISC", Namespace = "", IsNullable = true)]
 [Serializable]
-public class ItemSaleConfig
-{
-	[XmlElement(ElementName = "IID", IsNullable = true)]
+public class ItemSaleConfig {
+    public ItemSaleConfig() {}
+
+    public ItemSaleConfig(ItemSaleConfig other) {
+        ItemID = other.ItemID;
+        CategoryID = other.CategoryID;
+        RarityID = other.RarityID;
+        Quantity = other.Quantity;
+        RewardItemID = other.RewardItemID;
+    }
+
+    [XmlElement(ElementName = "IID", IsNullable = true)]
 	public int? ItemID { get; set; }
 
 	[XmlElement(ElementName = "CID", IsNullable = true)]

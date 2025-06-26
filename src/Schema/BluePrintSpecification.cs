@@ -2,9 +2,21 @@ using System.Xml.Serialization;
 
 namespace sodoff.Schema;
 
-public class BluePrintSpecification
-{
-	[XmlElement(ElementName = "BPSID", IsNullable = false)]
+public class BluePrintSpecification {
+    public BluePrintSpecification() {}
+
+    public BluePrintSpecification(BluePrintSpecification other) {
+        BluePrintSpecID = other.BluePrintSpecID;
+        BluePrintItemID = other.BluePrintItemID;
+        ItemID = other.ItemID;
+        CategoryID = other.CategoryID;
+        ItemRarity = other.ItemRarity;
+        Tier = other.Tier;
+        Quantity = other.Quantity;
+        SpecificationType = other.SpecificationType;
+    }
+
+    [XmlElement(ElementName = "BPSID", IsNullable = false)]
 	public int BluePrintSpecID { get; set; }
 
 	[XmlElement(ElementName = "BPIID", IsNullable = false)]

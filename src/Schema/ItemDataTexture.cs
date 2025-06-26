@@ -4,9 +4,17 @@ namespace sodoff.Schema;
 
 [XmlRoot(ElementName = "IT", Namespace = "")]
 [Serializable]
-public class ItemDataTexture
-{
-	[XmlElement(ElementName = "n")]
+public class ItemDataTexture {
+    public ItemDataTexture() {}
+
+    public ItemDataTexture(ItemDataTexture other) {
+        TextureName = other.TextureName;
+        TextureTypeName = other.TextureTypeName;
+        OffsetX = other.OffsetX;
+        OffsetY = other.OffsetY;
+    }
+
+    [XmlElement(ElementName = "n")]
 	public string TextureName;
 
 	[XmlElement(ElementName = "t")]
