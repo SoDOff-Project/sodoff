@@ -11,26 +11,26 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="7.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="9.0.6" />
   </ItemGroup>
   <Choose>
     <When Condition="$(DefineConstants.Contains('USE_SQLITE'))">
         <ItemGroup>
-            <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.7" />
+            <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.6" />
         </ItemGroup>
     </When>
   </Choose>
   <Choose>
     <When Condition="$(DefineConstants.Contains('USE_POSTGRESQL'))">
         <ItemGroup>
-            <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.11" />
+            <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
         </ItemGroup>
     </When>
   </Choose>
   <Choose>
     <When Condition="$(DefineConstants.Contains('USE_MYSQL'))">
         <ItemGroup>
-            <PackageReference Include="MySql.EntityFrameworkCore" Version="7.0.5" />
+            <PackageReference Include="MySql.EntityFrameworkCore" Version="9.0.3" />
         </ItemGroup>
     </When>
   </Choose>
