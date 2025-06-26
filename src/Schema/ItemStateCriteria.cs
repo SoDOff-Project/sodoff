@@ -10,8 +10,13 @@ namespace sodoff.Schema;
 [XmlInclude(typeof(ItemStateCriteriaSpeedUpItem))]
 [XmlInclude(typeof(ItemStateCriteriaExpiry))]
 [Serializable]
-public class ItemStateCriteria
-{
-	[XmlElement(ElementName = "Type")]
+public class ItemStateCriteria {
+    public ItemStateCriteria() {}
+
+    public ItemStateCriteria(ItemStateCriteria other) {
+        Type = other.Type;
+    }
+
+    [XmlElement(ElementName = "Type")]
 	public ItemStateCriteriaType Type;
 }

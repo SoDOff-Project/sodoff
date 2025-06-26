@@ -4,9 +4,23 @@ namespace sodoff.Schema;
 
 [XmlRoot(ElementName = "UserItem", Namespace = "")]
 [Serializable]
-public class UserItemData
-{
-	[XmlElement(ElementName = "iid")]
+public class UserItemData {
+    public UserItemData() {}
+
+    public UserItemData(UserItemData other) {
+        ItemID = other.ItemID;
+        ModifiedDate = other.ModifiedDate;
+        UserItemAttributes = new PairData(other.UserItemAttributes);
+        ItemStats = other.ItemStats.Select(stat => new ItemStat(stat)).ToArray();
+        ItemTier = other.ItemTier;
+        CreatedDate = other.CreatedDate;
+        UserInventoryID = other.UserInventoryID;
+        Quantity = other.Quantity;
+        Uses = other.Uses;
+        Item = new ItemData(other.Item);
+    }
+
+    [XmlElement(ElementName = "iid")]
 	public int ItemID { get; set; }
 
 	[XmlElement(ElementName = "md", IsNullable = true)]

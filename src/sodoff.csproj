@@ -4,7 +4,6 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <EnableUnsafeBinaryFormatterSerialization>true</EnableUnsafeBinaryFormatterSerialization>
 
     <DefineConstants>USE_SQLITE;$(DefineConstants)</DefineConstants>
     <DefineConstants>USE_POSTGRESQL;$(DefineConstants)</DefineConstants>

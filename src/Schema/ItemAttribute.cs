@@ -4,9 +4,15 @@ namespace sodoff.Schema;
 
 [XmlRoot(ElementName = "AT", Namespace = "")]
 [Serializable]
-public class ItemAttribute
-{
-	[XmlElement(ElementName = "k")]
+public class ItemAttribute {
+    public ItemAttribute() {}
+
+    public ItemAttribute(ItemAttribute other) {
+        Key = other.Key;
+        Value = other.Value;
+    }
+
+    [XmlElement(ElementName = "k")]
 	public string Key;
 
 	[XmlElement(ElementName = "v")]

@@ -4,9 +4,28 @@ namespace sodoff.Schema;
 
 [XmlRoot(ElementName = "AR", Namespace = "")]
 [Serializable]
-public class AchievementReward
-{
-	[XmlElement(ElementName = "ui", IsNullable = true)]
+public class AchievementReward {
+    public AchievementReward() {}
+
+    public AchievementReward(AchievementReward other) {
+		if (other.UserItem != null)
+			UserItem = new UserItemData(other.UserItem);
+
+        Amount = other.Amount;
+        PointTypeID = other.PointTypeID;
+        ItemID = other.ItemID;
+        EntityID = other.EntityID;
+        EntityTypeID = other.EntityTypeID;
+        RewardID = other.RewardID;
+        AchievementID = other.AchievementID;
+        AllowMultiple = other.AllowMultiple;
+        MinAmount = other.MinAmount;
+        MaxAmount = other.MaxAmount;
+        Date = other.Date;
+        CommonInventoryID = other.CommonInventoryID;
+    }
+
+    [XmlElement(ElementName = "ui", IsNullable = true)]
 	public UserItemData UserItem { get; set; }
 
 	[XmlElement(ElementName = "a")]
