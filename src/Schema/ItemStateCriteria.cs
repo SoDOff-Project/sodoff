@@ -11,12 +11,12 @@ namespace sodoff.Schema;
 [XmlInclude(typeof(ItemStateCriteriaExpiry))]
 [Serializable]
 public class ItemStateCriteria {
-    public ItemStateCriteria() {}
+    public ItemStateCriteria() { }
 
     public ItemStateCriteria(ItemStateCriteria other) {
         Type = other.Type;
     }
 
     [XmlElement(ElementName = "Type")]
-	public ItemStateCriteriaType Type;
+    public ItemStateCriteriaType Type;
 }

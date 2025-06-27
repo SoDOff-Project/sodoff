@@ -5,7 +5,7 @@ namespace sodoff.Schema;
 [XmlRoot(ElementName = "MissionCriteria", Namespace = "")]
 [Serializable]
 public class MissionCriteria {
-    public MissionCriteria() {}
+    public MissionCriteria() { }
 
     public MissionCriteria(MissionCriteria other) {
         Type = other.Type;

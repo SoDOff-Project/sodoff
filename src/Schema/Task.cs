@@ -8,7 +8,7 @@ namespace sodoff.Schema;
 [XmlRoot(ElementName = "Task", Namespace = "")]
 [Serializable]
 public class Task {
-    public Task() {}
+    public Task() { }
 
     public Task(Task other) {
         TaskID = other.TaskID;

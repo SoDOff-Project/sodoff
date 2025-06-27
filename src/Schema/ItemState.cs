@@ -17,20 +17,20 @@ public class ItemState {
     }
 
     [XmlElement(ElementName = "ItemStateID")]
-	public int ItemStateID;
+    public int ItemStateID;
 
-	[XmlElement(ElementName = "Name")]
-	public string Name;
+    [XmlElement(ElementName = "Name")]
+    public string Name;
 
-	[XmlElement(ElementName = "Rule")]
-	public ItemStateRule Rule;
+    [XmlElement(ElementName = "Rule")]
+    public ItemStateRule Rule;
 
-	[XmlElement(ElementName = "Order")]
-	public int Order;
+    [XmlElement(ElementName = "Order")]
+    public int Order;
 
-	[XmlElement(ElementName = "AchievementID", IsNullable = true)]
-	public int? AchievementID;
+    [XmlElement(ElementName = "AchievementID", IsNullable = true)]
+    public int? AchievementID;
 
-	[XmlElement(ElementName = "Rewards")]
-	public AchievementReward[] Rewards;
+    [XmlElement(ElementName = "Rewards")]
+    public AchievementReward[] Rewards;
 }
