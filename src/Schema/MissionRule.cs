@@ -5,7 +5,7 @@ namespace sodoff.Schema;
 [XmlRoot(ElementName = "MissionRule", Namespace = "")]
 [Serializable]
 public class MissionRule {
-    public MissionRule() {}
+    public MissionRule() { }
 
     public MissionRule(MissionRule other) {
         Prerequisites = other.Prerequisites.Select(p => new PrerequisiteItem(p)).ToList();

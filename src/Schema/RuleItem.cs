@@ -5,7 +5,7 @@ namespace sodoff.Schema;
 [XmlRoot(ElementName = "RuleItem", Namespace = "")]
 [Serializable]
 public class RuleItem {
-    public RuleItem() {}
+    public RuleItem() { }
 
     public RuleItem(RuleItem other) {
         Type = other.Type;

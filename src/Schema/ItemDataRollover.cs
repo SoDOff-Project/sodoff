@@ -5,7 +5,7 @@ namespace sodoff.Schema;
 [XmlRoot(ElementName = "IRO", Namespace = "")]
 [Serializable]
 public class ItemDataRollover {
-    public ItemDataRollover() {}
+    public ItemDataRollover() { }
 
     public ItemDataRollover(ItemDataRollover other) {
         DialogName = other.DialogName;
@@ -13,8 +13,8 @@ public class ItemDataRollover {
     }
 
     [XmlElement(ElementName = "d")]
-	public string DialogName;
+    public string DialogName;
 
-	[XmlElement(ElementName = "b")]
-	public string Bundle;
+    [XmlElement(ElementName = "b")]
+    public string Bundle;
 }
