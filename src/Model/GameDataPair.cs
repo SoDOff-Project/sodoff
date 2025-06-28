@@ -7,5 +7,6 @@ public class GameDataPair {
     public int GameDataId { get; set; }
     public string Name { get; set; } = null!;
     public int Value { get; set; }
+    public int DailyValue { get; set; }
     public virtual GameData GameData { get; set; } = null!;
 }
