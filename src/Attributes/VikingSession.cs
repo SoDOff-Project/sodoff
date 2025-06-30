@@ -26,7 +26,7 @@ public class VikingSession : Attribute, IAsyncActionFilter {
             return;
         }
 
-        Session? session = await ctx.Sessions.FirstOrDefaultAsync(x => x.ApiToken == Guid.Parse(context.HttpContext.Request.Form[ApiToken].ToString()));
+        Session? session = ctx.Sessions.FirstOrDefault(x => x.ApiToken == Guid.Parse(context.HttpContext.Request.Form[ApiToken].ToString()));
 
         // get viking / user id from session
 
