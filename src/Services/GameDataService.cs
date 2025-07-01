@@ -33,9 +33,7 @@ public class GameDataService {
         }
         gameData.DatePlayed = DateTime.UtcNow;
         SavePairs(gameData, xmlDocumentData);
-
         ctx.SaveChanges();
-        
         return true;
     }
     
