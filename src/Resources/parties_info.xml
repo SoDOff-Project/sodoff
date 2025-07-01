@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PartiesInfo>
+  <Location>
+    <Name>MyNeighborhood</Name>
+    <Icon>RS_DATA/Parties01.unity3d/IcoPartyLocationMyNeighborhood</Icon>
+  </Location>
+  <Location>
+    <Name>MyVIPRoomInt</Name>
+    <Icon>RS_DATA/Parties01.unity3d/IcoPartyLocationVIPRoom</Icon>
+  </Location>
+  
+  <!-- World of JumpStart -->
+  <Party>
+    <Version>0x01000000</Version>
+    <Location>MyNeighborhood</Location>
+    <Type>Default</Type>
+    <Icon>RS_DATA/Parties01.unity3d/IcoPartyDefault</Icon>
+    <AssetBundle>RS_DATA/PfMyNeighborhoodParty.unity3d/PfMyNeighborhoodParty</AssetBundle>
+    <Descriptor>Block</Descriptor>
+  </Party>
+  <Party>
+    <ItemID></ItemID>
+    <Version>0x01000000</Version>
+    <Location>MyVIPRoomInt</Location>
+    <Type>VIPRoom</Type>
+    <Icon>RS_DATA/Parties01.unity3d/IcoPartyDefault</Icon>
+    <AssetBundle>RS_DATA/PfMyVIPRoomIntPartyGroup.unity3d/PfMyVIPRoomIntPartyGroup</AssetBundle>
+    <Descriptor>VIP</Descriptor>
+  </Party>
+  <Party>
+    <Version>0x01000000</Version>
+    <Location>MyVIPRoomInt</Location>
+    <Type>Holiday</Type>
+    <Icon>RS_DATA/Parties01.unity3d/IcoStorePartyXmasDefault</Icon>
+    <AssetBundle>RS_DATA/PfMyVIPRoomIntXmasGroup.unity3d/PfMyVIPRoomIntXmasGroup</AssetBundle>
+    <Descriptor>Holiday</Descriptor>
+  </Party>
+  
+  <!-- Math Blaster -->
+  <Party>
+    <Version>0x08000000</Version>
+    <Location>MyPodInt</Location>
+    <Type>Default</Type>
+    <Icon>RS_DATA/PfUiPartiesListMB.unity3d/IcoMbPartyDefault</Icon>
+    <AssetBundle>RS_DATA/PfUiPartiesListMB.unity3d/IcoMbPartyDefault</AssetBundle>
+    <Descriptor>Pod</Descriptor>
+  </Party>
+  <Party>
+    <Version>0x08000000</Version>
+    <Location>MyPodInt</Location>
+    <Type>Birthday</Type>
+    <Icon>RS_DATA/PfUiPartiesListMB.unity3d/IcoMbPartyBirthday</Icon>
+    <AssetBundle>RS_DATA/PfMyPodBirthdayParty.unity3d/PfMyPodBirthdayParty</AssetBundle>
+    <Descriptor>Birthday</Descriptor>
+  </Party>
+  
+  <!-- SuperSecret -->
+  <Party>
+    <Version>0x02000000</Version>
+    <Location>MyLoungeSSInt</Location>
+    <Type>Default</Type>
+    <Icon>RS_DATA/SSParties.unity3d/IcoSSStorePartyDefault</Icon>
+    <AssetBundle>RS_DATA/PfSsRoomInteriorPartyGroup.unity3d/PfSsRoomInteriorPartyGroup</AssetBundle>
+    <Descriptor>Lounge</Descriptor>
+  </Party>
+  <Party>
+    <Version>0x02000000</Version>
+    <Location>MyLoungeSSInt</Location>
+    <Type>Birthday</Type>
+    <Icon>RS_DATA/SSParties.unity3d/IcoSSStorePartyBirthdayDefault</Icon>
+    <AssetBundle>RS_DATA/PfSsRoomInteriorBirthdayGroup.unity3d/PfSsRoomInteriorBirthdayGroup</AssetBundle>
+    <Descriptor>Birthday</Descriptor>
+  </Party>
+  <Party>
+    <Version>0x02000000</Version>
+    <Location>MyLoungeSSInt</Location>
+    <Type>NewYears</Type>
+    <Icon>RS_DATA/SSParties.unity3d/IcoSSStorePartyNewYearDefault</Icon>
+    <AssetBundle>RS_DATA/PfSsRoomInteriorNewYearGroup.unity3d/PfSsRoomInteriorNewYearGroup</AssetBundle>
+    <Descriptor>New Years</Descriptor>
+  </Party>
+  <Party>
+    <Version>0x02000000</Version>
+    <Location>MyLoungeSSInt</Location>
+    <Type>Holiday</Type>
+    <Icon>RS_DATA/SSParties.unity3d/IcoSSStorePartyHolidayDefault</Icon>
+    <AssetBundle>RS_DATA/PfSsRoomInteriorHolidayGroup.unity3d/PfSsRoomInteriorHolidayGroup</AssetBundle>
+    <Descriptor>Holiday</Descriptor>
+  </Party>
+</PartiesInfo>

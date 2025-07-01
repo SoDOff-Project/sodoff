@@ -77,10 +77,10 @@ public class ItemStoreController : Controller {
     public IActionResult GetAnnouncements([FromForm] string apiKey, [FromForm] int worldObjectID) {
         // TODO: This is a placeholder, although this endpoint seems to be only used to send announcements to the user (such as the server shutdown), so this might be sufficient.
 
-        uint gameVersion = ClientVersion.GetVersion(apiKey);
-        if (gameVersion <= ClientVersion.Max_OldJS && (gameVersion & ClientVersion.WoJS) != 0) {
+        uint gameID = ClientVersion.GetGameID(apiKey);
+        if (gameID == ClientVersion.WoJS) {
             return Ok(XmlUtil.DeserializeXml<AnnouncementList>(XmlUtil.ReadResourceXmlString("announcements_wojs")));
-        } else if (gameVersion == ClientVersion.SS && worldObjectID == 6) {
+        } else if (gameID == ClientVersion.SS && worldObjectID == 6) {
             return Ok(XmlUtil.DeserializeXml<AnnouncementList>(XmlUtil.ReadResourceXmlString("announcements_ss")));
         }
         

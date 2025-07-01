@@ -15,7 +15,7 @@ namespace sodoff.Model
         public string LocationIconAsset { get; set; } = null!;
         public string AssetBundle { get; set; } = null!;
         public virtual Viking? Viking { get; set; }
-        public uint GameVersion { get; set; } = 0!;
-        public string PartyType { get; set; } = null!;
+        public uint? GameID { get; set; }
+        public string? Descriptor { get; set; }
     }
 }

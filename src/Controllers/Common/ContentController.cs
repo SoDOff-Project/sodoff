@@ -529,8 +529,7 @@ public class ContentController : Controller {
         raisedPetData.PetTypeID = petTypeID;
         raisedPetData.RaisedPetID = 0; // Initially make zero, so the db auto-fills
         raisedPetData.EntityID = Guid.Parse(dragonId);
-        uint gameVersion = ClientVersion.GetVersion(apiKey);
-        if (gameVersion > ClientVersion.Max_OldJS || (gameVersion & ClientVersion.WoJS) == 0)
+        if (ClientVersion.GetGameID(apiKey) != ClientVersion.WoJS)
             raisedPetData.Name = string.Concat("Dragon-", dragonId.AsSpan(0, 8)); // Start off with a random name (if game isn't WoJS)
         raisedPetData.IsSelected = false; // The api returns false, not sure why
         raisedPetData.CreateDate = new DateTime(DateTime.Now.Ticks);
@@ -1393,9 +1392,7 @@ public class ContentController : Controller {
         List<Party> allParties = ctx.Parties.ToList();
         List<UserParty> userParties = new List<UserParty>();
 
-        uint gameVersion = ClientVersion.GetVersion(apiKey);
-        if (gameVersion <= ClientVersion.Max_OldJS && (gameVersion & ClientVersion.WoJS) != 0)
-            gameVersion = ClientVersion.WoJS; // This can be optimized. It's also a shortcut.
+        uint gameID = ClientVersion.GetGameID(apiKey);
         foreach(var party in allParties)
         {
             if(DateTime.UtcNow >= party.ExpirationDate)
@@ -1407,13 +1404,15 @@ public class ContentController : Controller {
             }
 
             // Only send parties to their respective games.
-            if (gameVersion != party.GameVersion) continue;
+            if (gameID != party.GameID) continue;
 
             Viking viking = ctx.Vikings.FirstOrDefault(e => e.Id == party.VikingId);
             AvatarData avatarData = XmlUtil.DeserializeXml<AvatarData>(viking.AvatarSerialized);
-            UserParty userParty = new UserParty
-            {
-                DisplayName = avatarData.DisplayName,
+
+            
+
+            UserParty userParty = new UserParty {
+                DisplayName = $"{avatarData.DisplayName}'s {party.Descriptor} Party",
                 UserName = avatarData.DisplayName,
                 ExpirationDate = party.ExpirationDate,
                 Icon = party.IconAsset,
@@ -1422,21 +1421,6 @@ public class ContentController : Controller {
                 PrivateParty = party.PrivateParty!.Value,
                 UserID = viking.Uid
             };
-
-            string location = party.Location switch {
-                "MyNeighborhood" => "Block ",
-                "MyPodInt" => "Pod ",
-                "MyLoungeSSInt" => "Lounge ",
-                _ => ""
-            };
-            string type = party.PartyType switch {
-                "VIPRoom" => "VIP ",
-                "Birthday" => "Birthday ",
-                "NewYears" => "New Years ",
-                "Holiday" => "Holiday ",
-                _ => ""
-            };
-            userParty.DisplayName = $"{userParty.UserName}'s {location}{type}Party"; // Spaces are included in the location and type when they aren't empty.
 
             userParties.Add(userParty);
         }
@@ -1503,85 +1487,40 @@ public class ContentController : Controller {
             return Ok(null);
         }
 
-        uint gameVersion = ClientVersion.GetVersion(apiKey);
-        if (gameVersion <= ClientVersion.Max_OldJS && (gameVersion & ClientVersion.WoJS) != 0)
-            gameVersion = ClientVersion.WoJS; // This can be optimized. It's also a shortcut.
+        uint gameID = ClientVersion.GetGameID(apiKey);
 
-        // create a party based on bought itemid
-        Party party = new Party {
-            PrivateParty = false,
-            GameVersion = gameVersion,
-            PartyType = partyType
-        };
+        PartiesInfo data = XmlUtil.DeserializeXml<PartiesInfo>(XmlUtil.ReadResourceXmlString("parties_info"));
+        PartyInfo? info = data.Parties.FirstOrDefault(p => p.GameID == gameID && p.Type == partyType);
+        if (info == null) return Ok(null);
 
-        switch (gameVersion) {
-            case ClientVersion.WoJS:
-                party.Location = "MyVIPRoomInt";
-                party.IconAsset = "RS_DATA/Parties01.unity3d/IcoPartyDefault";
-                party.LocationIconAsset = "RS_DATA/Parties01.unity3d/IcoPartyLocationVIPRoom";
-                if (partyType == "VIPRoom") {
-                    party.AssetBundle = "RS_DATA/PfMyVIPRoomIntPartyGroup.unity3d/PfMyVIPRoomIntPartyGroup";
-                } else if (partyType == "Holiday") {
-                    party.IconAsset = "RS_DATA/Parties01.unity3d/IcoPartyDefault";
-                    party.AssetBundle = "RS_DATA/PfMyVIPRoomIntXmasGroup.unity3d/PfMyVIPRoomIntXmasGroup";
-                } else {
-                    party.Location = "MyNeighborhood";
-                    party.LocationIconAsset = "RS_DATA/Parties01.unity3d/IcoPartyLocationMyNeighborhood";
-                    party.AssetBundle = "RS_DATA/PfMyNeighborhoodParty.unity3d/PfMyNeighborhoodParty";
-                }
-                break;
-            case ClientVersion.MB:
-                party.Location = "MyPodInt";
-                if (partyType == "Birthday") {
-                    party.IconAsset = "RS_DATA/PfUiPartiesListMB.unity3d/IcoMbPartyBirthday";
-                    party.AssetBundle = "RS_DATA/PfMyPodBirthdayParty.unity3d/PfMyPodBirthdayParty";
-                } else {
-                    party.IconAsset = "RS_DATA/PfUiPartiesListMB.unity3d/IcoMbPartyDefault";
-                    party.AssetBundle = "RS_DATA/PfMyPodParty.unity3d/PfMyPodParty";
-                }
-                break;
-            case ClientVersion.SS:
-                party.Location = "MyLoungeSSInt";
-                switch (partyType) {
-                    case "Birthday":
-                        party.IconAsset = "RS_DATA/PfUiPartiesListMB.unity3d/IcoSSStorePartyBirthdayDefault";
-                        party.AssetBundle = "RS_DATA/PfSsRoomInteriorBirthdayGroup.unity3d/PfSsRoomInteriorBirthdayGroup";
-                        break;
-                    case "NewYears":
-                        party.IconAsset = "RS_DATA/PfUiPartiesListMB.unity3d/IcoSSStorePartyNewYearDefault";
-                        party.AssetBundle = "RS_DATA/PfSsRoomInteriorNewYearGroup.unity3d/PfSsRoomInteriorNewYearGroup";
-                        break;
-                    case "Holiday":
-                        party.IconAsset = "RS_DATA/PfUiPartiesListMB.unity3d/IcoSSStorePartyHolidayDefault";
-                        party.AssetBundle = "RS_DATA/PfSsRoomInteriorHolidayGroup.unity3d/PfSsRoomInteriorHolidayGroup";
-                        break;
-                    default:
-                        party.IconAsset = "RS_DATA/PfUiPartiesListMB.unity3d/IcoSSStorePartyDefault";
-                        party.AssetBundle = "RS_DATA/PfSsRoomInteriorPartyGroup.unity3d/PfSsRoomInteriorPartyGroup";
-                        break;
-                }
-                break;
-        }
-        
-
-        if (party.Location == null) {
-            Console.WriteLine($"Unsupported partyType \"{partyType}\" for gameversion 0x{gameVersion:X8}");
+        if (info.Location == null) {
+            Console.WriteLine($"Unsupported partyType \"{partyType}\" for gameid 0x{gameID:X8}");
             return Ok(null);
         }
 
-        party.ExpirationDate = DateTime.UtcNow.AddMinutes(
-            Int32.Parse(itemData.Attribute.FirstOrDefault(a => a.Key == "Time").Value)
-        );
-
         // check if party already exists
-        if (viking.Parties.FirstOrDefault(e => e.Location == party.Location) != null) return Ok(null);
+        if (viking.Parties.Any(e => e.Location == info.Location)) return Ok(null);
+
+        // create a party based on bought itemid
+        Party party = new Party {
+            Location = info.Location,
+            IconAsset = info.Icon,
+            LocationIconAsset = data.LocationIcons.GetValueOrDefault(info.Location, ""),
+            AssetBundle = info.Bundle,
+            PrivateParty = false,
+            GameID = gameID,
+            ExpirationDate = DateTime.UtcNow.AddMinutes(
+                Int32.Parse(itemData.Attribute.FirstOrDefault(a => a.Key == "Time").Value)
+            ),
+            Descriptor = info.Descriptor
+        };
 
         // take away coins
         viking.AchievementPoints.FirstOrDefault(e => e.Type == (int)AchievementPointTypes.GameCurrency)!.Value -= itemData.Cost;
 
         viking.Parties.Add(party);
         ctx.SaveChanges();
-
+        
         return Ok(true);
     }
 
@@ -2187,7 +2126,7 @@ public class ContentController : Controller {
     [Route("ContentWebService.asmx/GetPeriodicGameDataByGame")] // used by Math Blaster and WoJS (probably from 24 hours ago to now)
     [VikingSession(UseLock = true)]
     public IActionResult GetPeriodicGameDataByGame(Viking viking, [FromForm] int gameId, bool isMultiplayer, int difficulty, int gameLevel, string key, int count, bool AscendingOrder, int score, bool buddyFilter, string apiKey) {
-        return Ok(gameDataService.GetGameData(viking, gameId, isMultiplayer, difficulty, gameLevel, key, count, AscendingOrder, buddyFilter, apiKey, DateTime.Now.AddHours(-24), DateTime.Now));
+        return Ok(gameDataService.GetDailyGameData(viking, gameId, isMultiplayer, difficulty, gameLevel, key, count, AscendingOrder, buddyFilter, apiKey));
     }
 
     [HttpPost]
