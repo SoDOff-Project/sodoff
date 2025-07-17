@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace sodoff.Model;
 public class User {
@@ -14,6 +15,7 @@ public class User {
     [Required]
     public string Password { get; set; } = null!;
 
+    [JsonIgnore]
     public virtual ICollection<Session> Sessions { get; set; } = null!;
     public virtual ICollection<Viking> Vikings { get; set; } = null!;
     public virtual ICollection<PairData> PairData { get; set; } = null!;
