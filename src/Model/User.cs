@@ -1,7 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace sodoff.Model;
+
+[Index(nameof(Username), IsUnique = true)]
 public class User {
     [Key]
     public Guid Id { get; set; }

@@ -5,7 +5,7 @@ using sodoff.Schema;
 
 namespace sodoff.Model;
 
-[Index(nameof(Uid))]
+[Index(nameof(Uid), IsUnique = true)]
 public class Viking {
     [Key]
     [JsonIgnore]
