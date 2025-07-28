@@ -5,6 +5,8 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Text.Encodings.Web;
 using sodoff.Model;
+using sodoff.Schema;
+using sodoff.Util;
 
 namespace sodoff.Controllers.Common;
 public class ExportController : ControllerBase {
@@ -15,7 +17,7 @@ public class ExportController : ControllerBase {
     }
 
     [HttpPost]
-    [Route("ImportExport.asmx/Export")]
+    [Route("Export")]
     public IActionResult Export([FromForm] string username, [FromForm] string password) {
         // Authenticate user by Username
         User? user = ctx.Users.FirstOrDefault(e => e.Username == username);
@@ -36,8 +38,8 @@ public class ExportController : ControllerBase {
     }
 
     [HttpPost]
-    [Route("ImportExport.asmx/Import")]
-    public IActionResult Import([FromForm] string username, [FromForm] string password, [FromForm] string vikingName, [FromForm] IFormFile dataFile) {
+    [Route("Import")]
+    public IActionResult Import([FromForm] string username, [FromForm] string password, [FromForm] string vikingName, [FromForm] IFormFile dataFile, [FromForm] string? newVikingName) {
         User? user = ctx.Users.FirstOrDefault(e => e.Username == username);
         if (user is null || new PasswordHasher<object>().VerifyHashedPassword(null, user.Password, password) == PasswordVerificationResult.Failed) {
             return Unauthorized("Invalid username or password.");
@@ -50,36 +52,81 @@ public class ExportController : ControllerBase {
 
         foreach (var v in user_data.Vikings) {
             if (v.Name == vikingName) {
+                if (String.IsNullOrEmpty(newVikingName))
+                    newVikingName = vikingName;
+
+                if (ctx.Vikings.Count(e => e.Name == newVikingName) > 0) {
+                    return Conflict("Viking name already in use");
+                }
+
+                if (newVikingName != vikingName) {
+                    AvatarData avatarData = XmlUtil.DeserializeXml<AvatarData>(v.AvatarSerialized);
+                    avatarData.DisplayName = newVikingName;
+                    v.AvatarSerialized = XmlUtil.SerializeXml(avatarData);
+                }
+
                 Viking viking = new Viking {
-                    Uid = v.Uid, // TODO check for unique or just generate new?
-                    Name = v.Name, // TODO check for unique
+                    Uid = Guid.NewGuid(),
+                    Name = newVikingName,
                     User = user,
                     AvatarSerialized = v.AvatarSerialized,
-                    CreationDate = v.CreationDate, // TODO or use now?
+                    CreationDate = DateTime.UtcNow,
                     BirthDate = v.BirthDate,
                     Gender = v.Gender,
                     GameVersion = v.GameVersion
                 };
                 user.Vikings.Add(viking);
 
+                Dictionary<int, Guid> dragonIds = new();
                 foreach (var x in v.Dragons) {
                     x.Viking = viking;
-                    // TODO check EntityId for unique or just generate new?
-                    x.Id = 0; // FIXME map old→new value for dragon id  to update (stables) xml's
+                    x.EntityId = Guid.NewGuid();
+                    dragonIds.Add(x.Id, x.EntityId);
+                    x.Id = 0;
                     ctx.Dragons.Add(x);
                 }
-                foreach (var x in v.Images) {
-                    x.Viking = viking;
-                    ctx.Images.Add(x);
-                }
+                Dictionary<int, int> itemIds = new();
                 foreach (var x in v.InventoryItems) {
-                    x.Id = 0; // FIXME map old→new value for item id  to update xml's and rooms
+                    itemIds.Add(x.Id, x.ItemId);
+                    x.Id = 0;
                     x.Viking = viking;
                     ctx.InventoryItems.Add(x);
                 }
+
+                ctx.SaveChanges(); // need for get new ids of dragons and items
+
+                HashSet<int> usedItemIds = new();
                 foreach (var x in v.Rooms) {
                     x.Viking = viking;
-                    ctx.Rooms.Add(x);  // FIXME need update room name (if numeric)
+                    if (int.TryParse(x.RoomId, out int roomID)) {
+                        // numeric room name is inventory item id
+                        // remap old value to new value based on item id value
+                        roomID = viking.InventoryItems.FirstOrDefault(e => e.ItemId == itemIds[roomID] && !usedItemIds.Contains(e.Id)).Id;
+                        usedItemIds.Add(roomID);
+                        x.RoomId = roomID.ToString();
+                    }
+                    ctx.Rooms.Add(x);
+                }
+                foreach (var x in v.PairData) {
+                    x.Viking = viking;
+                    if (x.PairId == 2014) { // stables data
+                        foreach (var p in x.Pairs.Where(e => e.Key.StartsWith("Stable"))) {
+                            StableData stableData = XmlUtil.DeserializeXml<StableData>(p.Value);
+                            stableData.InventoryID = viking.InventoryItems.FirstOrDefault(e => e.ItemId == stableData.ItemID && !usedItemIds.Contains(e.Id)).Id;
+                            usedItemIds.Add(stableData.InventoryID);
+                            foreach (var n in stableData.NestList) {
+                                if (n.PetID != 0)
+                                    n.PetID = viking.Dragons.FirstOrDefault(d => d.EntityId == dragonIds[n.PetID]).Id;
+                            }
+                            p.Value = XmlUtil.SerializeXml(stableData);
+                        }
+                    }
+                    ctx.PairData.Add(x);
+                }
+
+                foreach (var x in v.Images) {
+                    x.Viking = viking;
+                    ctx.Images.Add(x);
                 }
                 foreach (var x in v.MissionStates) {
                     x.Viking = viking;
@@ -96,10 +143,6 @@ public class ExportController : ControllerBase {
                 foreach (var x in v.AchievementPoints) {
                     x.Viking = viking;
                     ctx.AchievementPoints.Add(x);
-                }
-                foreach (var x in v.PairData) {
-                    x.Viking = viking;
-                    ctx.PairData.Add(x);  // FIXME need update PetID in stable XML
                 }
                 foreach (var x in v.ProfileAnswers) {
                     x.Viking = viking;
@@ -135,12 +178,26 @@ public class ExportController : ControllerBase {
                     v.Neighborhood.Viking = viking;
                     ctx.Neighborhoods.Add(v.Neighborhood);
                 }
-                // TODO set viking.SelectedDragon
+
+                if (v.SelectedDragon != null)
+                    viking.SelectedDragon = viking.Dragons.FirstOrDefault(d => d.EntityId == dragonIds[v.SelectedDragon.Id]);
 
                 ctx.SaveChanges();
                 return Ok("OK");
             }
         }
         return Ok("Viking Not Found");
+    }
+
+    [HttpGet]
+    [Route("Export")]
+    public IActionResult Export() {
+        return Content(XmlUtil.ReadResourceXmlString("html.export"), "application/xhtml+xml");
+    }
+
+    [HttpGet]
+    [Route("Import")]
+    public IActionResult Import() {
+        return Content(XmlUtil.ReadResourceXmlString("html.import"), "application/xhtml+xml");
     }
 }

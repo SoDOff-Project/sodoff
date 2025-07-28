@@ -1,9 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
 namespace sodoff.Model;
 
+[Index(nameof(EntityId), IsUnique = true)]
 public class Dragon {
     [Key]
     // [JsonIgnore] used in serialised xml (stables)
