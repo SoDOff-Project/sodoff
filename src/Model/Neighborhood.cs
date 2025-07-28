@@ -1,18 +1,20 @@
 ﻿using sodoff.Schema;
 using System.ComponentModel.DataAnnotations;
-using System.Data;
-using System.Diagnostics.CodeAnalysis;
+using System.Text.Json.Serialization;
 
 namespace sodoff.Model
 {
     public class Neighborhood
     {
+        [JsonIgnore]
         public virtual Viking? Viking { get; set; }
 
         [Key]
+        [JsonIgnore]
         public int Id { get; set; }
 
         [Required]
+        [JsonIgnore]
         public int VikingId { get; set; }
 
         [Required]

@@ -1,12 +1,14 @@
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 using sodoff.Schema;
 
 namespace sodoff.Model;
 
-[Index(nameof(Uid))]
+[Index(nameof(Uid), IsUnique = true)]
 public class Viking {
     [Key]
+    [JsonIgnore]
     public int Id { get; set; }
 
     public Guid Uid { get; set; }
@@ -15,13 +17,17 @@ public class Viking {
     public string Name { get; set; } = null!;
 
     [Required]
+    [JsonIgnore]
     public Guid UserId { get; set; }
 
     public string? AvatarSerialized { get; set; }
 
+    [JsonIgnore]
     public int? SelectedDragonId { get; set; }
 
+    [JsonIgnore]
     public virtual ICollection<Session> Sessions { get; set; } = null!;
+    [JsonIgnore]
     public virtual User User { get; set; } = null!;
     public virtual ICollection<Dragon> Dragons { get; set; } = null!;
     public virtual ICollection<Image> Images { get; set; } = null!;
@@ -37,8 +43,10 @@ public class Viking {
     public virtual ICollection<ProfileAnswer> ProfileAnswers { get; set; } = null!;
     public virtual ICollection<SavedData> SavedData { get; set; } = null!;
     public virtual ICollection<Party> Parties { get; set; } = null!;
+    [JsonIgnore]
     public virtual ICollection<MMORole> MMORoles { get; set; } = null!;
     public virtual Neighborhood? Neighborhood { get; set; } = null!;
+    [JsonIgnore]
     public virtual ICollection<Group> Groups { get; set; } = null!;
     public virtual ICollection<Rating> Ratings { get; set; } = null!;
     public virtual Dragon? SelectedDragon { get; set; }

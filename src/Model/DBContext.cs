@@ -23,6 +23,9 @@ public class DBContext : DbContext {
     public DbSet<ProfileAnswer> ProfileAnswers { get; set; } = null!;
     public DbSet<MMORole> MMORoles { get; set; } = null!;
     public DbSet<Party> Parties { get; set; } = null!;
+    public DbSet<AchievementTaskState> AchievementTaskState { get; set; } = null!;
+    public DbSet<SavedData> SavedData { get; set; } = null!;
+    public DbSet<UserMissionData> UserMissions { get; set; } = null!;
     public DbSet<Neighborhood> Neighborhoods { get; set; } = null!;
     // we had a brief debate on whether it's neighborhoods or neighborheed
     public DbSet<Group> Groups { get; set; } = null!;

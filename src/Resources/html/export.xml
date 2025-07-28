@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Export SoDOff account</title>
+  </head>
+  <body>
+    <form action="/Export" method="post">
+      <label for="username">Username:</label><br />
+      <input type="text" id="username" name="username" /><br />
+      <label for="password">Password:</label><br />
+      <input type="password" id="password" name="password" /><br /><br />
+      <input type="submit" value="Submit" />
+    </form> 
+  </body>
+</html>
