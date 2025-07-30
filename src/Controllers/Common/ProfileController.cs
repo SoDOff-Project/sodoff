@@ -152,18 +152,18 @@ public class ProfileController : Controller {
 
         UserGameCurrency currency = achievementService.GetUserCurrency(viking);
 
-        ICollection<Model.Group> groups = viking.Groups;
+        ICollection<GroupViking> groups = viking.GroupRoles;
 
         UserProfileGroupData[] groupData = new UserProfileGroupData[groups.Count];
         int i = 0;
-        foreach (Model.Group group in groups) {
+        foreach (GroupViking group in groups) {
             groupData[i] = new UserProfileGroupData {
-                GroupID = group.GroupID.ToString(),
+                GroupID = group.Group.GroupID.ToString(),
                 Name = group.Name,
                 Color = group.Color,
                 Logo = group.Logo,
                 TypeID = (int)group.Type,
-                RoleID = 0
+                RoleID = group.UserRole
             };
             i++;
         }
