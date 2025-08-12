@@ -112,7 +112,7 @@ public class ExportController : ControllerBase {
                     if (x.PairId == 2014) { // stables data
                         foreach (var p in x.Pairs.Where(e => e.Key.StartsWith("Stable"))) {
                             StableData stableData = XmlUtil.DeserializeXml<StableData>(p.Value);
-                            stableData.InventoryID = viking.InventoryItems.FirstOrDefault(e => e.ItemId == stableData.ItemID && !usedItemIds.Contains(e.Id)).Id;
+                            stableData.InventoryID = viking.InventoryItems.FirstOrDefault(e => e.ItemId == stableData.ItemID).Id;
                             usedItemIds.Add(stableData.InventoryID);
                             foreach (var n in stableData.NestList) {
                                 if (n.PetID != 0)
