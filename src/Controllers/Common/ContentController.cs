@@ -1185,6 +1185,42 @@ public class ContentController : Controller {
 
     [HttpPost]
     [Produces("application/xml")]
+    [Route("/ContentWebService.asmx/RedeemItems")]
+    [VikingSession]
+    public IActionResult RedeemItems(Viking viking, [FromForm] string request) {
+        var req = XmlUtil.DeserializeXml<RedeemRequest>(request);
+        Dictionary<int, int> inventoryItemsToAdd = new();
+
+        // resolve items in the bundle
+        ItemData bundleItem = itemService.GetItem(req.ItemID);
+        foreach (var reward in bundleItem.Relationship.Where(e => e.Type == "Bundle")) {
+            int quantity = itemService.GetItemQuantity(reward, 1);
+            inventoryItemsToAdd.TryAdd(reward.ItemId, 0);
+            inventoryItemsToAdd[reward.ItemId] += quantity;
+        }
+
+        var addedItems = inventoryService.AddItemsToInventoryBulk(viking, inventoryItemsToAdd);
+
+        // build response
+        List<CommonInventoryResponseItem> items = new List<CommonInventoryResponseItem>();
+        foreach (var i in inventoryItemsToAdd) {
+            items.AddRange(Enumerable.Repeat(
+                new CommonInventoryResponseItem {
+                    CommonInventoryID = addedItems.ContainsKey(i.Key) ? addedItems[i.Key] : 0, // return inventory id if this item was added to the DB
+                    ItemID = i.Key,
+                    Quantity = 0
+                }, i.Value));
+        }
+
+        return Ok(new CommonInventoryResponse{
+            Success = true,
+            CommonInventoryIDs = items.ToArray(),
+            UserGameCurrency = achievementService.GetUserCurrency(viking)
+        });
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
     [Route("/ContentWebService.asmx/RedeemMysteryBoxItems")]
     [VikingSession]
     public IActionResult RedeemMysteryBoxItems(Viking viking, [FromForm] string request) {

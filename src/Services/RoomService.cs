@@ -12,6 +12,7 @@ public class RoomService {
 
     private ItemService itemService;
     private AchievementService achievementService;
+    private Random random = new Random();
 
     public RoomService(DBContext ctx, ItemService itemService, AchievementService achievementService) {
         this.ctx = ctx;
@@ -125,8 +126,9 @@ public class RoomService {
         UserItemPosition pos = XmlUtil.DeserializeXml<UserItemPosition>(item.RoomItemData);
 
         AchievementReward[]? rewards;
+        int? achievementID;
         List<ItemStateCriteria> consumables;
-        int nextStateID = GetNextStateID(pos, speedup, out rewards, out consumables);
+        int nextStateID = GetNextStateID(pos, speedup, out rewards, out achievementID, out consumables);
 
         foreach (var consumable in consumables) {
             ItemStateCriteriaConsumable c = (ItemStateCriteriaConsumable)consumable;
@@ -137,6 +139,13 @@ public class RoomService {
 
         if (rewards != null) {
             response.Rewards = achievementService.ApplyAchievementRewards(item.Room.Viking, rewards);
+        }
+        if (achievementID != null) {
+            var newrewards = achievementService.ApplyAchievementRewardsByID(item.Room.Viking, (int)achievementID);
+            if (response.Rewards is null)
+                response.Rewards = newrewards;
+            else
+                response.Rewards = response.Rewards.Concat(newrewards).ToArray();
         }
 
         DateTime stateChange = new DateTime(DateTime.Now.Ticks);
@@ -164,8 +173,9 @@ public class RoomService {
         return response;
     }
 
-    private int GetNextStateID(UserItemPosition pos, bool speedup, out AchievementReward[]? rewards, out List<ItemStateCriteria> consumables) {
+    private int GetNextStateID(UserItemPosition pos, bool speedup, out AchievementReward[]? rewards, out int? achievementID, out List<ItemStateCriteria> consumables) {
         rewards = null;
+        achievementID = null;
         consumables = new List<ItemStateCriteria>();
 
         if (pos.UserItemState == null)
@@ -174,6 +184,13 @@ public class RoomService {
         ItemState currState = pos.Item.ItemStates.Find(x => x.ItemStateID == pos.UserItemState.ItemStateID)!;
         rewards = currState.Rewards;
         consumables = currState.Rule.Criterias.FindAll(x => x.Type == ItemStateCriteriaType.ConsumableItem);
+
+        // achievementID = currState.AchievementID; // TODO we should do this or not? some items use the same rewards in `currState.Rewards` and achievement definition, but some do not contain only achievementID (but then there is generally no definition for achievement)
+        if (currState.Rule.CompletionAction.AchievementCompletion != null) {
+            achievementID = currState.Rule.CompletionAction.AchievementCompletion[
+                random.Next(0, currState.Rule.CompletionAction.AchievementCompletion.Length)
+            ].AchievementID;
+        }
 
         if (speedup)
             return ((ItemStateCriteriaSpeedUpItem)currState.Rule.Criterias.Find(x => x.Type == ItemStateCriteriaType.SpeedUpItem)!).EndStateID;
