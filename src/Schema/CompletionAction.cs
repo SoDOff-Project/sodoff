@@ -12,4 +12,7 @@ public class CompletionAction {
 
     [XmlElement(ElementName = "Transition")]
     public StateTransition Transition;
+
+    [XmlElement(ElementName = "AchievementCompletion", IsNullable = true)]
+    public AchievementCompletion[] AchievementCompletion;
 }
