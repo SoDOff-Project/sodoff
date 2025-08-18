@@ -31,8 +31,8 @@ public class UserItemPosition {
     [XmlElement(ElementName = "uicid")]
     public int? UserInventoryCommonID;
 
-    [XmlElement(ElementName = "i")]
-    public ItemData Item;
+    [XmlElement(ElementName = "i", IsNullable = true)]
+    public ItemData? Item;
 
     [XmlElement(ElementName = "px")]
     public double? PositionX;
