@@ -29,14 +29,20 @@ public class RoomService {
         List<int> ids = new();
         List<UserItemState> states = new();
         foreach (var itemRequest in roomItemRequest) {
+            ItemData itemData = itemRequest.Item;
+
             // TODO: Remove item from inventory (using CommonInventoryID)
             InventoryItem? i = room.Viking?.InventoryItems.FirstOrDefault(x => x.Id == itemRequest.UserInventoryCommonID);
             if (i != null) {
                 i.Quantity--;
-                if (itemRequest.Item is null) {
-                    itemRequest.Item = itemService.GetItem(i.ItemId);
+                if (itemData is null) {
+                    itemData = itemService.GetItem(i.ItemId);
                 }
             }
+
+            // do not store item definition in serialised xml in database (store item id instead)
+            itemRequest.Item = null;
+            itemRequest.ItemID = itemData.ItemID;
 
             RoomItem roomItem = new RoomItem {
                 RoomItemData = XmlUtil.SerializeXml<UserItemPosition>(itemRequest).Replace(" xsi:type=\"UserItemPositionSetRequest\"", "") // NOTE: No way to avoid this hack when we're serializing a child class into a base class
@@ -45,12 +51,12 @@ public class RoomService {
             room.Items.Add(roomItem);
             ctx.SaveChanges();
             ids.Add(roomItem.Id);
-            if (itemRequest.Item.ItemStates.Count > 0) {
-                ItemState defaultState = itemRequest.Item.ItemStates.Find(x => x.Order == 1)!;
+            if (itemData.ItemStates.Count > 0) {
+                ItemState defaultState = itemData.ItemStates.Find(x => x.Order == 1)!;
                 UserItemState userDefaultState = new UserItemState {
                     CommonInventoryID = (int)itemRequest.UserInventoryCommonID!,
                     UserItemPositionID = roomItem.Id,
-                    ItemID = (int)itemRequest.Item.ItemID,
+                    ItemID = (int)itemData.ItemID,
                     ItemStateID = defaultState.ItemStateID,
                     StateChangeDate = new DateTime(DateTime.Now.Ticks)
                 };
@@ -76,7 +82,7 @@ public class RoomService {
             if (itemRequest.UserItemState != null) itemPosition.UserItemState = itemRequest.UserItemState;
             if (itemRequest.UserItemAttributes != null) itemPosition.UserItemAttributes = itemRequest.UserItemAttributes;
             if (itemRequest.UserItemStat != null) itemPosition.UserItemStat = itemRequest.UserItemStat;
-            if (itemRequest.Item != null) itemPosition.Item = itemRequest.Item;
+            if (itemRequest.Item != null) itemPosition.ItemID = itemRequest.Item.ItemID;
             if (itemRequest.PositionX != null) itemPosition.PositionX = itemRequest.PositionX;
             if (itemRequest.PositionY != null) itemPosition.PositionY = itemRequest.PositionY;
             if (itemRequest.PositionZ != null) itemPosition.PositionZ = itemRequest.PositionZ;
@@ -110,7 +116,10 @@ public class RoomService {
         foreach (var item in room.Items) {
             UserItemPosition data = XmlUtil.DeserializeXml<UserItemPosition>(item.RoomItemData);
             data.UserItemPositionID = item.Id;
-            data.ItemID = data.Item?.ItemID;
+            if (data.ItemID is null)
+                data.ItemID = data.Item?.ItemID; // for backward compatibility with database entries without set `data.ItemID`
+            else
+                data.Item = itemService.GetItem((int)data.ItemID);
             if (gameVersion < 0xa3a00a0a && data.Uses is null)
                 data.Uses = -1;
             itemPosition.Add(data);
@@ -123,7 +132,10 @@ public class RoomService {
             Success = true,
             ErrorCode = ItemStateChangeError.Success
         };
+
         UserItemPosition pos = XmlUtil.DeserializeXml<UserItemPosition>(item.RoomItemData);
+        if (pos.ItemID is null)
+            pos.ItemID = pos.Item?.ItemID; // for backward compatibility with database entries without set `data.ItemID`
 
         AchievementReward[]? rewards;
         int? achievementID;
@@ -159,7 +171,7 @@ public class RoomService {
         response.UserItemState = new UserItemState {
             CommonInventoryID = (int)pos.UserInventoryCommonID!,
             UserItemPositionID = item.Id,
-            ItemID = pos.Item.ItemID,
+            ItemID = (int)pos.ItemID,
             ItemStateID = nextStateID,
             StateChangeDate = stateChange
         };
@@ -177,11 +189,12 @@ public class RoomService {
         rewards = null;
         achievementID = null;
         consumables = new List<ItemStateCriteria>();
+        var itemStates = itemService.GetItem((int)pos.ItemID).ItemStates;
 
         if (pos.UserItemState == null)
-            return pos.Item.ItemStates.Find(x => x.Order == 1)!.ItemStateID;
+            return itemStates.Find(x => x.Order == 1)!.ItemStateID;
 
-        ItemState currState = pos.Item.ItemStates.Find(x => x.ItemStateID == pos.UserItemState.ItemStateID)!;
+        ItemState currState = itemStates.Find(x => x.ItemStateID == pos.UserItemState.ItemStateID)!;
         rewards = currState.Rewards;
         consumables = currState.Rule.Criterias.FindAll(x => x.Type == ItemStateCriteriaType.ConsumableItem);
 
@@ -204,12 +217,11 @@ public class RoomService {
         
         switch (currState.Rule.CompletionAction.Transition) {
             default:
-                return pos.Item.ItemStates.Find(x => x.Order == currState.Order + 1)!.ItemStateID;
+                return itemStates.Find(x => x.Order == currState.Order + 1)!.ItemStateID;
             case StateTransition.InitialState:
-                return pos.Item.ItemStates.Find(x => x.Order == 1)!.ItemStateID;
+                return itemStates.Find(x => x.Order == 1)!.ItemStateID;
             case StateTransition.Deletion:
                 return -1;
-
         }
     }
 }
