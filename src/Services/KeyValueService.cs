@@ -50,9 +50,7 @@ public class KeyValueService {
             }
         }
 
-        if (exists)
-            ctx.PairData.Update(pair);
-        else
+        if (!exists)
             ctx.PairData.Add(pair);
         ctx.SaveChanges();
 

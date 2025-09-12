@@ -4,11 +4,17 @@ namespace sodoff.Schema;
 
 [XmlRoot(ElementName = "Availability", Namespace = "")]
 [Serializable]
-public class ItemAvailability
-{
-	[XmlElement(ElementName = "sdate", IsNullable = true)]
-	public DateTime? StartDate;
+public class ItemAvailability {
+    public ItemAvailability() { }
 
-	[XmlElement(ElementName = "edate", IsNullable = true)]
-	public DateTime? EndDate;
+    public ItemAvailability(ItemAvailability other) {
+        StartDate = other.StartDate;
+        EndDate = other.EndDate;
+    }
+
+    [XmlElement(ElementName = "sdate", IsNullable = true)]
+    public DateTime? StartDate;
+
+    [XmlElement(ElementName = "edate", IsNullable = true)]
+    public DateTime? EndDate;
 }
