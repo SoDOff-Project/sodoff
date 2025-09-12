@@ -8,5 +8,6 @@ public class GameDataPair {
     public string Name { get; set; } = null!;
     public int Value { get; set; }
     public int DailyValue { get; set; }
+    [JsonIgnore]
     public virtual GameData GameData { get; set; } = null!;
 }
