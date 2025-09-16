@@ -170,9 +170,9 @@ public class GameDataService {
     private void SavePairs(Model.GameData gameData, string xmlDocumentData) {
         foreach (var pair in GetGameDataPairs(xmlDocumentData)) {
             GameDataPair? dbPair = gameData.GameDataPairs.FirstOrDefault(x => x.Name == pair.Name);
-
-            // If Name == "time" then (existing <= incoming) needs to be false (effectively (existing > incoming), as time should function).
-            // if Name is anything else, then second condition as normal.
+            
+            // If the score type is "time", use newBest <= existing (newest time is smaller than (or the same as) existing time).
+            // For anything else, use newBest > existing (newest score is larger than existing score).
             bool newBest = (dbPair == null) || ((pair.Name == "time") != (dbPair.Value <= pair.Value));
 
             if (dbPair == null) {
