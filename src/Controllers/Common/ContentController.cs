@@ -580,7 +580,8 @@ public class ContentController : Controller {
         raisedPetRequest.RaisedPetData.IsPetCreated = true;
         raisedPetRequest.RaisedPetData.RaisedPetID = 0; // Initially make zero, so the db auto-fills
         raisedPetRequest.RaisedPetData.EntityID = Guid.Parse(dragonId);
-        raisedPetRequest.RaisedPetData.Name = string.Concat("Dragon-", dragonId.AsSpan(0, 8)); // Start off with a random name
+        if (string.IsNullOrEmpty(raisedPetRequest.RaisedPetData.Name))
+            raisedPetRequest.RaisedPetData.Name = string.Concat("Dragon-", dragonId.AsSpan(0, 8)); // Start off with a random name
         raisedPetRequest.RaisedPetData.IsSelected = false; // The api returns false, not sure why
         raisedPetRequest.RaisedPetData.CreateDate = new DateTime(DateTime.Now.Ticks);
         raisedPetRequest.RaisedPetData.UpdateDate = new DateTime(DateTime.Now.Ticks);
