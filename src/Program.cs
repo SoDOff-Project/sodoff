@@ -28,9 +28,8 @@ builder.Services.AddSingleton<MissionStoreSingleton>();
 builder.Services.AddSingleton<AchievementStoreSingleton>();
 builder.Services.AddSingleton<ItemService>();
 builder.Services.AddSingleton<StoreService>();
-builder.Services.AddSingleton<DisplayNamesService>();
+builder.Services.AddSingleton<XmlDataService>();
 builder.Services.AddSingleton<MMOConfigService>();
-builder.Services.AddSingleton<WorldIdService>();
 
 builder.Services.AddScoped<KeyValueService>();
 builder.Services.AddScoped<MissionService>();

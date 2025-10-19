@@ -21,9 +21,8 @@ public class ContentController : Controller {
     private AchievementService achievementService;
     private InventoryService inventoryService;
     private GameDataService gameDataService;
-    private DisplayNamesService displayNamesService;
+    private XmlDataService xmlDataService;
     private NeighborhoodService neighborhoodService;
-    private WorldIdService worldIdService;
     private Random random = new Random();
     private readonly IOptions<ApiServerConfig> config;
     
@@ -37,9 +36,8 @@ public class ContentController : Controller {
         AchievementService achievementService,
         InventoryService inventoryService,
         GameDataService gameDataService,
-        DisplayNamesService displayNamesService,
+        XmlDataService xmlDataService,
         NeighborhoodService neighborhoodService,
-        WorldIdService worldIdService,
         IOptions<ApiServerConfig> config
     ) {
         this.ctx = ctx;
@@ -51,9 +49,8 @@ public class ContentController : Controller {
         this.achievementService = achievementService;
         this.inventoryService = inventoryService;
         this.gameDataService = gameDataService;
-        this.displayNamesService = displayNamesService;
+        this.xmlDataService = xmlDataService;
         this.neighborhoodService = neighborhoodService;
-        this.worldIdService = worldIdService;
         this.config = config;
     }
 
@@ -1599,7 +1596,7 @@ public class ContentController : Controller {
     [VikingSession]
     public IActionResult SetProduct(Viking viking, [FromForm] int firstNameID, [FromForm] int secondNameID, [FromForm] int thirdNameID) {
         AvatarData avatarData = XmlUtil.DeserializeXml<AvatarData>(viking.AvatarSerialized);
-        avatarData.DisplayName = displayNamesService.GetName(firstNameID, secondNameID, thirdNameID);
+        avatarData.DisplayName = xmlDataService.GetDisplayName(firstNameID, secondNameID, thirdNameID);
         viking.AvatarSerialized = XmlUtil.SerializeXml(avatarData);
         ctx.SaveChanges();
         return Ok(true);
@@ -2172,7 +2169,7 @@ public class ContentController : Controller {
     [Produces("application/xml")]
     [Route("MissionWebService.asmx/GetWorldId")] // used by Math Blaster and WoJS Adventureland
     public IActionResult GetWorldId([FromForm] int gameId, [FromForm] string sceneName) {
-        return Ok(worldIdService.GetWorldID(sceneName));
+        return Ok(xmlDataService.GetWorldID(sceneName));
     }
 
     [HttpPost]
