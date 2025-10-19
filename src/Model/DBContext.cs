@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using sodoff.Configuration;
+using System.Text.Json;
 
 namespace sodoff.Model;
 public class DBContext : DbContext {
@@ -29,6 +30,8 @@ public class DBContext : DbContext {
     public DbSet<Neighborhood> Neighborhoods { get; set; } = null!;
     // we had a brief debate on whether it's neighborhoods or neighborheed
     public DbSet<Group> Groups { get; set; } = null!;
+    public DbSet<GroupMember> GroupMembers { get; set; } = null!;
+    public DbSet<GroupJoinRequest> GroupJoinRequests { get; set; } = null!;
     public DbSet<Rating> Ratings { get; set; } = null!;
     public DbSet<RatingRank> RatingRanks { get; set; } = null!;
     public DbSet<UserMissionData> UserMissionData { get; set; } = null!;
@@ -69,6 +72,9 @@ public class DBContext : DbContext {
     }
 
     protected override void OnModelCreating(ModelBuilder builder) {
+        builder.Entity<GroupMember>().HasKey(["VikingID", "GroupID"]);
+        builder.Entity<GroupJoinRequest>().HasKey(["VikingID", "GroupID"]);
+
         // Sessions
         builder.Entity<Session>().HasOne(s => s.User)
             .WithMany(e => e.Sessions)
@@ -147,8 +153,8 @@ public class DBContext : DbContext {
         builder.Entity<Viking>().HasOne(v => v.Neighborhood)
             .WithOne(e => e.Viking);
 
-        builder.Entity<Viking>().HasMany(v => v.Groups)
-            .WithMany(e => e.Vikings);
+        builder.Entity<Viking>().HasMany(v => v.GroupRoles)
+            .WithOne(g => g.Viking);
 
         builder.Entity<Viking>().HasMany(v => v.Ratings)
             .WithOne(r => r.Viking);
@@ -282,7 +288,15 @@ public class DBContext : DbContext {
 
         // Groups
         builder.Entity<Group>().HasMany(r => r.Vikings)
-            .WithMany(e => e.Groups);
+            .WithOne(v => v.Group);
+        builder.Entity<GroupMember>().HasOne(r => r.Group)
+            .WithMany(g => g.Vikings);
+        builder.Entity<GroupMember>().HasOne(r => r.Viking)
+            .WithMany(g => g.GroupRoles);
+        builder.Entity<Group>().HasMany(r => r.JoinRequests)
+            .WithOne(r => r.Group);
+        builder.Entity<GroupJoinRequest>().HasOne(r => r.Group)
+            .WithMany(g => g.JoinRequests);
 
         // Rating
         builder.Entity<Rating>().HasOne(r => r.Viking)
