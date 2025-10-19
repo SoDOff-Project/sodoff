@@ -1,5 +1,5 @@
 # Use the official .NET SDK image for building the application
-FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
 # Copy the source code
@@ -13,7 +13,7 @@ RUN mv src/mods /app && ln -s /app/mods src/
 RUN mv src/assets /app && ln -s /app/assets src/
 
 # Create clean run environment (without source and sdk)
-# FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
+# FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
 # WORKDIR /app
 # COPY --from=build /app .
 

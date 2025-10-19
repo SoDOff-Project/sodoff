@@ -4,20 +4,29 @@ namespace sodoff.Schema;
 
 [XmlRoot(ElementName = "IRE", Namespace = "")]
 [Serializable]
-public class ItemDataRelationship
-{
-	[XmlElement(ElementName = "t")]
-	public string Type;
+public class ItemDataRelationship {
+    public ItemDataRelationship() { }
 
-	[XmlElement(ElementName = "id")]
-	public int ItemId;
+    public ItemDataRelationship(ItemDataRelationship other) {
+        Type = other.Type;
+        ItemId = other.ItemId;
+        Weight = other.Weight;
+        Quantity = other.Quantity;
+        MaxQuantity = other.MaxQuantity;
+    }
 
-	[XmlElement(ElementName = "wt")]
-	public int Weight;
+    [XmlElement(ElementName = "t")]
+    public string Type;
 
-	[XmlElement(ElementName = "q")]
-	public int Quantity;
+    [XmlElement(ElementName = "id")]
+    public int ItemId;
 
-	[XmlElement(ElementName = "mxq")]
-	public int? MaxQuantity;
+    [XmlElement(ElementName = "wt")]
+    public int Weight;
+
+    [XmlElement(ElementName = "q")]
+    public int Quantity;
+
+    [XmlElement(ElementName = "mxq")]
+    public int? MaxQuantity;
 }

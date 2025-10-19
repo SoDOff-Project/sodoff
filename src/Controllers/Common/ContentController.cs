@@ -570,7 +570,7 @@ public class ContentController : Controller {
     [HttpPost]
     [Produces("application/xml")]
     [Route("V2/ContentWebService.asmx/CreatePet")]
-    [VikingSession]
+    [VikingSession(UseLock = true)]
     public IActionResult CreatePet(Viking viking, [FromForm] string request) {
         RaisedPetRequest raisedPetRequest = XmlUtil.DeserializeXml<RaisedPetRequest>(request);
         // TODO: Investigate SetAsSelectedPet and UnSelectOtherPets - they don't seem to do anything
@@ -602,7 +602,6 @@ public class ContentController : Controller {
 
         if (raisedPetRequest.SetAsSelectedPet == true) {
             viking.SelectedDragon = dragon;
-            ctx.Update(viking);
         }
         ctx.Dragons.Add(dragon);
         ctx.Images.Add(image);
@@ -905,7 +904,7 @@ public class ContentController : Controller {
     [HttpPost]
     [Produces("application/xml")]
     [Route("ContentWebService.asmx/SetImage")]
-    [VikingSession]
+    [VikingSession(UseLock = true)]
     public bool SetImage(Viking viking, [FromForm] string ImageType, [FromForm] int ImageSlot, [FromForm] string contentXML, [FromForm] string imageFile) {
         // TODO: the other properties of contentXML
         ImageData data = XmlUtil.DeserializeXml<ImageData>(contentXML);
@@ -925,11 +924,8 @@ public class ContentController : Controller {
         image.ImageData = imageFile;
         image.TemplateName = data.TemplateName;
 
-        if (newImage) {
+        if (newImage)
             ctx.Images.Add(image);
-        } else {
-            ctx.Images.Update(image);
-        }
         ctx.SaveChanges();
 
         return true;
@@ -1113,14 +1109,17 @@ public class ContentController : Controller {
             foreach (var m in filterV2.MissionPair)
                 if (m.MissionID != null)
                     result.Missions.Add(missionService.GetMissionWithProgress((int)m.MissionID, viking.Id, gameVersion));
-        // TODO: probably should also check for mission based on filterV2.ProductGroupID vs mission.GroupID
         } else {
             if (filterV2.GetCompletedMission ?? false) {
                 foreach (var mission in viking.MissionStates.Where(x => x.MissionStatus == MissionStatus.Completed))
                     result.Missions.Add(missionService.GetMissionWithProgress(mission.MissionId, viking.Id, gameVersion));
             } else {
-                foreach (var mission in viking.MissionStates.Where(x => x.MissionStatus != MissionStatus.Completed))
-                    result.Missions.Add(missionService.GetMissionWithProgress(mission.MissionId, viking.Id, gameVersion));
+                var missionStatesById = viking.MissionStates.Where(x => x.MissionStatus != MissionStatus.Completed).ToDictionary(ms => ms.MissionId);
+                HashSet<int> upcomingMissionIds = new(missionStore.GetUpcomingMissions(gameVersion));
+                var combinedMissionIds = new HashSet<int>(missionStatesById.Keys);
+                combinedMissionIds.UnionWith(upcomingMissionIds);
+                foreach (var missionId in combinedMissionIds)
+                    result.Missions.Add(missionService.GetMissionWithProgress(missionId, viking.Id, gameVersion));
             }
         }
 

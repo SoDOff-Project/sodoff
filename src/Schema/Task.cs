@@ -8,6 +8,17 @@ namespace sodoff.Schema;
 [XmlRoot(ElementName = "Task", Namespace = "")]
 [Serializable]
 public class Task {
+    public Task() { }
+
+    public Task(Task other) {
+        TaskID = other.TaskID;
+        Name = other.Name;
+        Static = other.Static;
+        Completed = other.Completed;
+        Failed = other.Failed;
+        Payload = other.Payload;
+    }
+
     [XmlElement(ElementName = "I")]
     public int TaskID;
 
