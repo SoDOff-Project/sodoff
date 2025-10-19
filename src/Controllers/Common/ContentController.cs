@@ -580,7 +580,8 @@ public class ContentController : Controller {
         raisedPetRequest.RaisedPetData.IsPetCreated = true;
         raisedPetRequest.RaisedPetData.RaisedPetID = 0; // Initially make zero, so the db auto-fills
         raisedPetRequest.RaisedPetData.EntityID = Guid.Parse(dragonId);
-        raisedPetRequest.RaisedPetData.Name = string.Concat("Dragon-", dragonId.AsSpan(0, 8)); // Start off with a random name
+        if (string.IsNullOrEmpty(raisedPetRequest.RaisedPetData.Name))
+            raisedPetRequest.RaisedPetData.Name = string.Concat("Dragon-", dragonId.AsSpan(0, 8)); // Start off with a random name
         raisedPetRequest.RaisedPetData.IsSelected = false; // The api returns false, not sure why
         raisedPetRequest.RaisedPetData.CreateDate = new DateTime(DateTime.Now.Ticks);
         raisedPetRequest.RaisedPetData.UpdateDate = new DateTime(DateTime.Now.Ticks);
@@ -1109,14 +1110,17 @@ public class ContentController : Controller {
             foreach (var m in filterV2.MissionPair)
                 if (m.MissionID != null)
                     result.Missions.Add(missionService.GetMissionWithProgress((int)m.MissionID, viking.Id, gameVersion));
-        // TODO: probably should also check for mission based on filterV2.ProductGroupID vs mission.GroupID
         } else {
             if (filterV2.GetCompletedMission ?? false) {
                 foreach (var mission in viking.MissionStates.Where(x => x.MissionStatus == MissionStatus.Completed))
                     result.Missions.Add(missionService.GetMissionWithProgress(mission.MissionId, viking.Id, gameVersion));
             } else {
-                foreach (var mission in viking.MissionStates.Where(x => x.MissionStatus != MissionStatus.Completed))
-                    result.Missions.Add(missionService.GetMissionWithProgress(mission.MissionId, viking.Id, gameVersion));
+                var missionStatesById = viking.MissionStates.Where(x => x.MissionStatus != MissionStatus.Completed).ToDictionary(ms => ms.MissionId);
+                HashSet<int> upcomingMissionIds = new(missionStore.GetUpcomingMissions(gameVersion));
+                var combinedMissionIds = new HashSet<int>(missionStatesById.Keys);
+                combinedMissionIds.UnionWith(upcomingMissionIds);
+                foreach (var missionId in combinedMissionIds)
+                    result.Missions.Add(missionService.GetMissionWithProgress(missionId, viking.Id, gameVersion));
             }
         }
 
