@@ -30,7 +30,7 @@ public class DBContext : DbContext {
     public DbSet<Neighborhood> Neighborhoods { get; set; } = null!;
     // we had a brief debate on whether it's neighborhoods or neighborheed
     public DbSet<Group> Groups { get; set; } = null!;
-    public DbSet<GroupViking> GroupViking { get; set; } = null!;
+    public DbSet<GroupMember> GroupMembers { get; set; } = null!;
     public DbSet<GroupJoinRequest> GroupJoinRequests { get; set; } = null!;
     public DbSet<Rating> Ratings { get; set; } = null!;
     public DbSet<RatingRank> RatingRanks { get; set; } = null!;
@@ -72,7 +72,7 @@ public class DBContext : DbContext {
     }
 
     protected override void OnModelCreating(ModelBuilder builder) {
-        builder.Entity<GroupViking>().HasKey(["VikingID", "GroupID"]);
+        builder.Entity<GroupMember>().HasKey(["VikingID", "GroupID"]);
         builder.Entity<GroupJoinRequest>().HasKey(["VikingID", "GroupID"]);
 
         // Sessions
@@ -289,9 +289,9 @@ public class DBContext : DbContext {
         // Groups
         builder.Entity<Group>().HasMany(r => r.Vikings)
             .WithOne(v => v.Group);
-        builder.Entity<GroupViking>().HasOne(r => r.Group)
+        builder.Entity<GroupMember>().HasOne(r => r.Group)
             .WithMany(g => g.Vikings);
-        builder.Entity<GroupViking>().HasOne(r => r.Viking)
+        builder.Entity<GroupMember>().HasOne(r => r.Viking)
             .WithMany(g => g.GroupRoles);
         builder.Entity<Group>().HasMany(r => r.JoinRequests)
             .WithOne(r => r.Group);

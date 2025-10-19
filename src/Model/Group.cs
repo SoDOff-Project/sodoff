@@ -29,7 +29,7 @@ public class Group {
 
     public int MaxMemberLimit { get; set; }
 
-    public virtual ICollection<GroupViking> Vikings { get; set; } = null!;
+    public virtual ICollection<GroupMember> Vikings { get; set; } = null!;
 
     public virtual ICollection<GroupJoinRequest> JoinRequests { get; set; } = null!;
 }

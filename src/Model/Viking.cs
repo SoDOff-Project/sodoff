@@ -47,8 +47,7 @@ public class Viking {
     public virtual ICollection<MMORole> MMORoles { get; set; } = null!;
     public virtual Neighborhood? Neighborhood { get; set; } = null!;
     [JsonIgnore]
-    public virtual ICollection<GroupViking> GroupRoles { get; set; } = null!;
-    public virtual ICollection<Group> Groups { get; set; } = null!;
+    public virtual ICollection<GroupMember> GroupRoles { get; set; } = null!;
     public virtual ICollection<Rating> Ratings { get; set; } = null!;
     public virtual Dragon? SelectedDragon { get; set; }
     public virtual ICollection<UserMissionData> UserMissions { get; set; } = null!;
