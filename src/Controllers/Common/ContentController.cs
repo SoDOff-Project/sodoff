@@ -1199,24 +1199,12 @@ public class ContentController : Controller {
             inventoryItemsToAdd[reward.ItemId] += quantity;
         }
 
-        var addedItems = inventoryService.AddItemsToInventoryBulk(viking, inventoryItemsToAdd);
-
-        // build response
-        List<CommonInventoryResponseItem> items = new List<CommonInventoryResponseItem>();
-        foreach (var i in inventoryItemsToAdd) {
-            items.AddRange(Enumerable.Repeat(
-                new CommonInventoryResponseItem {
-                    CommonInventoryID = addedItems.ContainsKey(i.Key) ? addedItems[i.Key] : 0, // return inventory id if this item was added to the DB
-                    ItemID = i.Key,
-                    Quantity = 0
-                }, i.Value));
-        }
-
-        return Ok(new CommonInventoryResponse{
-            Success = true,
-            CommonInventoryIDs = items.ToArray(),
-            UserGameCurrency = achievementService.GetUserCurrency(viking)
-        });
+        // add items to the inventory (database) and build response
+        return Ok(
+            inventoryService.AddItemsToInventoryBulkAndGetResponse(
+                viking, inventoryItemsToAdd, inventoryItemsToAdd, achievementService.GetUserCurrency(viking)
+            )
+        );
     }
 
     [HttpPost]
@@ -2482,26 +2470,9 @@ public class ContentController : Controller {
         achievementService.AddAchievementPoints(viking, AchievementPointTypes.GameCurrency, -totalCoinCost + coinsToAdd);
         achievementService.AddAchievementPoints(viking, AchievementPointTypes.CashCurrency, -totalGemCost + gemsToAdd);
 
-        // add items to the inventory (database)
-        var addedItems = inventoryService.AddItemsToInventoryBulk(viking, inventoryItemsToAdd);
-
-        // build response
-        List<CommonInventoryResponseItem> items = new List<CommonInventoryResponseItem>();
-        foreach (var i in itemsToSendBack) {
-            items.AddRange(Enumerable.Repeat(
-                new CommonInventoryResponseItem {
-                    CommonInventoryID = addedItems.ContainsKey(i.Key) ? addedItems[i.Key] : 0, // return inventory id if this item was added to the DB
-                    ItemID = i.Key,
-                    Quantity = 0
-                }, i.Value));
-        }
-        // NOTE: The quantity of purchased items can always be 0 and the items are instead duplicated in both the request and the response.
-        // Item quantities are used for non-store related requests/responses.
-
-        return new CommonInventoryResponse {
-            Success = true,
-            CommonInventoryIDs = items.ToArray(),
-            UserGameCurrency = achievementService.GetUserCurrency(viking)
-        };
+        // add items to the inventory (database) and build response
+        return inventoryService.AddItemsToInventoryBulkAndGetResponse(
+            viking, inventoryItemsToAdd, itemsToSendBack, achievementService.GetUserCurrency(viking)
+        );
     }
 }
