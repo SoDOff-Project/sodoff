@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 using sodoff.Schema;
 
 namespace sodoff.Model;
@@ -39,6 +40,7 @@ public class Viking {
     public virtual ICollection<Party> Parties { get; set; } = null!;
     public virtual ICollection<MMORole> MMORoles { get; set; } = null!;
     public virtual Neighborhood? Neighborhood { get; set; } = null!;
+    [JsonIgnore]
     public virtual ICollection<GroupViking> GroupRoles { get; set; } = null!;
     public virtual ICollection<Rating> Ratings { get; set; } = null!;
     public virtual Dragon? SelectedDragon { get; set; }
