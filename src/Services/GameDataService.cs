@@ -39,24 +39,24 @@ public class GameDataService {
         return true;
     }
     
-    List<GameDataResponse> GameDataResponseToList(IQueryable<Model.GameData> originalQuery, string key, int count, bool AscendingOrder, string apiKey) {
+    List<GameDataResponse> GameDataResponseToList(IQueryable<Model.GameData> originalQuery, string key, int count, bool AscendingOrder, string apiKey, bool daily=false) {
         var query = originalQuery.SelectMany(e => e.GameDataPairs)
             .Where(x => x.Name == key);
         
         if (AscendingOrder)
-            query = query.OrderBy(e => e.Value);
+            query = query.OrderBy(e => daily ? e.DailyValue : e.Value);
         else
-            query = query.OrderByDescending(e => e.Value);
+            query = query.OrderByDescending(e => daily ? e.DailyValue : e.Value);
 
         uint gameVersion = ClientVersion.GetVersion(apiKey);
         if (gameVersion <= ClientVersion.Max_OldJS)
             // use DisplayName instead of Name
             return query.Select(e => new GameDataResponse(
-                XmlUtil.DeserializeXml<AvatarData>(e.GameData.Viking.AvatarSerialized).DisplayName, e.GameData.Viking.Uid, e.GameData.DatePlayed, e.GameData.Win, e.GameData.Loss, e.Value)
+                XmlUtil.DeserializeXml<AvatarData>(e.GameData.Viking.AvatarSerialized).DisplayName, e.GameData.Viking.Uid, e.GameData.DatePlayed, e.GameData.Win, e.GameData.Loss, daily ? e.DailyValue : e.Value)
             ).Take(count).ToList();
         else
             return query.Select(e => new GameDataResponse(
-                e.GameData.Viking.Name, e.GameData.Viking.Uid, e.GameData.DatePlayed, e.GameData.Win, e.GameData.Loss, e.Value)
+                e.GameData.Viking.Name, e.GameData.Viking.Uid, e.GameData.DatePlayed, e.GameData.Win, e.GameData.Loss, daily ? e.DailyValue : e.Value)
             ).Take(count).ToList();
     }
 
@@ -74,28 +74,15 @@ public class GameDataService {
     }
 
     public GameDataSummary GetDailyGameData(Viking viking, int gameId, bool isMultiplayer, int difficulty, int gameLevel, string key, int count, bool AscendingOrder, bool buddyFilter, string apiKey) {
-        IQueryable<GameDataPair> query = ctx.GameData
+        IQueryable<Model.GameData> query = ctx.GameData
             .Where(x =>
                 x.GameId == gameId && x.IsMultiplayer == false &&
                 x.Difficulty == difficulty && x.GameLevel == gameLevel &&
-                x.DatePlayed.Date == DateTime.UtcNow.Date
-            ).SelectMany(e => e.GameDataPairs).Where(x => x.Name == key);
+                x.DatePlayed.Date == DateTime.UtcNow.Date);
 
         // TODO: Buddy filter
 
-        if (AscendingOrder) query = query.OrderBy(e => e.Value);
-        else query = query.OrderByDescending(e => e.Value);
-
-        List<GameDataResponse> selectedData;
-        if (ClientVersion.GetVersion(apiKey) <= ClientVersion.Max_OldJS)
-            // use DisplayName instead of Name
-            selectedData = query.Select(e => new GameDataResponse(
-                XmlUtil.DeserializeXml<AvatarData>(e.GameData.Viking.AvatarSerialized).DisplayName, e.GameData.Viking.Uid, e.GameData.DatePlayed, false, false, e.DailyValue)
-            ).Take(count).ToList();
-        else
-            selectedData = query.Select(e => new GameDataResponse(
-                e.GameData.Viking.Name, e.GameData.Viking.Uid, e.GameData.DatePlayed, false, false, e.DailyValue)
-            ).Take(count).ToList();
+        List<GameDataResponse> selectedData = GameDataResponseToList(query, key, count, AscendingOrder, apiKey, true);
 
         return GetSummaryFromResponse(viking, isMultiplayer, difficulty, gameLevel, key, selectedData);
     }
