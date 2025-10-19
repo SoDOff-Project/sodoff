@@ -9,54 +9,79 @@ using GroupMember = sodoff.Model.GroupMember;
 namespace sodoff.Controllers.Common;
 
 public class GroupController : Controller {
-    private static readonly List<RolePermission> RolePermissions;
-
-    static GroupController() {
-        RolePermissions = new List<RolePermission>();
-        for (GroupType type = GroupType.Public; type <= GroupType.Private; type++) {
-            // Anything commented out is not implemented.
-            RolePermissions.Add(new RolePermission {
-                GroupType = type,
-                Role = UserRole.Member,
-                Permissions = [
-                    "Delete Own Msg",
-                    //"Post Message"
-                ]
-            });
-            RolePermissions.Add(new RolePermission {
-                GroupType = type,
-                Role = UserRole.Elder,
-                Permissions = [
-                    //"Invite",
-                    "Approve Join Request",
-                    //"Post News",
-                    //"Delete Own Msg",
-                    //"Delete Any Msg",
-                    //"Delete News",
-                    //"Post Message",
-                    "Remove Member"
-                ]
-            });
-            RolePermissions.Add(new RolePermission {
-                GroupType = type,
-                Role = UserRole.Leader,
-                Permissions = [
-                    //"Invite",
-                    "Approve Join Request",
-                    "Assign Leader",
-                    "Assign Elder",
-                    "Demote Elder",
-                    "Edit Group",
-                    //"Post News",
-                    //"Delete Own Msg",
-                    //"Delete Any Msg",
-                    //"Delete News",
-                    //"Post Message",
-                    "Remove Member"
-                ]
-            });
+    // Any permission that is commented out is not implemented.
+    private static readonly List<string> PermissionsMember = [
+        //"Delete Own Msg",
+        //"Post Message"
+    ];
+    private static readonly List<string> PermissionsElder = [
+        //"Invite",
+        "Approve Join Request",
+        //"Post News",
+        //"Delete Own Msg",
+        //"Delete Any Msg",
+        //"Delete News",
+        //"Post Message",
+        "Remove Member"
+    ];
+    private static readonly List<string> PermissionsLeader = [
+        //"Invite",
+        "Approve Join Request",
+        "Assign Leader",
+        "Assign Elder",
+        "Demote Elder",
+        "Edit Group",
+        //"Post News",
+        //"Delete Own Msg",
+        //"Delete Any Msg",
+        //"Delete News",
+        //"Post Message",
+        "Remove Member"
+    ];
+    
+    private static readonly List<RolePermission> RolePermissions = [
+        new RolePermission {
+            GroupType = GroupType.Public,
+            Role = UserRole.Member,
+            Permissions = PermissionsMember
+        }, new RolePermission {
+            GroupType = GroupType.Public,
+            Role = UserRole.Elder,
+            Permissions = PermissionsElder
+        }, new RolePermission {
+            GroupType = GroupType.Public,
+            Role = UserRole.Leader,
+            Permissions = PermissionsLeader
+        },
+        
+        new RolePermission {
+            GroupType = GroupType.MembersOnly,
+            Role = UserRole.Member,
+            Permissions = PermissionsMember
+        }, new RolePermission {
+            GroupType = GroupType.MembersOnly,
+            Role = UserRole.Elder,
+            Permissions = PermissionsElder
+        }, new RolePermission {
+            GroupType = GroupType.MembersOnly,
+            Role = UserRole.Leader,
+            Permissions = PermissionsLeader
+        },
+        
+        new RolePermission {
+            GroupType = GroupType.Private,
+            Role = UserRole.Member,
+            Permissions = PermissionsMember
+        }, new RolePermission {
+            GroupType = GroupType.Private,
+            Role = UserRole.Elder,
+            Permissions = PermissionsElder
+        }, new RolePermission {
+            GroupType = GroupType.Private,
+            Role = UserRole.Leader,
+            Permissions = PermissionsLeader
         }
-    }
+    ];
 
     public static readonly Schema.Group EMD_Dragons = new Schema.Group {
         GroupID = "8e68214a-c801-4759-8461-d01f28484134",
@@ -215,44 +240,44 @@ public class GroupController : Controller {
 
         JoinGroupRequest request = XmlUtil.DeserializeXml<JoinGroupRequest>(groupJoinRequest);
         Model.Group? group = ctx.Groups.FirstOrDefault(g => g.GroupID.ToString() == request.GroupID.ToUpper());
-        if (group != null) {
-            if (group.Type >= GroupType.Private) {
-                return Ok(new GroupJoinResult { Success = false, Status = JoinGroupStatus.GroupTypeIsNotPublic });
-            }
-            GroupMember? existing = viking.GroupRoles.FirstOrDefault(g => g.Group.GameID == gameId);
-            if (existing != null) {
-                if (existing.Group == group)
-                    return Ok(new GroupJoinResult { Success = false, Status = JoinGroupStatus.UserAlreadyMemberOfTheGroup });
-                existing.Group.Vikings.Remove(existing);
-                if (!existing.Group.Vikings.Any()) ctx.Groups.Remove(existing.Group);
-            }
-            if (group.Type == GroupType.MembersOnly) {
-                if (!group.JoinRequests.Any(r => r.Viking == viking))
-                    group.JoinRequests.Add(new GroupJoinRequest {
-                        Group = group,
-                        Viking = viking,
-                        //Message = request.Message // For future implemention, once moderation is possible.
-                    });
-                ctx.SaveChanges();
-                return Ok(new GroupJoinResult { Success = false, Status = JoinGroupStatus.JoinRequestPending });
-            }
-
-            if (group.Vikings.Count < group.MaxMemberLimit) {
-                GroupMember joinee = new GroupMember {
-                    Viking = viking,
-                    Group = group,
-                    UserRole = UserRole.Member,
-                    JoinDate = DateTime.Now
-                };
-                group.Vikings.Add(joinee);
-                group.LastActiveTime = joinee.JoinDate;
-                ctx.SaveChanges();
-                return Ok(new GroupJoinResult { Success = true, Status = JoinGroupStatus.Success });
-            } else {
-                return Ok(new GroupJoinResult { Success = false, Status = JoinGroupStatus.GroupIsFull });
-            }
+        if (group == null) return Ok(new GroupJoinResult { Success = false, Status = JoinGroupStatus.Error });
+        if (group.Type >= GroupType.Private) {
+            return Ok(new GroupJoinResult { Success = false, Status = JoinGroupStatus.GroupTypeIsNotPublic });
         }
-        return Ok(new GroupJoinResult { Success = false, Status = JoinGroupStatus.Error });
+        
+        GroupMember? existing = viking.GroupRoles.FirstOrDefault(g => g.Group.GameID == gameId);
+        if (existing != null) {
+            if (existing.Group == group)
+                return Ok(new GroupJoinResult { Success = false, Status = JoinGroupStatus.UserAlreadyMemberOfTheGroup });
+            
+            existing.Group.Vikings.Remove(existing);
+            if (!existing.Group.Vikings.Any()) ctx.Groups.Remove(existing.Group);
+        }
+        
+        if (group.Type == GroupType.MembersOnly) {
+            if (!group.JoinRequests.Any(r => r.Viking == viking))
+                group.JoinRequests.Add(new GroupJoinRequest {
+                    Group = group,
+                    Viking = viking,
+                    //Message = request.Message // For future implemention, once moderation is possible.
+                });
+            ctx.SaveChanges();
+            return Ok(new GroupJoinResult { Success = false, Status = JoinGroupStatus.JoinRequestPending });
+        }
+
+        if (group.Vikings.Count >= group.MaxMemberLimit) 
+            return Ok(new GroupJoinResult { Success = false, Status = JoinGroupStatus.GroupIsFull });
+        
+        GroupMember joinee = new GroupMember {
+            Viking = viking,
+            Group = group,
+            UserRole = UserRole.Member,
+            JoinDate = DateTime.Now
+        };
+        group.Vikings.Add(joinee);
+        group.LastActiveTime = joinee.JoinDate;
+        ctx.SaveChanges();
+        return Ok(new GroupJoinResult { Success = true, Status = JoinGroupStatus.Success });
     }
 
     [HttpPost]
@@ -262,24 +287,20 @@ public class GroupController : Controller {
     public IActionResult LeaveGroup(Viking viking, [FromForm] string groupLeaveRequest) {
         LeaveGroupRequest request = XmlUtil.DeserializeXml<LeaveGroupRequest>(groupLeaveRequest);
         GroupMember? vikingRole = viking.GroupRoles.FirstOrDefault(g => g.Group.GroupID.ToString() == request.GroupID);
-        if (vikingRole != null) {
-            GroupMember? targetRole = null;
-            if (viking.Uid.ToString().Equals(request.UserID, StringComparison.CurrentCultureIgnoreCase)) {
-                targetRole = vikingRole.Group.Vikings.FirstOrDefault(gv => gv.Viking == viking);
-            } else if (vikingRole.UserRole >= UserRole.Elder) {
-                targetRole = vikingRole.Group.Vikings.FirstOrDefault(gv => gv.Viking.Uid.ToString() == request.UserID);
-            } else {
-                return Ok(new LeaveGroupResult { Success = false, Status = LeaveGroupStatus.Error });
-            }
-            if (targetRole != null) {
-                vikingRole.Group.Vikings.Remove(targetRole);
-                if (!vikingRole.Group.Vikings.Any()) ctx.Groups.Remove(vikingRole.Group);
-                ctx.SaveChanges();
-                return Ok(new LeaveGroupResult { Success = true, Status = LeaveGroupStatus.Success });
-            }
+        if (vikingRole == null) return Ok(new LeaveGroupResult { Success = false, Status = LeaveGroupStatus.Error });
+        GroupMember? targetRole;
+        if (viking.Uid.ToString().Equals(request.UserID, StringComparison.CurrentCultureIgnoreCase)) {
+            targetRole = vikingRole.Group.Vikings.FirstOrDefault(gv => gv.Viking == viking);
+        } else if (vikingRole.UserRole >= UserRole.Elder) {
+            targetRole = vikingRole.Group.Vikings.FirstOrDefault(gv => gv.Viking.Uid.ToString() == request.UserID);
+        } else return Ok(new LeaveGroupResult { Success = false, Status = LeaveGroupStatus.Error });
+
+        if (targetRole == null)
             return Ok(new LeaveGroupResult { Success = false, Status = LeaveGroupStatus.UserNotAMemberOfTheGroup });
-        }
-        return Ok(new LeaveGroupResult { Success = false, Status = LeaveGroupStatus.Error });
+        vikingRole.Group.Vikings.Remove(targetRole);
+        if (!vikingRole.Group.Vikings.Any()) ctx.Groups.Remove(vikingRole.Group);
+        ctx.SaveChanges();
+        return Ok(new LeaveGroupResult { Success = true, Status = LeaveGroupStatus.Success });
     }
 
     [HttpPost]
@@ -336,20 +357,20 @@ public class GroupController : Controller {
     public IActionResult RemoveMember(Viking viking, [FromForm] string removeMemberRequest) {
         RemoveMemberRequest request = XmlUtil.DeserializeXml<RemoveMemberRequest>(removeMemberRequest);
         GroupMember? vikingRole = viking.GroupRoles.FirstOrDefault(g => g.Group.GroupID.ToString() == request.GroupID);
-        if (vikingRole != null) {
-            if (vikingRole.UserRole < UserRole.Elder) {
-                return Ok(new RemoveMemberResult { Success = false, Status = RemoveMemberStatus.UserHasNoPermission });
-            }
-            GroupMember? targetRole = vikingRole.Group.Vikings.FirstOrDefault(gv => gv.Viking.Uid.ToString() == request.RemoveUserID);
-            if (targetRole != null) {
-                vikingRole.Group.Vikings.Remove(targetRole);
-                if (!vikingRole.Group.Vikings.Any()) ctx.Groups.Remove(vikingRole.Group);
-                ctx.SaveChanges();
-                return Ok(new RemoveMemberResult { Success = true, Status = RemoveMemberStatus.Success });
-            }
+        if (vikingRole == null)
+            return Ok(new RemoveMemberResult { Success = false, Status = RemoveMemberStatus.Error });
+        
+        if (vikingRole.UserRole < UserRole.Elder)
+            return Ok(new RemoveMemberResult { Success = false, Status = RemoveMemberStatus.UserHasNoPermission });
+        
+        GroupMember? targetRole = vikingRole.Group.Vikings.FirstOrDefault(gv => gv.Viking.Uid.ToString() == request.RemoveUserID);
+        if (targetRole == null)
             return Ok(new RemoveMemberResult { Success = false, Status = RemoveMemberStatus.UserNotAMemberOfTheGroup });
-        }
-        return Ok(new RemoveMemberResult { Success = false, Status = RemoveMemberStatus.Error });
+        
+        vikingRole.Group.Vikings.Remove(targetRole);
+        if (!vikingRole.Group.Vikings.Any()) ctx.Groups.Remove(vikingRole.Group);
+        ctx.SaveChanges();
+        return Ok(new RemoveMemberResult { Success = true, Status = RemoveMemberStatus.Success });
     }
 
     [HttpPost]
@@ -361,43 +382,46 @@ public class GroupController : Controller {
 
         AuthorizeJoinRequest request = XmlUtil.DeserializeXml<AuthorizeJoinRequest>(authorizeJoinRequest);
         GroupMember? vikingRole = viking.GroupRoles.FirstOrDefault(g => g.Group.GroupID.ToString() == request.GroupID);
-        if (vikingRole != null) {
-            if (vikingRole.UserRole < UserRole.Elder) {
-                return Ok(new AuthorizeJoinResult { Success = false, Status = AuthorizeJoinStatus.ApproverHasNoPermission });
-            }
-            Viking? target = ctx.Vikings.FirstOrDefault(v => v.Uid.ToString() == request.UserID);
-            if (target != null) {
-                GroupMember? existing = target.GroupRoles.FirstOrDefault(gm => gm.Group.GameID == gameId);
-                if (existing != null) {
-                    if (existing.Group == vikingRole.Group) {
-                        return Ok(new AuthorizeJoinResult { Success = false, Status = AuthorizeJoinStatus.UserAlreadyMemberOfTheGroup });
-                    } else {
-                        return Ok(new AuthorizeJoinResult { Success = false, Status = AuthorizeJoinStatus.UserHasNoJoinRequest });
-                    }
-                }
-                if (vikingRole.Group.Vikings.Count < vikingRole.Group.MaxMemberLimit) {
-                    if (request.Approved) {
-                        GroupMember joinee = new GroupMember {
-                            Viking = target,
-                            Group = vikingRole.Group,
-                            UserRole = UserRole.Member,
-                            JoinDate = DateTime.Now
-                        };
-                        vikingRole.Group.Vikings.Add(joinee);
-                        vikingRole.Group.LastActiveTime = joinee.JoinDate;
-                    }
-                    GroupJoinRequest? joinRequest = ctx.GroupJoinRequests.Find(target.Id, vikingRole.GroupID);
-                    if (joinRequest != null) ctx.GroupJoinRequests.Remove(joinRequest);
-                    ctx.SaveChanges();
-                    return Ok(new AuthorizeJoinResult { Success = true, Status = AuthorizeJoinStatus.Success });
-                } else {
-                    return Ok(new AuthorizeJoinResult { Success = false, Status = AuthorizeJoinStatus.GroupIsFull });
-                }
-            } else {
-                return Ok(new AuthorizeJoinResult { Success = false, Status = AuthorizeJoinStatus.Error });
-            }
+        if (vikingRole == null)
+            return Ok(new AuthorizeJoinResult { Success = false, Status = AuthorizeJoinStatus.ApproverNotInThisGroup });
+        
+        if (vikingRole.UserRole < UserRole.Elder)
+            return Ok(new AuthorizeJoinResult { Success = false, Status = AuthorizeJoinStatus.ApproverHasNoPermission });
+        
+        Viking? target = ctx.Vikings.FirstOrDefault(v => v.Uid.ToString() == request.UserID);
+        if (target == null) {
+            return Ok(new AuthorizeJoinResult { Success = false, Status = AuthorizeJoinStatus.Error });
         }
-        return Ok(new AuthorizeJoinResult { Success = false, Status = AuthorizeJoinStatus.ApproverNotInThisGroup });
+
+        GroupMember? existing = target.GroupRoles.FirstOrDefault(gm => gm.Group.GameID == gameId);
+        if (existing != null) {
+            return Ok(new AuthorizeJoinResult {
+                Success = false,
+                Status = existing.Group == vikingRole.Group
+                    ? AuthorizeJoinStatus.UserAlreadyMemberOfTheGroup
+                    : AuthorizeJoinStatus.UserHasNoJoinRequest
+            });
+        }
+
+        if (vikingRole.Group.Vikings.Count >= vikingRole.Group.MaxMemberLimit)
+            return Ok(new AuthorizeJoinResult { Success = false, Status = AuthorizeJoinStatus.GroupIsFull });
+        
+        if (request.Approved) {
+            GroupMember joinee = new GroupMember {
+                Viking = target,
+                Group = vikingRole.Group,
+                UserRole = UserRole.Member,
+                JoinDate = DateTime.Now
+            };
+            vikingRole.Group.Vikings.Add(joinee);
+            vikingRole.Group.LastActiveTime = joinee.JoinDate;
+        }
+
+        GroupJoinRequest? joinRequest = ctx.GroupJoinRequests.Find(target.Id, vikingRole.GroupID);
+        if (joinRequest != null) ctx.GroupJoinRequests.Remove(joinRequest);
+        ctx.SaveChanges();
+        return Ok(new AuthorizeJoinResult { Success = true, Status = AuthorizeJoinStatus.Success });
+
     }
 
     [HttpPost]
@@ -407,29 +431,35 @@ public class GroupController : Controller {
     public IActionResult AssignRole(Viking viking, [FromForm] string assignRoleRequest) {
         AssignRoleRequest request = XmlUtil.DeserializeXml<AssignRoleRequest>(assignRoleRequest);
         GroupMember? vikingRole = viking.GroupRoles.FirstOrDefault(g => g.Group.GroupID.ToString() == request.GroupID);
-        if (vikingRole != null) {
-            if (vikingRole.UserRole < UserRole.Elder) {
+        if (vikingRole == null) 
+            return Ok(new AssignRoleResult { Success = false, Status = AssignRoleStatus.ApproverNotMemberOfTheGroup });
+        
+        if (vikingRole.UserRole < UserRole.Elder) 
+            return Ok(new AssignRoleResult { Success = false, Status = AssignRoleStatus.ApproverHasNoPermission });
+        
+        GroupMember? targetRole = vikingRole.Group.Vikings.FirstOrDefault(gv => gv.Viking.Uid.ToString() == request.MemberID);
+        if (targetRole == null)
+            return Ok(new AssignRoleResult { Success = false, Status = AssignRoleStatus.MemberNotPartOfTheGroup });
+
+        if (targetRole.UserRole == request.NewRole)
+            return Ok(new AssignRoleResult { Success = false, Status = AssignRoleStatus.MemberAlreadyInTheRole });
+        
+        if (vikingRole.UserRole == UserRole.Leader) {
+            // Disallow leader from simply demoting themself.
+            if (viking == targetRole.Viking)
                 return Ok(new AssignRoleResult { Success = false, Status = AssignRoleStatus.ApproverHasNoPermission });
-            }
-            GroupMember? targetRole = vikingRole.Group.Vikings.FirstOrDefault(gv => gv.Viking.Uid.ToString() == request.MemberID);
-            if (targetRole != null) {
-                if (targetRole.UserRole == request.NewRole)
-                    return Ok(new AssignRoleResult { Success = false, Status = AssignRoleStatus.MemberAlreadyInTheRole });
-                if (vikingRole.UserRole == UserRole.Leader) { // Disallow leader from simply demoting themself.
-                    if (viking == targetRole.Viking)
-                        return Ok(new AssignRoleResult { Success = false, Status = AssignRoleStatus.ApproverHasNoPermission });
-                } else if (viking != targetRole.Viking || request.NewRole > vikingRole.UserRole) { // Disallow Elders from promoting themselves to leader, or promoting anyone else to elder, but allow them to demote themselves.
-                    return Ok(new AssignRoleResult { Success = false, Status = AssignRoleStatus.ApproverHasNoPermission });
-                }
-                targetRole.UserRole = request.NewRole;
-                if (request.NewRole == UserRole.Leader) vikingRole.UserRole = UserRole.Elder; // This is the only way a leader can demote themself.
-                ctx.SaveChanges();
-                return Ok(new AssignRoleResult { Success = true, Status = AssignRoleStatus.Success });
-            } else {
-                return Ok(new AssignRoleResult { Success = false, Status = AssignRoleStatus.MemberNotPartOfTheGroup });
-            }
+        } else if (viking != targetRole.Viking || request.NewRole > vikingRole.UserRole) {
+            // Disallow Elders from promoting themselves to leader, or promoting anyone else to elder, but allow them to demote themselves.
+            return Ok(new AssignRoleResult { Success = false, Status = AssignRoleStatus.ApproverHasNoPermission });
         }
-        return Ok(new AssignRoleResult { Success = false, Status = AssignRoleStatus.ApproverNotMemberOfTheGroup });
+            
+        targetRole.UserRole = request.NewRole;
+        if (request.NewRole == UserRole.Leader)
+            vikingRole.UserRole = UserRole.Elder; // This is the only way a leader can demote themself.
+
+        ctx.SaveChanges();
+        return Ok(new AssignRoleResult { Success = true, Status = AssignRoleStatus.Success });
+        
     }
 
     [HttpPost]
