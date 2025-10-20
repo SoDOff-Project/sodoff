@@ -30,6 +30,7 @@ builder.Services.AddSingleton<ItemService>();
 builder.Services.AddSingleton<StoreService>();
 builder.Services.AddSingleton<DisplayNamesService>();
 builder.Services.AddSingleton<MMOConfigService>();
+builder.Services.AddSingleton<PartyService>();
 builder.Services.AddSingleton<WorldIdService>();
 
 builder.Services.AddScoped<KeyValueService>();

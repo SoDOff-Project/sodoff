@@ -18,6 +18,7 @@ public class ContentController : Controller {
     private MissionStoreSingleton missionStore;
     private MissionService missionService;
     private RoomService roomService;
+    private PartyService partyService;
     private AchievementService achievementService;
     private InventoryService inventoryService;
     private GameDataService gameDataService;
@@ -34,6 +35,7 @@ public class ContentController : Controller {
         MissionStoreSingleton missionStore,
         MissionService missionService,
         RoomService roomService,
+        PartyService partyService,
         AchievementService achievementService,
         InventoryService inventoryService,
         GameDataService gameDataService,
@@ -48,6 +50,7 @@ public class ContentController : Controller {
         this.missionStore = missionStore;
         this.missionService = missionService;
         this.roomService = roomService;
+        this.partyService = partyService;
         this.achievementService = achievementService;
         this.inventoryService = inventoryService;
         this.gameDataService = gameDataService;
@@ -1489,14 +1492,8 @@ public class ContentController : Controller {
 
         uint gameID = ClientVersion.GetGameID(apiKey);
 
-        PartiesInfo data = XmlUtil.DeserializeXml<PartiesInfo>(XmlUtil.ReadResourceXmlString("parties_info"));
-        PartyInfo? info = data.Parties.FirstOrDefault(p => p.GameID == gameID && p.Type == partyType);
+        PartyInfo? info = partyService.GetParty(gameID, partyType);
         if (info == null) return Ok(null);
-
-        if (info.Location == null) {
-            Console.WriteLine($"Unsupported partyType \"{partyType}\" for gameid 0x{gameID:X8}");
-            return Ok(null);
-        }
 
         // check if party already exists
         if (viking.Parties.Any(e => e.Location == info.Location)) return Ok(null);
@@ -1505,7 +1502,7 @@ public class ContentController : Controller {
         Party party = new Party {
             Location = info.Location,
             IconAsset = info.Icon,
-            LocationIconAsset = data.LocationIcons.GetValueOrDefault(info.Location, ""),
+            LocationIconAsset = partyService.GetLocation(info) ?? "",
             AssetBundle = info.Bundle,
             PrivateParty = false,
             GameID = gameID,
