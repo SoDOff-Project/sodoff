@@ -4,17 +4,25 @@ namespace sodoff.Schema;
 
 [XmlRoot(ElementName = "IT", Namespace = "")]
 [Serializable]
-public class ItemDataTexture
-{
-	[XmlElement(ElementName = "n")]
-	public string TextureName;
+public class ItemDataTexture {
+    public ItemDataTexture() { }
 
-	[XmlElement(ElementName = "t")]
-	public string TextureTypeName;
+    public ItemDataTexture(ItemDataTexture other) {
+        TextureName = other.TextureName;
+        TextureTypeName = other.TextureTypeName;
+        OffsetX = other.OffsetX;
+        OffsetY = other.OffsetY;
+    }
 
-	[XmlElement(ElementName = "x", IsNullable = true)]
-	public float? OffsetX;
+    [XmlElement(ElementName = "n")]
+    public string TextureName;
 
-	[XmlElement(ElementName = "y", IsNullable = true)]
-	public float? OffsetY;
+    [XmlElement(ElementName = "t")]
+    public string TextureTypeName;
+
+    [XmlElement(ElementName = "x", IsNullable = true)]
+    public float? OffsetX;
+
+    [XmlElement(ElementName = "y", IsNullable = true)]
+    public float? OffsetY;
 }

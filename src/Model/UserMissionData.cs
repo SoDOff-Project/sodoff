@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 
 namespace sodoff.Model
@@ -6,6 +7,7 @@ namespace sodoff.Model
     [PrimaryKey(nameof(VikingId), nameof(WorldId), nameof(MissionId))]
     public class UserMissionData
     {
+        [JsonIgnore]
         public int VikingId { get; set; }
         public int WorldId { get; set; }
         public int MissionId { get; set; }
@@ -13,6 +15,7 @@ namespace sodoff.Model
         public int TaskId { get; set; }
         public bool IsCompleted { get; set; } = false;
 
+        [JsonIgnore]
         public virtual Viking? Viking { get; set; }
     }
 }

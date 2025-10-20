@@ -119,20 +119,8 @@ public class MissionStoreSingleton {
         }
     }
 
-    // FIXME: Don't use BinaryFormatter for deep copying
-    // FIXME: Remove <EnableUnsafeBinaryFormatterSerialization> flag from the project file once we have a different way of deep copying
     public static Mission DeepCopy(Mission original) {
-        using (MemoryStream memoryStream = new MemoryStream()) {
-            BinaryFormatter formatter = new BinaryFormatter();
-
-            formatter.Serialize(memoryStream, original);
-
-            memoryStream.Position = 0;
-
-            Mission clone = (Mission)formatter.Deserialize(memoryStream);
-
-            return clone;
-        }
+        return new Mission(original);
     }
 
 }

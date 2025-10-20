@@ -4,14 +4,21 @@ namespace sodoff.Schema;
 
 [XmlRoot(ElementName = "ISM", Namespace = "", IsNullable = false)]
 [Serializable]
-public class ItemStatsMap
-{
-	[XmlElement(ElementName = "IID", IsNullable = false)]
-	public int ItemID { get; set; }
+public class ItemStatsMap {
+    public ItemStatsMap() { }
 
-	[XmlElement(ElementName = "IT", IsNullable = false)]
-	public ItemTier ItemTier { get; set; }
+    public ItemStatsMap(ItemStatsMap other) {
+        ItemID = other.ItemID;
+        ItemTier = other.ItemTier;
+        ItemStats = other.ItemStats.Select(s => new ItemStat(s)).ToArray();
+    }
 
-	[XmlElement(ElementName = "ISS", IsNullable = false)]
-	public ItemStat[] ItemStats { get; set; }
+    [XmlElement(ElementName = "IID", IsNullable = false)]
+    public int ItemID { get; set; }
+
+    [XmlElement(ElementName = "IT", IsNullable = false)]
+    public ItemTier ItemTier { get; set; }
+
+    [XmlElement(ElementName = "ISS", IsNullable = false)]
+    public ItemStat[] ItemStats { get; set; }
 }

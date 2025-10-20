@@ -3,8 +3,32 @@
 namespace sodoff.Schema;
 
 [XmlRoot(ElementName = "Mission", Namespace = "")]
-[Serializable] // FIXME: Remove serializable once we have a different way of deep copying than BinaryFormatter
+[Serializable]
 public class Mission {
+    public Mission() { }
+
+    public Mission(Mission other) {
+        if (other == null) throw new ArgumentNullException(nameof(other));
+        MissionID = other.MissionID;
+        Name = other.Name;
+        GroupID = other.GroupID;
+        ParentID = other.ParentID;
+        Static = other.Static;
+        Accepted = other.Accepted;
+        Completed = other.Completed;
+        Rule = other.Rule;
+        VersionID = other.VersionID;
+        AchievementID = other.AchievementID;
+        AcceptanceAchievementID = other.AcceptanceAchievementID;
+        Repeatable = other.Repeatable;
+        MissionRule = new MissionRule(other.MissionRule);
+
+        Missions = other.Missions.Select(m => new Mission(m)).ToList();
+        Tasks = other.Tasks.Select(t => new Task(t)).ToList();
+        Rewards = other.Rewards.Select(r => new AchievementReward(r)).ToList();
+        AcceptanceRewards = other.AcceptanceRewards.Select(a => new AchievementReward(a)).ToList();
+    }
+
     [XmlElement(ElementName = "I")]
     public int MissionID;
 
