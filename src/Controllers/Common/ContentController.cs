@@ -1457,7 +1457,7 @@ public class ContentController : Controller {
             AvatarData avatarData = XmlUtil.DeserializeXml<AvatarData>(viking.AvatarSerialized);
             UserPartyComplete userPartyComplete = new UserPartyComplete
             {
-                DisplayName = avatarData.DisplayName,
+                DisplayName = $"{avatarData.DisplayName}'s {party.Descriptor} Party",
                 UserName = avatarData.DisplayName,
                 ExpirationDate = party.ExpirationDate,
                 Icon = party.IconAsset,
