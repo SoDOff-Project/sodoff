@@ -22,9 +22,8 @@ public class ContentController : Controller {
     private AchievementService achievementService;
     private InventoryService inventoryService;
     private GameDataService gameDataService;
-    private DisplayNamesService displayNamesService;
+    private XmlDataService xmlDataService;
     private NeighborhoodService neighborhoodService;
-    private WorldIdService worldIdService;
     private Random random = new Random();
     private readonly IOptions<ApiServerConfig> config;
     
@@ -39,9 +38,8 @@ public class ContentController : Controller {
         AchievementService achievementService,
         InventoryService inventoryService,
         GameDataService gameDataService,
-        DisplayNamesService displayNamesService,
+        XmlDataService xmlDataService,
         NeighborhoodService neighborhoodService,
-        WorldIdService worldIdService,
         IOptions<ApiServerConfig> config
     ) {
         this.ctx = ctx;
@@ -54,9 +52,8 @@ public class ContentController : Controller {
         this.achievementService = achievementService;
         this.inventoryService = inventoryService;
         this.gameDataService = gameDataService;
-        this.displayNamesService = displayNamesService;
+        this.xmlDataService = xmlDataService;
         this.neighborhoodService = neighborhoodService;
-        this.worldIdService = worldIdService;
         this.config = config;
     }
 
@@ -573,7 +570,7 @@ public class ContentController : Controller {
     [HttpPost]
     [Produces("application/xml")]
     [Route("V2/ContentWebService.asmx/CreatePet")]
-    [VikingSession]
+    [VikingSession(UseLock = true)]
     public IActionResult CreatePet(Viking viking, [FromForm] string request) {
         RaisedPetRequest raisedPetRequest = XmlUtil.DeserializeXml<RaisedPetRequest>(request);
         // TODO: Investigate SetAsSelectedPet and UnSelectOtherPets - they don't seem to do anything
@@ -583,7 +580,8 @@ public class ContentController : Controller {
         raisedPetRequest.RaisedPetData.IsPetCreated = true;
         raisedPetRequest.RaisedPetData.RaisedPetID = 0; // Initially make zero, so the db auto-fills
         raisedPetRequest.RaisedPetData.EntityID = Guid.Parse(dragonId);
-        raisedPetRequest.RaisedPetData.Name = string.Concat("Dragon-", dragonId.AsSpan(0, 8)); // Start off with a random name
+        if (string.IsNullOrEmpty(raisedPetRequest.RaisedPetData.Name))
+            raisedPetRequest.RaisedPetData.Name = string.Concat("Dragon-", dragonId.AsSpan(0, 8)); // Start off with a random name
         raisedPetRequest.RaisedPetData.IsSelected = false; // The api returns false, not sure why
         raisedPetRequest.RaisedPetData.CreateDate = new DateTime(DateTime.Now.Ticks);
         raisedPetRequest.RaisedPetData.UpdateDate = new DateTime(DateTime.Now.Ticks);
@@ -605,7 +603,6 @@ public class ContentController : Controller {
 
         if (raisedPetRequest.SetAsSelectedPet == true) {
             viking.SelectedDragon = dragon;
-            ctx.Update(viking);
         }
         ctx.Dragons.Add(dragon);
         ctx.Images.Add(image);
@@ -908,7 +905,7 @@ public class ContentController : Controller {
     [HttpPost]
     [Produces("application/xml")]
     [Route("ContentWebService.asmx/SetImage")]
-    [VikingSession]
+    [VikingSession(UseLock = true)]
     public bool SetImage(Viking viking, [FromForm] string ImageType, [FromForm] int ImageSlot, [FromForm] string contentXML, [FromForm] string imageFile) {
         // TODO: the other properties of contentXML
         ImageData data = XmlUtil.DeserializeXml<ImageData>(contentXML);
@@ -928,11 +925,8 @@ public class ContentController : Controller {
         image.ImageData = imageFile;
         image.TemplateName = data.TemplateName;
 
-        if (newImage) {
+        if (newImage)
             ctx.Images.Add(image);
-        } else {
-            ctx.Images.Update(image);
-        }
         ctx.SaveChanges();
 
         return true;
@@ -1116,14 +1110,17 @@ public class ContentController : Controller {
             foreach (var m in filterV2.MissionPair)
                 if (m.MissionID != null)
                     result.Missions.Add(missionService.GetMissionWithProgress((int)m.MissionID, viking.Id, gameVersion));
-        // TODO: probably should also check for mission based on filterV2.ProductGroupID vs mission.GroupID
         } else {
             if (filterV2.GetCompletedMission ?? false) {
                 foreach (var mission in viking.MissionStates.Where(x => x.MissionStatus == MissionStatus.Completed))
                     result.Missions.Add(missionService.GetMissionWithProgress(mission.MissionId, viking.Id, gameVersion));
             } else {
-                foreach (var mission in viking.MissionStates.Where(x => x.MissionStatus != MissionStatus.Completed))
-                    result.Missions.Add(missionService.GetMissionWithProgress(mission.MissionId, viking.Id, gameVersion));
+                var missionStatesById = viking.MissionStates.Where(x => x.MissionStatus != MissionStatus.Completed).ToDictionary(ms => ms.MissionId);
+                HashSet<int> upcomingMissionIds = new(missionStore.GetUpcomingMissions(gameVersion));
+                var combinedMissionIds = new HashSet<int>(missionStatesById.Keys);
+                combinedMissionIds.UnionWith(upcomingMissionIds);
+                foreach (var missionId in combinedMissionIds)
+                    result.Missions.Add(missionService.GetMissionWithProgress(missionId, viking.Id, gameVersion));
             }
         }
 
@@ -1573,7 +1570,7 @@ public class ContentController : Controller {
     [VikingSession]
     public IActionResult SetProduct(Viking viking, [FromForm] int firstNameID, [FromForm] int secondNameID, [FromForm] int thirdNameID) {
         AvatarData avatarData = XmlUtil.DeserializeXml<AvatarData>(viking.AvatarSerialized);
-        avatarData.DisplayName = displayNamesService.GetName(firstNameID, secondNameID, thirdNameID);
+        avatarData.DisplayName = xmlDataService.GetDisplayName(firstNameID, secondNameID, thirdNameID);
         viking.AvatarSerialized = XmlUtil.SerializeXml(avatarData);
         ctx.SaveChanges();
         return Ok(true);
@@ -2146,7 +2143,7 @@ public class ContentController : Controller {
     [Produces("application/xml")]
     [Route("MissionWebService.asmx/GetWorldId")] // used by Math Blaster and WoJS Adventureland
     public IActionResult GetWorldId([FromForm] int gameId, [FromForm] string sceneName) {
-        return Ok(worldIdService.GetWorldID(sceneName));
+        return Ok(xmlDataService.GetWorldID(sceneName));
     }
 
     [HttpPost]
