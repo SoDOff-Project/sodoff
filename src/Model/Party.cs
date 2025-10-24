@@ -13,9 +13,12 @@ namespace sodoff.Model
         public int VikingId { get; set; }
         public DateTime ExpirationDate { get; set; } = DateTime.UtcNow;
         public bool? PrivateParty { get; set; }
+        public string IconAsset { get; set; } = null!;
         public string LocationIconAsset { get; set; } = null!;
         public string AssetBundle { get; set; } = null!;
         [JsonIgnore]
         public virtual Viking? Viking { get; set; }
+        public uint? GameID { get; set; }
+        public string? Descriptor { get; set; }
     }
 }
