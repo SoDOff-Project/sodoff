@@ -18,7 +18,6 @@ public class ContentController : Controller {
     private MissionStoreSingleton missionStore;
     private MissionService missionService;
     private RoomService roomService;
-    private PartyService partyService;
     private AchievementService achievementService;
     private InventoryService inventoryService;
     private GameDataService gameDataService;
@@ -34,7 +33,6 @@ public class ContentController : Controller {
         MissionStoreSingleton missionStore,
         MissionService missionService,
         RoomService roomService,
-        PartyService partyService,
         AchievementService achievementService,
         InventoryService inventoryService,
         GameDataService gameDataService,
@@ -48,7 +46,6 @@ public class ContentController : Controller {
         this.missionStore = missionStore;
         this.missionService = missionService;
         this.roomService = roomService;
-        this.partyService = partyService;
         this.achievementService = achievementService;
         this.inventoryService = inventoryService;
         this.gameDataService = gameDataService;
@@ -1489,7 +1486,7 @@ public class ContentController : Controller {
 
         uint gameID = ClientVersion.GetGameID(apiKey);
 
-        PartyInfo? info = partyService.GetParty(gameID, partyType);
+        PartyInfo? info = xmlDataService.GetParty(gameID, partyType);
         if (info == null) return Ok(null);
 
         // check if party already exists
@@ -1499,7 +1496,7 @@ public class ContentController : Controller {
         Party party = new Party {
             Location = info.Location,
             IconAsset = info.Icon,
-            LocationIconAsset = partyService.GetLocation(info) ?? "",
+            LocationIconAsset = xmlDataService.GetPartyLocation(info) ?? "",
             AssetBundle = info.Bundle,
             PrivateParty = false,
             GameID = gameID,

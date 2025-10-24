@@ -19,7 +19,6 @@
     <Descriptor>Block</Descriptor>
   </Party>
   <Party>
-    <ItemID></ItemID>
     <Version>0x01000000</Version>
     <Location>MyVIPRoomInt</Location>
     <Type>VIPRoom</Type>
