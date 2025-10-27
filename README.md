@@ -79,13 +79,13 @@ Almost everything:
 - hideouts
 - farms
 - minigames
+- clans
 - MMO (using sodoff-mmo)
 
 ### What doesn't work
 
 - play as Guest
 - friends
-- clans
 - in-game messaging system (Terrible Mail)
 
 
@@ -94,10 +94,13 @@ Almost everything:
 #### Fully implemented
 - AcceptMission
 - AddBattleItems
+- AssignRole
 - AuthenticateUser
+- CreateGroup
 - CreatePet
 - DeleteAccountNotification
 - DeleteProfile
+- EditGroup
 - FuseItems
 - GetAchievementsByUserID
 - GetAllActivePetsByuserId
@@ -108,12 +111,17 @@ Almost everything:
 - GetDetailedChildList
 - GetGameData
 - GetGameDataByUser
+- GetGroups
+- GetGroupsByGroupType
+- GetGroupsByUserID
 - GetImage
 - GetImageByUserId
 - GetItem
 - GetKeyValuePair
 - GetKeyValuePairByUserID
+- GetMembersByGroupID
 - GetMMOServerInfoWithZone (uses resource xml as response)
+- GetPendingJoinRequests
 - GetPetAchievementsByUserID
 - GetSelectedRaisedPet
 - GetStore
@@ -127,6 +135,8 @@ Almost everything:
 - GetUserRoomItemPositions
 - GetUserUpcomingMissionState
 - IsValidApiToken_V2
+- JoinGroup (V1 & V2) (User-given message for join request disabled, at least for now)
+- LeaveGroup
 - LoginChild
 - LoginParent
 - PurchaseItems (V1)
@@ -152,7 +162,6 @@ Almost everything:
 
 #### Implemented enough (probably)
 - GetCommonInventory (V1 -  returns the viking's inventory if it is called with a viking; otherwise returns 8 viking slots)
-- GetGroupsByGroupType (only useful for Eat My Dust at the moment)
 - GetQuestions (doesn't return all questions, probably doesn't need to)
 - GetRules (doesn't return any rules, probably doesn't need to)
 - GetSubscriptionInfo (always returns member, with end date 10 years from now)
@@ -171,7 +180,6 @@ Almost everything:
 - GetTopAchievementPointUsers (ignores type [all, buddy, hall of fame, ...] and mode [overall, monthly, weekly] properties)
 - GetUserAchievements (used by Magic & Mythies)
 - GetUserRoomList (room categories are not implemented, but it's enough for SoD)
-- JoinGroup (for Eat My Dust only)
 - ProcessRewardedItems (gives gems, but doesn't give gold, gold is not yet implemented)
 - SellItems (gives gems, but doesn't give gold, gold is not yet implemented)
 - SetUserAchievementTask (returns a real reward but still use task placeholder)
