@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using sodoff.Attributes;
 using sodoff.Model;
 using sodoff.Schema;
@@ -98,8 +97,6 @@ public class GroupController : Controller {
 
 
     private readonly DBContext ctx;
-
-    private bool AddedEMD = false;
 
     public GroupController(DBContext ctx) {
         this.ctx = ctx;
@@ -511,11 +508,6 @@ public class GroupController : Controller {
     [Route("GroupWebService.asmx/GetGroupsByGroupType")]
     public Schema.Group[] GetGroupsByGroupType([FromForm] string apiKey, [FromForm] string groupType) {
         uint gameId = ClientVersion.GetGameID(apiKey);
-
-        if (!AddedEMD) {
-            AddEMDGroups();
-            AddedEMD = true;
-        }
         
         List<Schema.Group> groups = new List<Schema.Group>();
         foreach (Model.Group group in ctx.Groups) {
@@ -553,37 +545,5 @@ public class GroupController : Controller {
             GroupID = group.GroupID.ToString(),
             Points = group.Points
         }).ToArray();
-    }
-
-    private void AddEMDGroups() {
-        bool changed = false;
-        Guid DragonString = new Guid(EMD_Dragons.GroupID);
-        Guid ScorpionString = new Guid(EMD_Scorpions.GroupID);
-        if (!ctx.Groups.Any(g => g.GroupID == DragonString)) {
-            ctx.Groups.Add(new Model.Group {
-                GroupID = DragonString,
-                Name = EMD_Dragons.Name,
-                Color = EMD_Dragons.Color,
-                Logo = EMD_Dragons.Logo,
-                Type = GroupType.System,
-                GameID = ClientVersion.EMD,
-                MaxMemberLimit = int.MaxValue
-            });
-            changed = true;
-        }
-        if (!ctx.Groups.Any(g => g.GroupID == ScorpionString)) {
-            ctx.Groups.Add(new Model.Group {
-                GroupID = ScorpionString,
-                Name = EMD_Scorpions.Name,
-                Color = EMD_Scorpions.Color,
-                Logo = EMD_Scorpions.Logo,
-                Type = GroupType.System,
-                GameID = ClientVersion.EMD,
-                MaxMemberLimit = int.MaxValue
-            });
-            changed = true;
-        }
-        if (changed) ctx.SaveChanges();
-        
     }
 }
