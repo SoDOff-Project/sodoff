@@ -153,7 +153,7 @@ public class DBContext : DbContext {
         builder.Entity<Viking>().HasOne(v => v.Neighborhood)
             .WithOne(e => e.Viking);
 
-        builder.Entity<Viking>().HasMany(v => v.GroupRoles)
+        builder.Entity<Viking>().HasMany(v => v.GroupMemberships)
             .WithOne(g => g.Viking);
 
         builder.Entity<Viking>().HasMany(v => v.Ratings)
@@ -292,7 +292,7 @@ public class DBContext : DbContext {
         builder.Entity<GroupMember>().HasOne(r => r.Group)
             .WithMany(g => g.Vikings);
         builder.Entity<GroupMember>().HasOne(r => r.Viking)
-            .WithMany(g => g.GroupRoles);
+            .WithMany(g => g.GroupMemberships);
         builder.Entity<Group>().HasMany(r => r.JoinRequests)
             .WithOne(r => r.Group);
         builder.Entity<GroupJoinRequest>().HasOne(r => r.Group)

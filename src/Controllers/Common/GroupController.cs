@@ -109,7 +109,7 @@ public class GroupController : Controller {
     public IActionResult CreateGroup(Viking viking, [FromForm] string apiKey, [FromForm] string groupCreateRequest) {
         uint gameId = ClientVersion.GetGameID(apiKey);
 
-        if (viking.GroupRoles.Any(g => g.Group.GameID == gameId)) {
+        if (viking.GroupMemberships.Any(g => g.Group.GameID == gameId)) {
             return Ok(new CreateGroupResult { Success = false, Status = CreateGroupStatus.CreatorIsNotApproved });
         }
 
@@ -121,7 +121,7 @@ public class GroupController : Controller {
         //if (request.MaxMemberLimit < 4) return Ok(new CreateGroupResult { Success = false, Status = CreateGroupStatus.GroupMaxMemberLimitInvalid }); // Not actually used by the game.
         if (request.Name.Length == 0) return Ok(new CreateGroupResult { Success = false, Status = CreateGroupStatus.GroupNameIsEmpty });
         if (request.Description.Length == 0) return Ok(new CreateGroupResult { Success = false, Status = CreateGroupStatus.GroupDescriptionIsEmpty });
-        if (viking.GroupRoles.Any(g => g.Group.Name.Equals(request.Name, StringComparison.InvariantCultureIgnoreCase))) return Ok(new CreateGroupResult { Success = false, Status = CreateGroupStatus.GroupNameIsDuplicate });
+        if (viking.GroupMemberships.Any(g => g.Group.Name.Equals(request.Name, StringComparison.InvariantCultureIgnoreCase))) return Ok(new CreateGroupResult { Success = false, Status = CreateGroupStatus.GroupNameIsDuplicate });
 
         Model.Group group = new Model.Group {
             Name = request.Name,
@@ -173,7 +173,7 @@ public class GroupController : Controller {
         EditGroupRequest request = XmlUtil.DeserializeXml<EditGroupRequest>(groupEditRequest);
         request.Name = request.Name.Trim();
 
-        GroupMember? vikingRole = viking.GroupRoles.FirstOrDefault(gv => gv.Group.GroupID.ToString() == request.GroupID);
+        GroupMember? vikingRole = viking.GroupMemberships.FirstOrDefault(gv => gv.Group.GroupID.ToString() == request.GroupID);
         if (vikingRole == null) {
             return Ok(new EditGroupResult { Success = false, Status = EditGroupStatus.GroupNotFound });
         } else if (vikingRole.UserRole < UserRole.Elder) {
@@ -185,7 +185,7 @@ public class GroupController : Controller {
         //if (request.MaxMemberLimit < 4) return Ok(new EditGroupResult { Success = false, Status = EditGroupStatus.GroupMaxMemberLimitInvalid }); // Not actually used by the game.
         if ((request.Name?.Length ?? 0) == 0) request.Name = vikingRole.Group.Name;
         if ((request.Description?.Length ?? 0) == 0) request.Description = vikingRole.Group.Description;
-        if (request.Name != vikingRole.Group.Name && viking.GroupRoles.Any(gm => gm.Group.Name.Equals(request.Name, StringComparison.InvariantCultureIgnoreCase))) return Ok(new EditGroupResult { Success = false, Status = EditGroupStatus.GroupNameIsDuplicate });
+        if (request.Name != vikingRole.Group.Name && viking.GroupMemberships.Any(gm => gm.Group.Name.Equals(request.Name, StringComparison.InvariantCultureIgnoreCase))) return Ok(new EditGroupResult { Success = false, Status = EditGroupStatus.GroupNameIsDuplicate });
         
         vikingRole.Group.Name = request.Name;
         vikingRole.Group.Description = request.Description;
@@ -209,7 +209,7 @@ public class GroupController : Controller {
         uint gameId = ClientVersion.GetGameID(apiKey);
         
         // Check for loyalty.
-        if (viking.GroupRoles.Any(g => g.Group.GameID == gameId)) {
+        if (viking.GroupMemberships.Any(g => g.Group.GameID == gameId)) {
             return Ok(new JoinGroupResult { GroupStatus = GroupMembershipStatus.SELF_BLOCKED });
         }
         Model.Group? group = ctx.Groups.FirstOrDefault(g => g.GroupID.ToString().Equals(groupID, StringComparison.OrdinalIgnoreCase));
@@ -242,7 +242,7 @@ public class GroupController : Controller {
             return Ok(new GroupJoinResult { Success = false, Status = JoinGroupStatus.GroupTypeIsNotPublic });
         }
         
-        GroupMember? existing = viking.GroupRoles.FirstOrDefault(g => g.Group.GameID == gameId);
+        GroupMember? existing = viking.GroupMemberships.FirstOrDefault(g => g.Group.GameID == gameId);
         if (existing != null) {
             if (existing.Group == group)
                 return Ok(new GroupJoinResult { Success = false, Status = JoinGroupStatus.UserAlreadyMemberOfTheGroup });
@@ -283,7 +283,7 @@ public class GroupController : Controller {
     [VikingSession]
     public IActionResult LeaveGroup(Viking viking, [FromForm] string groupLeaveRequest) {
         LeaveGroupRequest request = XmlUtil.DeserializeXml<LeaveGroupRequest>(groupLeaveRequest);
-        GroupMember? vikingRole = viking.GroupRoles.FirstOrDefault(g => g.Group.GroupID.ToString() == request.GroupID);
+        GroupMember? vikingRole = viking.GroupMemberships.FirstOrDefault(g => g.Group.GroupID.ToString() == request.GroupID);
         if (vikingRole == null) return Ok(new LeaveGroupResult { Success = false, Status = LeaveGroupStatus.Error });
         GroupMember? targetRole;
         if (viking.Uid.ToString().Equals(request.UserID, StringComparison.CurrentCultureIgnoreCase)) {
@@ -311,7 +311,7 @@ public class GroupController : Controller {
         if (request.ForUserID != null) {
             Viking? target = ctx.Vikings.FirstOrDefault(v => request.ForUserID.ToUpper() == v.Uid.ToString());
             if (target == null) return Ok(new GetGroupsResult { Success = false });
-            groups = target.GroupRoles.Select(gv => gv.Group);
+            groups = target.GroupMemberships.Select(gv => gv.Group);
         } else {
             groups = groups.Where(g => g.Type == GroupType.Public || g.Type == GroupType.MembersOnly);
         }
@@ -353,7 +353,7 @@ public class GroupController : Controller {
     [VikingSession]
     public IActionResult RemoveMember(Viking viking, [FromForm] string removeMemberRequest) {
         RemoveMemberRequest request = XmlUtil.DeserializeXml<RemoveMemberRequest>(removeMemberRequest);
-        GroupMember? vikingRole = viking.GroupRoles.FirstOrDefault(g => g.Group.GroupID.ToString() == request.GroupID);
+        GroupMember? vikingRole = viking.GroupMemberships.FirstOrDefault(g => g.Group.GroupID.ToString() == request.GroupID);
         if (vikingRole == null)
             return Ok(new RemoveMemberResult { Success = false, Status = RemoveMemberStatus.Error });
         
@@ -378,7 +378,7 @@ public class GroupController : Controller {
         uint gameId = ClientVersion.GetGameID(apiKey);
 
         AuthorizeJoinRequest request = XmlUtil.DeserializeXml<AuthorizeJoinRequest>(authorizeJoinRequest);
-        GroupMember? vikingRole = viking.GroupRoles.FirstOrDefault(g => g.Group.GroupID.ToString() == request.GroupID);
+        GroupMember? vikingRole = viking.GroupMemberships.FirstOrDefault(g => g.Group.GroupID.ToString() == request.GroupID);
         if (vikingRole == null)
             return Ok(new AuthorizeJoinResult { Success = false, Status = AuthorizeJoinStatus.ApproverNotInThisGroup });
         
@@ -390,7 +390,7 @@ public class GroupController : Controller {
             return Ok(new AuthorizeJoinResult { Success = false, Status = AuthorizeJoinStatus.Error });
         }
 
-        GroupMember? existing = target.GroupRoles.FirstOrDefault(gm => gm.Group.GameID == gameId);
+        GroupMember? existing = target.GroupMemberships.FirstOrDefault(gm => gm.Group.GameID == gameId);
         if (existing != null) {
             return Ok(new AuthorizeJoinResult {
                 Success = false,
@@ -427,7 +427,7 @@ public class GroupController : Controller {
     [VikingSession]
     public IActionResult AssignRole(Viking viking, [FromForm] string assignRoleRequest) {
         AssignRoleRequest request = XmlUtil.DeserializeXml<AssignRoleRequest>(assignRoleRequest);
-        GroupMember? vikingRole = viking.GroupRoles.FirstOrDefault(g => g.Group.GroupID.ToString() == request.GroupID);
+        GroupMember? vikingRole = viking.GroupMemberships.FirstOrDefault(g => g.Group.GroupID.ToString() == request.GroupID);
         if (vikingRole == null) 
             return Ok(new AssignRoleResult { Success = false, Status = AssignRoleStatus.ApproverNotMemberOfTheGroup });
         
@@ -465,7 +465,7 @@ public class GroupController : Controller {
     [VikingSession]
     public IActionResult GetPendingJoinRequests(Viking viking, [FromForm] string getPendingJoinRequest) {
         GetPendingJoinRequest request = XmlUtil.DeserializeXml<GetPendingJoinRequest>(getPendingJoinRequest);
-        GroupMember? vikingRole = viking.GroupRoles.FirstOrDefault(g => g.Group.GroupID.ToString() == request.GroupID);
+        GroupMember? vikingRole = viking.GroupMemberships.FirstOrDefault(g => g.Group.GroupID.ToString() == request.GroupID);
         if (vikingRole?.UserRole >= UserRole.Elder) {
             return Ok(new GetPendingJoinResult {
                 Success = true,
@@ -494,7 +494,7 @@ public class GroupController : Controller {
         Viking? viking = ctx.Vikings.FirstOrDefault(v => v.Uid.ToString() == userId);
         if (viking == null) return [];
 
-        return viking.GroupRoles.Where(gm => gm.Group.GameID == gameId).Select(gm => new Schema.Group {
+        return viking.GroupMemberships.Where(gm => gm.Group.GameID == gameId).Select(gm => new Schema.Group {
             GroupID = gm.Group.GroupID.ToString(),
             Name = gm.Group.Name,
             Color = gm.Group.Color,
@@ -533,8 +533,8 @@ public class GroupController : Controller {
         );
         if (group == null) return [];
 
-        return group.Vikings.Select(v => new Schema.GroupMember{
-            DisplayName = v.Viking.AvatarSerialized != null
+        return group.Vikings.Select(v => new Schema.GroupMember {
+            DisplayName = group.GameID == ClientVersion.MB && v.Viking.AvatarSerialized != null
                 ? XmlUtil.DeserializeXml<AvatarData>(v.Viking.AvatarSerialized).DisplayName
                 : v.Viking.Name,
             UserID = v.Viking.Uid.ToString(),
