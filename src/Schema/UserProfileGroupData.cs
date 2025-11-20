@@ -9,7 +9,7 @@ public class UserProfileGroupData
 	public string GroupID;
 
 	[XmlElement(ElementName = "RoleID", IsNullable = true)]
-	public int? RoleID;
+	public UserRole? RoleID;
 
 	[XmlElement(ElementName = "TypeID", IsNullable = true)]
 	public int? TypeID;
