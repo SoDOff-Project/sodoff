@@ -31,30 +31,32 @@ public class GameDataService {
             viking.GameData.Add(gameData);
 
         }
-        gameData.DatePlayed = DateTime.UtcNow;
+        
         SavePairs(gameData, xmlDocumentData);
+        gameData.DatePlayed = DateTime.UtcNow;
         ctx.SaveChanges();
+        
         return true;
     }
     
-    List<GameDataResponse> GameDataResponseToList(IQueryable<Model.GameData> originalQuery, string key, int count, bool AscendingOrder, string apiKey) {
+    List<GameDataResponse> GameDataResponseToList(IQueryable<Model.GameData> originalQuery, string key, int count, bool AscendingOrder, string apiKey, bool daily=false) {
         var query = originalQuery.SelectMany(e => e.GameDataPairs)
             .Where(x => x.Name == key);
         
         if (AscendingOrder)
-            query = query.OrderBy(e => e.Value);
+            query = query.OrderBy(e => daily ? e.DailyValue : e.Value);
         else
-            query = query.OrderByDescending(e => e.Value);
+            query = query.OrderByDescending(e => daily ? e.DailyValue : e.Value);
 
         uint gameVersion = ClientVersion.GetVersion(apiKey);
         if (gameVersion <= ClientVersion.Max_OldJS)
             // use DisplayName instead of Name
             return query.Select(e => new GameDataResponse(
-                XmlUtil.DeserializeXml<AvatarData>(e.GameData.Viking.AvatarSerialized).DisplayName, e.GameData.Viking.Uid, e.GameData.DatePlayed, e.GameData.Win, e.GameData.Loss, e.Value)
+                XmlUtil.DeserializeXml<AvatarData>(e.GameData.Viking.AvatarSerialized).DisplayName, e.GameData.Viking.Uid, e.GameData.DatePlayed, e.GameData.Win, e.GameData.Loss, daily ? e.DailyValue : e.Value)
             ).Take(count).ToList();
         else
             return query.Select(e => new GameDataResponse(
-                e.GameData.Viking.Name, e.GameData.Viking.Uid, e.GameData.DatePlayed, e.GameData.Win, e.GameData.Loss, e.Value)
+                e.GameData.Viking.Name, e.GameData.Viking.Uid, e.GameData.DatePlayed, e.GameData.Win, e.GameData.Loss, daily ? e.DailyValue : e.Value)
             ).Take(count).ToList();
     }
 
@@ -67,6 +69,20 @@ public class GameDataService {
             query = query.Where(x => x.DatePlayed >= startDate.Value.ToUniversalTime() && x.DatePlayed <= endDate.Value.AddMinutes(2).ToUniversalTime());
 
         List<GameDataResponse> selectedData = GameDataResponseToList(query, key, count, AscendingOrder, apiKey);
+
+        return GetSummaryFromResponse(viking, isMultiplayer, difficulty, gameLevel, key, selectedData);
+    }
+
+    public GameDataSummary GetDailyGameData(Viking viking, int gameId, bool isMultiplayer, int difficulty, int gameLevel, string key, int count, bool AscendingOrder, bool buddyFilter, string apiKey) {
+        IQueryable<Model.GameData> query = ctx.GameData
+            .Where(x =>
+                x.GameId == gameId && x.IsMultiplayer == false &&
+                x.Difficulty == difficulty && x.GameLevel == gameLevel &&
+                x.DatePlayed.Date == DateTime.UtcNow.Date);
+
+        // TODO: Buddy filter
+
+        List<GameDataResponse> selectedData = GameDataResponseToList(query, key, count, AscendingOrder, apiKey, true);
 
         return GetSummaryFromResponse(viking, isMultiplayer, difficulty, gameLevel, key, selectedData);
     }
@@ -141,12 +157,20 @@ public class GameDataService {
     private void SavePairs(Model.GameData gameData, string xmlDocumentData) {
         foreach (var pair in GetGameDataPairs(xmlDocumentData)) {
             GameDataPair? dbPair = gameData.GameDataPairs.FirstOrDefault(x => x.Name == pair.Name);
-            if (dbPair == null)
+            
+            // If the score type is "time", use newBest <= existing (newest time is smaller than (or the same as) existing time).
+            // For anything else, use newBest > existing (newest score is larger than existing score).
+            bool newBest = (dbPair == null) || ((pair.Name == "time") != (dbPair.Value <= pair.Value));
+
+            if (dbPair == null) {
                 gameData.GameDataPairs.Add(pair);
-            else if (pair.Name == "time" && dbPair.Value > pair.Value)
-                dbPair.Value = pair.Value;
-            else if (pair.Name != "time" && dbPair.Value <= pair.Value)
-                dbPair.Value = pair.Value;
+                dbPair = pair;
+            } else if (newBest) dbPair.Value = pair.Value;
+            
+            if (
+                newBest || // Surpassed Score (or Unset)
+                gameData.DatePlayed.Date != DateTime.UtcNow.Date // Another Day
+            ) dbPair.DailyValue = pair.Value;
         }
     }
 
