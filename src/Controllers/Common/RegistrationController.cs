@@ -100,7 +100,6 @@ public class RegistrationController : Controller {
 
     [HttpPost]
     [Produces("application/xml")]
-    [Route("V3/RegistrationWebService.asmx/RegisterChild")] // used by Magic & Mythies
     [Route("V4/RegistrationWebService.asmx/RegisterChild")]
     [DecryptRequest("childRegistrationData")]
     [EncryptResponse]
@@ -129,6 +128,34 @@ public class RegistrationController : Controller {
             UserID = v.Uid.ToString(),
             Status = MembershipUserStatus.Success
         });
+    }
+
+    [HttpPost]
+    [Produces("application/xml")]
+    [Route("V3/RegistrationWebService.asmx/RegisterChild")] // used by SoD 1.13 and Magic & Mythies
+    [DecryptRequest("childRegistrationData")]
+    public IActionResult RegisterChildV3([FromForm] Guid parentApiToken, [FromForm] string apiKey) {
+        User? user = ctx.Sessions.FirstOrDefault(e => e.ApiToken == parentApiToken)?.User;
+        if (user is null) {
+            return Ok(new RegistrationResult{
+                Status = MembershipUserStatus.InvalidApiToken
+            });
+        }
+
+        // Check if name populated
+        ChildRegistrationData data = XmlUtil.DeserializeXml<ChildRegistrationData>(Request.Form["childRegistrationData"]);
+        if (String.IsNullOrWhiteSpace(data.ChildName)) {
+            return Ok(MembershipUserStatus.ValidationError);
+        }
+
+        // Check if viking exists
+        if (ctx.Vikings.Count(e => e.Name == data.ChildName) > 0) {
+            return Ok(MembershipUserStatus.DuplicateUserName);
+        }
+
+        Viking v = CreateViking(user, data, ClientVersion.GetVersion(apiKey));
+
+        return Ok(MembershipUserStatus.Success);
     }
 
     private Viking CreateViking(User user, ChildRegistrationData data, uint gameVersion) {

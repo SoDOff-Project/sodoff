@@ -74,6 +74,30 @@ namespace sodoff.Services {
             return itemsWithInventoryId;
         }
 
+        public CommonInventoryResponse AddItemsToInventoryBulkAndGetResponse(Viking viking, Dictionary<int,int> inventoryItemsToAdd, Dictionary<int,int> itemsToSendBack, UserGameCurrency gameCurrency) {
+            // add items to the inventory (database)
+            var addedItems = AddItemsToInventoryBulk(viking, inventoryItemsToAdd);
+
+            // build response
+            List<CommonInventoryResponseItem> items = new List<CommonInventoryResponseItem>();
+            foreach (var i in itemsToSendBack) {
+                items.AddRange(Enumerable.Repeat(
+                    new CommonInventoryResponseItem {
+                        CommonInventoryID = addedItems.ContainsKey(i.Key) ? addedItems[i.Key] : 0, // return inventory id if this item was added to the DB
+                        ItemID = i.Key,
+                        Quantity = 0
+                    }, i.Value));
+            }
+            // NOTE: The quantity of purchased items can always be 0 and the items are instead duplicated in both the request and the response.
+            // Item quantities are used for non-store related requests/responses.
+
+            return new CommonInventoryResponse {
+                Success = true,
+                CommonInventoryIDs = items.ToArray(),
+                UserGameCurrency = gameCurrency
+            };
+        }
+
         public InventoryItemStatsMap AddBattleItemToInventory(Viking viking, int itemId, int itemTier, ItemStat[] itemStat = null) {
             // get item data
             ItemData itemData = itemService.GetItem(itemId);

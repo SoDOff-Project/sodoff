@@ -3029,6 +3029,164 @@
    <!-- mission reward achievements (`<AID>` tag in `missions.xml` file) -->
    <!-- do NOT add missions reward achievements to this file to avoid duplication of rewards -->
    
+   <!-- fish trap rewards (probability of each 10%), do not correspond to the original ones, max 3 reward's item per achievements due to client limitation -->
+   <AchievementsIdInfo>
+      <AID>201388</AID>
+      <AR>
+         <p>6</p>
+         <a>3</a>
+         <t>1</t>
+         <r>8</r>
+         <ii>7143</ii><!-- Perch -->
+      </AR>
+      <AR>
+         <p>6</p>
+         <a>2</a>
+         <t>1</t>
+         <r>8</r>
+         <ii>7139</ii><!-- Brown Trout -->
+      </AR>
+      <AR>
+         <p>6</p>
+         <a>1</a>
+         <t>1</t>
+         <r>8</r>
+         <ii>7144</ii><!-- Salmon -->
+      </AR>
+   </AchievementsIdInfo>
+   <AchievementsIdInfo>
+      <AID>201389</AID>
+      <AR>
+         <p>6</p>
+         <a>4</a>
+         <t>1</t>
+         <r>8</r>
+         <ii>7143</ii><!-- Perch -->
+      </AR>
+   </AchievementsIdInfo>
+   <AchievementsIdInfo>
+      <AID>201390</AID>
+      <AR>
+         <p>6</p>
+         <a>2</a>
+         <t>1</t>
+         <r>8</r>
+         <ii>7143</ii><!-- Perch -->
+      </AR>
+      <AR>
+         <p>6</p>
+         <a>1</a>
+         <t>1</t>
+         <r>8</r>
+         <ii>7139</ii><!-- Brown Trout -->
+      </AR>
+   </AchievementsIdInfo>
+   <AchievementsIdInfo>
+      <AID>201391</AID>
+      <AR>
+         <p>6</p>
+         <a>3</a>
+         <t>1</t>
+         <r>8</r>
+         <ii>7140</ii><!-- Eel -->
+      </AR>
+   </AchievementsIdInfo>
+   <AchievementsIdInfo>
+      <AID>201392</AID>
+      <AR>
+         <p>6</p>
+         <a>1</a>
+         <t>1</t>
+         <r>8</r>
+         <ii>7140</ii><!-- Eel -->
+      </AR>
+      <AR>
+         <p>6</p>
+         <a>3</a>
+         <t>1</t>
+         <r>8</r>
+         <ii>7144</ii><!-- Salmon -->
+      </AR>
+   </AchievementsIdInfo>
+   <AchievementsIdInfo>
+      <AID>201393</AID>
+      <AR>
+         <p>6</p>
+         <a>5</a>
+         <t>1</t>
+         <r>8</r>
+         <ii>7143</ii><!-- Perch -->
+      </AR>
+      <AR>
+         <p>6</p>
+         <a>1</a>
+         <t>1</t>
+         <r>8</r>
+         <ii>7140</ii><!-- Eel -->
+      </AR>
+   </AchievementsIdInfo>
+   <AchievementsIdInfo>
+      <AID>201394</AID>
+      <AR>
+         <p>6</p>
+         <a>1</a>
+         <t>1</t>
+         <r>8</r>
+         <ii>7143</ii><!-- Perch -->
+      </AR>
+      <AR>
+         <p>6</p>
+         <a>2</a>
+         <t>1</t>
+         <r>8</r>
+         <ii>7139</ii><!-- Brown Trout -->
+      </AR>
+      <AR>
+         <p>6</p>
+         <a>2</a>
+         <t>1</t>
+         <r>8</r>
+         <ii>7144</ii><!-- Salmon -->
+      </AR>
+   </AchievementsIdInfo>
+   <AchievementsIdInfo>
+      <AID>201395</AID>
+      <AR>
+         <p>6</p>
+         <a>5</a>
+         <t>1</t>
+         <r>8</r>
+         <ii>7139</ii><!-- Brown Trout -->
+      </AR>
+   </AchievementsIdInfo>
+   <AchievementsIdInfo>
+      <AID>201396</AID>
+      <AR>
+         <p>6</p>
+         <a>5</a>
+         <t>1</t>
+         <r>8</r>
+         <ii>7144</ii><!-- Salmon -->
+      </AR>
+   </AchievementsIdInfo>
+   <AchievementsIdInfo>
+      <AID>201397</AID>
+      <AR>
+         <p>6</p>
+         <a>3</a>
+         <t>1</t>
+         <r>8</r>
+         <ii>7139</ii><!-- Brown Trout -->
+      </AR>
+      <AR>
+         <p>6</p>
+         <a>2</a>
+         <t>1</t>
+         <r>8</r>
+         <ii>7144</ii><!-- Salmon -->
+      </AR>
+   </AchievementsIdInfo>
+
    <!-- stable missions reward achievements -->
    <AchievementsIdInfo>
       <AID>201323</AID>
