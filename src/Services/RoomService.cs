@@ -116,8 +116,8 @@ public class RoomService {
         foreach (var item in room.Items) {
             UserItemPosition data = XmlUtil.DeserializeXml<UserItemPosition>(item.RoomItemData);
             data.UserItemPositionID = item.Id;
-            if (data.ItemID is null)
-                data.ItemID = data.Item?.ItemID; // for backward compatibility with database entries without set `data.ItemID`
+            if (data.ItemID is null || data.ItemID == 0)
+                data.ItemID = data.Item?.ItemID; // for backward compatibility with database entries without `data.ItemID` or ItemID = 0 
             else
                 data.Item = itemService.GetItem((int)data.ItemID);
             if (gameVersion < 0xa3a00a0a && data.Uses is null)
