@@ -153,7 +153,7 @@ public class DBContext : DbContext {
         builder.Entity<Viking>().HasOne(v => v.Neighborhood)
             .WithOne(e => e.Viking);
 
-        builder.Entity<Viking>().HasMany(v => v.GroupMemberships)
+        builder.Entity<Viking>().HasOne(v => v.GroupMembership)
             .WithOne(g => g.Viking);
 
         builder.Entity<Viking>().HasMany(v => v.Ratings)
@@ -287,12 +287,36 @@ public class DBContext : DbContext {
             .HasForeignKey<Neighborhood>(e => e.VikingId);
 
         // Groups
+#if SEED_NON_SOD_DATA
+        builder.Entity<Group>().HasData(
+            new Model.Group {
+                Id = 1,
+                GroupID = new Guid("db0aa225-2f0e-424c-83a7-73783fe63fef"),
+                Name = "Dragons",
+                Color = "234,57,23",
+                Logo = "RS_DATA/Content/PlayerData/EMD/IcoEMDTeamDragons.png",
+                Type = Schema.GroupType.System,
+                GameID = Util.ClientVersion.EMD,
+                MaxMemberLimit = int.MaxValue
+            },
+            new Model.Group {
+                Id = 2,
+                GroupID = new Guid("db0aa225-2f0e-424c-83a7-73783fe63fef"),
+                Name = "Scorpions",
+                Color = "120,183,53",
+                Logo = "RS_DATA/Content/PlayerData/EMD/IcoEMDTeamScorpions.png",
+                Type = Schema.GroupType.System,
+                GameID = Util.ClientVersion.EMD,
+                MaxMemberLimit = int.MaxValue
+            }
+        );
+#endif
         builder.Entity<Group>().HasMany(r => r.Vikings)
             .WithOne(v => v.Group);
         builder.Entity<GroupMember>().HasOne(r => r.Group)
             .WithMany(g => g.Vikings);
         builder.Entity<GroupMember>().HasOne(r => r.Viking)
-            .WithMany(g => g.GroupMemberships);
+            .WithOne(g => g.GroupMembership);
         builder.Entity<Group>().HasMany(r => r.JoinRequests)
             .WithOne(r => r.Group);
         builder.Entity<GroupJoinRequest>().HasOne(r => r.Group)

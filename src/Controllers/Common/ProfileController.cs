@@ -152,23 +152,8 @@ public class ProfileController : Controller {
         };
 
         UserGameCurrency currency = achievementService.GetUserCurrency(viking);
-
-        ICollection<GroupMember> groups = viking.GroupMemberships;
-
-        UserProfileGroupData[] groupData = new UserProfileGroupData[groups.Count];
-        int i = 0;
-        foreach (GroupMember role in groups) {
-            groupData[i] = new UserProfileGroupData {
-                GroupID = role.Group.GroupID.ToString(),
-                Name = role.Group.Name,
-                Color = role.Group.Color,
-                Logo = role.Group.Logo,
-                TypeID = (int)role.Group.Type,
-                RoleID = role.UserRole
-            };
-            i++;
-        }
-
+        
+        GroupMember? groupRole = viking.GroupMembership;
         return new UserProfileData {
             ID = viking.Uid.ToString(),
             AvatarInfo = avatar,
@@ -187,7 +172,15 @@ public class ProfileController : Controller {
                 UserID = viking.Uid,
                 UserProfileTagID = 1
             },
-            Groups = groupData
+            Groups = groupRole != null ? [
+                new UserProfileGroupData {
+                GroupID = groupRole.Group.GroupID.ToString(),
+                Name = groupRole.Group.Name,
+                Color = groupRole.Group.Color,
+                Logo = groupRole.Group.Logo,
+                TypeID = (int)groupRole.Group.Type,
+                RoleID = groupRole.UserRole
+            }] : new UserProfileGroupData[]{}
         };
     }
 }
