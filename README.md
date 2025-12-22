@@ -15,7 +15,7 @@ This license does not cover resources obtained from the game or from responses o
 
 ## Getting started
 
-To build the API server from sources, you'll need the dotnet 6.0 SDK. Simply run the following command to build and start the server:
+To build the API server from sources, you'll need the dotnet 10 SDK. Simply run the following command to build and start the server:
 
 ```
 dotnet run --project src/sodoff.csproj
