@@ -201,17 +201,23 @@ public class ContentController : Controller {
         // Check if name populated
         NameValidationRequest request = XmlUtil.DeserializeXml<NameValidationRequest>(nameValidationRequest);
 
-        if (request.Category == NameCategory.Default) {
-            // This is an avatar we are checking
-            // Check if viking exists
-            bool exists = ctx.Vikings.Count(e => e.Name == request.Name) > 0;
-            NameValidationResult result = exists ? NameValidationResult.NotUnique : NameValidationResult.Ok;
-            return Ok(new NameValidationResponse { Result = result});
-
-        } else {
-            // TODO: pets, groups, default
-            return Ok();
+        bool exists;
+        switch (request.Category) {
+            case NameCategory.Default:
+                // This is an avatar we are checking
+                // Check if viking exists
+                exists = ctx.Vikings.Any(e => e.Name == request.Name);
+                break;
+            case NameCategory.Group:
+                exists = ctx.Groups.Any(e => e.Name == request.Name);
+                break;
+            default: 
+                // TODO: pets, default
+                return Ok();
         }
+        
+        NameValidationResult result = exists ? NameValidationResult.NotUnique : NameValidationResult.Ok;
+        return Ok(new NameValidationResponse { Result = result });
     }
 
     [HttpPost]

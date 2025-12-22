@@ -7,6 +7,7 @@ using sodoff.Schema;
 using sodoff.Services;
 using sodoff.Util;
 using sodoff.Configuration;
+using GroupMember = sodoff.Model.GroupMember;
 
 namespace sodoff.Controllers.Common;
 public class ProfileController : Controller {
@@ -151,23 +152,8 @@ public class ProfileController : Controller {
         };
 
         UserGameCurrency currency = achievementService.GetUserCurrency(viking);
-
-        ICollection<Model.Group> groups = viking.Groups;
-
-        UserProfileGroupData[] groupData = new UserProfileGroupData[groups.Count];
-        int i = 0;
-        foreach (Model.Group group in groups) {
-            groupData[i] = new UserProfileGroupData {
-                GroupID = group.GroupID.ToString(),
-                Name = group.Name,
-                Color = group.Color,
-                Logo = group.Logo,
-                TypeID = (int)group.Type,
-                RoleID = 0
-            };
-            i++;
-        }
-
+        
+        GroupMember? groupRole = viking.GroupMembership;
         return new UserProfileData {
             ID = viking.Uid.ToString(),
             AvatarInfo = avatar,
@@ -186,7 +172,15 @@ public class ProfileController : Controller {
                 UserID = viking.Uid,
                 UserProfileTagID = 1
             },
-            Groups = groupData
+            Groups = groupRole != null ? [
+                new UserProfileGroupData {
+                GroupID = groupRole.Group.GroupID.ToString(),
+                Name = groupRole.Group.Name,
+                Color = groupRole.Group.Color,
+                Logo = groupRole.Group.Logo,
+                TypeID = (int)groupRole.Group.Type,
+                RoleID = groupRole.UserRole
+            }] : new UserProfileGroupData[]{}
         };
     }
 }
