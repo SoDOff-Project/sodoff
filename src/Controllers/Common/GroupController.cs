@@ -95,19 +95,22 @@ public class GroupController : Controller {
     public IActionResult CreateGroup(Viking viking, [FromForm] string apiKey, [FromForm] string groupCreateRequest) {
         uint gameId = ClientVersion.GetGameID(apiKey);
 
-        if (viking.GroupMembership != null) {
+        if (viking.GroupMembership != null)
             return Ok(new CreateGroupResult { Success = false, Status = CreateGroupStatus.CreatorIsNotApproved });
-        }
 
         CreateGroupRequest request = XmlUtil.DeserializeXml<CreateGroupRequest>(groupCreateRequest);
         request.Name = request.Name.Trim();
 
         // Cue the gauntlet of validity checks.
-        if (request.Type <= GroupType.System) return Ok(new CreateGroupResult { Success = false, Status = CreateGroupStatus.GroupTypeIsInvalid });
+        if (request.Type <= GroupType.System)
+            return Ok(new CreateGroupResult { Success = false, Status = CreateGroupStatus.GroupTypeIsInvalid });
         //if (request.MaxMemberLimit < 4) return Ok(new CreateGroupResult { Success = false, Status = CreateGroupStatus.GroupMaxMemberLimitInvalid }); // Not actually used by the game.
-        if (request.Name.Length == 0) return Ok(new CreateGroupResult { Success = false, Status = CreateGroupStatus.GroupNameIsEmpty });
-        if (request.Description.Length == 0) return Ok(new CreateGroupResult { Success = false, Status = CreateGroupStatus.GroupDescriptionIsEmpty });
-        if (ctx.Groups.Any(g => g.Name.Equals(request.Name, StringComparison.InvariantCultureIgnoreCase))) return Ok(new CreateGroupResult { Success = false, Status = CreateGroupStatus.GroupNameIsDuplicate });
+        if (request.Name.Length == 0)
+            return Ok(new CreateGroupResult { Success = false, Status = CreateGroupStatus.GroupNameIsEmpty });
+        if (request.Description.Length == 0)
+            return Ok(new CreateGroupResult { Success = false, Status = CreateGroupStatus.GroupDescriptionIsEmpty });
+        if (ctx.Groups.Any(g => g.Name.Equals(request.Name, StringComparison.InvariantCultureIgnoreCase)))
+            return Ok(new CreateGroupResult { Success = false, Status = CreateGroupStatus.GroupNameIsDuplicate });
 
         Model.Group group = new Model.Group {
             Name = request.Name,
@@ -160,24 +163,30 @@ public class GroupController : Controller {
         request.Name = request.Name.Trim();
 
         GroupMember? vikingRole = viking.GroupMembership;
-        if (vikingRole == null || vikingRole.Group.GroupID.ToString() != request.GroupID) {
+        if (vikingRole == null || vikingRole.Group.GroupID.ToString() != request.GroupID)
             return Ok(new EditGroupResult { Success = false, Status = EditGroupStatus.GroupNotFound });
-        } else if (vikingRole.UserRole < UserRole.Elder) {
+        if (vikingRole.UserRole < UserRole.Elder)
             return Ok(new EditGroupResult { Success = false, Status = EditGroupStatus.PermissionDenied });
-        }
 
         // Cue the gauntlet of validity checks.
-        if (request.Type != null && request.Type <= GroupType.System) return Ok(new EditGroupResult { Success = false, Status = EditGroupStatus.GroupTypeIsInvalid });
+        if (request.Type != null && request.Type <= GroupType.System)
+            return Ok(new EditGroupResult { Success = false, Status = EditGroupStatus.GroupTypeIsInvalid });
         //if (request.MaxMemberLimit < 4) return Ok(new EditGroupResult { Success = false, Status = EditGroupStatus.GroupMaxMemberLimitInvalid }); // Not actually used by the game.
-        if ((request.Name?.Length ?? 0) == 0) request.Name = vikingRole.Group.Name;
-        if ((request.Description?.Length ?? 0) == 0) request.Description = vikingRole.Group.Description;
-        if (request.Name != vikingRole.Group.Name && ctx.Groups.Any(g => g.Name.Equals(request.Name, StringComparison.InvariantCultureIgnoreCase))) return Ok(new EditGroupResult { Success = false, Status = EditGroupStatus.GroupNameIsDuplicate });
+        if (string.IsNullOrEmpty(request.Name))
+            request.Name = vikingRole.Group.Name;
+        if (string.IsNullOrEmpty(request.Description))
+            request.Description = vikingRole.Group.Description;
+        if (request.Name != vikingRole.Group.Name && ctx.Groups.Any(g => g.Name.Equals(request.Name, StringComparison.InvariantCultureIgnoreCase)))
+            return Ok(new EditGroupResult { Success = false, Status = EditGroupStatus.GroupNameIsDuplicate });
         
         vikingRole.Group.Name = request.Name;
         vikingRole.Group.Description = request.Description;
-        if (request.Type != null) vikingRole.Group.Type = (GroupType)request.Type;
-        if ((request.Color?.Length ?? 0) > 0) vikingRole.Group.Color = request.Color;
-        if ((request.Logo?.Length ?? 0) > 0) vikingRole.Group.Logo = request.Logo;
+        if (request.Type != null)
+            vikingRole.Group.Type = (GroupType)request.Type;
+        if (!string.IsNullOrEmpty(request.Color))
+            vikingRole.Group.Color = request.Color;
+        if (!string.IsNullOrEmpty(request.Logo))
+            vikingRole.Group.Logo = request.Logo;
         ctx.SaveChanges();
 
         return Ok(new EditGroupResult {
@@ -196,9 +205,9 @@ public class GroupController : Controller {
         uint gameId = ClientVersion.GetGameID(apiKey);
         
         // Check for loyalty.
-        if (viking.GroupMembership != null) {
+        if (viking.GroupMembership != null)
             return Ok(new JoinGroupResult { GroupStatus = GroupMembershipStatus.SELF_BLOCKED });
-        }
+
         Model.Group? group = ctx.Groups.FirstOrDefault(g => g.GroupID == parsedGroupID);
         if (group != null) {
             // This check is only on this side to prevent people from attempting to circumvent the join limit.
@@ -305,9 +314,10 @@ public class GroupController : Controller {
         } else {
             groups = groups.Where(g => g.Type == GroupType.Public || g.Type == GroupType.MembersOnly);
         }
-        if (request.Name != null) {
+
+        if (request.Name != null)
             groups = groups.Where(g => g.Name?.Contains(request.Name, StringComparison.InvariantCultureIgnoreCase) == true);
-        }
+
         int skip = 0;
         if (request.PageSize != null) {
             if ((request.PageNo ?? 0) > 1) skip = (int)((request.PageNo! - 1) * request.PageSize);
@@ -355,7 +365,8 @@ public class GroupController : Controller {
             return Ok(new RemoveMemberResult { Success = false, Status = RemoveMemberStatus.UserNotAMemberOfTheGroup });
         
         vikingRole.Group.Vikings.Remove(targetRole);
-        if (!vikingRole.Group.Vikings.Any()) ctx.Groups.Remove(vikingRole.Group);
+        if (!vikingRole.Group.Vikings.Any())
+            ctx.Groups.Remove(vikingRole.Group);
         ctx.SaveChanges();
         return Ok(new RemoveMemberResult { Success = true, Status = RemoveMemberStatus.Success });
     }
@@ -376,9 +387,8 @@ public class GroupController : Controller {
             return Ok(new AuthorizeJoinResult { Success = false, Status = AuthorizeJoinStatus.ApproverHasNoPermission });
         
         Viking? target = ctx.Vikings.FirstOrDefault(v => v.Uid.ToString() == request.UserID);
-        if (target == null) {
+        if (target == null)
             return Ok(new AuthorizeJoinResult { Success = false, Status = AuthorizeJoinStatus.Error });
-        }
 
         GroupMember? existing = target.GroupMembership;
         if (existing != null) {
@@ -405,7 +415,8 @@ public class GroupController : Controller {
         }
 
         GroupJoinRequest? joinRequest = ctx.GroupJoinRequests.Find(target.Id, vikingRole.GroupID);
-        if (joinRequest != null) ctx.GroupJoinRequests.Remove(joinRequest);
+        if (joinRequest != null)
+            ctx.GroupJoinRequests.Remove(joinRequest);
         ctx.SaveChanges();
         return Ok(new AuthorizeJoinResult { Success = true, Status = AuthorizeJoinStatus.Success });
 
