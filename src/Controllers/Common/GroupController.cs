@@ -300,6 +300,7 @@ public class GroupController : Controller {
         if (request.ForUserID != null) {
             Viking? target = ctx.Vikings.FirstOrDefault(v => request.ForUserID.ToUpper() == v.Uid.ToString());
             if (target == null) return Ok(new GetGroupsResult { Success = false });
+            if (target.GroupMembership?.Group == null) return Ok(new GetGroupsResult { Success = true });
             groups = [target.GroupMembership.Group];
         } else {
             groups = groups.Where(g => g.Type == GroupType.Public || g.Type == GroupType.MembersOnly);
