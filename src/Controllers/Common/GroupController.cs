@@ -119,7 +119,7 @@ public class GroupController : Controller {
             Logo = request.Logo,
             Color = request.Color,
             Type = request.Type,
-            CreateDate = DateTime.Now,
+            CreateDate = DateTime.UtcNow,
             GameID = gameId,
             MaxMemberLimit = 50,
             GroupID = Guid.NewGuid(),
@@ -267,7 +267,7 @@ public class GroupController : Controller {
             Viking = viking,
             Group = group,
             UserRole = UserRole.Member,
-            JoinDate = DateTime.Now
+            JoinDate = DateTime.UtcNow
         };
         group.Vikings.Add(joinee);
         group.LastActiveTime = joinee.JoinDate;
@@ -418,7 +418,7 @@ public class GroupController : Controller {
                 Viking = target,
                 Group = vikingRole.Group,
                 UserRole = UserRole.Member,
-                JoinDate = DateTime.Now
+                JoinDate = DateTime.UtcNow
             };
             vikingRole.Group.Vikings.Add(joinee);
             vikingRole.Group.LastActiveTime = joinee.JoinDate;
