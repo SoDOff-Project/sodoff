@@ -110,7 +110,7 @@ public class GroupController : Controller {
             return Ok(new CreateGroupResult { Success = false, Status = CreateGroupStatus.GroupNameIsEmpty });
         if (request.Description.Length == 0)
             return Ok(new CreateGroupResult { Success = false, Status = CreateGroupStatus.GroupDescriptionIsEmpty });
-        if (ctx.Groups.Any(g => g.Name.Equals(request.Name, StringComparison.InvariantCultureIgnoreCase)))
+        if (ctx.Groups.Any(g => g.Name.ToLower() == request.Name.ToLower()))
             return Ok(new CreateGroupResult { Success = false, Status = CreateGroupStatus.GroupNameIsDuplicate });
 
         Model.Group group = new Model.Group {
@@ -177,7 +177,7 @@ public class GroupController : Controller {
             request.Name = vikingRole.Group.Name;
         if (string.IsNullOrEmpty(request.Description))
             request.Description = vikingRole.Group.Description;
-        if (request.Name != vikingRole.Group.Name && ctx.Groups.Any(g => g.Name.Equals(request.Name, StringComparison.InvariantCultureIgnoreCase)))
+        if (request.Name != vikingRole.Group.Name && ctx.Groups.Any(g => g.Name.ToLower() == request.Name.ToLower()))
             return Ok(new EditGroupResult { Success = false, Status = EditGroupStatus.GroupNameIsDuplicate });
         
         vikingRole.Group.Name = request.Name;
@@ -285,7 +285,7 @@ public class GroupController : Controller {
         if (vikingRole == null || vikingRole.Group.GroupID.ToString() != request.GroupID)
             return Ok(new LeaveGroupResult { Success = false, Status = LeaveGroupStatus.Error });
         GroupMember? targetRole;
-        if (viking.Uid.ToString().Equals(request.UserID, StringComparison.CurrentCultureIgnoreCase)) {
+        if (viking.Uid == Guid.Parse(request.UserID)) {
             targetRole = vikingRole.Group.Vikings.FirstOrDefault(gv => gv.Viking == viking);
         } else if (vikingRole.UserRole >= UserRole.Elder) {
             targetRole = vikingRole.Group.Vikings.FirstOrDefault(gv => gv.Viking.Uid.ToString() == request.UserID);
@@ -317,7 +317,7 @@ public class GroupController : Controller {
         }
 
         if (request.Name != null)
-            groupsQuery = groupsQuery.Where(g => g.Name.Contains(request.Name, StringComparison.InvariantCultureIgnoreCase));
+            groupsQuery = groupsQuery.Where(g => g.Name.ToLower().Contains(request.Name.ToLower()));
 
         groupsQuery = groupsQuery.OrderByDescending(g => g.Points);
         int skip = 0;
