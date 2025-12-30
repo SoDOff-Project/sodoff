@@ -370,7 +370,10 @@ public class GroupController : Controller {
         GroupMember? targetRole = vikingRole.Group.Vikings.FirstOrDefault(gv => gv.Viking.Uid == Guid.Parse(request.RemoveUserID));
         if (targetRole == null)
             return Ok(new RemoveMemberResult { Success = false, Status = RemoveMemberStatus.UserNotAMemberOfTheGroup });
-        
+
+        if (targetRole.UserRole >= vikingRole.UserRole)
+            return Ok(new RemoveMemberResult { Success = false, Status = RemoveMemberStatus.InvalidParameters });
+
         vikingRole.Group.Vikings.Remove(targetRole);
         if (!vikingRole.Group.Vikings.Any())
             ctx.Groups.Remove(vikingRole.Group);
