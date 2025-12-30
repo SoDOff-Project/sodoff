@@ -121,7 +121,7 @@ public class GroupController : Controller {
             Type = request.Type,
             CreateDate = DateTime.UtcNow,
             GameID = gameId,
-            MaxMemberLimit = 50,
+            MaxMemberLimit = request.MaxMemberLimit ?? 50,
             GroupID = Guid.NewGuid(),
             Vikings = new List<GroupMember>()
         };
@@ -188,6 +188,9 @@ public class GroupController : Controller {
             vikingRole.Group.Color = request.Color;
         if (!string.IsNullOrEmpty(request.Logo))
             vikingRole.Group.Logo = request.Logo;
+        if (request.MaxMemberLimit != null)
+            vikingRole.Group.MaxMemberLimit = (int)request.MaxMemberLimit;
+
         ctx.SaveChanges();
 
         return Ok(new EditGroupResult {
