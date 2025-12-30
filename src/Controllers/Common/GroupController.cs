@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using sodoff.Attributes;
 using sodoff.Model;
 using sodoff.Schema;
@@ -303,29 +304,35 @@ public class GroupController : Controller {
     [Route("V2/GroupWebService.asmx/GetGroups")]
     public IActionResult GetGroups([FromForm] string apiKey, [FromForm] string getGroupsRequest) {
         uint gameId = ClientVersion.GetGameID(apiKey);
-
         GetGroupsRequest request = XmlUtil.DeserializeXml<GetGroupsRequest>(getGroupsRequest);
-        IEnumerable<Model.Group> groups = ctx.Groups;
+
+        IQueryable<Model.Group> groupsQuery = ctx.Groups.Where(g => g.GameID == gameId);
         if (request.ForUserID != null) {
             Viking? target = ctx.Vikings.FirstOrDefault(v => request.ForUserID.ToUpper() == v.Uid.ToString());
             if (target == null) return Ok(new GetGroupsResult { Success = false });
             if (target.GroupMembership?.Group == null) return Ok(new GetGroupsResult { Success = true });
-            groups = [target.GroupMembership.Group];
+            groupsQuery = groupsQuery.Where(g => g.GroupID == target.GroupMembership.Group.GroupID);
         } else {
-            groups = groups.Where(g => g.Type == GroupType.Public || g.Type == GroupType.MembersOnly);
+            groupsQuery = groupsQuery.Where(g => g.Type == GroupType.Public || g.Type == GroupType.MembersOnly);
         }
 
         if (request.Name != null)
-            groups = groups.Where(g => g.Name?.Contains(request.Name, StringComparison.InvariantCultureIgnoreCase) == true);
+            groupsQuery = groupsQuery.Where(g => g.Name.Contains(request.Name, StringComparison.InvariantCultureIgnoreCase));
 
+        groupsQuery = groupsQuery.OrderByDescending(g => g.Points);
         int skip = 0;
         if (request.PageSize != null) {
-            if ((request.PageNo ?? 0) > 1) skip = (int)((request.PageNo! - 1) * request.PageSize);
-            if (skip > 0) groups = groups.Skip(skip);
-            groups = groups.Take((int) request.PageSize);
+            if ((request.PageNo ?? 0) > 1)
+                skip = (int)((request.PageNo! - 1) * request.PageSize);
+            if (skip > 0)
+                groupsQuery = groupsQuery.Skip(skip);
+            groupsQuery = groupsQuery.Take((int) request.PageSize);
         }
-        groups = groups.Where(g => g.GameID == gameId).OrderByDescending(g => g.Points);
 
+        if (request.IncludeMemberCount)
+            groupsQuery = groupsQuery.Include(g => g.Vikings);
+
+        var groups = groupsQuery.ToList();
         return Ok(new GetGroupsResult {
             Success = true,
             Groups = groups.Select((g, i) => {
