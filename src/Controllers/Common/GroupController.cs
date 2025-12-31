@@ -320,7 +320,7 @@ public class GroupController : Controller {
         if (request.Name != null)
             groupsQuery = groupsQuery.Where(g => g.Name.ToLower().Contains(request.Name.ToLower()));
 
-        groupsQuery = groupsQuery.OrderByDescending(g => g.Points);
+        groupsQuery = groupsQuery.OrderByDescending(g => g.Points).ThenBy(g => g.Id);
         int skip = 0;
         if (request.PageSize != null) {
             if ((request.PageNo ?? 0) > 1)
