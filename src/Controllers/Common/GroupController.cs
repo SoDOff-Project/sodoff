@@ -346,6 +346,7 @@ public class GroupController : Controller {
                     Logo = g.Logo,
                     Type = g.Type,
                     Rank = i+skip+1,
+                    Points = g.Points,
                     MemberLimit = g.MaxMemberLimit
                 };
                 if (request.IncludeMemberCount) group.TotalMemberCount = g.Vikings.Count;
