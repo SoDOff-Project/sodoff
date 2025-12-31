@@ -315,8 +315,6 @@ public class GroupController : Controller {
             if (target == null) return Ok(new GetGroupsResult { Success = false });
             if (target.GroupMembership?.Group == null) return Ok(new GetGroupsResult { Success = true });
             groupsQuery = groupsQuery.Where(g => g.GroupID == target.GroupMembership.Group.GroupID);
-        } else {
-            groupsQuery = groupsQuery.Where(g => g.Type == GroupType.Public || g.Type == GroupType.MembersOnly);
         }
 
         if (request.Name != null)
