@@ -313,7 +313,7 @@ public class GroupController : Controller {
         if (request.ForUserID != null) {
             Viking? target = ctx.Vikings.FirstOrDefault(v => Guid.Parse(request.ForUserID) == v.Uid);
             if (target == null) return Ok(new GetGroupsResult { Success = false });
-            if (target.GroupMembership?.Group == null) return Ok(new GetGroupsResult { Success = true });
+            if (target.GroupMembership?.Group == null) return Ok();
             groupsQuery = groupsQuery.Where(g => g.GroupID == target.GroupMembership.Group.GroupID);
         }
 
