@@ -2176,7 +2176,7 @@ public class ContentController : Controller {
     [Route("ContentWebService.asmx/GetPeriodicGameDataByGame")] // used by Math Blaster and WoJS (probably from 24 hours ago to now)
     [VikingSession(UseLock = true)]
     public IActionResult GetPeriodicGameDataByGame(Viking viking, [FromForm] int gameId, bool isMultiplayer, int difficulty, int gameLevel, string key, int count, bool AscendingOrder, int score, bool buddyFilter, string apiKey) {
-        return Ok(gameDataService.GetGameData(viking, gameId, isMultiplayer, difficulty, gameLevel, key, count, AscendingOrder, buddyFilter, apiKey, DateTime.Now.AddHours(-24), DateTime.Now));
+        return Ok(gameDataService.GetDailyGameData(viking, gameId, isMultiplayer, difficulty, gameLevel, key, count, AscendingOrder, buddyFilter, apiKey));
     }
 
     [HttpPost]
