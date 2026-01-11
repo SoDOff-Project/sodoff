@@ -1405,9 +1405,7 @@ public class ContentController : Controller {
 
             Viking viking = ctx.Vikings.FirstOrDefault(e => e.Id == party.VikingId);
             AvatarData avatarData = XmlUtil.DeserializeXml<AvatarData>(viking.AvatarSerialized);
-
             
-
             UserParty userParty = new UserParty {
                 DisplayName = $"{avatarData.DisplayName}'s {party.Descriptor} Party",
                 UserName = avatarData.DisplayName,
