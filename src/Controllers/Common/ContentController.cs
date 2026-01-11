@@ -1419,6 +1419,7 @@ public class ContentController : Controller {
         List<Party> allParties = ctx.Parties.ToList();
         List<UserParty> userParties = new List<UserParty>();
 
+        uint gameID = ClientVersion.GetGameID(apiKey);
         foreach(var party in allParties)
         {
             if(DateTime.UtcNow >= party.ExpirationDate)
@@ -1429,42 +1430,24 @@ public class ContentController : Controller {
                 continue;
             }
 
+            // Only send parties to their respective games.
+            if (gameID != party.GameID) continue;
 
             Viking viking = ctx.Vikings.FirstOrDefault(e => e.Id == party.VikingId);
             AvatarData avatarData = XmlUtil.DeserializeXml<AvatarData>(viking.AvatarSerialized);
-            UserParty userParty = new UserParty
-            {
-                DisplayName = avatarData.DisplayName,
+            
+            UserParty userParty = new UserParty {
+                DisplayName = $"{avatarData.DisplayName}'s {party.Descriptor} Party",
                 UserName = avatarData.DisplayName,
                 ExpirationDate = party.ExpirationDate,
-                Icon = party.LocationIconAsset,
+                Icon = party.IconAsset,
                 Location = party.Location,
+                LocationIcon = party.LocationIconAsset,
                 PrivateParty = party.PrivateParty!.Value,
                 UserID = viking.Uid
             };
 
-            if (party.Location == "MyNeighborhood") userParty.DisplayName = $"{userParty.UserName}'s Block Party";
-            if (party.Location == "MyVIPRoomInt") userParty.DisplayName = $"{userParty.UserName}'s VIP Party";
-            if (party.Location == "MyPodInt") {
-                // Only way to do this without adding another column to the table.
-                if (party.AssetBundle == "RS_DATA/PfMyPodBirthdayParty.unity3d/PfMyPodBirthdayParty") {
-                    userParty.DisplayName = $"{userParty.UserName}'s Pod Birthday Party";
-                } else {
-                    userParty.DisplayName = $"{userParty.UserName}'s Pod Party";
-                }
-            }
-
-            uint gameID = ClientVersion.GetGameID(apiKey);
-            // Send only JumpStart parties to JumpStart
-            if (gameID == ClientVersion.WoJS
-                && (party.Location == "MyNeighborhood"
-                || party.Location == "MyVIPRoomInt")) {
-                userParties.Add(userParty);
-            // Send only Math Blaster parties to Math Blaster
-            } else if (gameID == ClientVersion.MB
-                && party.Location == "MyPodInt") {
-                userParties.Add(userParty);
-            }
+            userParties.Add(userParty);
         }
 
         return Ok(new UserPartyData { NonBuddyParties = userParties.ToArray() });
@@ -1496,11 +1479,12 @@ public class ContentController : Controller {
             AvatarData avatarData = XmlUtil.DeserializeXml<AvatarData>(viking.AvatarSerialized);
             UserPartyComplete userPartyComplete = new UserPartyComplete
             {
-                DisplayName = avatarData.DisplayName,
+                DisplayName = $"{avatarData.DisplayName}'s {party.Descriptor} Party",
                 UserName = avatarData.DisplayName,
                 ExpirationDate = party.ExpirationDate,
-                Icon = party.LocationIconAsset,
+                Icon = party.IconAsset,
                 Location = party.Location,
+                LocationIcon = party.LocationIconAsset,
                 PrivateParty = party.PrivateParty!.Value,
                 UserID = viking.Uid,
                 AssetBundle = party.AssetBundle
@@ -1522,55 +1506,40 @@ public class ContentController : Controller {
     {
         ItemData itemData = itemService.GetItem(itemId);
 
-        // create a party based on bought itemid
-        Party party = new Party
-        {
-            PrivateParty = false
-        };
-
         string? partyType = itemData.Attribute?.FirstOrDefault(a => a.Key == "PartyType").Value;
 
         if (partyType is null) {
             return Ok(null);
         }
 
-        uint gameVersion = ClientVersion.GetVersion(apiKey);
-        if (partyType == "Default") {
-            if (gameVersion == ClientVersion.MB) {
-                party.Location = "MyPodInt";
-                party.LocationIconAsset = "RS_DATA/PfUiPartiesListMB.unity3d/IcoMbPartyDefault";
-                party.AssetBundle = "RS_DATA/PfMyPodParty.unity3d/PfMyPodParty";
-            } else {
-                party.Location = "MyNeighborhood";
-                party.LocationIconAsset = "RS_DATA/PfUiPartiesList.unity3d/IcoPartyLocationMyNeighborhood";
-                party.AssetBundle = "RS_DATA/PfMyNeighborhoodParty.unity3d/PfMyNeighborhoodParty";
-            }
-        } else if (partyType == "VIPRoom") {
-            party.Location = "MyVIPRoomInt";
-            party.LocationIconAsset = "RS_DATA/PfUiPartiesList.unity3d/IcoPartyDefault";
-            party.AssetBundle = "RS_DATA/PfMyVIPRoomIntPartyGroup.unity3d/PfMyVIPRoomIntPartyGroup";
-        } else if (partyType == "Birthday") {
-            party.Location = "MyPodInt";
-            party.LocationIconAsset = "RS_DATA/PfUiPartiesListMB.unity3d/IcoMbPartyBirthday";
-            party.AssetBundle = "RS_DATA/PfMyPodBirthdayParty.unity3d/PfMyPodBirthdayParty";
-        } else {
-            Console.WriteLine($"Unsupported partyType = {partyType}");
-            return Ok(null);
-        }
+        uint gameID = ClientVersion.GetGameID(apiKey);
 
-        party.ExpirationDate = DateTime.UtcNow.AddMinutes(
-            Int32.Parse(itemData.Attribute.FirstOrDefault(a => a.Key == "Time").Value)
-        );
+        PartyInfo? info = xmlDataService.GetParty(gameID, partyType);
+        if (info == null) return Ok(null);
 
         // check if party already exists
-        if (viking.Parties.FirstOrDefault(e => e.Location == party.Location) != null) return Ok(null);
+        if (viking.Parties.Any(e => e.Location == info.Location)) return Ok(null);
+
+        // create a party based on bought itemid
+        Party party = new Party {
+            Location = info.Location,
+            IconAsset = info.Icon,
+            LocationIconAsset = xmlDataService.GetPartyLocation(info) ?? "",
+            AssetBundle = info.Bundle,
+            PrivateParty = false,
+            GameID = gameID,
+            ExpirationDate = DateTime.UtcNow.AddMinutes(
+                Int32.Parse(itemData.Attribute.FirstOrDefault(a => a.Key == "Time").Value)
+            ),
+            Descriptor = info.Descriptor
+        };
 
         // take away coins
         viking.AchievementPoints.FirstOrDefault(e => e.Type == (int)AchievementPointTypes.GameCurrency)!.Value -= itemData.Cost;
 
         viking.Parties.Add(party);
         ctx.SaveChanges();
-
+        
         return Ok(true);
     }
 
