@@ -11,7 +11,7 @@ public class Group {
 	[XmlElement(ElementName = "N", IsNullable = false)]
 	public string Name;
 
-	[XmlElement(ElementName = "D", IsNullable = false)]
+	[XmlElement(ElementName = "D", IsNullable = true)]
 	public string Description;
 
 	[XmlElement(ElementName = "T", IsNullable = false)]
